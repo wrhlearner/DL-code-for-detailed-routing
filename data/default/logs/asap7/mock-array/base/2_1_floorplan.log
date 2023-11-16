@@ -1,0 +1,261 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0223]     Created 24 technology layers
+[INFO ODB-0224]     Created 9 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+[INFO ODB-0225]     Created 212 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+[INFO ODB-0222] Reading LEF file: ./results/asap7/mock-array_Element/base/Element.lef
+[WARNING ODB-0177] error: undefined via (via1_2_41040_18_1_1140_36_36) referenced
+[WARNING ODB-0177] error: undefined via (via1_2_41040_18_1_1140_36_36) referenced
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  ./results/asap7/mock-array_Element/base/Element.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 32 unconstrained endpoints.
+number instances in verilog is 194
+[INFO IFP-0001] Added 1424 rows of 6560 site asap7sc7p5t with height 1.
+[INFO RSZ-0026] Removed 0 buffers.
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 32 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -263416.62
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -140.20
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -140.20
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Endpoint: ces_0_1 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ ces_0_0/clock (Element)
+     1    1.38    5.47  167.18  167.18 ^ ces_0_0/io_outs_right[4] (Element)
+                                         ces_0_0_io_outs_right[4] (net)
+                  5.47    0.00  167.18 ^ ces_0_1/io_ins_right[4] (Element)
+                                167.18   data arrival time
+
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         10.00   10.00   clock uncertainty
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ ces_0_1/clock (Element)
+                         98.80  108.80   library hold time
+                                108.80   data required time
+-----------------------------------------------------------------------------
+                                108.80   data required time
+                               -167.18   data arrival time
+-----------------------------------------------------------------------------
+                                 58.39   slack (MET)
+
+
+Startpoint: ces_0_7 (rising edge-triggered flip-flop clocked by clock)
+Endpoint: io_outs_right_0[9] (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ ces_0_7/clock (Element)
+     1    0.66    4.25  162.54  162.54 v ces_0_7/io_outs_right[9] (Element)
+                                         io_outs_right_0[9] (net)
+                  4.25    0.00  162.54 v io_outs_right_0[9] (out)
+                                162.54   data arrival time
+
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                         10.00  285.00   clock uncertainty
+                          0.00  285.00   clock reconvergence pessimism
+                        -64.00  221.00   output external delay
+                                221.00   data required time
+-----------------------------------------------------------------------------
+                                221.00   data required time
+                               -162.54   data arrival time
+-----------------------------------------------------------------------------
+                                -58.46   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: io_ins_up_0[44] (input port clocked by clock_vir)
+Endpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                        240.00  515.00 v input external delay
+     1    1.19    0.00    0.00  515.00 v io_ins_up_0[44] (in)
+                                         io_ins_up_0[44] (net)
+                  0.00    0.00  515.00 v ces_0_0/io_ins_up[44] (Element)
+                                515.00   data arrival time
+
+                  0.00  320.00  320.00   clock clock (rise edge)
+                          0.00  320.00   clock network delay (ideal)
+                        -10.00  310.00   clock uncertainty
+                          0.00  310.00   clock reconvergence pessimism
+                                310.00 ^ ces_0_0/clock (Element)
+                         64.80  374.80   library setup time
+                                374.80   data required time
+-----------------------------------------------------------------------------
+                                374.80   data required time
+                               -515.00   data arrival time
+-----------------------------------------------------------------------------
+                               -140.20   slack (VIOLATED)
+
+
+Startpoint: _131_ (falling edge-triggered flip-flop clocked by clock')
+Endpoint: io_lsbs_0 (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v _131_/CLK (DFFLQNx1_ASAP7_75t_R)
+     1    1.96   19.90   39.55   39.55 v _131_/QN (DFFLQNx1_ASAP7_75t_R)
+                                         _063_ (net)
+                 19.90    0.00   39.55 v _130_/A (INVx3_ASAP7_75t_R)
+     1    0.00    5.25    4.96   44.52 ^ _130_/Y (INVx3_ASAP7_75t_R)
+                                         io_lsbs_0 (net)
+                  5.25    0.00   44.52 ^ io_lsbs_0 (out)
+                                 44.52   data arrival time
+
+                  0.00  320.00  320.00   clock clock_vir (rise edge)
+                        275.00  595.00   clock network delay (ideal)
+                        -10.00  585.00   clock uncertainty
+                          0.00  585.00   clock reconvergence pessimism
+                       -240.00  345.00   output external delay
+                                345.00   data required time
+-----------------------------------------------------------------------------
+                                345.00   data required time
+                                -44.52   data arrival time
+-----------------------------------------------------------------------------
+                                300.48   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: io_ins_up_0[44] (input port clocked by clock_vir)
+Endpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                        240.00  515.00 v input external delay
+     1    1.19    0.00    0.00  515.00 v io_ins_up_0[44] (in)
+                                         io_ins_up_0[44] (net)
+                  0.00    0.00  515.00 v ces_0_0/io_ins_up[44] (Element)
+                                515.00   data arrival time
+
+                  0.00  320.00  320.00   clock clock (rise edge)
+                          0.00  320.00   clock network delay (ideal)
+                        -10.00  310.00   clock uncertainty
+                          0.00  310.00   clock reconvergence pessimism
+                                310.00 ^ ces_0_0/clock (Element)
+                         64.80  374.80   library setup time
+                                374.80   data required time
+-----------------------------------------------------------------------------
+                                374.80   data required time
+                               -515.00   data arrival time
+-----------------------------------------------------------------------------
+                               -140.20   slack (VIOLATED)
+
+
+Startpoint: _131_ (falling edge-triggered flip-flop clocked by clock')
+Endpoint: io_lsbs_0 (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v _131_/CLK (DFFLQNx1_ASAP7_75t_R)
+     1    1.96   19.90   39.55   39.55 v _131_/QN (DFFLQNx1_ASAP7_75t_R)
+                                         _063_ (net)
+                 19.90    0.00   39.55 v _130_/A (INVx3_ASAP7_75t_R)
+     1    0.00    5.25    4.96   44.52 ^ _130_/Y (INVx3_ASAP7_75t_R)
+                                         io_lsbs_0 (net)
+                  5.25    0.00   44.52 ^ io_lsbs_0 (out)
+                                 44.52   data arrival time
+
+                  0.00  320.00  320.00   clock clock_vir (rise edge)
+                        275.00  595.00   clock network delay (ideal)
+                        -10.00  585.00   clock uncertainty
+                          0.00  585.00   clock reconvergence pessimism
+                       -240.00  345.00   output external delay
+                                345.00   data required time
+-----------------------------------------------------------------------------
+                                345.00   data required time
+                                -44.52   data arrival time
+-----------------------------------------------------------------------------
+                                300.48   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.08e-04   1.16e-05   9.64e-09   3.19e-04  82.2%
+Combinational          7.25e-06   6.20e-05   6.36e-09   6.93e-05  17.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.15e-04   7.36e-05   1.60e-08   3.88e-04 100.0%
+                          81.0%      19.0%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 119463 u^2 88% utilization.
+
+Elapsed time: 0:01.35[h:]min:sec. CPU time: user 1.32 sys 0.03 (100%). Peak memory: 225068KB.

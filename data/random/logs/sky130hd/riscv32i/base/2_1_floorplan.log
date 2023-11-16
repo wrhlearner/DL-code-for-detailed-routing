@@ -1,0 +1,250 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+[INFO ODB-0225]     Created 441 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+number instances in verilog is 8638
+[WARNING IFP-0028] Core area lower left (1.000, 1.000) snapped to (1.380, 2.720).
+[INFO IFP-0001] Added 147 rows of 872 site unithd with height 1.
+[INFO RSZ-0026] Removed 1006 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -16943.69
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -25.07
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -25.07
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _15699_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _15699_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _15699_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     2    0.00    0.05    0.29    0.29 ^ _15699_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         dp.rf.rf[0][12] (net)
+                  0.05    0.00    0.29 ^ _15699_/D (sky130_fd_sc_hd__dfxtp_1)
+                                  0.29   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _15699_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                         -0.04   -0.04   library hold time
+                                 -0.04   data required time
+-----------------------------------------------------------------------------
+                                 -0.04   data required time
+                                 -0.29   data arrival time
+-----------------------------------------------------------------------------
+                                  0.33   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _15468_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _15270_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _15468_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     3    0.01    0.08    0.31    0.31 ^ _15468_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         dp.rf.rf[17][5] (net)
+                  0.08    0.00    0.31 ^ _09541_/A0 (sky130_fd_sc_hd__mux2i_1)
+     1    0.00    0.05    0.07    0.38 v _09541_/Y (sky130_fd_sc_hd__mux2i_1)
+                                         _02905_ (net)
+                  0.05    0.00    0.38 v _09542_/B1 (sky130_fd_sc_hd__a221oi_1)
+     1    0.00    0.22    0.23    0.60 ^ _09542_/Y (sky130_fd_sc_hd__a221oi_1)
+                                         _02906_ (net)
+                  0.22    0.00    0.60 ^ _09543_/B1 (sky130_fd_sc_hd__o22ai_1)
+     1    0.00    0.14    0.11    0.72 v _09543_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _02907_ (net)
+                  0.14    0.00    0.72 v _09544_/A2 (sky130_fd_sc_hd__a21o_1)
+     1    0.00    0.03    0.20    0.92 v _09544_/X (sky130_fd_sc_hd__a21o_1)
+                                         _02908_ (net)
+                  0.03    0.00    0.92 v _09560_/B (sky130_fd_sc_hd__or4b_1)
+    10    0.02    0.20    0.64    1.56 v _09560_/X (sky130_fd_sc_hd__or4b_1)
+                                         _02924_ (net)
+                  0.20    0.00    1.56 v _10674_/B (sky130_fd_sc_hd__maj3_2)
+     1    0.00    0.05    0.34    1.89 v _10674_/X (sky130_fd_sc_hd__maj3_2)
+                                         _03941_ (net)
+                  0.05    0.00    1.89 v _10675_/C1 (sky130_fd_sc_hd__a211o_1)
+     1    0.00    0.05    0.22    2.11 v _10675_/X (sky130_fd_sc_hd__a211o_1)
+                                         _03942_ (net)
+                  0.05    0.00    2.11 v _10676_/D1 (sky130_fd_sc_hd__o2111ai_1)
+     2    0.01    0.24    0.10    2.21 ^ _10676_/Y (sky130_fd_sc_hd__o2111ai_1)
+                                         _03943_ (net)
+                  0.24    0.00    2.21 ^ _10718_/A1 (sky130_fd_sc_hd__o211ai_1)
+     1    0.00    0.09    0.14    2.35 v _10718_/Y (sky130_fd_sc_hd__o211ai_1)
+                                         _03985_ (net)
+                  0.09    0.00    2.35 v _10722_/A3 (sky130_fd_sc_hd__a41oi_2)
+     2    0.01    0.21    0.24    2.60 ^ _10722_/Y (sky130_fd_sc_hd__a41oi_2)
+                                         _03989_ (net)
+                  0.21    0.00    2.60 ^ _10734_/S (sky130_fd_sc_hd__mux2i_2)
+   455    1.11   14.08   10.34   12.93 ^ _10734_/Y (sky130_fd_sc_hd__mux2i_2)
+                                         _04000_ (net)
+                 14.08    0.00   12.93 ^ _10737_/B1 (sky130_fd_sc_hd__a211oi_4)
+   472    1.04   10.53   16.66   29.60 v _10737_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         _04003_ (net)
+                 10.53    0.00   29.60 v _11334_/A1 (sky130_fd_sc_hd__o22ai_1)
+    31    0.08    1.66    5.02   34.62 ^ _11334_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _04492_ (net)
+                  1.66    0.00   34.62 ^ _11485_/A1 (sky130_fd_sc_hd__o221ai_1)
+     1    0.00    0.21    0.26   34.88 v _11485_/Y (sky130_fd_sc_hd__o221ai_1)
+                                         _00064_ (net)
+                  0.21    0.00   34.88 v _15270_/D (sky130_fd_sc_hd__dfxtp_1)
+                                 34.88   data arrival time
+
+                  0.00   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ _15270_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                         -0.19    9.81   library setup time
+                                  9.81   data required time
+-----------------------------------------------------------------------------
+                                  9.81   data required time
+                                -34.88   data arrival time
+-----------------------------------------------------------------------------
+                                -25.07   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _15468_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _15270_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _15468_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     3    0.01    0.08    0.31    0.31 ^ _15468_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         dp.rf.rf[17][5] (net)
+                  0.08    0.00    0.31 ^ _09541_/A0 (sky130_fd_sc_hd__mux2i_1)
+     1    0.00    0.05    0.07    0.38 v _09541_/Y (sky130_fd_sc_hd__mux2i_1)
+                                         _02905_ (net)
+                  0.05    0.00    0.38 v _09542_/B1 (sky130_fd_sc_hd__a221oi_1)
+     1    0.00    0.22    0.23    0.60 ^ _09542_/Y (sky130_fd_sc_hd__a221oi_1)
+                                         _02906_ (net)
+                  0.22    0.00    0.60 ^ _09543_/B1 (sky130_fd_sc_hd__o22ai_1)
+     1    0.00    0.14    0.11    0.72 v _09543_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _02907_ (net)
+                  0.14    0.00    0.72 v _09544_/A2 (sky130_fd_sc_hd__a21o_1)
+     1    0.00    0.03    0.20    0.92 v _09544_/X (sky130_fd_sc_hd__a21o_1)
+                                         _02908_ (net)
+                  0.03    0.00    0.92 v _09560_/B (sky130_fd_sc_hd__or4b_1)
+    10    0.02    0.20    0.64    1.56 v _09560_/X (sky130_fd_sc_hd__or4b_1)
+                                         _02924_ (net)
+                  0.20    0.00    1.56 v _10674_/B (sky130_fd_sc_hd__maj3_2)
+     1    0.00    0.05    0.34    1.89 v _10674_/X (sky130_fd_sc_hd__maj3_2)
+                                         _03941_ (net)
+                  0.05    0.00    1.89 v _10675_/C1 (sky130_fd_sc_hd__a211o_1)
+     1    0.00    0.05    0.22    2.11 v _10675_/X (sky130_fd_sc_hd__a211o_1)
+                                         _03942_ (net)
+                  0.05    0.00    2.11 v _10676_/D1 (sky130_fd_sc_hd__o2111ai_1)
+     2    0.01    0.24    0.10    2.21 ^ _10676_/Y (sky130_fd_sc_hd__o2111ai_1)
+                                         _03943_ (net)
+                  0.24    0.00    2.21 ^ _10718_/A1 (sky130_fd_sc_hd__o211ai_1)
+     1    0.00    0.09    0.14    2.35 v _10718_/Y (sky130_fd_sc_hd__o211ai_1)
+                                         _03985_ (net)
+                  0.09    0.00    2.35 v _10722_/A3 (sky130_fd_sc_hd__a41oi_2)
+     2    0.01    0.21    0.24    2.60 ^ _10722_/Y (sky130_fd_sc_hd__a41oi_2)
+                                         _03989_ (net)
+                  0.21    0.00    2.60 ^ _10734_/S (sky130_fd_sc_hd__mux2i_2)
+   455    1.11   14.08   10.34   12.93 ^ _10734_/Y (sky130_fd_sc_hd__mux2i_2)
+                                         _04000_ (net)
+                 14.08    0.00   12.93 ^ _10737_/B1 (sky130_fd_sc_hd__a211oi_4)
+   472    1.04   10.53   16.66   29.60 v _10737_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         _04003_ (net)
+                 10.53    0.00   29.60 v _11334_/A1 (sky130_fd_sc_hd__o22ai_1)
+    31    0.08    1.66    5.02   34.62 ^ _11334_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _04492_ (net)
+                  1.66    0.00   34.62 ^ _11485_/A1 (sky130_fd_sc_hd__o221ai_1)
+     1    0.00    0.21    0.26   34.88 v _11485_/Y (sky130_fd_sc_hd__o221ai_1)
+                                         _00064_ (net)
+                  0.21    0.00   34.88 v _15270_/D (sky130_fd_sc_hd__dfxtp_1)
+                                 34.88   data arrival time
+
+                  0.00   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ _15270_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                         -0.19    9.81   library setup time
+                                  9.81   data required time
+-----------------------------------------------------------------------------
+                                  9.81   data required time
+                                -34.88   data arrival time
+-----------------------------------------------------------------------------
+                                -25.07   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.02e-03   3.40e-04   9.01e-09   5.36e-03  51.8%
+Combinational          2.45e-03   2.53e-03   1.68e-08   4.99e-03  48.2%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.47e-03   2.87e-03   2.58e-08   1.03e-02 100.0%
+                          72.2%      27.8%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 68072 u^2 42% utilization.
+
+Elapsed time: 0:00.96[h:]min:sec. CPU time: user 0.94 sys 0.02 (100%). Peak memory: 136736KB.

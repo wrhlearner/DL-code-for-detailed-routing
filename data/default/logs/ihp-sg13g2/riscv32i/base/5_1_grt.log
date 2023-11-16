@@ -1,0 +1,635 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4800  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 3.4800  line-2-Via Pitch: 0.4100
+[INFO GRT-0019] Found 87 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 1022
+[INFO GRT-0003] Macros: 0
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Vertical            0             0          0.00%
+Metal2     Horizontal     126936        116766          8.01%
+Metal3     Vertical       111972        103241          7.80%
+Metal4     Horizontal     126936        118065          6.99%
+Metal5     Vertical        14878          7310          50.87%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 43259
+[INFO GRT-0198] Via related Steiner nodes: 2149
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 51386
+[INFO GRT-0112] Final usage 3D: 229879
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2          116766         37733           32.32%             0 /  0 /  0
+Metal3          103241         37934           36.74%             0 /  0 /  0
+Metal4          118065            54            0.05%             0 /  0 /  0
+Metal5            7310             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           345382         75721           21.92%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 748252 um
+[INFO GRT-0014] Routed nets: 10052
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+
+==========================================================================
+global route check_setup
+--------------------------------------------------------------------------
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 3.12
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_16948_/CLK ^
+   0.92
+_16647_/CLK ^
+   0.65      0.00       0.27
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _16574_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _16574_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.07    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     8    0.20    0.41    0.33    0.33 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.41    0.00    0.33 ^ clkbuf_3_1__f_clk/A (sg13g2_buf_2)
+    10    0.08    0.18    0.30    0.63 ^ clkbuf_3_1__f_clk/X (sg13g2_buf_2)
+                                         clknet_3_1__leaf_clk (net)
+                  0.18    0.00    0.63 ^ clkbuf_leaf_11_clk/A (sg13g2_buf_2)
+    11    0.05    0.11    0.20    0.83 ^ clkbuf_leaf_11_clk/X (sg13g2_buf_2)
+                                         clknet_leaf_11_clk (net)
+                  0.11    0.00    0.83 ^ _16574_/CLK (sg13g2_dfrbp_1)
+     1    0.00    0.02    0.23    1.06 v _16574_/Q (sg13g2_dfrbp_1)
+                                         dp.rf.rf[0][14] (net)
+                  0.02    0.00    1.06 v _16574_/D (sg13g2_dfrbp_1)
+                                  1.06   data arrival time
+
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.07    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     8    0.20    0.41    0.33    0.33 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.41    0.00    0.33 ^ clkbuf_3_1__f_clk/A (sg13g2_buf_2)
+    10    0.08    0.18    0.30    0.63 ^ clkbuf_3_1__f_clk/X (sg13g2_buf_2)
+                                         clknet_3_1__leaf_clk (net)
+                  0.18    0.00    0.63 ^ clkbuf_leaf_11_clk/A (sg13g2_buf_2)
+    11    0.05    0.11    0.20    0.83 ^ clkbuf_leaf_11_clk/X (sg13g2_buf_2)
+                                         clknet_leaf_11_clk (net)
+                  0.11    0.00    0.83 ^ _16574_/CLK (sg13g2_dfrbp_1)
+                          0.00    0.83   clock reconvergence pessimism
+                          0.00    0.83   library hold time
+                                  0.83   data required time
+-----------------------------------------------------------------------------
+                                  0.83   data required time
+                                 -1.06   data arrival time
+-----------------------------------------------------------------------------
+                                  0.23   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _16960_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: aluout[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.07    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     8    0.20    0.41    0.33    0.33 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.41    0.00    0.33 ^ clkbuf_3_2__f_clk/A (sg13g2_buf_2)
+    12    0.10    0.20    0.32    0.65 ^ clkbuf_3_2__f_clk/X (sg13g2_buf_2)
+                                         clknet_3_2__leaf_clk (net)
+                  0.20    0.00    0.65 ^ clkbuf_leaf_70_clk/A (sg13g2_buf_2)
+    10    0.05    0.11    0.20    0.85 ^ clkbuf_leaf_70_clk/X (sg13g2_buf_2)
+                                         clknet_leaf_70_clk (net)
+                  0.11    0.00    0.85 ^ _16960_/CLK (sg13g2_dfrbp_1)
+     2    0.01    0.04    0.24    1.09 v _16960_/Q (sg13g2_dfrbp_1)
+                                         dp.rf.rf[23][20] (net)
+                  0.04    0.00    1.09 v _09092_/A1 (sg13g2_mux2_1)
+     1    0.01    0.06    0.14    1.23 v _09092_/X (sg13g2_mux2_1)
+                                         _03118_ (net)
+                  0.06    0.00    1.23 v _09093_/C (sg13g2_nand3_1)
+     1    0.00    0.06    0.06    1.29 ^ _09093_/Y (sg13g2_nand3_1)
+                                         _03119_ (net)
+                  0.06    0.00    1.29 ^ _09094_/D (sg13g2_nand4_1)
+     1    0.02    0.25    0.25    1.54 v _09094_/Y (sg13g2_nand4_1)
+                                         _03120_ (net)
+                  0.25    0.00    1.54 v _09129_/A (sg13g2_nor4_2)
+     4    0.04    0.41    0.43    1.97 ^ _09129_/Y (sg13g2_nor4_2)
+                                         _03155_ (net)
+                  0.41    0.00    1.97 ^ _10776_/B (sg13g2_nor2_1)
+     2    0.01    0.10    0.13    2.10 v _10776_/Y (sg13g2_nor2_1)
+                                         _04782_ (net)
+                  0.10    0.00    2.10 v _10780_/A2 (sg13g2_a221oi_1)
+     5    0.04    0.49    0.45    2.55 ^ _10780_/Y (sg13g2_a221oi_1)
+                                         _04786_ (net)
+                  0.49    0.00    2.55 ^ _10782_/B (sg13g2_xnor2_1)
+     3    0.02    0.18    0.23    2.78 ^ _10782_/Y (sg13g2_xnor2_1)
+                                         _04788_ (net)
+                  0.18    0.00    2.78 ^ _10783_/C (sg13g2_nand3_1)
+     1    0.00    0.07    0.12    2.90 v _10783_/Y (sg13g2_nand3_1)
+                                         _04789_ (net)
+                  0.07    0.00    2.90 v _10784_/D (sg13g2_nor4_1)
+     2    0.04    0.63    0.50    3.40 ^ _10784_/Y (sg13g2_nor4_1)
+                                         _04790_ (net)
+                  0.63    0.00    3.40 ^ _11662_/A (sg13g2_nand4_1)
+     2    0.04    0.46    0.56    3.96 v _11662_/Y (sg13g2_nand4_1)
+                                         _05668_ (net)
+                  0.46    0.00    3.96 v _11663_/B (sg13g2_nand2_1)
+     3    0.02    0.18    0.23    4.19 ^ _11663_/Y (sg13g2_nand2_1)
+                                         _05669_ (net)
+                  0.18    0.00    4.19 ^ _11676_/A (sg13g2_and3_1)
+     1    0.00    0.04    0.16    4.35 ^ _11676_/X (sg13g2_and3_1)
+                                         _05682_ (net)
+                  0.04    0.00    4.35 ^ _11697_/B1 (sg13g2_a22oi_1)
+     1    0.01    0.09    0.06    4.41 v _11697_/Y (sg13g2_a22oi_1)
+                                         _05703_ (net)
+                  0.09    0.00    4.41 v _11804_/A2 (sg13g2_o21ai_1)
+     2    0.04    0.37    0.33    4.74 ^ _11804_/Y (sg13g2_o21ai_1)
+                                         net66 (net)
+                  0.37    0.00    4.74 ^ output66/A (sg13g2_buf_1)
+     1    0.00    0.03    0.14    4.88 ^ output66/X (sg13g2_buf_1)
+                                         aluout[0] (net)
+                  0.03    0.00    4.88 ^ aluout[0] (out)
+                                  4.88   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.00    8.00   output external delay
+                                  8.00   data required time
+-----------------------------------------------------------------------------
+                                  8.00   data required time
+                                 -4.88   data arrival time
+-----------------------------------------------------------------------------
+                                  3.12   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _16960_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: aluout[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.07    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     8    0.20    0.41    0.33    0.33 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.41    0.00    0.33 ^ clkbuf_3_2__f_clk/A (sg13g2_buf_2)
+    12    0.10    0.20    0.32    0.65 ^ clkbuf_3_2__f_clk/X (sg13g2_buf_2)
+                                         clknet_3_2__leaf_clk (net)
+                  0.20    0.00    0.65 ^ clkbuf_leaf_70_clk/A (sg13g2_buf_2)
+    10    0.05    0.11    0.20    0.85 ^ clkbuf_leaf_70_clk/X (sg13g2_buf_2)
+                                         clknet_leaf_70_clk (net)
+                  0.11    0.00    0.85 ^ _16960_/CLK (sg13g2_dfrbp_1)
+     2    0.01    0.04    0.24    1.09 v _16960_/Q (sg13g2_dfrbp_1)
+                                         dp.rf.rf[23][20] (net)
+                  0.04    0.00    1.09 v _09092_/A1 (sg13g2_mux2_1)
+     1    0.01    0.06    0.14    1.23 v _09092_/X (sg13g2_mux2_1)
+                                         _03118_ (net)
+                  0.06    0.00    1.23 v _09093_/C (sg13g2_nand3_1)
+     1    0.00    0.06    0.06    1.29 ^ _09093_/Y (sg13g2_nand3_1)
+                                         _03119_ (net)
+                  0.06    0.00    1.29 ^ _09094_/D (sg13g2_nand4_1)
+     1    0.02    0.25    0.25    1.54 v _09094_/Y (sg13g2_nand4_1)
+                                         _03120_ (net)
+                  0.25    0.00    1.54 v _09129_/A (sg13g2_nor4_2)
+     4    0.04    0.41    0.43    1.97 ^ _09129_/Y (sg13g2_nor4_2)
+                                         _03155_ (net)
+                  0.41    0.00    1.97 ^ _10776_/B (sg13g2_nor2_1)
+     2    0.01    0.10    0.13    2.10 v _10776_/Y (sg13g2_nor2_1)
+                                         _04782_ (net)
+                  0.10    0.00    2.10 v _10780_/A2 (sg13g2_a221oi_1)
+     5    0.04    0.49    0.45    2.55 ^ _10780_/Y (sg13g2_a221oi_1)
+                                         _04786_ (net)
+                  0.49    0.00    2.55 ^ _10782_/B (sg13g2_xnor2_1)
+     3    0.02    0.18    0.23    2.78 ^ _10782_/Y (sg13g2_xnor2_1)
+                                         _04788_ (net)
+                  0.18    0.00    2.78 ^ _10783_/C (sg13g2_nand3_1)
+     1    0.00    0.07    0.12    2.90 v _10783_/Y (sg13g2_nand3_1)
+                                         _04789_ (net)
+                  0.07    0.00    2.90 v _10784_/D (sg13g2_nor4_1)
+     2    0.04    0.63    0.50    3.40 ^ _10784_/Y (sg13g2_nor4_1)
+                                         _04790_ (net)
+                  0.63    0.00    3.40 ^ _11662_/A (sg13g2_nand4_1)
+     2    0.04    0.46    0.56    3.96 v _11662_/Y (sg13g2_nand4_1)
+                                         _05668_ (net)
+                  0.46    0.00    3.96 v _11663_/B (sg13g2_nand2_1)
+     3    0.02    0.18    0.23    4.19 ^ _11663_/Y (sg13g2_nand2_1)
+                                         _05669_ (net)
+                  0.18    0.00    4.19 ^ _11676_/A (sg13g2_and3_1)
+     1    0.00    0.04    0.16    4.35 ^ _11676_/X (sg13g2_and3_1)
+                                         _05682_ (net)
+                  0.04    0.00    4.35 ^ _11697_/B1 (sg13g2_a22oi_1)
+     1    0.01    0.09    0.06    4.41 v _11697_/Y (sg13g2_a22oi_1)
+                                         _05703_ (net)
+                  0.09    0.00    4.41 v _11804_/A2 (sg13g2_o21ai_1)
+     2    0.04    0.37    0.33    4.74 ^ _11804_/Y (sg13g2_o21ai_1)
+                                         net66 (net)
+                  0.37    0.00    4.74 ^ output66/A (sg13g2_buf_1)
+     1    0.00    0.03    0.14    4.88 ^ output66/X (sg13g2_buf_1)
+                                         aluout[0] (net)
+                  0.03    0.00    4.88 ^ aluout[0] (out)
+                                  4.88   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                          0.00   10.00   clock reconvergence pessimism
+                         -2.00    8.00   output external delay
+                                  8.00   data required time
+-----------------------------------------------------------------------------
+                                  8.00   data required time
+                                 -4.88   data arrival time
+-----------------------------------------------------------------------------
+                                  3.12   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_leaf_33_clk/X                      8     24    -16 (VIOLATED)
+clkbuf_leaf_61_clk/X                      8     24    -16 (VIOLATED)
+clkbuf_leaf_7_clk/X                       8     24    -16 (VIOLATED)
+clkbuf_leaf_30_clk/X                      8     23    -15 (VIOLATED)
+clkbuf_leaf_13_clk/X                      8     22    -14 (VIOLATED)
+clkbuf_leaf_16_clk/X                      8     22    -14 (VIOLATED)
+clkbuf_leaf_36_clk/X                      8     22    -14 (VIOLATED)
+clkbuf_leaf_58_clk/X                      8     22    -14 (VIOLATED)
+clkbuf_leaf_32_clk/X                      8     21    -13 (VIOLATED)
+clkbuf_leaf_41_clk/X                      8     21    -13 (VIOLATED)
+clkbuf_leaf_37_clk/X                      8     20    -12 (VIOLATED)
+clkbuf_leaf_66_clk/X                      8     20    -12 (VIOLATED)
+clkbuf_leaf_74_clk/X                      8     20    -12 (VIOLATED)
+clkbuf_leaf_76_clk/X                      8     20    -12 (VIOLATED)
+clkbuf_leaf_55_clk/X                      8     19    -11 (VIOLATED)
+clkbuf_leaf_56_clk/X                      8     19    -11 (VIOLATED)
+clkbuf_leaf_8_clk/X                       8     19    -11 (VIOLATED)
+clkbuf_leaf_0_clk/X                       8     18    -10 (VIOLATED)
+clkbuf_leaf_57_clk/X                      8     18    -10 (VIOLATED)
+clkbuf_leaf_68_clk/X                      8     18    -10 (VIOLATED)
+clkbuf_leaf_18_clk/X                      8     16     -8 (VIOLATED)
+clkbuf_leaf_29_clk/X                      8     16     -8 (VIOLATED)
+clkbuf_leaf_42_clk/X                      8     16     -8 (VIOLATED)
+clkbuf_leaf_46_clk/X                      8     16     -8 (VIOLATED)
+clkbuf_leaf_73_clk/X                      8     16     -8 (VIOLATED)
+clkbuf_leaf_31_clk/X                      8     15     -7 (VIOLATED)
+clkbuf_leaf_10_clk/X                      8     14     -6 (VIOLATED)
+clkbuf_leaf_17_clk/X                      8     14     -6 (VIOLATED)
+clkbuf_leaf_28_clk/X                      8     14     -6 (VIOLATED)
+clkbuf_leaf_44_clk/X                      8     14     -6 (VIOLATED)
+clkbuf_leaf_4_clk/X                       8     14     -6 (VIOLATED)
+clkbuf_leaf_19_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_21_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_40_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_45_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_62_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_65_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_67_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_leaf_6_clk/X                       8     13     -5 (VIOLATED)
+clkbuf_leaf_72_clk/X                      8     13     -5 (VIOLATED)
+clkbuf_3_2__f_clk/X                       8     12     -4 (VIOLATED)
+clkbuf_leaf_14_clk/X                      8     12     -4 (VIOLATED)
+clkbuf_leaf_1_clk/X                       8     12     -4 (VIOLATED)
+clkbuf_leaf_24_clk/X                      8     12     -4 (VIOLATED)
+clkbuf_leaf_25_clk/X                      8     12     -4 (VIOLATED)
+clkbuf_leaf_3_clk/X                       8     12     -4 (VIOLATED)
+clkbuf_leaf_43_clk/X                      8     12     -4 (VIOLATED)
+clkbuf_leaf_5_clk/X                       8     12     -4 (VIOLATED)
+clkbuf_leaf_63_clk/X                      8     12     -4 (VIOLATED)
+clkbuf_3_4__f_clk/X                       8     11     -3 (VIOLATED)
+clkbuf_leaf_11_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_12_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_20_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_22_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_27_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_34_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_59_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_64_clk/X                      8     11     -3 (VIOLATED)
+clkbuf_leaf_9_clk/X                       8     11     -3 (VIOLATED)
+clkbuf_3_0__f_clk/X                       8     10     -2 (VIOLATED)
+clkbuf_3_1__f_clk/X                       8     10     -2 (VIOLATED)
+clkbuf_3_5__f_clk/X                       8     10     -2 (VIOLATED)
+clkbuf_3_7__f_clk/X                       8     10     -2 (VIOLATED)
+clkbuf_leaf_38_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_39_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_50_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_60_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_69_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_70_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_71_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_75_clk/X                      8     10     -2 (VIOLATED)
+clkbuf_leaf_26_clk/X                      8      9        (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+1.2178213596343994
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.4857
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+-16.0
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+global route max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+-2.0000
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.1572711318731308
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.30000001192092896
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.5242
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 72
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+4.8784
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+3.1216
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+63.988193
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.25e-03   1.96e-04   5.68e-07   5.45e-03  61.1%
+Combinational          1.39e-03   2.08e-03   1.14e-06   3.47e-03  38.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  6.64e-03   2.28e-03   1.71e-06   8.92e-03 100.0%
+                          74.5%      25.5%       0.0%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 133738 u^2 35% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+Net: net15
+  Pin: fanout1271/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  263.97
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net8
+  Pin: fanout1145/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  285.41
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _02601_
+  Pin: fanout1098/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  204.87
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _02731_
+  Pin: _09273_/A2 (sg13g2_a221oi_1)
+    Layer: Metal3
+      Cumulative area ratio:  376.65
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _02770_
+  Pin: fanout947/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  225.97
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _02822_
+  Pin: _08796_/A1 (sg13g2_o21ai_1)
+    Layer: Metal3
+      Cumulative area ratio:  276.43
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _04014_
+  Pin: _11342_/A (sg13g2_nor2b_1)
+    Layer: Metal3
+      Cumulative area ratio:  263.37
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _04250_
+  Pin: fanout958/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  277.67
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net717
+  Pin: fanout713/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  237.74
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net529
+  Pin: fanout523/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  219.09
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net493
+  Pin: fanout486/A (sg13g2_buf_1)
+    Layer: Metal3
+      Cumulative area ratio:  362.17
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: _06141_
+  Pin: fanout336/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  211.63
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net137
+  Pin: output137/A (sg13g2_buf_1)
+    Layer: Metal3
+      Cumulative area ratio:  273.05
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: clk
+  Pin: clkbuf_0_clk/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  273.20
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+Net: net1296
+  Pin: fanout1290/A (sg13g2_buf_2)
+    Layer: Metal3
+      Cumulative area ratio:  321.46
+      Required ratio:  200.00 (Cumulative area) (VIOLATED)
+
+
+[INFO ANT-0002] Found 15 net violations.
+[INFO ANT-0001] Found 15 pin violations.
+[INFO FLW-0007] clock clk period 10.000000
+[INFO FLW-0008] Clock clk period 6.535
+[INFO FLW-0009] Clock clk slack 3.122
+[INFO FLW-0011] Path endpoint count 1188
+Elapsed time: 0:06.93[h:]min:sec. CPU time: user 6.87 sys 0.05 (100%). Peak memory: 259748KB.

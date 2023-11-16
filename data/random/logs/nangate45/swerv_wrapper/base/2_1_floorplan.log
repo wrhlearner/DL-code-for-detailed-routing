@@ -1,0 +1,544 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_2048x39.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_2048x39.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_256x34.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_256x34.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x21.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x21.lef
+[WARNING STA-0320] current_design for other than top cell not supported.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 92 unclocked register/latch pins.
+Warning: There are 489 unconstrained endpoints.
+number instances in verilog is 94585
+[INFO IFP-0001] Added 699 rows of 5683 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 10102 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 92 unclocked register/latch pins.
+Warning: There are 489 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -1359504.25
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -120.89
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -120.89
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: mem/Gen_dccm_enable_dccm/_2524_
+          (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ swerv/_07990_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v swerv/_07990_/ZN (INV_X1)
+                                         swerv/_02647_ (net)
+                  0.00    0.00    0.68 v swerv/_07992_/A (AOI21_X1)
+ 11228 19969.73   70.63   78.55   79.23 ^ swerv/_07992_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 70.63    0.00   79.23 ^ mem/Gen_dccm_enable_dccm/_2524_/RN (DFFR_X1)
+                                 79.23   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ mem/Gen_dccm_enable_dccm/_2524_/CK (DFFR_X1)
+                         88.60   88.60   library removal time
+                                 88.60   data required time
+-----------------------------------------------------------------------------
+                                 88.60   data required time
+                                -79.23   data arrival time
+-----------------------------------------------------------------------------
+                                 -9.37   slack (VIOLATED)
+
+
+Startpoint: swerv/lsu/_9728_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dec/tlu/_11283_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/lsu/_9728_/CK (DFFR_X1)
+     1    1.13    0.01    0.06    0.06 ^ swerv/lsu/_9728_/QN (DFFR_X1)
+                                         swerv/lsu_error_pkt_dc3[34] (net)
+                  0.01    0.00    0.06 ^ swerv/dec/tlu/_11283_/D (DFFR_X1)
+                                  0.06   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ swerv/dec/tlu/_11283_/CK (DFFR_X1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.06   data arrival time
+-----------------------------------------------------------------------------
+                                  0.06   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: mem/Gen_dccm_enable_dccm/_2524_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ swerv/_07990_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v swerv/_07990_/ZN (INV_X1)
+                                         swerv/_02647_ (net)
+                  0.00    0.00    0.68 v swerv/_07992_/A (AOI21_X1)
+ 11228 19969.73   92.85  101.19  101.87 ^ swerv/_07992_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 92.85    0.00  101.87 ^ mem/Gen_dccm_enable_dccm/_2524_/RN (DFFR_X1)
+                                101.87   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ mem/Gen_dccm_enable_dccm/_2524_/CK (DFFR_X1)
+                        -22.42  -19.02   library recovery time
+                                -19.02   data required time
+-----------------------------------------------------------------------------
+                                -19.02   data required time
+                               -101.87   data arrival time
+-----------------------------------------------------------------------------
+                               -120.89   slack (VIOLATED)
+
+
+Startpoint: swerv/lsu/_9123_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dec/_6664_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/lsu/_9123_/CK (DFFR_X1)
+   159  283.82    0.65    0.77    0.77 ^ swerv/lsu/_9123_/Q (DFFR_X1)
+                                         swerv/lsu_error_pkt_dc3[1] (net)
+                  0.65    0.00    0.77 ^ swerv/lsu/_4712_/A (INV_X1)
+    58  105.20    0.30    0.47    1.24 v swerv/lsu/_4712_/ZN (INV_X1)
+                                         swerv/lsu/_0250_ (net)
+                  0.30    0.00    1.24 v swerv/lsu/_4760_/S (MUX2_X1)
+     2    1.89    0.02    0.12    1.37 ^ swerv/lsu/_4760_/Z (MUX2_X1)
+                                         swerv/lsu/_0296_ (net)
+                  0.02    0.00    1.37 ^ swerv/lsu/_4768_/A (MUX2_X1)
+     1    1.65    0.02    0.04    1.40 ^ swerv/lsu/_4768_/Z (MUX2_X1)
+                                         swerv/lsu/_0304_ (net)
+                  0.02    0.00    1.40 ^ swerv/lsu/_4769_/A2 (NOR2_X1)
+     1    1.41    0.03    0.01    1.42 v swerv/lsu/_4769_/ZN (NOR2_X1)
+                                         swerv/lsu/_0305_ (net)
+                  0.03    0.00    1.42 v swerv/lsu/_4771_/A1 (NOR2_X1)
+     9   12.76    0.07    0.09    1.50 ^ swerv/lsu/_4771_/ZN (NOR2_X1)
+                                         swerv/lsu_result_dc3[1] (net)
+                  0.07    0.00    1.50 ^ swerv/lsu/_5759_/A2 (NOR2_X1)
+     1    1.54    0.03    0.01    1.52 v swerv/lsu/_5759_/ZN (NOR2_X1)
+                                         swerv/lsu/_1071_ (net)
+                  0.03    0.00    1.52 v swerv/lsu/_5760_/A (AOI21_X1)
+     2    5.45    0.05    0.07    1.58 ^ swerv/lsu/_5760_/ZN (AOI21_X1)
+                                         swerv/lsu/_4397_ (net)
+                  0.05    0.00    1.58 ^ swerv/lsu/_8834_/A (FA_X1)
+     2    3.38    0.01    0.06    1.65 ^ swerv/lsu/_8834_/CO (FA_X1)
+                                         swerv/lsu/_4399_ (net)
+                  0.01    0.00    1.65 ^ swerv/lsu/_5762_/A (INV_X1)
+     1    3.40    0.01    0.01    1.66 v swerv/lsu/_5762_/ZN (INV_X1)
+                                         swerv/lsu/_4403_ (net)
+                  0.01    0.00    1.66 v swerv/lsu/_8835_/B (FA_X1)
+     2    3.93    0.02    0.12    1.78 ^ swerv/lsu/_8835_/S (FA_X1)
+                                         swerv/lsu/_4405_ (net)
+                  0.02    0.00    1.78 ^ swerv/lsu/_6105_/A (INV_X1)
+    10   33.20    0.04    0.05    1.83 v swerv/lsu/_6105_/ZN (INV_X1)
+                                         swerv/lsu/dccm_ctl.lsu_addr_dc1[2] (net)
+                  0.04    0.00    1.83 v swerv/lsu/bus_intf/_1894_/B (XOR2_X1)
+     3    3.47    0.02    0.07    1.90 v swerv/lsu/bus_intf/_1894_/Z (XOR2_X1)
+                                         swerv/lsu/bus_intf/ldst_dual_dc2ff.din (net)
+                  0.02    0.00    1.90 v swerv/lsu/bus_intf/bus_buffer/_10654_/A (INV_X1)
+     1    1.59    0.01    0.02    1.92 ^ swerv/lsu/bus_intf/bus_buffer/_10654_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03948_ (net)
+                  0.01    0.00    1.92 ^ swerv/lsu/bus_intf/bus_buffer/_10655_/A1 (NAND3_X1)
+     1    3.61    0.02    0.02    1.94 v swerv/lsu/bus_intf/bus_buffer/_10655_/ZN (NAND3_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10518_ (net)
+                  0.02    0.00    1.94 v swerv/lsu/bus_intf/bus_buffer/_21122_/A (FA_X1)
+     1    1.70    0.01    0.11    2.06 ^ swerv/lsu/bus_intf/bus_buffer/_21122_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10521_ (net)
+                  0.01    0.00    2.06 ^ swerv/lsu/bus_intf/bus_buffer/_20461_/A (INV_X1)
+     1    3.61    0.01    0.01    2.07 v swerv/lsu/bus_intf/bus_buffer/_20461_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10531_ (net)
+                  0.01    0.00    2.07 v swerv/lsu/bus_intf/bus_buffer/_21125_/A (FA_X1)
+     1    3.61    0.02    0.10    2.17 v swerv/lsu/bus_intf/bus_buffer/_21125_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10534_ (net)
+                  0.02    0.00    2.17 v swerv/lsu/bus_intf/bus_buffer/_21128_/A (FA_X1)
+     1    1.70    0.01    0.12    2.28 ^ swerv/lsu/bus_intf/bus_buffer/_21128_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10545_ (net)
+                  0.01    0.00    2.28 ^ swerv/lsu/bus_intf/bus_buffer/_20453_/A (INV_X1)
+     1    3.61    0.01    0.01    2.30 v swerv/lsu/bus_intf/bus_buffer/_20453_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10546_ (net)
+                  0.01    0.00    2.30 v swerv/lsu/bus_intf/bus_buffer/_21129_/A (FA_X1)
+     1    1.70    0.01    0.11    2.41 ^ swerv/lsu/bus_intf/bus_buffer/_21129_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10550_ (net)
+                  0.01    0.00    2.41 ^ swerv/lsu/bus_intf/bus_buffer/_20465_/A (INV_X1)
+     1    3.06    0.01    0.01    2.42 v swerv/lsu/bus_intf/bus_buffer/_20465_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10620_ (net)
+                  0.01    0.00    2.42 v swerv/lsu/bus_intf/bus_buffer/_21146_/A (HA_X1)
+     1    2.66    0.01    0.03    2.44 v swerv/lsu/bus_intf/bus_buffer/_21146_/CO (HA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10552_ (net)
+                  0.01    0.00    2.44 v swerv/lsu/bus_intf/bus_buffer/_21130_/CI (FA_X1)
+     1    1.55    0.01    0.06    2.51 v swerv/lsu/bus_intf/bus_buffer/_21130_/CO (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10553_ (net)
+                  0.01    0.00    2.51 v swerv/lsu/bus_intf/bus_buffer/_20459_/A (INV_X1)
+     1    2.76    0.01    0.02    2.53 ^ swerv/lsu/bus_intf/bus_buffer/_20459_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10557_ (net)
+                  0.01    0.00    2.53 ^ swerv/lsu/bus_intf/bus_buffer/_21131_/CI (FA_X1)
+     1    2.36    0.01    0.04    2.57 ^ swerv/lsu/bus_intf/bus_buffer/_21131_/CO (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10558_ (net)
+                  0.01    0.00    2.57 ^ swerv/lsu/bus_intf/bus_buffer/_10711_/B (XOR2_X1)
+     1    2.57    0.03    0.05    2.62 ^ swerv/lsu/bus_intf/bus_buffer/_10711_/Z (XOR2_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03995_ (net)
+                  0.03    0.00    2.62 ^ swerv/lsu/bus_intf/bus_buffer/_10712_/B (XNOR2_X1)
+     1    1.67    0.02    0.04    2.66 ^ swerv/lsu/bus_intf/bus_buffer/_10712_/ZN (XNOR2_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03996_ (net)
+                  0.02    0.00    2.66 ^ swerv/lsu/bus_intf/bus_buffer/_10714_/A (OAI21_X1)
+     2    2.46    0.01    0.02    2.69 v swerv/lsu/bus_intf/bus_buffer/_10714_/ZN (OAI21_X1)
+                                         swerv/lsu_load_stall_any (net)
+                  0.01    0.00    2.69 v swerv/lsu/_7603_/A2 (OR2_X1)
+     5    7.27    0.01    0.06    2.75 v swerv/lsu/_7603_/ZN (OR2_X1)
+                                         swerv/lsu_store_stall_any (net)
+                  0.01    0.00    2.75 v swerv/dec/decode/_08324_/A1 (NOR2_X1)
+     2    3.25    0.02    0.03    2.78 ^ swerv/dec/decode/_08324_/ZN (NOR2_X1)
+                                         swerv/dec/decode/_01397_ (net)
+                  0.02    0.00    2.78 ^ swerv/dec/decode/_08325_/C1 (OAI222_X1)
+     2    2.92    0.03    0.04    2.82 v swerv/dec/decode/_08325_/ZN (OAI222_X1)
+                                         swerv/dec/decode/_01398_ (net)
+                  0.03    0.00    2.82 v swerv/dec/decode/_08327_/A1 (NOR2_X1)
+     1    1.66    0.02    0.03    2.85 ^ swerv/dec/decode/_08327_/ZN (NOR2_X1)
+                                         swerv/dec/decode/_01400_ (net)
+                  0.02    0.00    2.85 ^ swerv/dec/decode/_08328_/B1 (OAI21_X1)
+     2    4.49    0.03    0.02    2.87 v swerv/dec/decode/_08328_/ZN (OAI21_X1)
+                                         swerv/dec/decode/_01401_ (net)
+                  0.03    0.00    2.87 v swerv/dec/decode/_08400_/A2 (NOR3_X2)
+     1    3.82    0.03    0.06    2.93 ^ swerv/dec/decode/_08400_/ZN (NOR3_X2)
+                                         swerv/dec/decode/_01473_ (net)
+                  0.03    0.00    2.93 ^ swerv/dec/decode/_08401_/A4 (NAND4_X2)
+     2    3.42    0.02    0.03    2.96 v swerv/dec/decode/_08401_/ZN (NAND4_X2)
+                                         swerv/dec/decode/_01474_ (net)
+                  0.02    0.00    2.96 v swerv/dec/decode/_08459_/A1 (OR2_X1)
+    12   15.60    0.02    0.08    3.04 v swerv/dec/decode/_08459_/ZN (OR2_X1)
+                                         swerv/dec/decode/_01532_ (net)
+                  0.02    0.00    3.04 v swerv/dec/decode/_08460_/A (INV_X1)
+    17   26.19    0.06    0.08    3.12 ^ swerv/dec/decode/_08460_/ZN (INV_X1)
+                                         swerv/dec/instbuff.dec_i0_decode_d (net)
+                  0.06    0.00    3.12 ^ swerv/dec/_3448_/A2 (NAND2_X1)
+     3    4.68    0.02    0.03    3.15 v swerv/dec/_3448_/ZN (NAND2_X1)
+                                         swerv/dec/_0135_ (net)
+                  0.02    0.00    3.15 v swerv/dec/_3582_/A2 (NOR2_X1)
+   154  244.39    1.14    1.26    4.41 ^ swerv/dec/_3582_/ZN (NOR2_X1)
+                                         swerv/dec/_0237_ (net)
+                  1.14    0.00    4.41 ^ swerv/dec/_3663_/A (AOI21_X1)
+     1    1.56    0.18   -0.04    4.37 v swerv/dec/_3663_/ZN (AOI21_X1)
+                                         swerv/dec/_0286_ (net)
+                  0.18    0.00    4.37 v swerv/dec/_3664_/A2 (NOR2_X1)
+   153  242.35    1.13    1.39    5.76 ^ swerv/dec/_3664_/ZN (NOR2_X1)
+                                         swerv/dec/_0287_ (net)
+                  1.13    0.00    5.76 ^ swerv/dec/_3736_/B1 (AOI22_X1)
+     1    1.55    0.19    0.04    5.80 v swerv/dec/_3736_/ZN (AOI22_X1)
+                                         swerv/dec/_0328_ (net)
+                  0.19    0.00    5.80 v swerv/dec/_3737_/A (INV_X1)
+     1    1.13    0.03    0.05    5.84 ^ swerv/dec/_3737_/ZN (INV_X1)
+                                         swerv/dec/instbuff.genblk5_ib3ff.din[31] (net)
+                  0.03    0.00    5.84 ^ swerv/dec/_6664_/D (DFFR_X1)
+                                  5.84   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ swerv/dec/_6664_/CK (DFFR_X1)
+                         -0.04    3.36   library setup time
+                                  3.36   data required time
+-----------------------------------------------------------------------------
+                                  3.36   data required time
+                                 -5.84   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.48   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: mem/Gen_dccm_enable_dccm/_2524_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ swerv/_07990_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v swerv/_07990_/ZN (INV_X1)
+                                         swerv/_02647_ (net)
+                  0.00    0.00    0.68 v swerv/_07992_/A (AOI21_X1)
+ 11228 19969.73   92.85  101.19  101.87 ^ swerv/_07992_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 92.85    0.00  101.87 ^ mem/Gen_dccm_enable_dccm/_2524_/RN (DFFR_X1)
+                                101.87   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ mem/Gen_dccm_enable_dccm/_2524_/CK (DFFR_X1)
+                        -22.42  -19.02   library recovery time
+                                -19.02   data required time
+-----------------------------------------------------------------------------
+                                -19.02   data required time
+                               -101.87   data arrival time
+-----------------------------------------------------------------------------
+                               -120.89   slack (VIOLATED)
+
+
+Startpoint: swerv/lsu/_9123_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dec/_6664_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/lsu/_9123_/CK (DFFR_X1)
+   159  283.82    0.65    0.77    0.77 ^ swerv/lsu/_9123_/Q (DFFR_X1)
+                                         swerv/lsu_error_pkt_dc3[1] (net)
+                  0.65    0.00    0.77 ^ swerv/lsu/_4712_/A (INV_X1)
+    58  105.20    0.30    0.47    1.24 v swerv/lsu/_4712_/ZN (INV_X1)
+                                         swerv/lsu/_0250_ (net)
+                  0.30    0.00    1.24 v swerv/lsu/_4760_/S (MUX2_X1)
+     2    1.89    0.02    0.12    1.37 ^ swerv/lsu/_4760_/Z (MUX2_X1)
+                                         swerv/lsu/_0296_ (net)
+                  0.02    0.00    1.37 ^ swerv/lsu/_4768_/A (MUX2_X1)
+     1    1.65    0.02    0.04    1.40 ^ swerv/lsu/_4768_/Z (MUX2_X1)
+                                         swerv/lsu/_0304_ (net)
+                  0.02    0.00    1.40 ^ swerv/lsu/_4769_/A2 (NOR2_X1)
+     1    1.41    0.03    0.01    1.42 v swerv/lsu/_4769_/ZN (NOR2_X1)
+                                         swerv/lsu/_0305_ (net)
+                  0.03    0.00    1.42 v swerv/lsu/_4771_/A1 (NOR2_X1)
+     9   12.76    0.07    0.09    1.50 ^ swerv/lsu/_4771_/ZN (NOR2_X1)
+                                         swerv/lsu_result_dc3[1] (net)
+                  0.07    0.00    1.50 ^ swerv/lsu/_5759_/A2 (NOR2_X1)
+     1    1.54    0.03    0.01    1.52 v swerv/lsu/_5759_/ZN (NOR2_X1)
+                                         swerv/lsu/_1071_ (net)
+                  0.03    0.00    1.52 v swerv/lsu/_5760_/A (AOI21_X1)
+     2    5.45    0.05    0.07    1.58 ^ swerv/lsu/_5760_/ZN (AOI21_X1)
+                                         swerv/lsu/_4397_ (net)
+                  0.05    0.00    1.58 ^ swerv/lsu/_8834_/A (FA_X1)
+     2    3.38    0.01    0.06    1.65 ^ swerv/lsu/_8834_/CO (FA_X1)
+                                         swerv/lsu/_4399_ (net)
+                  0.01    0.00    1.65 ^ swerv/lsu/_5762_/A (INV_X1)
+     1    3.40    0.01    0.01    1.66 v swerv/lsu/_5762_/ZN (INV_X1)
+                                         swerv/lsu/_4403_ (net)
+                  0.01    0.00    1.66 v swerv/lsu/_8835_/B (FA_X1)
+     2    3.93    0.02    0.12    1.78 ^ swerv/lsu/_8835_/S (FA_X1)
+                                         swerv/lsu/_4405_ (net)
+                  0.02    0.00    1.78 ^ swerv/lsu/_6105_/A (INV_X1)
+    10   33.20    0.04    0.05    1.83 v swerv/lsu/_6105_/ZN (INV_X1)
+                                         swerv/lsu/dccm_ctl.lsu_addr_dc1[2] (net)
+                  0.04    0.00    1.83 v swerv/lsu/bus_intf/_1894_/B (XOR2_X1)
+     3    3.47    0.02    0.07    1.90 v swerv/lsu/bus_intf/_1894_/Z (XOR2_X1)
+                                         swerv/lsu/bus_intf/ldst_dual_dc2ff.din (net)
+                  0.02    0.00    1.90 v swerv/lsu/bus_intf/bus_buffer/_10654_/A (INV_X1)
+     1    1.59    0.01    0.02    1.92 ^ swerv/lsu/bus_intf/bus_buffer/_10654_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03948_ (net)
+                  0.01    0.00    1.92 ^ swerv/lsu/bus_intf/bus_buffer/_10655_/A1 (NAND3_X1)
+     1    3.61    0.02    0.02    1.94 v swerv/lsu/bus_intf/bus_buffer/_10655_/ZN (NAND3_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10518_ (net)
+                  0.02    0.00    1.94 v swerv/lsu/bus_intf/bus_buffer/_21122_/A (FA_X1)
+     1    1.70    0.01    0.11    2.06 ^ swerv/lsu/bus_intf/bus_buffer/_21122_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10521_ (net)
+                  0.01    0.00    2.06 ^ swerv/lsu/bus_intf/bus_buffer/_20461_/A (INV_X1)
+     1    3.61    0.01    0.01    2.07 v swerv/lsu/bus_intf/bus_buffer/_20461_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10531_ (net)
+                  0.01    0.00    2.07 v swerv/lsu/bus_intf/bus_buffer/_21125_/A (FA_X1)
+     1    3.61    0.02    0.10    2.17 v swerv/lsu/bus_intf/bus_buffer/_21125_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10534_ (net)
+                  0.02    0.00    2.17 v swerv/lsu/bus_intf/bus_buffer/_21128_/A (FA_X1)
+     1    1.70    0.01    0.12    2.28 ^ swerv/lsu/bus_intf/bus_buffer/_21128_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10545_ (net)
+                  0.01    0.00    2.28 ^ swerv/lsu/bus_intf/bus_buffer/_20453_/A (INV_X1)
+     1    3.61    0.01    0.01    2.30 v swerv/lsu/bus_intf/bus_buffer/_20453_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10546_ (net)
+                  0.01    0.00    2.30 v swerv/lsu/bus_intf/bus_buffer/_21129_/A (FA_X1)
+     1    1.70    0.01    0.11    2.41 ^ swerv/lsu/bus_intf/bus_buffer/_21129_/S (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10550_ (net)
+                  0.01    0.00    2.41 ^ swerv/lsu/bus_intf/bus_buffer/_20465_/A (INV_X1)
+     1    3.06    0.01    0.01    2.42 v swerv/lsu/bus_intf/bus_buffer/_20465_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10620_ (net)
+                  0.01    0.00    2.42 v swerv/lsu/bus_intf/bus_buffer/_21146_/A (HA_X1)
+     1    2.66    0.01    0.03    2.44 v swerv/lsu/bus_intf/bus_buffer/_21146_/CO (HA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10552_ (net)
+                  0.01    0.00    2.44 v swerv/lsu/bus_intf/bus_buffer/_21130_/CI (FA_X1)
+     1    1.55    0.01    0.06    2.51 v swerv/lsu/bus_intf/bus_buffer/_21130_/CO (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10553_ (net)
+                  0.01    0.00    2.51 v swerv/lsu/bus_intf/bus_buffer/_20459_/A (INV_X1)
+     1    2.76    0.01    0.02    2.53 ^ swerv/lsu/bus_intf/bus_buffer/_20459_/ZN (INV_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10557_ (net)
+                  0.01    0.00    2.53 ^ swerv/lsu/bus_intf/bus_buffer/_21131_/CI (FA_X1)
+     1    2.36    0.01    0.04    2.57 ^ swerv/lsu/bus_intf/bus_buffer/_21131_/CO (FA_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_10558_ (net)
+                  0.01    0.00    2.57 ^ swerv/lsu/bus_intf/bus_buffer/_10711_/B (XOR2_X1)
+     1    2.57    0.03    0.05    2.62 ^ swerv/lsu/bus_intf/bus_buffer/_10711_/Z (XOR2_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03995_ (net)
+                  0.03    0.00    2.62 ^ swerv/lsu/bus_intf/bus_buffer/_10712_/B (XNOR2_X1)
+     1    1.67    0.02    0.04    2.66 ^ swerv/lsu/bus_intf/bus_buffer/_10712_/ZN (XNOR2_X1)
+                                         swerv/lsu/bus_intf/bus_buffer/_03996_ (net)
+                  0.02    0.00    2.66 ^ swerv/lsu/bus_intf/bus_buffer/_10714_/A (OAI21_X1)
+     2    2.46    0.01    0.02    2.69 v swerv/lsu/bus_intf/bus_buffer/_10714_/ZN (OAI21_X1)
+                                         swerv/lsu_load_stall_any (net)
+                  0.01    0.00    2.69 v swerv/lsu/_7603_/A2 (OR2_X1)
+     5    7.27    0.01    0.06    2.75 v swerv/lsu/_7603_/ZN (OR2_X1)
+                                         swerv/lsu_store_stall_any (net)
+                  0.01    0.00    2.75 v swerv/dec/decode/_08324_/A1 (NOR2_X1)
+     2    3.25    0.02    0.03    2.78 ^ swerv/dec/decode/_08324_/ZN (NOR2_X1)
+                                         swerv/dec/decode/_01397_ (net)
+                  0.02    0.00    2.78 ^ swerv/dec/decode/_08325_/C1 (OAI222_X1)
+     2    2.92    0.03    0.04    2.82 v swerv/dec/decode/_08325_/ZN (OAI222_X1)
+                                         swerv/dec/decode/_01398_ (net)
+                  0.03    0.00    2.82 v swerv/dec/decode/_08327_/A1 (NOR2_X1)
+     1    1.66    0.02    0.03    2.85 ^ swerv/dec/decode/_08327_/ZN (NOR2_X1)
+                                         swerv/dec/decode/_01400_ (net)
+                  0.02    0.00    2.85 ^ swerv/dec/decode/_08328_/B1 (OAI21_X1)
+     2    4.49    0.03    0.02    2.87 v swerv/dec/decode/_08328_/ZN (OAI21_X1)
+                                         swerv/dec/decode/_01401_ (net)
+                  0.03    0.00    2.87 v swerv/dec/decode/_08400_/A2 (NOR3_X2)
+     1    3.82    0.03    0.06    2.93 ^ swerv/dec/decode/_08400_/ZN (NOR3_X2)
+                                         swerv/dec/decode/_01473_ (net)
+                  0.03    0.00    2.93 ^ swerv/dec/decode/_08401_/A4 (NAND4_X2)
+     2    3.42    0.02    0.03    2.96 v swerv/dec/decode/_08401_/ZN (NAND4_X2)
+                                         swerv/dec/decode/_01474_ (net)
+                  0.02    0.00    2.96 v swerv/dec/decode/_08459_/A1 (OR2_X1)
+    12   15.60    0.02    0.08    3.04 v swerv/dec/decode/_08459_/ZN (OR2_X1)
+                                         swerv/dec/decode/_01532_ (net)
+                  0.02    0.00    3.04 v swerv/dec/decode/_08460_/A (INV_X1)
+    17   26.19    0.06    0.08    3.12 ^ swerv/dec/decode/_08460_/ZN (INV_X1)
+                                         swerv/dec/instbuff.dec_i0_decode_d (net)
+                  0.06    0.00    3.12 ^ swerv/dec/_3448_/A2 (NAND2_X1)
+     3    4.68    0.02    0.03    3.15 v swerv/dec/_3448_/ZN (NAND2_X1)
+                                         swerv/dec/_0135_ (net)
+                  0.02    0.00    3.15 v swerv/dec/_3582_/A2 (NOR2_X1)
+   154  244.39    1.14    1.26    4.41 ^ swerv/dec/_3582_/ZN (NOR2_X1)
+                                         swerv/dec/_0237_ (net)
+                  1.14    0.00    4.41 ^ swerv/dec/_3663_/A (AOI21_X1)
+     1    1.56    0.18   -0.04    4.37 v swerv/dec/_3663_/ZN (AOI21_X1)
+                                         swerv/dec/_0286_ (net)
+                  0.18    0.00    4.37 v swerv/dec/_3664_/A2 (NOR2_X1)
+   153  242.35    1.13    1.39    5.76 ^ swerv/dec/_3664_/ZN (NOR2_X1)
+                                         swerv/dec/_0287_ (net)
+                  1.13    0.00    5.76 ^ swerv/dec/_3736_/B1 (AOI22_X1)
+     1    1.55    0.19    0.04    5.80 v swerv/dec/_3736_/ZN (AOI22_X1)
+                                         swerv/dec/_0328_ (net)
+                  0.19    0.00    5.80 v swerv/dec/_3737_/A (INV_X1)
+     1    1.13    0.03    0.05    5.84 ^ swerv/dec/_3737_/ZN (INV_X1)
+                                         swerv/dec/instbuff.genblk5_ib3ff.din[31] (net)
+                  0.03    0.00    5.84 ^ swerv/dec/_6664_/D (DFFR_X1)
+                                  5.84   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ swerv/dec/_6664_/CK (DFFR_X1)
+                         -0.04    3.36   library setup time
+                                  3.36   data required time
+-----------------------------------------------------------------------------
+                                  3.36   data required time
+                                 -5.84   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.48   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.36e-01   8.33e-03   1.00e-03   2.45e-01  51.0%
+Combinational          4.38e-02   3.38e-02   2.17e-03   7.97e-02  16.6%
+Macro                  1.35e-01   4.65e-05   2.07e-02   1.56e-01  32.4%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.15e-01   4.21e-02   2.39e-02   4.81e-01 100.0%
+                          86.3%       8.8%       5.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 630393 u^2 60% utilization.
+
+Elapsed time: 0:10.33[h:]min:sec. CPU time: user 10.21 sys 0.11 (99%). Peak memory: 472592KB.

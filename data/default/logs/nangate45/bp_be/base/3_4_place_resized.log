@@ -1,0 +1,667 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre check_setup
+--------------------------------------------------------------------------
+Warning: There are 24 unconstrained endpoints.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns -51498.75
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns -26.33
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack -26.33
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: be_calculator/_17430_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: be_calculator/_17801_ (rising edge-triggered flip-flop clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_calculator/_17430_/CK (DFF_X1)
+     1    1.08    0.01    0.08    0.08 v be_calculator/_17430_/Q (DFF_X1)
+                                         be_calculator/calc_stage_r_0__instr__18_ (net)
+                  0.01    0.00    0.08 v be_calculator/_17801_/D (DFF_X1)
+                                  0.08   data arrival time
+
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ be_calculator/_17801_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.08   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: be_mmu/dcache/_25701_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_data_resp_o[344] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_mmu/dcache/_25701_/CK (DFF_X1)
+   663 1422.96    2.81    2.57    2.57 ^ be_mmu/dcache/_25701_/Q (DFF_X1)
+                                         be_mmu/dcache/genblk6_1__lce_data_mem_read_mux.N0 (net)
+                  3.02    0.81    3.38 ^ be_mmu/dcache/_18882_/A (INV_X1)
+   114  315.97    3.09    4.98    8.36 v be_mmu/dcache/_18882_/ZN (INV_X1)
+                                         be_mmu/dcache/_02734_ (net)
+                  3.09    0.02    8.39 v be_mmu/dcache/_18909_/A1 (NOR2_X1)
+   306  690.43    2.94   21.82   30.21 ^ be_mmu/dcache/_18909_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_02760_ (net)
+                  2.97    0.33   30.54 ^ be_mmu/dcache/_22610_/A2 (AOI22_X1)
+     1    1.66    0.38   -0.09   30.44 v be_mmu/dcache/_22610_/ZN (AOI22_X1)
+                                         be_mmu/dcache/_06118_ (net)
+                  0.38    0.00   30.44 v be_mmu/dcache/_22611_/A2 (NOR2_X1)
+     1    1.70    0.42    0.12   30.56 ^ be_mmu/dcache/_22611_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_06119_ (net)
+                  0.42    0.00   30.56 ^ be_mmu/dcache/_22612_/A (AOI21_X1)
+     2    3.20    0.17    0.01   30.58 v be_mmu/dcache/_22612_/ZN (AOI21_X1)
+                                         be_mmu/dcache/_06120_ (net)
+                  0.17    0.00   30.58 v be_mmu/dcache/_22613_/A2 (NAND2_X1)
+     1    1.69    0.13    0.06   30.63 ^ be_mmu/dcache/_22613_/ZN (NAND2_X1)
+                                         be_mmu/dcache/_06121_ (net)
+                  0.13    0.00   30.63 ^ be_mmu/dcache/_22614_/A (OAI21_X1)
+     1    1.41    0.02    0.03   30.66 v be_mmu/dcache/_22614_/ZN (OAI21_X1)
+                                         be_mmu/dcache/_06122_ (net)
+                  0.02    0.00   30.66 v be_mmu/dcache/_22615_/C2 (AOI221_X1)
+     3   32.34    0.99    0.29   30.96 ^ be_mmu/dcache/_22615_/ZN (AOI221_X1)
+                                         be_mmu/dcache/genblk6_5__lce_data_mem_read_mux.data_o[24] (net)
+                  0.99    0.02   30.98 ^ be_mmu/dcache/lce/_14628_/A (MUX2_X1)
+     1    1.20    0.13    0.09   31.06 ^ be_mmu/dcache/lce/_14628_/Z (MUX2_X1)
+                                         be_mmu/dcache/lce/_05247_ (net)
+                  0.13    0.00   31.06 ^ be_mmu/dcache/lce/_14629_/A2 (AND2_X1)
+     1    8.01    0.05    0.07   31.13 ^ be_mmu/dcache/lce/_14629_/ZN (AND2_X1)
+                                         lce_data_resp_o[344] (net)
+                  0.05    0.00   31.13 ^ lce_data_resp_o[344] (out)
+                                 31.13   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                -31.13   data arrival time
+-----------------------------------------------------------------------------
+                                -26.33   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: be_mmu/dcache/_25701_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_data_resp_o[344] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_mmu/dcache/_25701_/CK (DFF_X1)
+   663 1422.96    2.81    2.57    2.57 ^ be_mmu/dcache/_25701_/Q (DFF_X1)
+                                         be_mmu/dcache/genblk6_1__lce_data_mem_read_mux.N0 (net)
+                  3.02    0.81    3.38 ^ be_mmu/dcache/_18882_/A (INV_X1)
+   114  315.97    3.09    4.98    8.36 v be_mmu/dcache/_18882_/ZN (INV_X1)
+                                         be_mmu/dcache/_02734_ (net)
+                  3.09    0.02    8.39 v be_mmu/dcache/_18909_/A1 (NOR2_X1)
+   306  690.43    2.94   21.82   30.21 ^ be_mmu/dcache/_18909_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_02760_ (net)
+                  2.97    0.33   30.54 ^ be_mmu/dcache/_22610_/A2 (AOI22_X1)
+     1    1.66    0.38   -0.09   30.44 v be_mmu/dcache/_22610_/ZN (AOI22_X1)
+                                         be_mmu/dcache/_06118_ (net)
+                  0.38    0.00   30.44 v be_mmu/dcache/_22611_/A2 (NOR2_X1)
+     1    1.70    0.42    0.12   30.56 ^ be_mmu/dcache/_22611_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_06119_ (net)
+                  0.42    0.00   30.56 ^ be_mmu/dcache/_22612_/A (AOI21_X1)
+     2    3.20    0.17    0.01   30.58 v be_mmu/dcache/_22612_/ZN (AOI21_X1)
+                                         be_mmu/dcache/_06120_ (net)
+                  0.17    0.00   30.58 v be_mmu/dcache/_22613_/A2 (NAND2_X1)
+     1    1.69    0.13    0.06   30.63 ^ be_mmu/dcache/_22613_/ZN (NAND2_X1)
+                                         be_mmu/dcache/_06121_ (net)
+                  0.13    0.00   30.63 ^ be_mmu/dcache/_22614_/A (OAI21_X1)
+     1    1.41    0.02    0.03   30.66 v be_mmu/dcache/_22614_/ZN (OAI21_X1)
+                                         be_mmu/dcache/_06122_ (net)
+                  0.02    0.00   30.66 v be_mmu/dcache/_22615_/C2 (AOI221_X1)
+     3   32.34    0.99    0.29   30.96 ^ be_mmu/dcache/_22615_/ZN (AOI221_X1)
+                                         be_mmu/dcache/genblk6_5__lce_data_mem_read_mux.data_o[24] (net)
+                  0.99    0.02   30.98 ^ be_mmu/dcache/lce/_14628_/A (MUX2_X1)
+     1    1.20    0.13    0.09   31.06 ^ be_mmu/dcache/lce/_14628_/Z (MUX2_X1)
+                                         be_mmu/dcache/lce/_05247_ (net)
+                  0.13    0.00   31.06 ^ be_mmu/dcache/lce/_14629_/A2 (AND2_X1)
+     1    8.01    0.05    0.07   31.13 ^ be_mmu/dcache/lce/_14629_/ZN (AND2_X1)
+                                         lce_data_resp_o[344] (net)
+                  0.05    0.00   31.13 ^ lce_data_resp_o[344] (out)
+                                 31.13   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                -31.13   data arrival time
+-----------------------------------------------------------------------------
+                                -26.33   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.28e-02   2.19e-03   6.78e-04   1.56e-02  20.3%
+Combinational          2.28e-02   1.04e-02   1.02e-03   3.42e-02  44.5%
+Macro                  2.01e-02   2.42e-04   6.81e-03   2.71e-02  35.2%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.56e-02   1.28e-02   8.51e-03   7.70e-02 100.0%
+                          72.3%      16.6%      11.1%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 229635 u^2 43% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+46486
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+171807
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 1222 input buffers.
+[INFO RSZ-0028] Inserted 1752 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 661um.
+[INFO RSZ-0034] Found 9608 slew violations.
+[INFO RSZ-0036] Found 230 capacitance violations.
+[INFO RSZ-0037] Found 111 long wires.
+[INFO RSZ-0038] Inserted 1053 buffers in 9756 nets.
+[INFO RSZ-0039] Resized 8659 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 27 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 10 tie LOGIC1_X1 instances.
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer check_setup
+--------------------------------------------------------------------------
+Warning: There are 24 unconstrained endpoints.
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2.57
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: be_calculator/_17430_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: be_calculator/_17801_ (rising edge-triggered flip-flop clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_calculator/_17430_/CK (DFF_X1)
+     1    1.08    0.01    0.08    0.08 v be_calculator/_17430_/Q (DFF_X1)
+                                         be_calculator/calc_stage_r_0__instr__18_ (net)
+                  0.01    0.00    0.08 v be_calculator/_17801_/D (DFF_X1)
+                                  0.08   data arrival time
+
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ be_calculator/_17801_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.08   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: be_calculator/_17203_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: fe_queue_ready_o (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_calculator/_17203_/CK (DFF_X2)
+    10   49.71    0.06    0.16    0.16 ^ be_calculator/_17203_/Q (DFF_X2)
+                                         be_calculator/pipe_int.N1 (net)
+                  0.06    0.00    0.16 ^ max_cap4018/A (BUF_X16)
+    27  103.36    0.01    0.03    0.19 ^ max_cap4018/Z (BUF_X16)
+                                         net4018 (net)
+                  0.04    0.03    0.23 ^ max_cap4017/A (BUF_X16)
+    25  101.58    0.02    0.04    0.27 ^ max_cap4017/Z (BUF_X16)
+                                         net4017 (net)
+                  0.02    0.01    0.27 ^ be_calculator/_10029_/S (MUX2_X2)
+    16   70.91    0.04    0.12    0.40 v be_calculator/_10029_/Z (MUX2_X2)
+                                         be_calculator/_00467_ (net)
+                  0.04    0.00    0.40 v max_cap3814/A (BUF_X16)
+    23   69.16    0.01    0.04    0.44 v max_cap3814/Z (BUF_X16)
+                                         net3814 (net)
+                  0.01    0.01    0.45 v max_cap3813/A (BUF_X16)
+    34  101.87    0.01    0.03    0.48 v max_cap3813/Z (BUF_X16)
+                                         net3813 (net)
+                  0.01    0.01    0.48 v be_calculator/_16554_/B (HA_X1)
+     6   13.04    0.03    0.08    0.56 v be_calculator/_16554_/S (HA_X1)
+                                         be_calculator/_08797_ (net)
+                  0.03    0.00    0.56 v be_calculator/_10601_/A2 (NOR4_X2)
+     1    6.36    0.06    0.09    0.65 ^ be_calculator/_10601_/ZN (NOR4_X2)
+                                         be_calculator/_00837_ (net)
+                  0.06    0.00    0.65 ^ be_calculator/_10602_/A4 (NAND4_X4)
+     1   11.03    0.03    0.04    0.69 v be_calculator/_10602_/ZN (NAND4_X4)
+                                         be_calculator/_00838_ (net)
+                  0.03    0.00    0.69 v be_calculator/_10603_/A4 (NOR4_X2)
+     4    7.53    0.06    0.11    0.80 ^ be_calculator/_10603_/ZN (NOR4_X2)
+                                         be_calculator/_00839_ (net)
+                  0.06    0.00    0.80 ^ be_calculator/_10615_/A (AOI21_X1)
+     1    2.82    0.03    0.02    0.82 v be_calculator/_10615_/ZN (AOI21_X1)
+                                         be_calculator/_00851_ (net)
+                  0.03    0.00    0.82 v be_calculator/_10616_/B (XNOR2_X1)
+     1    1.98    0.01    0.05    0.87 v be_calculator/_10616_/ZN (XNOR2_X1)
+                                         be_calculator/_00852_ (net)
+                  0.01    0.00    0.87 v be_calculator/_10617_/B1 (OAI21_X1)
+     1    2.04    0.02    0.03    0.90 ^ be_calculator/_10617_/ZN (OAI21_X1)
+                                         be_calculator/_00853_ (net)
+                  0.02    0.00    0.90 ^ be_calculator/_10619_/B1 (AOI22_X1)
+     1    1.76    0.02    0.02    0.92 v be_calculator/_10619_/ZN (AOI22_X1)
+                                         be_calculator/_00855_ (net)
+                  0.02    0.00    0.92 v be_calculator/_10738_/B (MUX2_X1)
+     1    6.80    0.02    0.08    1.00 v be_calculator/_10738_/Z (MUX2_X1)
+                                         be_calculator/_00974_ (net)
+                  0.02    0.00    1.00 v be_calculator/_10854_/A2 (NAND3_X2)
+     1    8.05    0.02    0.03    1.02 ^ be_calculator/_10854_/ZN (NAND3_X2)
+                                         be_calculator/_01089_ (net)
+                  0.02    0.00    1.03 ^ be_calculator/_10891_/A1 (NAND3_X4)
+     4   20.88    0.02    0.03    1.06 v be_calculator/_10891_/ZN (NAND3_X4)
+                                         be_calculator/_01126_ (net)
+                  0.02    0.00    1.06 v be_calculator/_14227_/B2 (OAI21_X4)
+    35   98.52    0.11    0.13    1.18 ^ be_calculator/_14227_/ZN (OAI21_X4)
+                                         be_checker.calc_status_i[120] (net)
+                  0.12    0.04    1.22 ^ _1951_/A1 (NAND2_X4)
+    41  107.80    0.07    0.10    1.31 v _1951_/ZN (NAND2_X4)
+                                         _0269_ (net)
+                  0.07    0.01    1.33 v _2479_/S (MUX2_X1)
+     3    5.71    0.02    0.08    1.41 ^ _2479_/Z (MUX2_X1)
+                                         _0797_ (net)
+                  0.02    0.00    1.41 ^ _2545_/B2 (OAI22_X1)
+     1    3.66    0.01    0.03    1.44 v _2545_/ZN (OAI22_X1)
+                                         _0863_ (net)
+                  0.01    0.00    1.44 v _2546_/A4 (OR4_X1)
+     1    3.77    0.02    0.12    1.56 v _2546_/ZN (OR4_X1)
+                                         _0864_ (net)
+                  0.02    0.00    1.56 v _2547_/A4 (NOR4_X1)
+     1    3.63    0.06    0.10    1.67 ^ _2547_/ZN (NOR4_X1)
+                                         _0865_ (net)
+                  0.06    0.00    1.67 ^ _2593_/A2 (NAND4_X2)
+     1    6.83    0.03    0.05    1.71 v _2593_/ZN (NAND4_X2)
+                                         _0911_ (net)
+                  0.03    0.00    1.71 v _2594_/A4 (NOR4_X4)
+    10   31.56    0.10    0.15    1.87 ^ _2594_/ZN (NOR4_X4)
+                                         _0912_ (net)
+                  0.10    0.00    1.87 ^ max_cap3006/A (BUF_X4)
+    16   39.61    0.02    0.05    1.92 ^ max_cap3006/Z (BUF_X4)
+                                         net3006 (net)
+                  0.02    0.00    1.92 ^ max_cap3005/A (BUF_X8)
+    20   41.00    0.01    0.03    1.96 ^ max_cap3005/Z (BUF_X8)
+                                         net3005 (net)
+                  0.01    0.00    1.96 ^ max_cap3004/A (BUF_X4)
+    15   40.77    0.02    0.04    2.00 ^ max_cap3004/Z (BUF_X4)
+                                         net3004 (net)
+                  0.02    0.00    2.00 ^ _2596_/A2 (OR2_X4)
+     7   28.45    0.02    0.04    2.04 ^ _2596_/ZN (OR2_X4)
+                                         _0914_ (net)
+                  0.02    0.01    2.05 ^ _3076_/A1 (NAND2_X1)
+     2    4.68    0.02    0.02    2.07 v _3076_/ZN (NAND2_X1)
+                                         be_checker.chk_poison_isd_o (net)
+                  0.02    0.00    2.07 v be_calculator/_14220_/A2 (NOR3_X2)
+     1    8.19    0.04    0.07    2.14 ^ be_calculator/_14220_/ZN (NOR3_X2)
+                                         be_checker.issue_pkt_ready_i (net)
+                  0.04    0.00    2.14 ^ _1580_/A1 (NAND2_X4)
+     6   30.21    0.02    0.04    2.18 v _1580_/ZN (NAND2_X4)
+                                         _0117_ (net)
+                  0.02    0.00    2.18 v _1581_/A (INV_X8)
+    14   63.92    0.02    0.03    2.21 ^ _1581_/ZN (INV_X8)
+                                         net1836 (net)
+                  0.02    0.00    2.21 ^ output1836/A (BUF_X1)
+     1    1.09    0.01    0.02    2.23 ^ output1836/Z (BUF_X1)
+                                         fe_queue_ready_o (net)
+                  0.01    0.00    2.23 ^ fe_queue_ready_o (out)
+                                  2.23   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                 -2.23   data arrival time
+-----------------------------------------------------------------------------
+                                  2.57   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: be_calculator/_17203_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: fe_queue_ready_o (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_calculator/_17203_/CK (DFF_X2)
+    10   49.71    0.06    0.16    0.16 ^ be_calculator/_17203_/Q (DFF_X2)
+                                         be_calculator/pipe_int.N1 (net)
+                  0.06    0.00    0.16 ^ max_cap4018/A (BUF_X16)
+    27  103.36    0.01    0.03    0.19 ^ max_cap4018/Z (BUF_X16)
+                                         net4018 (net)
+                  0.04    0.03    0.23 ^ max_cap4017/A (BUF_X16)
+    25  101.58    0.02    0.04    0.27 ^ max_cap4017/Z (BUF_X16)
+                                         net4017 (net)
+                  0.02    0.01    0.27 ^ be_calculator/_10029_/S (MUX2_X2)
+    16   70.91    0.04    0.12    0.40 v be_calculator/_10029_/Z (MUX2_X2)
+                                         be_calculator/_00467_ (net)
+                  0.04    0.00    0.40 v max_cap3814/A (BUF_X16)
+    23   69.16    0.01    0.04    0.44 v max_cap3814/Z (BUF_X16)
+                                         net3814 (net)
+                  0.01    0.01    0.45 v max_cap3813/A (BUF_X16)
+    34  101.87    0.01    0.03    0.48 v max_cap3813/Z (BUF_X16)
+                                         net3813 (net)
+                  0.01    0.01    0.48 v be_calculator/_16554_/B (HA_X1)
+     6   13.04    0.03    0.08    0.56 v be_calculator/_16554_/S (HA_X1)
+                                         be_calculator/_08797_ (net)
+                  0.03    0.00    0.56 v be_calculator/_10601_/A2 (NOR4_X2)
+     1    6.36    0.06    0.09    0.65 ^ be_calculator/_10601_/ZN (NOR4_X2)
+                                         be_calculator/_00837_ (net)
+                  0.06    0.00    0.65 ^ be_calculator/_10602_/A4 (NAND4_X4)
+     1   11.03    0.03    0.04    0.69 v be_calculator/_10602_/ZN (NAND4_X4)
+                                         be_calculator/_00838_ (net)
+                  0.03    0.00    0.69 v be_calculator/_10603_/A4 (NOR4_X2)
+     4    7.53    0.06    0.11    0.80 ^ be_calculator/_10603_/ZN (NOR4_X2)
+                                         be_calculator/_00839_ (net)
+                  0.06    0.00    0.80 ^ be_calculator/_10615_/A (AOI21_X1)
+     1    2.82    0.03    0.02    0.82 v be_calculator/_10615_/ZN (AOI21_X1)
+                                         be_calculator/_00851_ (net)
+                  0.03    0.00    0.82 v be_calculator/_10616_/B (XNOR2_X1)
+     1    1.98    0.01    0.05    0.87 v be_calculator/_10616_/ZN (XNOR2_X1)
+                                         be_calculator/_00852_ (net)
+                  0.01    0.00    0.87 v be_calculator/_10617_/B1 (OAI21_X1)
+     1    2.04    0.02    0.03    0.90 ^ be_calculator/_10617_/ZN (OAI21_X1)
+                                         be_calculator/_00853_ (net)
+                  0.02    0.00    0.90 ^ be_calculator/_10619_/B1 (AOI22_X1)
+     1    1.76    0.02    0.02    0.92 v be_calculator/_10619_/ZN (AOI22_X1)
+                                         be_calculator/_00855_ (net)
+                  0.02    0.00    0.92 v be_calculator/_10738_/B (MUX2_X1)
+     1    6.80    0.02    0.08    1.00 v be_calculator/_10738_/Z (MUX2_X1)
+                                         be_calculator/_00974_ (net)
+                  0.02    0.00    1.00 v be_calculator/_10854_/A2 (NAND3_X2)
+     1    8.05    0.02    0.03    1.02 ^ be_calculator/_10854_/ZN (NAND3_X2)
+                                         be_calculator/_01089_ (net)
+                  0.02    0.00    1.03 ^ be_calculator/_10891_/A1 (NAND3_X4)
+     4   20.88    0.02    0.03    1.06 v be_calculator/_10891_/ZN (NAND3_X4)
+                                         be_calculator/_01126_ (net)
+                  0.02    0.00    1.06 v be_calculator/_14227_/B2 (OAI21_X4)
+    35   98.52    0.11    0.13    1.18 ^ be_calculator/_14227_/ZN (OAI21_X4)
+                                         be_checker.calc_status_i[120] (net)
+                  0.12    0.04    1.22 ^ _1951_/A1 (NAND2_X4)
+    41  107.80    0.07    0.10    1.31 v _1951_/ZN (NAND2_X4)
+                                         _0269_ (net)
+                  0.07    0.01    1.33 v _2479_/S (MUX2_X1)
+     3    5.71    0.02    0.08    1.41 ^ _2479_/Z (MUX2_X1)
+                                         _0797_ (net)
+                  0.02    0.00    1.41 ^ _2545_/B2 (OAI22_X1)
+     1    3.66    0.01    0.03    1.44 v _2545_/ZN (OAI22_X1)
+                                         _0863_ (net)
+                  0.01    0.00    1.44 v _2546_/A4 (OR4_X1)
+     1    3.77    0.02    0.12    1.56 v _2546_/ZN (OR4_X1)
+                                         _0864_ (net)
+                  0.02    0.00    1.56 v _2547_/A4 (NOR4_X1)
+     1    3.63    0.06    0.10    1.67 ^ _2547_/ZN (NOR4_X1)
+                                         _0865_ (net)
+                  0.06    0.00    1.67 ^ _2593_/A2 (NAND4_X2)
+     1    6.83    0.03    0.05    1.71 v _2593_/ZN (NAND4_X2)
+                                         _0911_ (net)
+                  0.03    0.00    1.71 v _2594_/A4 (NOR4_X4)
+    10   31.56    0.10    0.15    1.87 ^ _2594_/ZN (NOR4_X4)
+                                         _0912_ (net)
+                  0.10    0.00    1.87 ^ max_cap3006/A (BUF_X4)
+    16   39.61    0.02    0.05    1.92 ^ max_cap3006/Z (BUF_X4)
+                                         net3006 (net)
+                  0.02    0.00    1.92 ^ max_cap3005/A (BUF_X8)
+    20   41.00    0.01    0.03    1.96 ^ max_cap3005/Z (BUF_X8)
+                                         net3005 (net)
+                  0.01    0.00    1.96 ^ max_cap3004/A (BUF_X4)
+    15   40.77    0.02    0.04    2.00 ^ max_cap3004/Z (BUF_X4)
+                                         net3004 (net)
+                  0.02    0.00    2.00 ^ _2596_/A2 (OR2_X4)
+     7   28.45    0.02    0.04    2.04 ^ _2596_/ZN (OR2_X4)
+                                         _0914_ (net)
+                  0.02    0.01    2.05 ^ _3076_/A1 (NAND2_X1)
+     2    4.68    0.02    0.02    2.07 v _3076_/ZN (NAND2_X1)
+                                         be_checker.chk_poison_isd_o (net)
+                  0.02    0.00    2.07 v be_calculator/_14220_/A2 (NOR3_X2)
+     1    8.19    0.04    0.07    2.14 ^ be_calculator/_14220_/ZN (NOR3_X2)
+                                         be_checker.issue_pkt_ready_i (net)
+                  0.04    0.00    2.14 ^ _1580_/A1 (NAND2_X4)
+     6   30.21    0.02    0.04    2.18 v _1580_/ZN (NAND2_X4)
+                                         _0117_ (net)
+                  0.02    0.00    2.18 v _1581_/A (INV_X8)
+    14   63.92    0.02    0.03    2.21 ^ _1581_/ZN (INV_X8)
+                                         net1836 (net)
+                  0.02    0.00    2.21 ^ output1836/A (BUF_X1)
+     1    1.09    0.01    0.02    2.23 ^ output1836/Z (BUF_X1)
+                                         fe_queue_ready_o (net)
+                  0.01    0.00    2.23 ^ fe_queue_ready_o (out)
+                                  2.23   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                 -2.23   data arrival time
+-----------------------------------------------------------------------------
+                                  2.57   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+be_calculator/int_regfile/rf/synth/_10450_/ZN   41.50   43.68   -2.18 (VIOLATED)
+be_mmu/dcache/_25224_/S                25.25   27.40   -2.14 (VIOLATED)
+
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.045577142387628555
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.2296
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+-2.1784703731536865
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+41.50389862060547
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0525
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 2
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+2.2330
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+2.5670
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+114.957456
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.30e-02   2.00e-03   7.18e-04   1.58e-02  23.7%
+Combinational          1.02e-02   1.18e-02   1.76e-03   2.37e-02  35.6%
+Macro                  2.01e-02   2.41e-04   6.81e-03   2.71e-02  40.7%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.33e-02   1.40e-02   9.29e-03   6.66e-02 100.0%
+                          65.0%      21.1%      14.0%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 249371 u^2 47% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+50536
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+179884
+
+Elapsed time: 0:15.63[h:]min:sec. CPU time: user 15.56 sys 0.06 (99%). Peak memory: 368456KB.

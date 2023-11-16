@@ -1,0 +1,435 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement      21896.5 u
+average displacement        0.8 u
+max displacement           10.2 u
+original HPWL          463532.6 u
+legalized HPWL         480873.0 u
+delta HPWL                    4 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 25770 cells, 269 terminals, 29939 edges and 92035 pins.
+[INFO DPO-0109] Network stats: inst 26039, edges 29939, pins 92035
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 1714 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 24421 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (20140, 19600) - (829540, 977200)
+[INFO DPO-0310] Assigned 24421 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 9.650102e+08.
+[INFO DPO-0302] End of matching; objective is 9.647131e+08, improvement is 0.03 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 9.545714e+08.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 9.524735e+08.
+[INFO DPO-0307] End of global swaps; objective is 9.524735e+08, improvement is 1.27 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 9.503579e+08.
+[INFO DPO-0309] End of vertical swaps; objective is 9.503579e+08, improvement is 0.22 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 9.497895e+08.
+[INFO DPO-0305] End of reordering; objective is 9.497895e+08, improvement is 0.06 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 488420 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 488420, swaps 37647, moves 199337 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 9.476710e+08, Scratch cost 9.407411e+08, Incremental cost 9.407411e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 9.407411e+08.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.73 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.731256 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 12276 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 8051 cell flips.
+[INFO DPO-0384] End of flipping; objective is 9.338260e+08, improvement is 0.96 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           480873.0 u
+Final HPWL              464285.4 u
+Delta HPWL                  -3.4 %
+
+[INFO DPL-0020] Mirrored 1217 instances
+[INFO DPL-0021] HPWL before          464285.4 u
+[INFO DPL-0022] HPWL after           464065.6 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+Warning: There are 136 input ports missing set_input_delay.
+Warning: There are 132 output ports missing set_output_delay.
+Warning: There are 165 unconstrained endpoints.
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.09
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: core/_24744_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: core/_24749_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ core/_24744_/CK (DFF_X1)
+     2    3.73    0.01    0.07    0.07 ^ core/_24744_/QN (DFF_X1)
+                                         core/_00017_ (net)
+                  0.01    0.00    0.07 ^ core/_15753_/A1 (NOR3_X1)
+     1    1.16    0.01    0.01    0.08 v core/_15753_/ZN (NOR3_X1)
+                                         core/_00010_ (net)
+                  0.01    0.00    0.08 v core/_24749_/D (DFF_X2)
+                                  0.08   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ core/_24749_/CK (DFF_X2)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.08   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: frontend/_6626_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: frontend/_6450_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ frontend/_6626_/CK (DFF_X2)
+    28   92.23    0.10    0.21    0.21 ^ frontend/_6626_/Q (DFF_X2)
+                                         frontend/fq._T_1_0 (net)
+                  0.10    0.02    0.22 ^ max_cap464/A (BUF_X16)
+    42  115.19    0.02    0.04    0.26 ^ max_cap464/Z (BUF_X16)
+                                         net464 (net)
+                  0.02    0.01    0.27 ^ frontend/_3805_/S (MUX2_X2)
+     6   21.01    0.03    0.06    0.33 ^ frontend/_3805_/Z (MUX2_X2)
+                                         core_io_imem_resp_bits_pc[1] (net)
+                  0.03    0.00    0.33 ^ core/_22835_/A (HA_X1)
+    17   47.55    0.11    0.15    0.48 ^ core/_22835_/CO (HA_X1)
+                                         core/_11904_ (net)
+                  0.11    0.00    0.48 ^ core/_12829_/S (MUX2_X1)
+     2    9.19    0.03    0.07    0.55 ^ core/_12829_/Z (MUX2_X1)
+                                         core/_06043_ (net)
+                  0.03    0.00    0.55 ^ core/_12830_/B (MUX2_X2)
+    37  120.69    0.13    0.17    0.72 ^ core/_12830_/Z (MUX2_X2)
+                                         core/_06044_ (net)
+                  0.13    0.02    0.74 ^ core/_12838_/A1 (NOR3_X4)
+    11   34.56    0.04    0.03    0.77 v core/_12838_/ZN (NOR3_X4)
+                                         core/_06052_ (net)
+                  0.04    0.00    0.77 v core/_13130_/A (AOI221_X1)
+     1    1.74    0.04    0.08    0.85 ^ core/_13130_/ZN (AOI221_X1)
+                                         core/_06343_ (net)
+                  0.04    0.00    0.85 ^ core/_13133_/A3 (AND4_X2)
+     2   11.67    0.02    0.07    0.93 ^ core/_13133_/ZN (AND4_X2)
+                                         core/_06346_ (net)
+                  0.02    0.00    0.93 ^ core/_13138_/A1 (OR2_X4)
+    55  229.33    0.11    0.12    1.05 ^ core/_13138_/ZN (OR2_X4)
+                                         core/_06351_ (net)
+                  0.14    0.06    1.11 ^ core/_13254_/A2 (NAND2_X4)
+    11   52.01    0.04    0.06    1.17 v core/_13254_/ZN (NAND2_X4)
+                                         core/_06467_ (net)
+                  0.04    0.00    1.18 v core/_13272_/A2 (NOR2_X4)
+     9   43.08    0.05    0.08    1.26 ^ core/_13272_/ZN (NOR2_X4)
+                                         core/_06485_ (net)
+                  0.05    0.01    1.27 ^ core/_13276_/B1 (AOI22_X1)
+     1    1.77    0.02    0.03    1.30 v core/_13276_/ZN (AOI22_X1)
+                                         core/_06489_ (net)
+                  0.02    0.00    1.30 v core/_13326_/A2 (AND4_X1)
+     1    4.82    0.01    0.05    1.35 v core/_13326_/ZN (AND4_X1)
+                                         core/_06539_ (net)
+                  0.01    0.00    1.35 v core/_13501_/B1 (AOI221_X4)
+     4   18.47    0.01    0.12    1.47 ^ core/_13501_/ZN (AOI221_X4)
+                                         core/_06714_ (net)
+                  0.01    0.00    1.47 ^ core/_15746_/A1 (AND2_X2)
+     3   21.12    0.03    0.05    1.53 ^ core/_15746_/ZN (AND2_X2)
+                                         core/_08407_ (net)
+                  0.03    0.00    1.53 ^ core/_15752_/A1 (AND2_X4)
+     9   43.70    0.02    0.05    1.58 ^ core/_15752_/ZN (AND2_X4)
+                                         core_io_imem_resp_ready (net)
+                  0.03    0.02    1.60 ^ frontend/_4207_/A (INV_X4)
+     6   30.55    0.01    0.02    1.62 v frontend/_4207_/ZN (INV_X4)
+                                         frontend/_0947_ (net)
+                  0.01    0.00    1.62 v frontend/_4283_/B2 (OAI22_X4)
+    20   68.13    0.10    0.12    1.74 ^ frontend/_4283_/ZN (OAI22_X4)
+                                         frontend/_0992_ (net)
+                  0.10    0.00    1.74 ^ max_cap262/A (BUF_X16)
+    20   65.66    0.01    0.03    1.77 ^ max_cap262/Z (BUF_X16)
+                                         net262 (net)
+                  0.02    0.02    1.79 ^ max_cap261/A (BUF_X8)
+    27   79.44    0.02    0.04    1.83 ^ max_cap261/Z (BUF_X8)
+                                         net261 (net)
+                  0.03    0.01    1.84 ^ frontend/_4588_/S (MUX2_X1)
+     1    1.29    0.01    0.06    1.90 v frontend/_4588_/Z (MUX2_X1)
+                                         frontend/_0260_ (net)
+                  0.01    0.00    1.90 v frontend/_6450_/D (DFF_X1)
+                                  1.90   data arrival time
+
+                  0.00    2.03    2.03   clock core_clock (rise edge)
+                          0.00    2.03   clock network delay (ideal)
+                          0.00    2.03   clock reconvergence pessimism
+                                  2.03 ^ frontend/_6450_/CK (DFF_X1)
+                         -0.04    1.99   library setup time
+                                  1.99   data required time
+-----------------------------------------------------------------------------
+                                  1.99   data required time
+                                 -1.90   data arrival time
+-----------------------------------------------------------------------------
+                                  0.09   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: frontend/_6626_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: frontend/_6450_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ frontend/_6626_/CK (DFF_X2)
+    28   92.23    0.10    0.21    0.21 ^ frontend/_6626_/Q (DFF_X2)
+                                         frontend/fq._T_1_0 (net)
+                  0.10    0.02    0.22 ^ max_cap464/A (BUF_X16)
+    42  115.19    0.02    0.04    0.26 ^ max_cap464/Z (BUF_X16)
+                                         net464 (net)
+                  0.02    0.01    0.27 ^ frontend/_3805_/S (MUX2_X2)
+     6   21.01    0.03    0.06    0.33 ^ frontend/_3805_/Z (MUX2_X2)
+                                         core_io_imem_resp_bits_pc[1] (net)
+                  0.03    0.00    0.33 ^ core/_22835_/A (HA_X1)
+    17   47.55    0.11    0.15    0.48 ^ core/_22835_/CO (HA_X1)
+                                         core/_11904_ (net)
+                  0.11    0.00    0.48 ^ core/_12829_/S (MUX2_X1)
+     2    9.19    0.03    0.07    0.55 ^ core/_12829_/Z (MUX2_X1)
+                                         core/_06043_ (net)
+                  0.03    0.00    0.55 ^ core/_12830_/B (MUX2_X2)
+    37  120.69    0.13    0.17    0.72 ^ core/_12830_/Z (MUX2_X2)
+                                         core/_06044_ (net)
+                  0.13    0.02    0.74 ^ core/_12838_/A1 (NOR3_X4)
+    11   34.56    0.04    0.03    0.77 v core/_12838_/ZN (NOR3_X4)
+                                         core/_06052_ (net)
+                  0.04    0.00    0.77 v core/_13130_/A (AOI221_X1)
+     1    1.74    0.04    0.08    0.85 ^ core/_13130_/ZN (AOI221_X1)
+                                         core/_06343_ (net)
+                  0.04    0.00    0.85 ^ core/_13133_/A3 (AND4_X2)
+     2   11.67    0.02    0.07    0.93 ^ core/_13133_/ZN (AND4_X2)
+                                         core/_06346_ (net)
+                  0.02    0.00    0.93 ^ core/_13138_/A1 (OR2_X4)
+    55  229.33    0.11    0.12    1.05 ^ core/_13138_/ZN (OR2_X4)
+                                         core/_06351_ (net)
+                  0.14    0.06    1.11 ^ core/_13254_/A2 (NAND2_X4)
+    11   52.01    0.04    0.06    1.17 v core/_13254_/ZN (NAND2_X4)
+                                         core/_06467_ (net)
+                  0.04    0.00    1.18 v core/_13272_/A2 (NOR2_X4)
+     9   43.08    0.05    0.08    1.26 ^ core/_13272_/ZN (NOR2_X4)
+                                         core/_06485_ (net)
+                  0.05    0.01    1.27 ^ core/_13276_/B1 (AOI22_X1)
+     1    1.77    0.02    0.03    1.30 v core/_13276_/ZN (AOI22_X1)
+                                         core/_06489_ (net)
+                  0.02    0.00    1.30 v core/_13326_/A2 (AND4_X1)
+     1    4.82    0.01    0.05    1.35 v core/_13326_/ZN (AND4_X1)
+                                         core/_06539_ (net)
+                  0.01    0.00    1.35 v core/_13501_/B1 (AOI221_X4)
+     4   18.47    0.01    0.12    1.47 ^ core/_13501_/ZN (AOI221_X4)
+                                         core/_06714_ (net)
+                  0.01    0.00    1.47 ^ core/_15746_/A1 (AND2_X2)
+     3   21.12    0.03    0.05    1.53 ^ core/_15746_/ZN (AND2_X2)
+                                         core/_08407_ (net)
+                  0.03    0.00    1.53 ^ core/_15752_/A1 (AND2_X4)
+     9   43.70    0.02    0.05    1.58 ^ core/_15752_/ZN (AND2_X4)
+                                         core_io_imem_resp_ready (net)
+                  0.03    0.02    1.60 ^ frontend/_4207_/A (INV_X4)
+     6   30.55    0.01    0.02    1.62 v frontend/_4207_/ZN (INV_X4)
+                                         frontend/_0947_ (net)
+                  0.01    0.00    1.62 v frontend/_4283_/B2 (OAI22_X4)
+    20   68.13    0.10    0.12    1.74 ^ frontend/_4283_/ZN (OAI22_X4)
+                                         frontend/_0992_ (net)
+                  0.10    0.00    1.74 ^ max_cap262/A (BUF_X16)
+    20   65.66    0.01    0.03    1.77 ^ max_cap262/Z (BUF_X16)
+                                         net262 (net)
+                  0.02    0.02    1.79 ^ max_cap261/A (BUF_X8)
+    27   79.44    0.02    0.04    1.83 ^ max_cap261/Z (BUF_X8)
+                                         net261 (net)
+                  0.03    0.01    1.84 ^ frontend/_4588_/S (MUX2_X1)
+     1    1.29    0.01    0.06    1.90 v frontend/_4588_/Z (MUX2_X1)
+                                         frontend/_0260_ (net)
+                  0.01    0.00    1.90 v frontend/_6450_/D (DFF_X1)
+                                  1.90   data arrival time
+
+                  0.00    2.03    2.03   clock core_clock (rise edge)
+                          0.00    2.03   clock network delay (ideal)
+                          0.00    2.03   clock reconvergence pessimism
+                                  2.03 ^ frontend/_6450_/CK (DFF_X1)
+                         -0.04    1.99   library setup time
+                                  1.99   data required time
+-----------------------------------------------------------------------------
+                                  1.99   data required time
+                                 -1.90   data arrival time
+-----------------------------------------------------------------------------
+                                  0.09   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+core/csr/_4719_/ZN                     63.32   64.60   -1.27 (VIOLATED)
+
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+0.06693355739116669
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3371
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+-1.2719453573226929
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+63.32400131225586
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0201
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 1
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+1.8991
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+0.0925
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+4.870728
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.31e-02   7.73e-03   3.57e-04   3.12e-02  17.3%
+Combinational          7.58e-02   6.95e-02   7.89e-04   1.46e-01  81.3%
+Macro                  2.25e-03   9.18e-06   1.63e-04   2.43e-03   1.4%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.01e-01   7.72e-02   1.31e-03   1.80e-01 100.0%
+                          56.3%      43.0%       0.7%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 54976 u^2 28% utilization.
+
+Elapsed time: 0:06.79[h:]min:sec. CPU time: user 6.74 sys 0.05 (99%). Peak memory: 238236KB.

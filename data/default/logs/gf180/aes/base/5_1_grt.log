@@ -1,0 +1,495 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5450
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5800
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5800
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.5600  line-2-Via Pitch: 0.5800
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 0.9000  line-2-Via Pitch: 0.9600
+[INFO GRT-0019] Found 103 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 301
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Horizontal          0             0          0.00%
+Metal2     Vertical       431200        210221          51.25%
+Metal3     Horizontal     431200        214014          50.37%
+Metal4     Vertical       431200        164473          61.86%
+Metal5     Horizontal     246575        106080          56.98%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 112272
+[INFO GRT-0198] Via related Steiner nodes: 6454
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 137432
+[INFO GRT-0112] Final usage 3D: 625645
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2          210221         87376           41.56%             0 /  0 /  0
+Metal3          214014         89953           42.03%             0 /  0 /  0
+Metal4          164473         20302           12.34%             0 /  0 /  0
+Metal5          106080         15718           14.82%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           694788        213349           30.71%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 2427440 um
+[INFO GRT-0014] Routed nets: 23982
+[INFO GRT-0006] Repairing antennas, iteration 1.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0012] Found 12 antenna violations.
+[INFO GRT-0015] Inserted 17 diodes.
+[INFO GRT-0009] rerouting 46 nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 16
+[INFO GRT-0006] Repairing antennas, iteration 2.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0012] Found 0 antenna violations.
+
+==========================================================================
+global route check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 45.78
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_48276_/CLK ^
+   1.12
+_48185_/CLK ^
+   0.80     -0.01       0.31
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _48185_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _48074_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.04    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.04    0.07    0.11    0.12 ^ clkbuf_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.07    0.00    0.12 ^ clkbuf_1_1_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.02    0.05    0.11    0.23 ^ clkbuf_1_1_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_1_0_clk (net)
+                  0.05    0.00    0.23 ^ clkbuf_1_1_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.12    0.35 ^ clkbuf_1_1_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_1_1_clk (net)
+                  0.07    0.00    0.35 ^ clkbuf_2_2_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.03    0.05    0.11    0.46 ^ clkbuf_2_2_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_2_0_clk (net)
+                  0.05    0.00    0.47 ^ clkbuf_2_2_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.12    0.58 ^ clkbuf_2_2_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_2_1_clk (net)
+                  0.07    0.00    0.59 ^ clkbuf_3_4_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    11    0.23    0.21    0.19    0.78 ^ clkbuf_3_4_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_3_4_0_clk (net)
+                  0.22    0.02    0.80 ^ _48185_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+     4    0.06    0.14    0.45    1.25 v _48185_/Q (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                                         u0.w[1][0] (net)
+                  0.14    0.00    1.25 v _38997_/A2 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.01    0.09    0.10    1.36 ^ _38997_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _07244_ (net)
+                  0.09    0.00    1.36 ^ _38999_/A1 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.01    0.06    0.05    1.41 v _38999_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _00105_ (net)
+                  0.06    0.00    1.41 v _48074_/D (gf180mcu_fd_sc_mcu9t5v0__dffq_4)
+                                  1.41   data arrival time
+
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.04    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.04    0.07    0.12    0.13 ^ clkbuf_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.07    0.00    0.13 ^ clkbuf_1_1_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.02    0.05    0.12    0.26 ^ clkbuf_1_1_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_1_0_clk (net)
+                  0.05    0.00    0.26 ^ clkbuf_1_1_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.39 ^ clkbuf_1_1_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_1_1_clk (net)
+                  0.07    0.00    0.39 ^ clkbuf_2_2_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.03    0.05    0.12    0.51 ^ clkbuf_2_2_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_2_0_clk (net)
+                  0.05    0.00    0.52 ^ clkbuf_2_2_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.65 ^ clkbuf_2_2_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_2_1_clk (net)
+                  0.07    0.00    0.65 ^ clkbuf_3_5_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    12    0.26    0.23    0.22    0.87 ^ clkbuf_3_5_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_3_5_0_clk (net)
+                  0.25    0.03    0.90 ^ clkbuf_leaf_29_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.01    0.05    0.15    1.05 ^ clkbuf_leaf_29_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_leaf_29_clk (net)
+                  0.05    0.00    1.05 ^ _48074_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_4)
+                         -0.06    0.99   clock reconvergence pessimism
+                          0.09    1.07   library hold time
+                                  1.07   data required time
+-----------------------------------------------------------------------------
+                                  1.07   data required time
+                                 -1.41   data arrival time
+-----------------------------------------------------------------------------
+                                  0.33   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _47927_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: text_out[13] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.04    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.04    0.07    0.12    0.13 ^ clkbuf_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.07    0.00    0.13 ^ clkbuf_1_0_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.02    0.05    0.12    0.26 ^ clkbuf_1_0_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_0_0_clk (net)
+                  0.05    0.00    0.26 ^ clkbuf_1_0_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.39 ^ clkbuf_1_0_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_0_1_clk (net)
+                  0.07    0.00    0.39 ^ clkbuf_2_0_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.03    0.05    0.12    0.51 ^ clkbuf_2_0_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_0_0_clk (net)
+                  0.05    0.00    0.52 ^ clkbuf_2_0_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.65 ^ clkbuf_2_0_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_0_1_clk (net)
+                  0.07    0.00    0.65 ^ clkbuf_3_1_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    14    0.29    0.27    0.25    0.90 ^ clkbuf_3_1_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_3_1_0_clk (net)
+                  0.27    0.03    0.93 ^ clkbuf_leaf_3_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    15    0.08    0.10    0.19    1.12 ^ clkbuf_leaf_3_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_leaf_3_clk (net)
+                  0.10    0.00    1.12 ^ _47927_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+     1    0.00    0.04    0.38    1.51 v _47927_/Q (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                                         net292 (net)
+                  0.04    0.00    1.51 v output292/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.00    0.14    0.71    2.22 v output292/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         text_out[13] (net)
+                  0.14    0.00    2.22 v text_out[13] (out)
+                                  2.22   data arrival time
+
+                         60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (propagated)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                 -2.22   data arrival time
+-----------------------------------------------------------------------------
+                                 45.78   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _47927_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: text_out[13] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.04    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.04    0.07    0.12    0.13 ^ clkbuf_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_0_clk (net)
+                  0.07    0.00    0.13 ^ clkbuf_1_0_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.02    0.05    0.12    0.26 ^ clkbuf_1_0_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_0_0_clk (net)
+                  0.05    0.00    0.26 ^ clkbuf_1_0_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.39 ^ clkbuf_1_0_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_1_0_1_clk (net)
+                  0.07    0.00    0.39 ^ clkbuf_2_0_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     1    0.03    0.05    0.12    0.51 ^ clkbuf_2_0_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_0_0_clk (net)
+                  0.05    0.00    0.52 ^ clkbuf_2_0_1_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+     2    0.05    0.07    0.13    0.65 ^ clkbuf_2_0_1_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_2_0_1_clk (net)
+                  0.07    0.00    0.65 ^ clkbuf_3_1_0_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    14    0.29    0.27    0.25    0.90 ^ clkbuf_3_1_0_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_3_1_0_clk (net)
+                  0.27    0.03    0.93 ^ clkbuf_leaf_3_clk/I (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+    15    0.08    0.10    0.19    1.12 ^ clkbuf_leaf_3_clk/Z (gf180mcu_fd_sc_mcu9t5v0__clkbuf_8)
+                                         clknet_leaf_3_clk (net)
+                  0.10    0.00    1.12 ^ _47927_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+     1    0.00    0.04    0.38    1.51 v _47927_/Q (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                                         net292 (net)
+                  0.04    0.00    1.51 v output292/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     1    0.00    0.14    0.71    2.22 v output292/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         text_out[13] (net)
+                  0.14    0.00    2.22 v text_out[13] (out)
+                                  2.22   data arrival time
+
+                         60.00   60.00   clock clk (rise edge)
+                          0.00   60.00   clock network delay (propagated)
+                          0.00   60.00   clock reconvergence pessimism
+                        -12.00   48.00   output external delay
+                                 48.00   data required time
+-----------------------------------------------------------------------------
+                                 48.00   data required time
+                                 -2.22   data arrival time
+-----------------------------------------------------------------------------
+                                 45.78   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+_47633_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47605_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47606_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47608_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47609_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47634_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47635_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47607_/S                               2.80    3.05   -0.25 (VIOLATED)
+_47614_/S                               2.80    3.05   -0.25 (VIOLATED)
+_24484_/A2                              2.80    3.05   -0.25 (VIOLATED)
+_24483_/A1                              2.80    3.05   -0.25 (VIOLATED)
+_27559_/A2                              2.80    3.05   -0.25 (VIOLATED)
+_47617_/S                               2.80    3.05   -0.25 (VIOLATED)
+_27558_/A1                              2.80    3.04   -0.24 (VIOLATED)
+_27191_/A1                              2.80    3.04   -0.24 (VIOLATED)
+_47627_/S                               2.80    3.04   -0.24 (VIOLATED)
+_25241_/A1                              2.80    3.04   -0.24 (VIOLATED)
+_47611_/S                               2.80    3.04   -0.24 (VIOLATED)
+_47675_/S                               2.80    3.03   -0.23 (VIOLATED)
+_47626_/S                               2.80    3.03   -0.23 (VIOLATED)
+_47612_/S                               2.80    3.03   -0.23 (VIOLATED)
+_47616_/S                               2.80    3.03   -0.23 (VIOLATED)
+_47684_/S                               2.80    3.03   -0.23 (VIOLATED)
+_26022_/A1                              2.80    3.02   -0.22 (VIOLATED)
+_27391_/A1                              2.80    3.02   -0.22 (VIOLATED)
+_27600_/A1                              2.80    3.02   -0.22 (VIOLATED)
+_27243_/A2                              2.80    3.02   -0.22 (VIOLATED)
+_26023_/A2                              2.80    3.02   -0.22 (VIOLATED)
+_27242_/A1                              2.80    3.02   -0.22 (VIOLATED)
+_47615_/S                               2.80    3.02   -0.22 (VIOLATED)
+_47613_/S                               2.80    3.02   -0.22 (VIOLATED)
+_47623_/S                               2.80    3.02   -0.22 (VIOLATED)
+_27185_/A1                              2.80    3.02   -0.22 (VIOLATED)
+_27186_/A2                              2.80    3.01   -0.21 (VIOLATED)
+_27594_/A1                              2.80    3.01   -0.21 (VIOLATED)
+_27386_/A2                              2.80    3.01   -0.21 (VIOLATED)
+_25161_/S                               2.80    3.00   -0.20 (VIOLATED)
+_47618_/S                               2.80    3.00   -0.20 (VIOLATED)
+_27385_/A1                              2.80    2.99   -0.19 (VIOLATED)
+_47683_/S                               2.80    2.99   -0.19 (VIOLATED)
+_27198_/S                               2.80    2.98   -0.18 (VIOLATED)
+_47685_/S                               2.80    2.97   -0.17 (VIOLATED)
+_27603_/S                               2.80    2.97   -0.17 (VIOLATED)
+_47689_/S                               2.80    2.97   -0.17 (VIOLATED)
+_47693_/S                               2.80    2.96   -0.16 (VIOLATED)
+_27270_/A2                              2.80    2.95   -0.15 (VIOLATED)
+_27439_/A2                              2.80    2.95   -0.15 (VIOLATED)
+_27269_/A1                              2.80    2.95   -0.15 (VIOLATED)
+_27631_/A2                              2.80    2.95   -0.15 (VIOLATED)
+_27595_/A2                              2.80    2.95   -0.15 (VIOLATED)
+_27630_/A1                              2.80    2.95   -0.15 (VIOLATED)
+_27438_/A1                              2.80    2.95   -0.15 (VIOLATED)
+_27648_/A1                              2.80    2.95   -0.15 (VIOLATED)
+_27649_/A2                              2.80    2.95   -0.15 (VIOLATED)
+_27463_/A1                              2.80    2.95   -0.15 (VIOLATED)
+_26264_/A2                              2.80    2.94   -0.14 (VIOLATED)
+_26263_/A1                              2.80    2.94   -0.14 (VIOLATED)
+_27216_/S                               2.80    2.94   -0.14 (VIOLATED)
+_25297_/S                               2.80    2.94   -0.14 (VIOLATED)
+_27615_/S                               2.80    2.94   -0.14 (VIOLATED)
+_47681_/S                               2.80    2.94   -0.14 (VIOLATED)
+_27414_/A2                              2.80    2.94   -0.14 (VIOLATED)
+_27396_/S                               2.80    2.94   -0.14 (VIOLATED)
+_47682_/S                               2.80    2.94   -0.14 (VIOLATED)
+_25449_/S                               2.80    2.93   -0.13 (VIOLATED)
+_27583_/A1                              2.80    2.93   -0.13 (VIOLATED)
+_47622_/S                               2.80    2.93   -0.13 (VIOLATED)
+_26086_/A1                              2.80    2.92   -0.12 (VIOLATED)
+_47625_/S                               2.80    2.91   -0.11 (VIOLATED)
+_47701_/S                               2.80    2.90   -0.10 (VIOLATED)
+_47686_/S                               2.80    2.90   -0.10 (VIOLATED)
+_27237_/S                               2.80    2.90   -0.10 (VIOLATED)
+_27435_/S                               2.80    2.90   -0.10 (VIOLATED)
+_26087_/A2                              2.80    2.90   -0.10 (VIOLATED)
+_27247_/A1                              2.80    2.90   -0.10 (VIOLATED)
+_27248_/A2                              2.80    2.90   -0.10 (VIOLATED)
+_27443_/A1                              2.80    2.90   -0.10 (VIOLATED)
+_47697_/S                               2.80    2.88   -0.08 (VIOLATED)
+_47692_/S                               2.80    2.88   -0.08 (VIOLATED)
+_47691_/S                               2.80    2.85   -0.05 (VIOLATED)
+_47688_/S                               2.80    2.84   -0.04 (VIOLATED)
+_27635_/A2                              2.80    2.83   -0.03 (VIOLATED)
+_27634_/A1                              2.80    2.83   -0.03 (VIOLATED)
+_47694_/S                               2.80    2.83   -0.03 (VIOLATED)
+_47700_/S                               2.80    2.83   -0.03 (VIOLATED)
+_47690_/S                               2.80    2.83   -0.03 (VIOLATED)
+_47699_/S                               2.80    2.83   -0.03 (VIOLATED)
+_47696_/S                               2.80    2.81   -0.01 (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+-0.25320035219192505
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+2.799999952316284
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.0904
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.20960542559623718
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.22310000658035278
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.9395
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 88
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+2.2162
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+45.7838
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+2065.869506
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.66e-02   7.61e-03   1.58e-07   2.42e-02   6.3%
+Combinational          1.83e-01   1.78e-01   4.48e-06   3.61e-01  93.7%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.99e-01   1.86e-01   4.64e-06   3.85e-01 100.0%
+                          51.7%      48.3%       0.0%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 778189 u^2 36% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO FLW-0007] clock clk period 60.000000
+[INFO FLW-0008] Clock clk period 13.505
+[INFO FLW-0009] Clock clk slack 45.784
+[INFO FLW-0011] Path endpoint count 679
+Elapsed time: 0:08.72[h:]min:sec. CPU time: user 8.56 sys 0.16 (99%). Peak memory: 682328KB.

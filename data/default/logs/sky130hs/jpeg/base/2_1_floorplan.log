@@ -1,0 +1,282 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hs/lef/sky130_fd_sc_hs.tlef
+[INFO ODB-0223]     Created 11 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hs/lef/sky130_fd_sc_hs.tlef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hs/lef/sky130_fd_sc_hs_merged.lef
+[WARNING ODB-0220] WARNING (LEFPARS-2007): NAMESCASESENSITIVE statement is obsolete in version 5.6 and later.
+The LEF parser will ignore this statement.
+To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hs/lef/sky130_fd_sc_hs_merged.lef at line 18.
+
+[INFO ODB-0225]     Created 390 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hs/lef/sky130_fd_sc_hs_merged.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 unconstrained endpoint.
+number instances in verilog is 52007
+[WARNING IFP-0028] Core area lower left (2.000, 2.000) snapped to (2.400, 3.330).
+[INFO IFP-0001] Added 337 rows of 2340 site unit with height 1.
+[INFO RSZ-0026] Removed 1677 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 unconstrained endpoint.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -57197.01
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -48.35
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -48.35
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: _108401_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          1.20    1.20 ^ input external delay
+    65    0.37    0.00    0.00    1.20 ^ rst (in)
+                                         rst (net)
+                  0.00    0.00    1.20 ^ _108401_/SET_B (sky130_fd_sc_hs__dfstp_1)
+                                  1.20   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _108401_/CLK (sky130_fd_sc_hs__dfstp_1)
+                          0.16    0.16   library removal time
+                                  0.16   data required time
+-----------------------------------------------------------------------------
+                                  0.16   data required time
+                                 -1.20   data arrival time
+-----------------------------------------------------------------------------
+                                  1.04   slack (MET)
+
+
+Startpoint: _107609_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _111980_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _107609_/CLK (sky130_fd_sc_hs__dfxtp_1)
+     2    0.00    0.04    0.17    0.17 ^ _107609_/Q (sky130_fd_sc_hs__dfxtp_1)
+                                         rle.dstrb (net)
+                  0.04    0.00    0.17 ^ _111980_/D (sky130_fd_sc_hs__dfxtp_1)
+                                  0.17   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _111980_/CLK (sky130_fd_sc_hs__dfxtp_1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.17   data arrival time
+-----------------------------------------------------------------------------
+                                  0.17   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: _108397_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          1.20    1.20 ^ input external delay
+    65    0.37    0.00    0.00    1.20 ^ rst (in)
+                                         rst (net)
+                  0.00    0.00    1.20 ^ _108397_/RESET_B (sky130_fd_sc_hs__dfrtp_1)
+                                  1.20   data arrival time
+
+                  0.00    6.00    6.00   clock clk (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ _108397_/CLK (sky130_fd_sc_hs__dfrtp_1)
+                         -0.14    5.86   library recovery time
+                                  5.86   data required time
+-----------------------------------------------------------------------------
+                                  5.86   data required time
+                                 -1.20   data arrival time
+-----------------------------------------------------------------------------
+                                  4.66   slack (MET)
+
+
+Startpoint: _108400_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _110568_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _108400_/CLK (sky130_fd_sc_hs__dfrtp_1)
+  1934    5.38   32.40   21.74   21.74 ^ _108400_/Q (sky130_fd_sc_hs__dfrtp_1)
+                                         fdct_zigzag.dct_mod.dct_block_0.dct_unit_0.ddgo (net)
+                 32.40    0.00   21.74 ^ _080592_/A (sky130_fd_sc_hs__inv_2)
+   633    1.70    0.00   31.78   53.52 v _080592_/Y (sky130_fd_sc_hs__inv_2)
+                                         _010850_ (net)
+                  0.00    0.00   53.52 v _090149_/B1 (sky130_fd_sc_hs__o21ai_1)
+     1    0.00    0.09    0.03   53.55 ^ _090149_/Y (sky130_fd_sc_hs__o21ai_1)
+                                         _018239_ (net)
+                  0.09    0.00   53.55 ^ _090150_/B1 (sky130_fd_sc_hs__a21oi_1)
+     1    0.00    0.04    0.04   53.58 v _090150_/Y (sky130_fd_sc_hs__a21oi_1)
+                                         _018240_ (net)
+                  0.04    0.00   53.58 v _090151_/B (sky130_fd_sc_hs__nor2_1)
+     1    0.00    0.09    0.06   53.65 ^ _090151_/Y (sky130_fd_sc_hs__nor2_1)
+                                         _018241_ (net)
+                  0.09    0.00   53.65 ^ _090152_/B1 (sky130_fd_sc_hs__a21oi_1)
+     1    0.00    2.36    0.03   53.68 v _090152_/Y (sky130_fd_sc_hs__a21oi_1)
+                                         _003018_ (net)
+                  2.36    0.00   53.68 v _110568_/D (sky130_fd_sc_hs__dfxtp_1)
+                                 53.68   data arrival time
+
+                  0.00    6.00    6.00   clock clk (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ _110568_/CLK (sky130_fd_sc_hs__dfxtp_1)
+                         -0.68    5.32   library setup time
+                                  5.32   data required time
+-----------------------------------------------------------------------------
+                                  5.32   data required time
+                                -53.68   data arrival time
+-----------------------------------------------------------------------------
+                                -48.35   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: _108397_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          1.20    1.20 ^ input external delay
+    65    0.37    0.00    0.00    1.20 ^ rst (in)
+                                         rst (net)
+                  0.00    0.00    1.20 ^ _108397_/RESET_B (sky130_fd_sc_hs__dfrtp_1)
+                                  1.20   data arrival time
+
+                  0.00    6.00    6.00   clock clk (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ _108397_/CLK (sky130_fd_sc_hs__dfrtp_1)
+                         -0.14    5.86   library recovery time
+                                  5.86   data required time
+-----------------------------------------------------------------------------
+                                  5.86   data required time
+                                 -1.20   data arrival time
+-----------------------------------------------------------------------------
+                                  4.66   slack (MET)
+
+
+Startpoint: _108400_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _110568_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _108400_/CLK (sky130_fd_sc_hs__dfrtp_1)
+  1934    5.38   32.40   21.74   21.74 ^ _108400_/Q (sky130_fd_sc_hs__dfrtp_1)
+                                         fdct_zigzag.dct_mod.dct_block_0.dct_unit_0.ddgo (net)
+                 32.40    0.00   21.74 ^ _080592_/A (sky130_fd_sc_hs__inv_2)
+   633    1.70    0.00   31.78   53.52 v _080592_/Y (sky130_fd_sc_hs__inv_2)
+                                         _010850_ (net)
+                  0.00    0.00   53.52 v _090149_/B1 (sky130_fd_sc_hs__o21ai_1)
+     1    0.00    0.09    0.03   53.55 ^ _090149_/Y (sky130_fd_sc_hs__o21ai_1)
+                                         _018239_ (net)
+                  0.09    0.00   53.55 ^ _090150_/B1 (sky130_fd_sc_hs__a21oi_1)
+     1    0.00    0.04    0.04   53.58 v _090150_/Y (sky130_fd_sc_hs__a21oi_1)
+                                         _018240_ (net)
+                  0.04    0.00   53.58 v _090151_/B (sky130_fd_sc_hs__nor2_1)
+     1    0.00    0.09    0.06   53.65 ^ _090151_/Y (sky130_fd_sc_hs__nor2_1)
+                                         _018241_ (net)
+                  0.09    0.00   53.65 ^ _090152_/B1 (sky130_fd_sc_hs__a21oi_1)
+     1    0.00    2.36    0.03   53.68 v _090152_/Y (sky130_fd_sc_hs__a21oi_1)
+                                         _003018_ (net)
+                  2.36    0.00   53.68 v _110568_/D (sky130_fd_sc_hs__dfxtp_1)
+                                 53.68   data arrival time
+
+                  0.00    6.00    6.00   clock clk (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ _110568_/CLK (sky130_fd_sc_hs__dfxtp_1)
+                         -0.68    5.32   library setup time
+                                  5.32   data required time
+-----------------------------------------------------------------------------
+                                  5.32   data required time
+                                -53.68   data arrival time
+-----------------------------------------------------------------------------
+                                -48.35   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             7.64e-02   1.17e-02   1.73e-06   8.81e-02  12.7%
+Combinational          4.59e-01   1.46e-01   5.90e-06   6.05e-01  87.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.36e-01   1.58e-01   7.63e-06   6.93e-01 100.0%
+                          77.2%      22.8%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 620777 u^2 49% utilization.
+
+Elapsed time: 0:05.71[h:]min:sec. CPU time: user 5.61 sys 0.09 (99%). Peak memory: 322516KB.

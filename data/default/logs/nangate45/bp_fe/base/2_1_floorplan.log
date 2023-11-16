@@ -1,0 +1,236 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_512x64.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_512x64.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x7.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x7.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x96.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x96.lef
+[WARNING STA-0337] port 'icache_id_i[0]' not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 input port missing set_input_delay.
+Warning: There are 1065 unconstrained endpoints.
+number instances in verilog is 29640
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.070, 11.200).
+[INFO IFP-0001] Added 413 rows of 4104 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 3668 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 input port missing set_input_delay.
+Warning: There are 1065 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -15470.29
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -8.48
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -8.48
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: bp_fe_pc_gen_1/_3909_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: icache_1/tag_mem.macro_mem.mem
+          (rising edge-triggered flip-flop clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ bp_fe_pc_gen_1/_3909_/CK (DFF_X1)
+     4    7.03    0.01    0.09    0.09 v bp_fe_pc_gen_1/_3909_/Q (DFF_X1)
+                                         pc_gen_icache[8] (net)
+                  0.01    0.00    0.09 v icache_1/_12920_/A1 (NAND2_X1)
+     3    4.99    0.02    0.02    0.11 ^ icache_1/_12920_/ZN (NAND2_X1)
+                                         icache_1/_06099_ (net)
+                  0.02    0.00    0.11 ^ icache_1/_12935_/A (OAI21_X1)
+     1    5.00    0.01    0.02    0.13 v icache_1/_12935_/ZN (OAI21_X1)
+                                         icache_1/tag_mem.addr_i[2] (net)
+                  0.02    0.00    0.13 v icache_1/tag_mem.macro_mem.mem/addr_in[2] (fakeram45_64x96)
+                                  0.13   data arrival time
+
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ icache_1/tag_mem.macro_mem.mem/clk (fakeram45_64x96)
+                          0.05    0.05   library hold time
+                                  0.05   data required time
+-----------------------------------------------------------------------------
+                                  0.05   data required time
+                                 -0.13   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: icache_1/_22731_ (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_lce_tr_resp_o[18] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ icache_1/_22731_/CK (DFF_X1)
+   964 1600.26    3.65    3.91    3.91 ^ icache_1/_22731_/Q (DFF_X1)
+                                         icache_1/genblk5_1__lce_data_mem_read_mux.N0 (net)
+                  3.65    0.00    3.91 ^ icache_1/_16735_/A1 (NOR2_X1)
+   185  274.93    3.07    7.49   11.40 v icache_1/_16735_/ZN (NOR2_X1)
+                                         icache_1/_09310_ (net)
+                  3.07    0.00   11.40 v icache_1/_17091_/A2 (AOI22_X1)
+     2    3.25    0.45    0.98   12.38 ^ icache_1/_17091_/ZN (AOI22_X1)
+                                         icache_1/_09649_ (net)
+                  0.45    0.00   12.38 ^ icache_1/_17100_/A2 (NAND2_X1)
+     1    1.52    0.06    0.01   12.39 v icache_1/_17100_/ZN (NAND2_X1)
+                                         icache_1/_09658_ (net)
+                  0.06    0.00   12.39 v icache_1/_17102_/A (OAI21_X1)
+     1    1.65    0.11    0.04   12.43 ^ icache_1/_17102_/ZN (OAI21_X1)
+                                         icache_1/_09660_ (net)
+                  0.11    0.00   12.43 ^ icache_1/_17105_/B1 (AOI21_X1)
+     1    1.55    0.18    0.02   12.45 v icache_1/_17105_/ZN (AOI21_X1)
+                                         icache_1/_09663_ (net)
+                  0.18    0.00   12.45 v icache_1/_17106_/A (INV_X1)
+     1    1.71    0.03    0.05   12.50 ^ icache_1/_17106_/ZN (INV_X1)
+                                         icache_1/_09664_ (net)
+                  0.03    0.00   12.50 ^ icache_1/_17107_/C2 (AOI221_X1)
+     2    2.41    0.68    0.02   12.52 v icache_1/_17107_/ZN (AOI221_X1)
+                                         icache_1/genblk5_0__lce_data_mem_read_mux.data_o[18] (net)
+                  0.68    0.00   12.52 v icache_1/lce/_13808_/A (MUX2_X1)
+     1    0.89    0.04    0.24   12.76 v icache_1/lce/_13808_/Z (MUX2_X1)
+                                         icache_1/lce/_04295_ (net)
+                  0.04    0.00   12.76 v icache_1/lce/_13809_/A2 (AND2_X1)
+     1    0.00    0.02    0.04   12.80 v icache_1/lce/_13809_/ZN (AND2_X1)
+                                         lce_lce_tr_resp_o[18] (net)
+                  0.02    0.00   12.80 v lce_lce_tr_resp_o[18] (out)
+                                 12.80   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -1.08    4.32   output external delay
+                                  4.32   data required time
+-----------------------------------------------------------------------------
+                                  4.32   data required time
+                                -12.80   data arrival time
+-----------------------------------------------------------------------------
+                                 -8.48   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: icache_1/_22731_ (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_lce_tr_resp_o[18] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ icache_1/_22731_/CK (DFF_X1)
+   964 1600.26    3.65    3.91    3.91 ^ icache_1/_22731_/Q (DFF_X1)
+                                         icache_1/genblk5_1__lce_data_mem_read_mux.N0 (net)
+                  3.65    0.00    3.91 ^ icache_1/_16735_/A1 (NOR2_X1)
+   185  274.93    3.07    7.49   11.40 v icache_1/_16735_/ZN (NOR2_X1)
+                                         icache_1/_09310_ (net)
+                  3.07    0.00   11.40 v icache_1/_17091_/A2 (AOI22_X1)
+     2    3.25    0.45    0.98   12.38 ^ icache_1/_17091_/ZN (AOI22_X1)
+                                         icache_1/_09649_ (net)
+                  0.45    0.00   12.38 ^ icache_1/_17100_/A2 (NAND2_X1)
+     1    1.52    0.06    0.01   12.39 v icache_1/_17100_/ZN (NAND2_X1)
+                                         icache_1/_09658_ (net)
+                  0.06    0.00   12.39 v icache_1/_17102_/A (OAI21_X1)
+     1    1.65    0.11    0.04   12.43 ^ icache_1/_17102_/ZN (OAI21_X1)
+                                         icache_1/_09660_ (net)
+                  0.11    0.00   12.43 ^ icache_1/_17105_/B1 (AOI21_X1)
+     1    1.55    0.18    0.02   12.45 v icache_1/_17105_/ZN (AOI21_X1)
+                                         icache_1/_09663_ (net)
+                  0.18    0.00   12.45 v icache_1/_17106_/A (INV_X1)
+     1    1.71    0.03    0.05   12.50 ^ icache_1/_17106_/ZN (INV_X1)
+                                         icache_1/_09664_ (net)
+                  0.03    0.00   12.50 ^ icache_1/_17107_/C2 (AOI221_X1)
+     2    2.41    0.68    0.02   12.52 v icache_1/_17107_/ZN (AOI221_X1)
+                                         icache_1/genblk5_0__lce_data_mem_read_mux.data_o[18] (net)
+                  0.68    0.00   12.52 v icache_1/lce/_13808_/A (MUX2_X1)
+     1    0.89    0.04    0.24   12.76 v icache_1/lce/_13808_/Z (MUX2_X1)
+                                         icache_1/lce/_04295_ (net)
+                  0.04    0.00   12.76 v icache_1/lce/_13809_/A2 (AND2_X1)
+     1    0.00    0.02    0.04   12.80 v icache_1/lce/_13809_/ZN (AND2_X1)
+                                         lce_lce_tr_resp_o[18] (net)
+                  0.02    0.00   12.80 v lce_lce_tr_resp_o[18] (out)
+                                 12.80   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -1.08    4.32   output external delay
+                                  4.32   data required time
+-----------------------------------------------------------------------------
+                                  4.32   data required time
+                                -12.80   data arrival time
+-----------------------------------------------------------------------------
+                                 -8.48   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.44e-03   6.34e-04   3.41e-04   7.42e-03  14.4%
+Combinational          1.13e-02   2.61e-03   6.01e-04   1.45e-02  28.1%
+Macro                  2.21e-02   5.34e-05   7.60e-03   2.97e-02  57.5%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.98e-02   3.30e-03   8.54e-03   5.17e-02 100.0%
+                          77.1%       6.4%      16.5%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 206418 u^2 46% utilization.
+
+Elapsed time: 0:02.66[h:]min:sec. CPU time: user 2.62 sys 0.04 (100%). Peak memory: 218404KB.

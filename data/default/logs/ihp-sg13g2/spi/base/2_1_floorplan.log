@@ -1,0 +1,175 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lef/sg13g2_tech.lef
+[INFO ODB-0223]     Created 19 technology layers
+[INFO ODB-0224]     Created 300 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lef/sg13g2_tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef
+[INFO ODB-0225]     Created 78 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/ihp-sg13g2/lef/sg13g2_stdcell.lef
+[WARNING STA-0201] ./results/ihp-sg13g2/spi/base/1_synth.v line 789, instance _227_ port HI not found.
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 114
+[WARNING IFP-0028] Core area lower left (1.000, 1.000) snapped to (1.440, 3.780).
+[INFO IFP-0001] Added 25 rows of 207 site CoreSite with height 1.
+[INFO RSZ-0026] Removed 5 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1uA
+ power 1pW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 7.99
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _205_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _206_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _205_/CLK (sg13g2_dfrbp_1)
+     5    0.01    0.05    0.20    0.20 v _205_/Q (sg13g2_dfrbp_1)
+                                         sck_old_d (net)
+                  0.05    0.00    0.20 v _206_/D (sg13g2_dfrbp_1)
+                                  0.20   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _206_/CLK (sg13g2_dfrbp_1)
+                         -0.03   -0.03   library hold time
+                                 -0.03   data required time
+-----------------------------------------------------------------------------
+                                 -0.03   data required time
+                                 -0.20   data arrival time
+-----------------------------------------------------------------------------
+                                  0.24   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+    14    0.06    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.09    2.17 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.17 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.28 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.28 v _226_/D (sg13g2_dfrbp_1)
+                                  2.28   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.28   data arrival time
+-----------------------------------------------------------------------------
+                                  7.99   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+    14    0.06    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.09    2.17 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.17 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.28 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.28 v _226_/D (sg13g2_dfrbp_1)
+                                  2.28   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.28   data arrival time
+-----------------------------------------------------------------------------
+                                  7.99   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.26e-04   2.08e-06   1.35e-08   1.28e-04  93.9%
+Combinational          4.52e-06   3.73e-06   9.69e-09   8.27e-06   6.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.30e-04   5.82e-06   2.32e-08   1.36e-04 100.0%
+                          95.7%       4.3%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 1960 u^2 21% utilization.
+
+Elapsed time: 0:00.08[h:]min:sec. CPU time: user 0.07 sys 0.01 (98%). Peak memory: 85340KB.

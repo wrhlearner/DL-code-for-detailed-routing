@@ -1,0 +1,456 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement      54919.8 u
+average displacement        2.9 u
+max displacement           60.7 u
+original HPWL          572804.0 u
+legalized HPWL         616408.1 u
+delta HPWL                    8 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 19004 cells, 388 terminals, 15199 edges and 60976 pins.
+[INFO DPO-0109] Network stats: inst 19392, edges 15199, pins 60976
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 16650 3330 units.
+[INFO DPO-0320] Collected 4458 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 14934 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2400, 3330) - (615360, 612720)
+[INFO DPO-0310] Assigned 14934 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 6.192795e+08.
+[INFO DPO-0302] End of matching; objective is 6.184637e+08, improvement is 0.13 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 6.075302e+08.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 6.047661e+08.
+[INFO DPO-0307] End of global swaps; objective is 6.047661e+08, improvement is 2.21 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 6.026024e+08.
+[INFO DPO-0309] End of vertical swaps; objective is 6.026024e+08, improvement is 0.36 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 5.992623e+08.
+[INFO DPO-0305] End of reordering; objective is 5.992623e+08, improvement is 0.55 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 298680 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 298680, swaps 46827, moves 58447 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 5.980496e+08, Scratch cost 5.869144e+08, Incremental cost 5.869144e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 5.869144e+08.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 1.86 percent.
+[INFO DPO-0332] End of pass, Generator displacement called 298680 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 597360, swaps 91266, moves 115750 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 5.869144e+08, Scratch cost 5.816311e+08, Incremental cost 5.816311e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 5.816311e+08.
+[INFO DPO-0327] Pass   2 of random improver; improvement in cost is 0.90 percent.
+[INFO DPO-0328] End of random improver; improvement is 2.745346 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 7416 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 4648 cell flips.
+[INFO DPO-0384] End of flipping; objective is 5.766635e+08, improvement is 1.06 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           616408.1 u
+Final HPWL              572800.9 u
+Delta HPWL                  -7.1 %
+
+[INFO DPL-0020] Mirrored 1306 instances
+[INFO DPL-0021] HPWL before          572800.9 u
+[INFO DPL-0022] HPWL after           572403.8 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.18
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _31832_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _31832_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _31832_/CLK (sky130_fd_sc_hs__dfxtp_1)
+     2    0.01    0.06    0.18    0.18 ^ _31832_/Q (sky130_fd_sc_hs__dfxtp_1)
+                                         text_in_r[37] (net)
+                  0.06    0.00    0.19 ^ _31647_/A0 (sky130_fd_sc_hs__mux2_1)
+     1    0.00    0.03    0.09    0.27 ^ _31647_/X (sky130_fd_sc_hs__mux2_1)
+                                         _00430_ (net)
+                  0.03    0.00    0.27 ^ _31832_/D (sky130_fd_sc_hs__dfxtp_1)
+                                  0.27   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _31832_/CLK (sky130_fd_sc_hs__dfxtp_1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.27   data arrival time
+-----------------------------------------------------------------------------
+                                  0.26   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _32084_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _32098_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _32084_/CLK (sky130_fd_sc_hs__dfxtp_4)
+    69    0.45    0.89    0.79    0.79 ^ _32084_/Q (sky130_fd_sc_hs__dfxtp_4)
+                                         us30.a[6] (net)
+                  0.89    0.03    0.82 ^ _25739_/B_N (sky130_fd_sc_hs__nand4bb_4)
+    12    0.08    0.26    0.32    1.14 ^ _25739_/Y (sky130_fd_sc_hs__nand4bb_4)
+                                         _01547_ (net)
+                  0.26    0.00    1.14 ^ _27822_/C (sky130_fd_sc_hs__nor3_1)
+     1    0.00    0.05    0.05    1.19 v _27822_/Y (sky130_fd_sc_hs__nor3_1)
+                                         _03735_ (net)
+                  0.05    0.00    1.19 v _27825_/A2 (sky130_fd_sc_hs__o41ai_1)
+     1    0.01    0.32    0.33    1.52 ^ _27825_/Y (sky130_fd_sc_hs__o41ai_1)
+                                         _03739_ (net)
+                  0.32    0.00    1.52 ^ _27831_/C1 (sky130_fd_sc_hs__o2111ai_1)
+     1    0.00    0.12    0.14    1.65 v _27831_/Y (sky130_fd_sc_hs__o2111ai_1)
+                                         _03745_ (net)
+                  0.12    0.00    1.65 v _27840_/C1 (sky130_fd_sc_hs__a2111o_2)
+     1    0.02    0.09    0.35    2.01 v _27840_/X (sky130_fd_sc_hs__a2111o_2)
+                                         _03755_ (net)
+                  0.09    0.00    2.01 v _27867_/A (sky130_fd_sc_hs__nor4_4)
+     4    0.09    0.95    0.78    2.79 ^ _27867_/Y (sky130_fd_sc_hs__nor4_4)
+                                         _03785_ (net)
+                  0.95    0.01    2.80 ^ _27868_/B (sky130_fd_sc_hs__xnor2_4)
+     3    0.03    0.20    0.23    3.03 ^ _27868_/Y (sky130_fd_sc_hs__xnor2_4)
+                                         _03786_ (net)
+                  0.20    0.00    3.03 ^ _28396_/A (sky130_fd_sc_hs__xnor2_1)
+     1    0.01    0.11    0.11    3.14 v _28396_/Y (sky130_fd_sc_hs__xnor2_1)
+                                         _04352_ (net)
+                  0.11    0.00    3.14 v _28399_/A (sky130_fd_sc_hs__xnor2_2)
+     1    0.01    0.08    0.17    3.31 v _28399_/Y (sky130_fd_sc_hs__xnor2_2)
+                                         _04355_ (net)
+                  0.08    0.00    3.31 v _28400_/A0 (sky130_fd_sc_hs__mux2i_4)
+     1    0.02    0.19    0.16    3.48 ^ _28400_/Y (sky130_fd_sc_hs__mux2i_4)
+                                         _04356_ (net)
+                  0.19    0.00    3.48 ^ _28401_/B (sky130_fd_sc_hs__xnor2_4)
+     1    0.03    0.22    0.22    3.69 ^ _28401_/Y (sky130_fd_sc_hs__xnor2_4)
+                                         _00045_ (net)
+                  0.22    0.00    3.70 ^ _32098_/D (sky130_fd_sc_hs__dfxtp_4)
+                                  3.70   data arrival time
+
+                  0.00    4.00    4.00   clock clk (rise edge)
+                          0.00    4.00   clock network delay (ideal)
+                          0.00    4.00   clock reconvergence pessimism
+                                  4.00 ^ _32098_/CLK (sky130_fd_sc_hs__dfxtp_4)
+                         -0.12    3.88   library setup time
+                                  3.88   data required time
+-----------------------------------------------------------------------------
+                                  3.88   data required time
+                                 -3.70   data arrival time
+-----------------------------------------------------------------------------
+                                  0.18   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _32084_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _32098_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _32084_/CLK (sky130_fd_sc_hs__dfxtp_4)
+    69    0.45    0.89    0.79    0.79 ^ _32084_/Q (sky130_fd_sc_hs__dfxtp_4)
+                                         us30.a[6] (net)
+                  0.89    0.03    0.82 ^ _25739_/B_N (sky130_fd_sc_hs__nand4bb_4)
+    12    0.08    0.26    0.32    1.14 ^ _25739_/Y (sky130_fd_sc_hs__nand4bb_4)
+                                         _01547_ (net)
+                  0.26    0.00    1.14 ^ _27822_/C (sky130_fd_sc_hs__nor3_1)
+     1    0.00    0.05    0.05    1.19 v _27822_/Y (sky130_fd_sc_hs__nor3_1)
+                                         _03735_ (net)
+                  0.05    0.00    1.19 v _27825_/A2 (sky130_fd_sc_hs__o41ai_1)
+     1    0.01    0.32    0.33    1.52 ^ _27825_/Y (sky130_fd_sc_hs__o41ai_1)
+                                         _03739_ (net)
+                  0.32    0.00    1.52 ^ _27831_/C1 (sky130_fd_sc_hs__o2111ai_1)
+     1    0.00    0.12    0.14    1.65 v _27831_/Y (sky130_fd_sc_hs__o2111ai_1)
+                                         _03745_ (net)
+                  0.12    0.00    1.65 v _27840_/C1 (sky130_fd_sc_hs__a2111o_2)
+     1    0.02    0.09    0.35    2.01 v _27840_/X (sky130_fd_sc_hs__a2111o_2)
+                                         _03755_ (net)
+                  0.09    0.00    2.01 v _27867_/A (sky130_fd_sc_hs__nor4_4)
+     4    0.09    0.95    0.78    2.79 ^ _27867_/Y (sky130_fd_sc_hs__nor4_4)
+                                         _03785_ (net)
+                  0.95    0.01    2.80 ^ _27868_/B (sky130_fd_sc_hs__xnor2_4)
+     3    0.03    0.20    0.23    3.03 ^ _27868_/Y (sky130_fd_sc_hs__xnor2_4)
+                                         _03786_ (net)
+                  0.20    0.00    3.03 ^ _28396_/A (sky130_fd_sc_hs__xnor2_1)
+     1    0.01    0.11    0.11    3.14 v _28396_/Y (sky130_fd_sc_hs__xnor2_1)
+                                         _04352_ (net)
+                  0.11    0.00    3.14 v _28399_/A (sky130_fd_sc_hs__xnor2_2)
+     1    0.01    0.08    0.17    3.31 v _28399_/Y (sky130_fd_sc_hs__xnor2_2)
+                                         _04355_ (net)
+                  0.08    0.00    3.31 v _28400_/A0 (sky130_fd_sc_hs__mux2i_4)
+     1    0.02    0.19    0.16    3.48 ^ _28400_/Y (sky130_fd_sc_hs__mux2i_4)
+                                         _04356_ (net)
+                  0.19    0.00    3.48 ^ _28401_/B (sky130_fd_sc_hs__xnor2_4)
+     1    0.03    0.22    0.22    3.69 ^ _28401_/Y (sky130_fd_sc_hs__xnor2_4)
+                                         _00045_ (net)
+                  0.22    0.00    3.70 ^ _32098_/D (sky130_fd_sc_hs__dfxtp_4)
+                                  3.70   data arrival time
+
+                  0.00    4.00    4.00   clock clk (rise edge)
+                          0.00    4.00   clock network delay (ideal)
+                          0.00    4.00   clock reconvergence pessimism
+                                  4.00 ^ _32098_/CLK (sky130_fd_sc_hs__dfxtp_4)
+                         -0.12    3.88   library setup time
+                                  3.88   data required time
+-----------------------------------------------------------------------------
+                                  3.88   data required time
+                                 -3.70   data arrival time
+-----------------------------------------------------------------------------
+                                  0.18   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+_27269_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26339_/A                               1.00    1.01   -0.01 (VIOLATED)
+_27270_/C                               1.00    1.01   -0.01 (VIOLATED)
+_26517_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26576_/A                               1.00    1.01   -0.01 (VIOLATED)
+_27529_/A1                              1.00    1.01   -0.01 (VIOLATED)
+_26518_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26564_/B                               1.00    1.01   -0.01 (VIOLATED)
+_27528_/A1                              1.00    1.01   -0.01 (VIOLATED)
+_28152_/B2                              1.00    1.01   -0.01 (VIOLATED)
+_27278_/A1                              1.00    1.01   -0.01 (VIOLATED)
+_27233_/A                               1.00    1.01   -0.01 (VIOLATED)
+_27223_/B2                              1.00    1.01   -0.01 (VIOLATED)
+_28186_/C1                              1.00    1.01   -0.01 (VIOLATED)
+_26343_/B_N                             1.00    1.01   -0.01 (VIOLATED)
+_26292_/B_N                             1.00    1.01   -0.01 (VIOLATED)
+_26522_/A                               1.00    1.01   -0.01 (VIOLATED)
+_27552_/A                               1.00    1.01   -0.01 (VIOLATED)
+_28157_/S                               1.00    1.01   -0.01 (VIOLATED)
+_26217_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26532_/B                               1.00    1.01   -0.01 (VIOLATED)
+_27242_/B1                              1.00    1.01   -0.01 (VIOLATED)
+_26315_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26521_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26484_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26549_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26948_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26574_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26280_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26504_/B                               1.00    1.01   -0.01 (VIOLATED)
+_27212_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26514_/S                               1.00    1.01   -0.01 (VIOLATED)
+_27540_/A1_N                            1.00    1.01   -0.01 (VIOLATED)
+_26908_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26909_/A1                              1.00    1.01   -0.01 (VIOLATED)
+_26160_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26586_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26241_/D_N                             1.00    1.01   -0.01 (VIOLATED)
+_28204_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26290_/D_N                             1.00    1.01   -0.01 (VIOLATED)
+_27517_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26195_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26233_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26579_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26486_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26354_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26254_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26352_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26187_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26496_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26185_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26139_/B                               1.00    1.01   -0.01 (VIOLATED)
+_27262_/A                               1.00    1.01   -0.01 (VIOLATED)
+_27266_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26554_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26257_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26335_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26551_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26156_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26149_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26569_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26525_/C                               1.00    1.01   -0.01 (VIOLATED)
+_26218_/C_N                             1.00    1.01   -0.01 (VIOLATED)
+_26324_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26201_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26248_/A_N                             1.00    1.01   -0.01 (VIOLATED)
+_26298_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26313_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26175_/B                               1.00    1.01   -0.01 (VIOLATED)
+_26308_/D                               1.00    1.01   -0.01 (VIOLATED)
+_26245_/A                               1.00    1.01   -0.01 (VIOLATED)
+_26122_/C                               1.00    1.01   -0.01 (VIOLATED)
+_22236_/A                               1.00    1.00   -0.00 (VIOLATED)
+_22240_/B                               1.00    1.00   -0.00 (VIOLATED)
+_22193_/B                               1.00    1.00   -0.00 (VIOLATED)
+_31601_/B                               1.00    1.00   -0.00 (VIOLATED)
+_22192_/Y                               1.00    1.00   -0.00 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+_32092_/Q                               0.50    0.51   -0.00 (VIOLATED)
+_22192_/Y                               0.09    0.09   -0.00 (VIOLATED)
+
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+-0.012145173735916615
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+1.0
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.0121
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+-0.003260466968640685
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.5023900270462036
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0065
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 77
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 2
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+3.6974
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+0.1804
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+4.879104
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.60e-02   1.97e-02   1.94e-07   3.57e-02   8.9%
+Combinational          2.39e-01   1.25e-01   9.61e-07   3.64e-01  91.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.55e-01   1.45e-01   1.15e-06   4.00e-01 100.0%
+                          63.8%      36.2%       0.0%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 212357 u^2 57% utilization.
+
+Elapsed time: 0:07.34[h:]min:sec. CPU time: user 7.30 sys 0.03 (99%). Peak memory: 204924KB.

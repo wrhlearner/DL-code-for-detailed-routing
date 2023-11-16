@@ -1,0 +1,278 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 92 unclocked register/latch pins.
+Warning: There are 406 unconstrained endpoints.
+number instances in verilog is 85674
+[WARNING IFP-0028] Core area lower left (5.000, 5.000) snapped to (5.130, 5.600).
+[INFO IFP-0001] Added 442 rows of 3261 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 8611 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 92 unclocked register/latch pins.
+Warning: There are 406 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -1265981.88
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -116.65
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -116.65
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: _154713_ (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ _126125_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v _126125_/ZN (INV_X1)
+                                         _044403_ (net)
+                  0.00    0.00    0.68 v _126127_/A (AOI21_X1)
+ 10844 19285.17   68.21   75.86   76.54 ^ _126127_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 68.21    0.00   76.54 ^ _154713_/RN (DFFR_X1)
+                                 76.54   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _154713_/CK (DFFR_X1)
+                         85.57   85.57   library removal time
+                                 85.57   data required time
+-----------------------------------------------------------------------------
+                                 85.57   data required time
+                                -76.54   data arrival time
+-----------------------------------------------------------------------------
+                                 -9.03   slack (VIOLATED)
+
+
+Startpoint: _162641_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _157256_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _162641_/CK (DFFR_X1)
+     1    1.13    0.01    0.06    0.06 ^ _162641_/QN (DFFR_X1)
+                                         dec.lsu_error_pkt_dc3[34] (net)
+                  0.01    0.00    0.06 ^ _157256_/D (DFFR_X1)
+                                  0.06   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _157256_/CK (DFFR_X1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.06   data arrival time
+-----------------------------------------------------------------------------
+                                  0.06   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: _154713_ (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ _126125_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v _126125_/ZN (INV_X1)
+                                         _044403_ (net)
+                  0.00    0.00    0.68 v _126127_/A (AOI21_X1)
+ 10844 19285.17   89.67   97.72   98.41 ^ _126127_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 89.67    0.00   98.41 ^ _154713_/RN (DFFR_X1)
+                                 98.41   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ _154713_/CK (DFFR_X1)
+                        -21.65  -18.25   library recovery time
+                                -18.25   data required time
+-----------------------------------------------------------------------------
+                                -18.25   data required time
+                                -98.41   data arrival time
+-----------------------------------------------------------------------------
+                               -116.65   slack (VIOLATED)
+
+
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: core_rst_l (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ _126125_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v _126125_/ZN (INV_X1)
+                                         _044403_ (net)
+                  0.00    0.00    0.68 v _126127_/A (AOI21_X1)
+ 10844 19285.17   89.67   97.72   98.41 ^ _126127_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 89.67    0.00   98.41 ^ core_rst_l (out)
+                                 98.41   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                         -0.68    2.72   output external delay
+                                  2.72   data required time
+-----------------------------------------------------------------------------
+                                  2.72   data required time
+                                -98.41   data arrival time
+-----------------------------------------------------------------------------
+                                -95.69   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: _154713_ (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ _126125_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v _126125_/ZN (INV_X1)
+                                         _044403_ (net)
+                  0.00    0.00    0.68 v _126127_/A (AOI21_X1)
+ 10844 19285.17   89.67   97.72   98.41 ^ _126127_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 89.67    0.00   98.41 ^ _154713_/RN (DFFR_X1)
+                                 98.41   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                                  3.40 ^ _154713_/CK (DFFR_X1)
+                        -21.65  -18.25   library recovery time
+                                -18.25   data required time
+-----------------------------------------------------------------------------
+                                -18.25   data required time
+                                -98.41   data arrival time
+-----------------------------------------------------------------------------
+                               -116.65   slack (VIOLATED)
+
+
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: core_rst_l (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.68    0.68 ^ input external delay
+     9   15.82    0.00    0.00    0.68 ^ rst_l (in)
+                                         rst_l (net)
+                  0.00    0.00    0.68 ^ _126125_/A (INV_X1)
+     1    1.54    0.00    0.00    0.68 v _126125_/ZN (INV_X1)
+                                         _044403_ (net)
+                  0.00    0.00    0.68 v _126127_/A (AOI21_X1)
+ 10844 19285.17   89.67   97.72   98.41 ^ _126127_/ZN (AOI21_X1)
+                                         core_rst_l (net)
+                 89.67    0.00   98.41 ^ core_rst_l (out)
+                                 98.41   data arrival time
+
+                  0.00    3.40    3.40   clock core_clock (rise edge)
+                          0.00    3.40   clock network delay (ideal)
+                          0.00    3.40   clock reconvergence pessimism
+                         -0.68    2.72   output external delay
+                                  2.72   data required time
+-----------------------------------------------------------------------------
+                                  2.72   data required time
+                                -98.41   data arrival time
+-----------------------------------------------------------------------------
+                                -95.69   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.32e-01   8.28e-03   9.72e-04   2.41e-01  74.0%
+Combinational          5.07e-02   3.23e-02   1.93e-03   8.49e-02  26.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.83e-01   4.05e-02   2.90e-03   3.26e-01 100.0%
+                          86.7%      12.4%       0.9%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 146649 u^2 38% utilization.
+
+Elapsed time: 0:09.24[h:]min:sec. CPU time: user 9.15 sys 0.09 (100%). Peak memory: 428348KB.

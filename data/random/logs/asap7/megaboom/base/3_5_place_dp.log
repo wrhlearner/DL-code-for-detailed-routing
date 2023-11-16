@@ -1,0 +1,1478 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement     387323.1 u
+average displacement        0.2 u
+max displacement           21.2 u
+original HPWL        23792410.2 u
+legalized HPWL       24102462.3 u
+delta HPWL                    1 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 1870522 cells, 945 terminals, 1743447 edges and 6152442 pins.
+[INFO DPO-0109] Network stats: inst 1871467, edges 1743447, pins 6152442
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 1350 270 units.
+[INFO DPO-0320] Collected 157524 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 1715930 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2538, 2700) - (1397466, 1397250)
+[INFO DPO-0310] Assigned 1715930 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 2.411021e+10.
+[INFO DPO-0302] End of matching; objective is 2.410526e+10, improvement is 0.02 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 2.398355e+10.
+[INFO DPO-0307] End of global swaps; objective is 2.398355e+10, improvement is 0.50 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 2.395152e+10.
+[INFO DPO-0309] End of vertical swaps; objective is 2.395152e+10, improvement is 0.13 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 2.394883e+10.
+[INFO DPO-0305] End of reordering; objective is 2.394883e+10, improvement is 0.01 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 34318600 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 34318600, swaps 1545818, moves 14680183 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 2.375264e+10, Scratch cost 2.364109e+10, Incremental cost 2.364109e+10, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 2.364109e+10.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.47 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.469624 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 857320 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 585722 cell flips.
+[INFO DPO-0384] End of flipping; objective is 2.369345e+10, improvement is 0.60 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL         24102462.3 u
+Final HPWL            23660566.6 u
+Delta HPWL                  -1.8 %
+
+[INFO DPL-0020] Mirrored 145414 instances
+[INFO DPL-0021] HPWL before          23660566.6 u
+[INFO DPL-0022] HPWL after           23655170.9 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+Warning: There are 93 unconstrained endpoints.
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2137.73
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: reset (input port clocked by clock)
+Endpoint: AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_09_
+          (removal check against rising-edge clock clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1500.00 1500.00 v input external delay
+     1    1.83    0.00    0.00 1500.00 v reset (in)
+                                         reset (net)
+                  0.32    0.10 1500.10 v input417/A (BUFx10_ASAP7_75t_R)
+     4   16.42   13.47   14.41 1514.51 v input417/Y (BUFx10_ASAP7_75t_R)
+                                         net417 (net)
+                 30.57    8.16 1522.67 v max_length138199/A (BUFx16f_ASAP7_75t_R)
+     3   27.64    8.55   22.09 1544.77 v max_length138199/Y (BUFx16f_ASAP7_75t_R)
+                                         net138199 (net)
+                124.08   39.03 1583.80 v wire138198/A (BUFx16f_ASAP7_75t_R)
+    15   45.71   12.45   37.44 1621.24 v wire138198/Y (BUFx16f_ASAP7_75t_R)
+                                         net138198 (net)
+                195.87   61.08 1682.32 v AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_05_/A (INVx1_ASAP7_75t_R)
+     1    1.22   35.99   28.48 1710.80 ^ AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_05_/Y (INVx1_ASAP7_75t_R)
+                                         AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_01_ (net)
+                 35.99    0.01 1710.81 ^ AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_09_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               1710.81   data arrival time
+
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ AsyncQueueSource/AsyncValidSync_2/sink_valid_sync_2/reg_0/_09_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         11.67   11.67   library removal time
+                                 11.67   data required time
+-----------------------------------------------------------------------------
+                                 11.67   data required time
+                               -1710.81   data arrival time
+-----------------------------------------------------------------------------
+                               1699.14   slack (MET)
+
+
+Startpoint: coreplex/RocketTile/dcache/prober/_418_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_27_
+          (rising clock gating-check end-point clocked by clock)
+Path Group: gated clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/dcache/prober/_418_/CLK (DFFLQNx2_ASAP7_75t_R)
+     1    2.00   17.68   41.85   41.85 v coreplex/RocketTile/dcache/prober/_418_/QN (DFFLQNx2_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/prober/_062_ (net)
+                 17.68    0.01   41.87 v coreplex/RocketTile/dcache/prober/_215_/A (INVx3_ASAP7_75t_R)
+     3    6.64   17.85   12.72   54.59 ^ coreplex/RocketTile/dcache/prober/_215_/Y (INVx3_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_in_1_valid (net)
+                 18.83    2.18   56.76 ^ coreplex/RocketTile/dcache/metaWriteArb/_180_/B (OR2x4_ASAP7_75t_R)
+     5    4.56   14.62   26.86   83.62 ^ coreplex/RocketTile/dcache/metaWriteArb/_180_/Y (OR2x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_out_valid (net)
+                 14.71    0.64   84.26 ^ coreplex/RocketTile/dcache/meta/_090_/B (OR2x6_ASAP7_75t_R)
+    14   18.01   27.34   29.33  113.60 ^ coreplex/RocketTile/dcache/meta/_090_/Y (OR2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/meta/_T_157_W0_en (net)
+                 27.46    1.04  114.64 ^ coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_27_/A (AND2x2_ASAP7_75t_R)
+                                114.64   data arrival time
+
+                  0.00 3750.00 3750.00   clock clock (fall edge)
+                          0.00 3750.00   clock network delay (ideal)
+                          0.00 3750.00   clock reconvergence pessimism
+                               3750.00 v coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_27_/B (AND2x2_ASAP7_75t_R)
+                          0.00 3750.00   clock gating hold time
+                               3750.00   data required time
+-----------------------------------------------------------------------------
+                               3750.00   data required time
+                               -114.64   data arrival time
+-----------------------------------------------------------------------------
+                               -3635.36   slack (VIOLATED)
+
+
+Startpoint: coreplex/RocketTile/core/register_read/_15538_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/core/ALUExeUnit_1/alu/_4436_
+          (falling edge-triggered flip-flop clocked by clock')
+Path Group: clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/core/register_read/_15538_/CLK (DFFLQNx1_ASAP7_75t_R)
+     1    0.73   12.49   33.99   33.99 v coreplex/RocketTile/core/register_read/_15538_/QN (DFFLQNx1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/register_read/_01593_ (net)
+                 12.49    0.01   34.00 v coreplex/RocketTile/core/register_read/_13673_/A (INVx1_ASAP7_75t_R)
+     1    0.73    8.11    7.17   41.16 ^ coreplex/RocketTile/core/register_read/_13673_/Y (INVx1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/ALUExeUnit_1_io_req_bits_uop_debug_wdata[26] (net)
+                  8.11    0.01   41.18 ^ coreplex/RocketTile/core/ALUExeUnit_1/alu/_4436_/D (DFFLQNx2_ASAP7_75t_R)
+                                 41.18   data arrival time
+
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 v coreplex/RocketTile/core/ALUExeUnit_1/alu/_4436_/CLK (DFFLQNx2_ASAP7_75t_R)
+                          7.93    7.93   library hold time
+                                  7.93   data required time
+-----------------------------------------------------------------------------
+                                  7.93   data required time
+                                -41.18   data arrival time
+-----------------------------------------------------------------------------
+                                 33.25   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: reset (input port clocked by clock)
+Endpoint: AsyncQueueSink/widx_gray_sync_0/reg_0/_09_
+          (recovery check against rising-edge clock clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1500.00 1500.00 v input external delay
+     1    1.83    0.00    0.00 1500.00 v reset (in)
+                                         reset (net)
+                  0.32    0.10 1500.10 v input417/A (BUFx10_ASAP7_75t_R)
+     4   16.42   13.47   14.41 1514.51 v input417/Y (BUFx10_ASAP7_75t_R)
+                                         net417 (net)
+                 45.77   13.96 1528.47 v wire138167/A (BUFx16f_ASAP7_75t_R)
+    31   53.01   20.98   25.97 1554.44 v wire138167/Y (BUFx16f_ASAP7_75t_R)
+                                         net138167 (net)
+                101.53   31.52 1585.96 v load_slew138166/A (BUFx16f_ASAP7_75t_R)
+    35   57.82   12.78   34.77 1620.74 v load_slew138166/Y (BUFx16f_ASAP7_75t_R)
+                                         net138166 (net)
+                137.28   42.47 1663.21 v load_slew138159/A (BUFx16f_ASAP7_75t_R)
+    51   64.88   35.84   43.42 1706.63 v load_slew138159/Y (BUFx16f_ASAP7_75t_R)
+                                         net138159 (net)
+                 65.90   17.31 1723.94 v load_slew138156/A (BUFx16f_ASAP7_75t_R)
+    55   65.15   35.59   34.10 1758.04 v load_slew138156/Y (BUFx16f_ASAP7_75t_R)
+                                         net138156 (net)
+                 65.45   18.10 1776.14 v max_length138155/A (BUFx16f_ASAP7_75t_R)
+    25   37.26   18.42   32.26 1808.40 v max_length138155/Y (BUFx16f_ASAP7_75t_R)
+                                         net138155 (net)
+                 70.99   22.01 1830.41 v wire138154/A (BUFx16f_ASAP7_75t_R)
+    32   64.30   24.71   32.87 1863.28 v wire138154/Y (BUFx16f_ASAP7_75t_R)
+                                         net138154 (net)
+                 25.73    2.46 1865.75 v load_slew138153/A (BUFx16f_ASAP7_75t_R)
+    18   48.37    8.80   20.99 1886.73 v load_slew138153/Y (BUFx16f_ASAP7_75t_R)
+                                         net138153 (net)
+                166.39   52.56 1939.29 v wire138152/A (BUFx16f_ASAP7_75t_R)
+    16   46.98   15.00   43.24 1982.53 v wire138152/Y (BUFx16f_ASAP7_75t_R)
+                                         net138152 (net)
+                 78.53   22.59 2005.12 v wire138151/A (BUFx16f_ASAP7_75t_R)
+    20   48.03   12.36   32.34 2037.46 v wire138151/Y (BUFx16f_ASAP7_75t_R)
+                                         net138151 (net)
+                191.07   60.77 2098.23 v wire138149/A (BUFx16f_ASAP7_75t_R)
+     4   27.12   14.36   44.71 2142.94 v wire138149/Y (BUFx16f_ASAP7_75t_R)
+                                         net138149 (net)
+                105.50   32.67 2175.61 v max_length138148/A (BUFx12f_ASAP7_75t_R)
+     9   20.46   11.89   30.80 2206.41 v max_length138148/Y (BUFx12f_ASAP7_75t_R)
+                                         net138148 (net)
+                 11.89    0.01 2206.42 v AsyncQueueSink/widx_gray_sync_0/reg_0/_05_/A (INVx1_ASAP7_75t_R)
+     1    1.23   10.61    8.62 2215.04 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_05_/Y (INVx1_ASAP7_75t_R)
+                                         AsyncQueueSink/widx_gray_sync_0/reg_0/_01_ (net)
+                 10.61    0.02 2215.05 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_09_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               2215.05   data arrival time
+
+                  0.00 7500.00 7500.00   clock clock (rise edge)
+                          0.00 7500.00   clock network delay (ideal)
+                          0.00 7500.00   clock reconvergence pessimism
+                               7500.00 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_09_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -2.51 7497.49   library recovery time
+                               7497.49   data required time
+-----------------------------------------------------------------------------
+                               7497.49   data required time
+                               -2215.05   data arrival time
+-----------------------------------------------------------------------------
+                               5282.44   slack (MET)
+
+
+Startpoint: coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_
+          (falling clock gating-check end-point clocked by clock)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_/CLK (DFFLQNx2_ASAP7_75t_R)
+    13   12.63   46.30   61.88   61.88 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_/QN (DFFLQNx2_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/mshrs_0/_0066_ (net)
+                 46.33    0.70   62.58 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0487_/B (XOR2x1_ASAP7_75t_R)
+     1    1.13   19.28   30.95   93.53 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0487_/Y (XOR2x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/mshrs_0/_0212_ (net)
+                 19.28    0.02   93.55 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0488_/C (AND3x4_ASAP7_75t_R)
+    55   72.90  123.02   46.33  139.88 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0488_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/meta_write_arb_io_in_0_valid (net)
+                129.21   13.32  153.20 v coreplex/RocketTile/dcache/mshrs/meta_write_arb/_180_/A (OR2x6_ASAP7_75t_R)
+    54   66.62   77.99   63.11  216.32 v coreplex/RocketTile/dcache/mshrs/meta_write_arb/_180_/Y (OR2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_in_0_valid (net)
+                126.73   31.45  247.77 v coreplex/RocketTile/dcache/metaWriteArb/_180_/A (OR2x4_ASAP7_75t_R)
+     5    4.55   18.22   52.71  300.48 v coreplex/RocketTile/dcache/metaWriteArb/_180_/Y (OR2x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_out_valid (net)
+                 18.30    0.64  301.12 v coreplex/RocketTile/dcache/meta/_090_/B (OR2x6_ASAP7_75t_R)
+    14   17.79   27.45   33.93  335.05 v coreplex/RocketTile/dcache/meta/_090_/Y (OR2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/meta/_T_157_W0_en (net)
+                 27.59    1.12  336.17 v coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_17_/A (INVx1_ASAP7_75t_R)
+     2    1.83   17.88   14.37  350.54 ^ coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_17_/Y (INVx1_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_06_ (net)
+                 17.88    0.02  350.57 ^ coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_/A1 (AO21x1_ASAP7_75t_R)
+                                350.57   data arrival time
+
+                  0.00 3750.00 3750.00   clock clock (fall edge)
+                          0.00 3750.00   clock network delay (ideal)
+                          0.00 3750.00   clock reconvergence pessimism
+                               3750.00 v coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_/B (AO21x1_ASAP7_75t_R)
+                          0.00 3750.00   clock gating setup time
+                               3750.00   data required time
+-----------------------------------------------------------------------------
+                               3750.00   data required time
+                               -350.57   data arrival time
+-----------------------------------------------------------------------------
+                               3399.43   slack (MET)
+
+
+Startpoint: coreplex/RocketTile/core/rob/_679912_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/core/register_read/_17028_
+          (falling edge-triggered flip-flop clocked by clock')
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/core/rob/_679912_/CLK (DFFLQNx2_ASAP7_75t_R)
+     3    4.08   24.57   44.89   44.89 ^ coreplex/RocketTile/core/rob/_679912_/QN (DFFLQNx2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/rob/_017619_ (net)
+                 24.57    0.09   44.98 ^ coreplex/RocketTile/core/rob/_341445_/A (INVx4_ASAP7_75t_R)
+     1    2.74    8.85    7.36   52.35 v coreplex/RocketTile/core/rob/_341445_/Y (INVx4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/ALUExeUnit_1_io_com_exception (net)
+                  8.85    0.07   52.42 v wire128223/A (BUFx16f_ASAP7_75t_R)
+     3   31.92    8.82   16.41   68.83 v wire128223/Y (BUFx16f_ASAP7_75t_R)
+                                         net128223 (net)
+                 60.05   17.82   86.64 v wire128222/A (BUFx16f_ASAP7_75t_R)
+     4   36.06   11.14   29.01  115.66 v wire128222/Y (BUFx16f_ASAP7_75t_R)
+                                         net128222 (net)
+                219.07   68.84  184.50 v max_length128221/A (BUFx12f_ASAP7_75t_R)
+     5   20.45   15.77   42.83  227.33 v max_length128221/Y (BUFx12f_ASAP7_75t_R)
+                                         net128221 (net)
+                 65.69   19.96  247.29 v wire128220/A (BUFx16f_ASAP7_75t_R)
+    39   54.13   14.56   31.30  278.59 v wire128220/Y (BUFx16f_ASAP7_75t_R)
+                                         net128220 (net)
+                159.77   50.59  329.19 v load_slew128219/A (BUFx16f_ASAP7_75t_R)
+    45   56.41   15.71   43.09  372.28 v load_slew128219/Y (BUFx16f_ASAP7_75t_R)
+                                         net128219 (net)
+                206.68   65.42  437.70 v load_slew128218/A (BUFx16f_ASAP7_75t_R)
+    48   56.26   16.77   47.12  484.81 v load_slew128218/Y (BUFx16f_ASAP7_75t_R)
+                                         net128218 (net)
+                178.51   56.16  540.98 v coreplex/RocketTile/core/issue_unit/IssueSlot_2/_1830_/B (AOI211x1_ASAP7_75t_R)
+     9   19.01  206.87  107.81  648.78 ^ coreplex/RocketTile/core/issue_unit/IssueSlot_2/_1830_/Y (AOI211x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/IssueSlot_2_io_request (net)
+                216.17   23.73  672.51 ^ coreplex/RocketTile/core/issue_unit/_211429_/A1 (AO222x2_ASAP7_75t_R)
+    11   20.53   72.93   76.47  748.98 ^ coreplex/RocketTile/core/issue_unit/_211429_/Y (AO222x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_013988_ (net)
+                 73.31    3.10  752.08 ^ max_length100249/A (BUFx16f_ASAP7_75t_R)
+    15   27.87   13.01   27.65  779.73 ^ max_length100249/Y (BUFx16f_ASAP7_75t_R)
+                                         net100249 (net)
+                 23.70    5.30  785.03 ^ coreplex/RocketTile/core/issue_unit/_211467_/B (OR4x2_ASAP7_75t_R)
+    13   24.09   94.53   48.65  833.68 ^ coreplex/RocketTile/core/issue_unit/_211467_/Y (OR4x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014026_ (net)
+                 98.66   10.72  844.40 ^ coreplex/RocketTile/core/issue_unit/_211500_/B (OR5x2_ASAP7_75t_R)
+     6   21.26   82.62   67.43  911.83 ^ coreplex/RocketTile/core/issue_unit/_211500_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014059_ (net)
+                 84.95    7.58  919.42 ^ coreplex/RocketTile/core/issue_unit/_211507_/A (NOR2x2_ASAP7_75t_R)
+     8    9.37   48.72   40.51  959.93 v coreplex/RocketTile/core/issue_unit/_211507_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014066_ (net)
+                 48.76    0.84  960.77 v coreplex/RocketTile/core/issue_unit/_211508_/C (AND3x4_ASAP7_75t_R)
+     8   21.23   40.16   48.78 1009.55 v coreplex/RocketTile/core/issue_unit/_211508_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014067_ (net)
+                 47.70    9.00 1018.55 v coreplex/RocketTile/core/issue_unit/_211514_/B (AND3x4_ASAP7_75t_R)
+    23   31.22   55.58   48.94 1067.49 v coreplex/RocketTile/core/issue_unit/_211514_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014073_ (net)
+                 55.58    0.11 1067.60 v max_length86395/A (BUFx16f_ASAP7_75t_R)
+    13   28.61   11.08   27.95 1095.55 v max_length86395/Y (BUFx16f_ASAP7_75t_R)
+                                         net86395 (net)
+                 11.08    0.05 1095.61 v coreplex/RocketTile/core/issue_unit/_211515_/C (AND3x4_ASAP7_75t_R)
+     4   15.57   29.94   31.68 1127.28 v coreplex/RocketTile/core/issue_unit/_211515_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014074_ (net)
+                 29.95    0.26 1127.54 v wire83422/A (BUFx16f_ASAP7_75t_R)
+    31   42.82   21.24   22.25 1149.79 v wire83422/Y (BUFx16f_ASAP7_75t_R)
+                                         net83422 (net)
+                 57.92   16.50 1166.29 v max_length83421/A (BUFx16f_ASAP7_75t_R)
+    10   29.32   10.22   27.90 1194.19 v max_length83421/Y (BUFx16f_ASAP7_75t_R)
+                                         net83421 (net)
+                 69.61   20.93 1215.12 v max_length83420/A (BUFx16f_ASAP7_75t_R)
+    12   29.10   19.22   31.94 1247.06 v max_length83420/Y (BUFx16f_ASAP7_75t_R)
+                                         net83420 (net)
+                 39.68   11.25 1258.31 v wire83418/A (BUFx16f_ASAP7_75t_R)
+     9   29.61    9.09   24.37 1282.68 v wire83418/Y (BUFx16f_ASAP7_75t_R)
+                                         net83418 (net)
+                 97.95   30.53 1313.21 v max_length83416/A (BUFx12f_ASAP7_75t_R)
+    10   22.05   19.71   31.08 1344.29 v max_length83416/Y (BUFx12f_ASAP7_75t_R)
+                                         net83416 (net)
+                 36.75   10.07 1354.36 v max_length83415/A (BUFx16f_ASAP7_75t_R)
+    16   29.57   14.13   24.00 1378.36 v max_length83415/Y (BUFx16f_ASAP7_75t_R)
+                                         net83415 (net)
+                 63.81   19.83 1398.19 v max_length83414/A (BUFx16f_ASAP7_75t_R)
+    21   32.14   10.56   28.87 1427.06 v max_length83414/Y (BUFx16f_ASAP7_75t_R)
+                                         net83414 (net)
+                 78.13   23.81 1450.86 v coreplex/RocketTile/core/issue_unit/_211749_/A (NAND2x2_ASAP7_75t_R)
+    14   24.22  101.37   69.99 1520.85 ^ coreplex/RocketTile/core/issue_unit/_211749_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014307_ (net)
+                101.96    4.33 1525.18 ^ wire77807/A (BUFx16f_ASAP7_75t_R)
+    15   30.84   19.85   30.58 1555.76 ^ wire77807/Y (BUFx16f_ASAP7_75t_R)
+                                         net77807 (net)
+                 58.78   17.56 1573.33 ^ wire77806/A (BUFx16f_ASAP7_75t_R)
+    18   33.71   18.79   25.89 1599.22 ^ wire77806/Y (BUFx16f_ASAP7_75t_R)
+                                         net77806 (net)
+                 68.83   21.16 1620.37 ^ max_length77803/A (BUFx16f_ASAP7_75t_R)
+    12   26.39   12.00   26.23 1646.60 ^ max_length77803/Y (BUFx16f_ASAP7_75t_R)
+                                         net77803 (net)
+                 44.61   12.54 1659.14 ^ wire77802/A (BUFx16f_ASAP7_75t_R)
+    23   34.81   10.61   23.10 1682.24 ^ wire77802/Y (BUFx16f_ASAP7_75t_R)
+                                         net77802 (net)
+                107.89   33.99 1716.23 ^ max_length77800/A (BUFx16f_ASAP7_75t_R)
+    18   23.76   13.55   30.16 1746.39 ^ max_length77800/Y (BUFx16f_ASAP7_75t_R)
+                                         net77800 (net)
+                 59.96   18.34 1764.73 ^ load_slew77798/A (BUFx16f_ASAP7_75t_R)
+    31   35.40   13.08   25.72 1790.45 ^ load_slew77798/Y (BUFx16f_ASAP7_75t_R)
+                                         net77798 (net)
+                 62.75   18.22 1808.67 ^ coreplex/RocketTile/core/issue_unit/_232859_/B (AND2x2_ASAP7_75t_R)
+     3    3.55   19.05   32.97 1841.64 ^ coreplex/RocketTile/core/issue_unit/_232859_/Y (AND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034965_ (net)
+                 19.05    0.05 1841.69 ^ coreplex/RocketTile/core/issue_unit/_232860_/B (OAI21x1_ASAP7_75t_R)
+     6   20.46   98.87   49.76 1891.45 v coreplex/RocketTile/core/issue_unit/_232860_/Y (OAI21x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034966_ (net)
+                 98.88    0.58 1892.03 v coreplex/RocketTile/core/issue_unit/_232861_/B (NAND2x2_ASAP7_75t_R)
+     3    5.54   44.42   38.08 1930.10 ^ coreplex/RocketTile/core/issue_unit/_232861_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034967_ (net)
+                 44.42    0.13 1930.23 ^ coreplex/RocketTile/core/issue_unit/_232878_/B (NOR2x2_ASAP7_75t_R)
+    13   18.89   67.24   40.15 1970.38 v coreplex/RocketTile/core/issue_unit/_232878_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034984_ (net)
+                 67.24    0.36 1970.74 v wire60126/A (BUFx16f_ASAP7_75t_R)
+    17   31.69   10.73   29.54 2000.28 v wire60126/Y (BUFx16f_ASAP7_75t_R)
+                                         net60126 (net)
+                 93.51   29.07 2029.36 v wire60125/A (BUFx16f_ASAP7_75t_R)
+    18   31.88   12.29   33.68 2063.03 v wire60125/Y (BUFx16f_ASAP7_75t_R)
+                                         net60125 (net)
+                 61.57   18.05 2081.08 v wire60124/A (BUFx16f_ASAP7_75t_R)
+     7   26.60    9.69   28.22 2109.30 v wire60124/Y (BUFx16f_ASAP7_75t_R)
+                                         net60124 (net)
+                120.70   38.07 2147.37 v max_length60123/A (BUFx16f_ASAP7_75t_R)
+     9   24.36   18.24   37.73 2185.11 v max_length60123/Y (BUFx16f_ASAP7_75t_R)
+                                         net60123 (net)
+                 42.56   12.27 2197.38 v wire60122/A (BUFx16f_ASAP7_75t_R)
+    15   33.12    9.90   25.34 2222.72 v wire60122/Y (BUFx16f_ASAP7_75t_R)
+                                         net60122 (net)
+                 22.20    5.57 2228.28 v coreplex/RocketTile/core/issue_unit/_233249_/B (NAND2x2_ASAP7_75t_R)
+     6   16.55   68.36   33.92 2262.20 ^ coreplex/RocketTile/core/issue_unit/_233249_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_035354_ (net)
+                 68.37    0.46 2262.66 ^ load_slew55404/A (BUFx16f_ASAP7_75t_R)
+    11   23.90   11.34   26.28 2288.95 ^ load_slew55404/Y (BUFx16f_ASAP7_75t_R)
+                                         net55404 (net)
+                 35.48    9.55 2298.50 ^ load_slew55403/A (BUFx16f_ASAP7_75t_R)
+    11   23.22   17.17   22.90 2321.40 ^ load_slew55403/Y (BUFx16f_ASAP7_75t_R)
+                                         net55403 (net)
+                 26.67    6.70 2328.10 ^ wire55395/A (BUFx16f_ASAP7_75t_R)
+    17   32.14    8.55   19.41 2347.51 ^ wire55395/Y (BUFx16f_ASAP7_75t_R)
+                                         net55395 (net)
+                119.24   37.64 2385.14 ^ load_slew55394/A (BUFx16f_ASAP7_75t_R)
+    17   30.14   16.20   31.95 2417.10 ^ load_slew55394/Y (BUFx16f_ASAP7_75t_R)
+                                         net55394 (net)
+                 62.30   18.56 2435.66 ^ load_slew55393/A (BUFx16f_ASAP7_75t_R)
+    17   24.72   12.25   25.47 2461.13 ^ load_slew55393/Y (BUFx16f_ASAP7_75t_R)
+                                         net55393 (net)
+                 49.13   14.49 2475.62 ^ max_length55392/A (BUFx16f_ASAP7_75t_R)
+    17   31.19    9.54   23.26 2498.88 ^ max_length55392/Y (BUFx16f_ASAP7_75t_R)
+                                         net55392 (net)
+                 92.07   28.64 2527.52 ^ coreplex/RocketTile/core/issue_unit/_251408_/A1 (AO21x2_ASAP7_75t_R)
+     3    3.76   16.76   28.49 2556.01 ^ coreplex/RocketTile/core/issue_unit/_251408_/Y (AO21x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053061_ (net)
+                 16.76    0.08 2556.09 ^ coreplex/RocketTile/core/issue_unit/_251419_/B (NOR2x2_ASAP7_75t_R)
+     1    2.65   15.84   11.62 2567.71 v coreplex/RocketTile/core/issue_unit/_251419_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053072_ (net)
+                 15.84    0.03 2567.74 v wire46361/A (BUFx16f_ASAP7_75t_R)
+     4   28.33    7.71   17.99 2585.72 v wire46361/Y (BUFx16f_ASAP7_75t_R)
+                                         net46361 (net)
+                153.74   48.66 2634.38 v wire46360/A (BUFx16f_ASAP7_75t_R)
+     4   27.47   14.36   42.01 2676.39 v wire46360/Y (BUFx16f_ASAP7_75t_R)
+                                         net46360 (net)
+                149.51   46.99 2723.39 v coreplex/RocketTile/core/issue_unit/_251420_/B (AND2x6_ASAP7_75t_R)
+     8   24.38   32.33   56.81 2780.20 v coreplex/RocketTile/core/issue_unit/_251420_/Y (AND2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053073_ (net)
+                 32.33    0.04 2780.24 v max_length38667/A (BUFx16f_ASAP7_75t_R)
+    10   29.43   10.06   22.88 2803.11 v max_length38667/Y (BUFx16f_ASAP7_75t_R)
+                                         net38667 (net)
+                 77.63   24.35 2827.46 v wire38662/A (BUFx16f_ASAP7_75t_R)
+     7   28.22   10.77   31.37 2858.83 v wire38662/Y (BUFx16f_ASAP7_75t_R)
+                                         net38662 (net)
+                125.71   39.65 2898.48 v max_length38661/A (BUFx16f_ASAP7_75t_R)
+     5   23.57   13.37   37.93 2936.41 v max_length38661/Y (BUFx16f_ASAP7_75t_R)
+                                         net38661 (net)
+                 14.34    1.29 2937.70 v wire38660/A (BUFx16f_ASAP7_75t_R)
+    12   30.92    7.25   17.22 2954.92 v wire38660/Y (BUFx16f_ASAP7_75t_R)
+                                         net38660 (net)
+                130.92   41.40 2996.32 v wire38659/A (BUFx16f_ASAP7_75t_R)
+    18   35.89   12.99   38.36 3034.69 v wire38659/Y (BUFx16f_ASAP7_75t_R)
+                                         net38659 (net)
+                140.56   44.23 3078.92 v coreplex/RocketTile/core/issue_unit/_269131_/D (OR5x2_ASAP7_75t_R)
+     7   22.28   85.03   95.84 3174.76 v coreplex/RocketTile/core/issue_unit/_269131_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070331_ (net)
+                 85.08    1.44 3176.20 v coreplex/RocketTile/core/issue_unit/_269142_/A (NAND2x2_ASAP7_75t_R)
+     5   19.01   90.04   59.48 3235.68 ^ coreplex/RocketTile/core/issue_unit/_269142_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070342_ (net)
+                 90.04    0.50 3236.19 ^ coreplex/RocketTile/core/issue_unit/_269143_/B (NOR2x2_ASAP7_75t_R)
+     7   20.82   90.26   50.75 3286.94 v coreplex/RocketTile/core/issue_unit/_269143_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070343_ (net)
+                 90.26    0.03 3286.97 v wire24102/A (BUFx16f_ASAP7_75t_R)
+    18   35.14   12.05   33.24 3320.22 v wire24102/Y (BUFx16f_ASAP7_75t_R)
+                                         net24102 (net)
+                 52.04   14.33 3334.55 v wire24083/A (BUFx16f_ASAP7_75t_R)
+    21   33.10   11.29   27.06 3361.61 v wire24083/Y (BUFx16f_ASAP7_75t_R)
+                                         net24083 (net)
+                 89.73   28.20 3389.82 v load_slew24082/A (BUFx16f_ASAP7_75t_R)
+    19   29.12   14.90   33.14 3422.95 v load_slew24082/Y (BUFx16f_ASAP7_75t_R)
+                                         net24082 (net)
+                 59.59   17.86 3440.81 v wire24081/A (BUFx16f_ASAP7_75t_R)
+    18   31.09   10.99   28.30 3469.12 v wire24081/Y (BUFx16f_ASAP7_75t_R)
+                                         net24081 (net)
+                 83.99   26.26 3495.38 v coreplex/RocketTile/core/issue_unit/_278544_/B1 (AO221x2_ASAP7_75t_R)
+     2   16.48   52.91   59.10 3554.47 v coreplex/RocketTile/core/issue_unit/_278544_/Y (AO221x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/iss_uops_3_pop2[1] (net)
+                 52.91    0.08 3554.55 v max_length21791/A (BUFx12f_ASAP7_75t_R)
+     1   18.08   10.15   24.34 3578.89 v max_length21791/Y (BUFx12f_ASAP7_75t_R)
+                                         net21791 (net)
+                 70.82   22.07 3600.97 v wire21790/A (BUFx16f_ASAP7_75t_R)
+    35   54.17   10.36   30.09 3631.05 v wire21790/Y (BUFx16f_ASAP7_75t_R)
+                                         net21790 (net)
+                278.49   87.68 3718.73 v load_slew21778/A (BUFx16f_ASAP7_75t_R)
+    36   42.51   26.50   54.44 3773.17 v load_slew21778/Y (BUFx16f_ASAP7_75t_R)
+                                         net21778 (net)
+                 83.74   24.66 3797.84 v load_slew21765/A (BUFx16f_ASAP7_75t_R)
+    29   38.09   19.34   33.19 3831.03 v load_slew21765/Y (BUFx16f_ASAP7_75t_R)
+                                         net21765 (net)
+                 64.01   18.79 3849.82 v load_slew21700/A (BUFx16f_ASAP7_75t_R)
+    26   29.49   16.21   29.58 3879.40 v load_slew21700/Y (BUFx16f_ASAP7_75t_R)
+                                         net21700 (net)
+                 56.49   17.13 3896.53 v wire21699/A (BUFx16f_ASAP7_75t_R)
+    35   43.19   11.84   28.25 3924.78 v wire21699/Y (BUFx16f_ASAP7_75t_R)
+                                         net21699 (net)
+                138.41   43.80 3968.58 v wire21698/A (BUFx16f_ASAP7_75t_R)
+    33   40.84   18.42   40.24 4008.82 v wire21698/Y (BUFx16f_ASAP7_75t_R)
+                                         net21698 (net)
+                 73.59   21.47 4030.29 v load_slew21697/A (BUFx16f_ASAP7_75t_R)
+    34   36.06   17.99   31.90 4062.19 v load_slew21697/Y (BUFx16f_ASAP7_75t_R)
+                                         net21697 (net)
+                 72.73   22.39 4084.58 v load_slew21696/A (BUFx16f_ASAP7_75t_R)
+    33   39.08   21.89   31.41 4115.98 v load_slew21696/Y (BUFx16f_ASAP7_75t_R)
+                                         net21696 (net)
+                 63.17   18.66 4134.64 v load_slew21695/A (BUFx16f_ASAP7_75t_R)
+    36   43.10   11.64   29.18 4163.82 v load_slew21695/Y (BUFx16f_ASAP7_75t_R)
+                                         net21695 (net)
+                132.98   41.98 4205.80 v load_slew21693/A (BUFx16f_ASAP7_75t_R)
+    31   40.08   15.88   39.42 4245.22 v load_slew21693/Y (BUFx16f_ASAP7_75t_R)
+                                         net21693 (net)
+                108.17   33.82 4279.04 v load_slew21691/A (BUFx16f_ASAP7_75t_R)
+    35   40.76   20.80   36.67 4315.71 v load_slew21691/Y (BUFx16f_ASAP7_75t_R)
+                                         net21691 (net)
+                 44.58   11.06 4326.77 v load_slew21690/A (BUFx16f_ASAP7_75t_R)
+    23   30.36   11.22   25.90 4352.67 v load_slew21690/Y (BUFx16f_ASAP7_75t_R)
+                                         net21690 (net)
+                 63.25   19.20 4371.87 v load_slew21689/A (BUFx16f_ASAP7_75t_R)
+    28   29.99   20.00   31.14 4403.01 v load_slew21689/Y (BUFx16f_ASAP7_75t_R)
+                                         net21689 (net)
+                 32.38    8.26 4411.27 v load_slew21687/A (BUFx16f_ASAP7_75t_R)
+    35   40.91   24.13   24.36 4435.62 v load_slew21687/Y (BUFx16f_ASAP7_75t_R)
+                                         net21687 (net)
+                 54.60   16.22 4451.84 v load_slew21686/A (BUFx16f_ASAP7_75t_R)
+    35   40.36   22.55   28.23 4480.07 v load_slew21686/Y (BUFx16f_ASAP7_75t_R)
+                                         net21686 (net)
+                 61.95   18.34 4498.41 v coreplex/RocketTile/core/regfile/_329511_/A (NOR2x2_ASAP7_75t_R)
+     4   11.76   69.36   34.57 4532.98 ^ coreplex/RocketTile/core/regfile/_329511_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_053831_ (net)
+                 71.78    6.98 4539.96 ^ wire19613/A (BUFx16f_ASAP7_75t_R)
+     9   34.89   14.29   26.78 4566.74 ^ wire19613/Y (BUFx16f_ASAP7_75t_R)
+                                         net19613 (net)
+                 77.17   23.39 4590.13 ^ wire19609/A (BUFx16f_ASAP7_75t_R)
+     6   32.33   10.92   27.50 4617.63 ^ wire19609/Y (BUFx16f_ASAP7_75t_R)
+                                         net19609 (net)
+                141.66   44.21 4661.83 ^ wire19599/A (BUFx16f_ASAP7_75t_R)
+     5   31.69   12.75   32.96 4694.79 ^ wire19599/Y (BUFx16f_ASAP7_75t_R)
+                                         net19599 (net)
+                174.81   55.33 4750.12 ^ wire19597/A (BUFx16f_ASAP7_75t_R)
+     9   37.76   13.54   35.02 4785.14 ^ wire19597/Y (BUFx16f_ASAP7_75t_R)
+                                         net19597 (net)
+                165.12   51.89 4837.03 ^ max_length19596/A (BUFx16f_ASAP7_75t_R)
+     8   28.93   13.26   34.50 4871.53 ^ max_length19596/Y (BUFx16f_ASAP7_75t_R)
+                                         net19596 (net)
+                119.14   37.50 4909.03 ^ wire19594/A (BUFx16f_ASAP7_75t_R)
+     4   31.17   12.22   31.22 4940.24 ^ wire19594/Y (BUFx16f_ASAP7_75t_R)
+                                         net19594 (net)
+                159.81   50.10 4990.34 ^ coreplex/RocketTile/core/regfile/_342068_/B2 (AOI22x1_ASAP7_75t_R)
+     1    0.71   33.28   22.33 5012.67 v coreplex/RocketTile/core/regfile/_342068_/Y (AOI22x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066329_ (net)
+                 33.28    0.02 5012.68 v coreplex/RocketTile/core/regfile/_342069_/C (AND3x1_ASAP7_75t_R)
+     1    0.97    9.54   21.95 5034.63 v coreplex/RocketTile/core/regfile/_342069_/Y (AND3x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066330_ (net)
+                  9.54    0.05 5034.68 v coreplex/RocketTile/core/regfile/_342081_/B1 (OA33x2_ASAP7_75t_R)
+     1   18.10   56.13   45.01 5079.69 v coreplex/RocketTile/core/regfile/_342081_/Y (OA33x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066342_ (net)
+                 97.60   25.77 5105.46 v coreplex/RocketTile/core/regfile/_342126_/B (OR5x2_ASAP7_75t_R)
+     1   19.07   73.55   85.48 5190.94 v coreplex/RocketTile/core/regfile/_342126_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066387_ (net)
+                115.45   28.99 5219.93 v coreplex/RocketTile/core/regfile/_342217_/A2 (AO31x2_ASAP7_75t_R)
+     1    6.86   23.60   34.23 5254.16 v coreplex/RocketTile/core/regfile/_342217_/Y (AO31x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile_io_read_ports_8_data[59] (net)
+                 25.58    3.61 5257.77 v wire4635/A (BUFx12f_ASAP7_75t_R)
+     1   20.37    9.97   19.71 5277.48 v wire4635/Y (BUFx12f_ASAP7_75t_R)
+                                         net4635 (net)
+                 89.97   28.24 5305.73 v coreplex/RocketTile/core/register_read/_12036_/A1 (OA22x2_ASAP7_75t_R)
+     1    1.66   11.78   31.26 5336.99 v coreplex/RocketTile/core/register_read/_12036_/Y (OA22x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/register_read/_03987_ (net)
+                 11.79    0.22 5337.21 v coreplex/RocketTile/core/register_read/_12039_/A2 (AO21x1_ASAP7_75t_R)
+     1    0.69    7.18   15.27 5352.48 v coreplex/RocketTile/core/register_read/_12039_/Y (AO21x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/register_read/_T_7196[59] (net)
+                  7.18    0.01 5352.49 v coreplex/RocketTile/core/register_read/_17028_/D (DFFLQNx2_ASAP7_75t_R)
+                               5352.49   data arrival time
+
+                  0.00 7500.00 7500.00   clock clock' (fall edge)
+                          0.00 7500.00   clock network delay (ideal)
+                          0.00 7500.00   clock reconvergence pessimism
+                               7500.00 v coreplex/RocketTile/core/register_read/_17028_/CLK (DFFLQNx2_ASAP7_75t_R)
+                         -9.79 7490.21   library setup time
+                               7490.21   data required time
+-----------------------------------------------------------------------------
+                               7490.21   data required time
+                               -5352.49   data arrival time
+-----------------------------------------------------------------------------
+                               2137.73   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: reset (input port clocked by clock)
+Endpoint: AsyncQueueSink/widx_gray_sync_0/reg_0/_09_
+          (recovery check against rising-edge clock clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                       1500.00 1500.00 v input external delay
+     1    1.83    0.00    0.00 1500.00 v reset (in)
+                                         reset (net)
+                  0.32    0.10 1500.10 v input417/A (BUFx10_ASAP7_75t_R)
+     4   16.42   13.47   14.41 1514.51 v input417/Y (BUFx10_ASAP7_75t_R)
+                                         net417 (net)
+                 45.77   13.96 1528.47 v wire138167/A (BUFx16f_ASAP7_75t_R)
+    31   53.01   20.98   25.97 1554.44 v wire138167/Y (BUFx16f_ASAP7_75t_R)
+                                         net138167 (net)
+                101.53   31.52 1585.96 v load_slew138166/A (BUFx16f_ASAP7_75t_R)
+    35   57.82   12.78   34.77 1620.74 v load_slew138166/Y (BUFx16f_ASAP7_75t_R)
+                                         net138166 (net)
+                137.28   42.47 1663.21 v load_slew138159/A (BUFx16f_ASAP7_75t_R)
+    51   64.88   35.84   43.42 1706.63 v load_slew138159/Y (BUFx16f_ASAP7_75t_R)
+                                         net138159 (net)
+                 65.90   17.31 1723.94 v load_slew138156/A (BUFx16f_ASAP7_75t_R)
+    55   65.15   35.59   34.10 1758.04 v load_slew138156/Y (BUFx16f_ASAP7_75t_R)
+                                         net138156 (net)
+                 65.45   18.10 1776.14 v max_length138155/A (BUFx16f_ASAP7_75t_R)
+    25   37.26   18.42   32.26 1808.40 v max_length138155/Y (BUFx16f_ASAP7_75t_R)
+                                         net138155 (net)
+                 70.99   22.01 1830.41 v wire138154/A (BUFx16f_ASAP7_75t_R)
+    32   64.30   24.71   32.87 1863.28 v wire138154/Y (BUFx16f_ASAP7_75t_R)
+                                         net138154 (net)
+                 25.73    2.46 1865.75 v load_slew138153/A (BUFx16f_ASAP7_75t_R)
+    18   48.37    8.80   20.99 1886.73 v load_slew138153/Y (BUFx16f_ASAP7_75t_R)
+                                         net138153 (net)
+                166.39   52.56 1939.29 v wire138152/A (BUFx16f_ASAP7_75t_R)
+    16   46.98   15.00   43.24 1982.53 v wire138152/Y (BUFx16f_ASAP7_75t_R)
+                                         net138152 (net)
+                 78.53   22.59 2005.12 v wire138151/A (BUFx16f_ASAP7_75t_R)
+    20   48.03   12.36   32.34 2037.46 v wire138151/Y (BUFx16f_ASAP7_75t_R)
+                                         net138151 (net)
+                191.07   60.77 2098.23 v wire138149/A (BUFx16f_ASAP7_75t_R)
+     4   27.12   14.36   44.71 2142.94 v wire138149/Y (BUFx16f_ASAP7_75t_R)
+                                         net138149 (net)
+                105.50   32.67 2175.61 v max_length138148/A (BUFx12f_ASAP7_75t_R)
+     9   20.46   11.89   30.80 2206.41 v max_length138148/Y (BUFx12f_ASAP7_75t_R)
+                                         net138148 (net)
+                 11.89    0.01 2206.42 v AsyncQueueSink/widx_gray_sync_0/reg_0/_05_/A (INVx1_ASAP7_75t_R)
+     1    1.23   10.61    8.62 2215.04 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_05_/Y (INVx1_ASAP7_75t_R)
+                                         AsyncQueueSink/widx_gray_sync_0/reg_0/_01_ (net)
+                 10.61    0.02 2215.05 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_09_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               2215.05   data arrival time
+
+                  0.00 7500.00 7500.00   clock clock (rise edge)
+                          0.00 7500.00   clock network delay (ideal)
+                          0.00 7500.00   clock reconvergence pessimism
+                               7500.00 ^ AsyncQueueSink/widx_gray_sync_0/reg_0/_09_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -2.51 7497.49   library recovery time
+                               7497.49   data required time
+-----------------------------------------------------------------------------
+                               7497.49   data required time
+                               -2215.05   data arrival time
+-----------------------------------------------------------------------------
+                               5282.44   slack (MET)
+
+
+Startpoint: coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_
+          (falling clock gating-check end-point clocked by clock)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_/CLK (DFFLQNx2_ASAP7_75t_R)
+    13   12.63   46.30   61.88   61.88 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0773_/QN (DFFLQNx2_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/mshrs_0/_0066_ (net)
+                 46.33    0.70   62.58 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0487_/B (XOR2x1_ASAP7_75t_R)
+     1    1.13   19.28   30.95   93.53 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0487_/Y (XOR2x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/mshrs_0/_0212_ (net)
+                 19.28    0.02   93.55 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0488_/C (AND3x4_ASAP7_75t_R)
+    55   72.90  123.02   46.33  139.88 v coreplex/RocketTile/dcache/mshrs/mshrs_0/_0488_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/mshrs/meta_write_arb_io_in_0_valid (net)
+                129.21   13.32  153.20 v coreplex/RocketTile/dcache/mshrs/meta_write_arb/_180_/A (OR2x6_ASAP7_75t_R)
+    54   66.62   77.99   63.11  216.32 v coreplex/RocketTile/dcache/mshrs/meta_write_arb/_180_/Y (OR2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_in_0_valid (net)
+                126.73   31.45  247.77 v coreplex/RocketTile/dcache/metaWriteArb/_180_/A (OR2x4_ASAP7_75t_R)
+     5    4.55   18.22   52.71  300.48 v coreplex/RocketTile/dcache/metaWriteArb/_180_/Y (OR2x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/metaWriteArb_io_out_valid (net)
+                 18.30    0.64  301.12 v coreplex/RocketTile/dcache/meta/_090_/B (OR2x6_ASAP7_75t_R)
+    14   17.79   27.45   33.93  335.05 v coreplex/RocketTile/dcache/meta/_090_/Y (OR2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/meta/_T_157_W0_en (net)
+                 27.59    1.12  336.17 v coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_17_/A (INVx1_ASAP7_75t_R)
+     2    1.83   17.88   14.37  350.54 ^ coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_17_/Y (INVx1_ASAP7_75t_R)
+                                         coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_06_ (net)
+                 17.88    0.02  350.57 ^ coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_/A1 (AO21x1_ASAP7_75t_R)
+                                350.57   data arrival time
+
+                  0.00 3750.00 3750.00   clock clock (fall edge)
+                          0.00 3750.00   clock network delay (ideal)
+                          0.00 3750.00   clock reconvergence pessimism
+                               3750.00 v coreplex/RocketTile/dcache/meta/_T_157/_T_157_ext/_28_/B (AO21x1_ASAP7_75t_R)
+                          0.00 3750.00   clock gating setup time
+                               3750.00   data required time
+-----------------------------------------------------------------------------
+                               3750.00   data required time
+                               -350.57   data arrival time
+-----------------------------------------------------------------------------
+                               3399.43   slack (MET)
+
+
+Startpoint: coreplex/RocketTile/core/rob/_679912_
+            (falling edge-triggered flip-flop clocked by clock')
+Endpoint: coreplex/RocketTile/core/register_read/_17028_
+          (falling edge-triggered flip-flop clocked by clock')
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v coreplex/RocketTile/core/rob/_679912_/CLK (DFFLQNx2_ASAP7_75t_R)
+     3    4.08   24.57   44.89   44.89 ^ coreplex/RocketTile/core/rob/_679912_/QN (DFFLQNx2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/rob/_017619_ (net)
+                 24.57    0.09   44.98 ^ coreplex/RocketTile/core/rob/_341445_/A (INVx4_ASAP7_75t_R)
+     1    2.74    8.85    7.36   52.35 v coreplex/RocketTile/core/rob/_341445_/Y (INVx4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/ALUExeUnit_1_io_com_exception (net)
+                  8.85    0.07   52.42 v wire128223/A (BUFx16f_ASAP7_75t_R)
+     3   31.92    8.82   16.41   68.83 v wire128223/Y (BUFx16f_ASAP7_75t_R)
+                                         net128223 (net)
+                 60.05   17.82   86.64 v wire128222/A (BUFx16f_ASAP7_75t_R)
+     4   36.06   11.14   29.01  115.66 v wire128222/Y (BUFx16f_ASAP7_75t_R)
+                                         net128222 (net)
+                219.07   68.84  184.50 v max_length128221/A (BUFx12f_ASAP7_75t_R)
+     5   20.45   15.77   42.83  227.33 v max_length128221/Y (BUFx12f_ASAP7_75t_R)
+                                         net128221 (net)
+                 65.69   19.96  247.29 v wire128220/A (BUFx16f_ASAP7_75t_R)
+    39   54.13   14.56   31.30  278.59 v wire128220/Y (BUFx16f_ASAP7_75t_R)
+                                         net128220 (net)
+                159.77   50.59  329.19 v load_slew128219/A (BUFx16f_ASAP7_75t_R)
+    45   56.41   15.71   43.09  372.28 v load_slew128219/Y (BUFx16f_ASAP7_75t_R)
+                                         net128219 (net)
+                206.68   65.42  437.70 v load_slew128218/A (BUFx16f_ASAP7_75t_R)
+    48   56.26   16.77   47.12  484.81 v load_slew128218/Y (BUFx16f_ASAP7_75t_R)
+                                         net128218 (net)
+                178.51   56.16  540.98 v coreplex/RocketTile/core/issue_unit/IssueSlot_2/_1830_/B (AOI211x1_ASAP7_75t_R)
+     9   19.01  206.87  107.81  648.78 ^ coreplex/RocketTile/core/issue_unit/IssueSlot_2/_1830_/Y (AOI211x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/IssueSlot_2_io_request (net)
+                216.17   23.73  672.51 ^ coreplex/RocketTile/core/issue_unit/_211429_/A1 (AO222x2_ASAP7_75t_R)
+    11   20.53   72.93   76.47  748.98 ^ coreplex/RocketTile/core/issue_unit/_211429_/Y (AO222x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_013988_ (net)
+                 73.31    3.10  752.08 ^ max_length100249/A (BUFx16f_ASAP7_75t_R)
+    15   27.87   13.01   27.65  779.73 ^ max_length100249/Y (BUFx16f_ASAP7_75t_R)
+                                         net100249 (net)
+                 23.70    5.30  785.03 ^ coreplex/RocketTile/core/issue_unit/_211467_/B (OR4x2_ASAP7_75t_R)
+    13   24.09   94.53   48.65  833.68 ^ coreplex/RocketTile/core/issue_unit/_211467_/Y (OR4x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014026_ (net)
+                 98.66   10.72  844.40 ^ coreplex/RocketTile/core/issue_unit/_211500_/B (OR5x2_ASAP7_75t_R)
+     6   21.26   82.62   67.43  911.83 ^ coreplex/RocketTile/core/issue_unit/_211500_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014059_ (net)
+                 84.95    7.58  919.42 ^ coreplex/RocketTile/core/issue_unit/_211507_/A (NOR2x2_ASAP7_75t_R)
+     8    9.37   48.72   40.51  959.93 v coreplex/RocketTile/core/issue_unit/_211507_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014066_ (net)
+                 48.76    0.84  960.77 v coreplex/RocketTile/core/issue_unit/_211508_/C (AND3x4_ASAP7_75t_R)
+     8   21.23   40.16   48.78 1009.55 v coreplex/RocketTile/core/issue_unit/_211508_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014067_ (net)
+                 47.70    9.00 1018.55 v coreplex/RocketTile/core/issue_unit/_211514_/B (AND3x4_ASAP7_75t_R)
+    23   31.22   55.58   48.94 1067.49 v coreplex/RocketTile/core/issue_unit/_211514_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014073_ (net)
+                 55.58    0.11 1067.60 v max_length86395/A (BUFx16f_ASAP7_75t_R)
+    13   28.61   11.08   27.95 1095.55 v max_length86395/Y (BUFx16f_ASAP7_75t_R)
+                                         net86395 (net)
+                 11.08    0.05 1095.61 v coreplex/RocketTile/core/issue_unit/_211515_/C (AND3x4_ASAP7_75t_R)
+     4   15.57   29.94   31.68 1127.28 v coreplex/RocketTile/core/issue_unit/_211515_/Y (AND3x4_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014074_ (net)
+                 29.95    0.26 1127.54 v wire83422/A (BUFx16f_ASAP7_75t_R)
+    31   42.82   21.24   22.25 1149.79 v wire83422/Y (BUFx16f_ASAP7_75t_R)
+                                         net83422 (net)
+                 57.92   16.50 1166.29 v max_length83421/A (BUFx16f_ASAP7_75t_R)
+    10   29.32   10.22   27.90 1194.19 v max_length83421/Y (BUFx16f_ASAP7_75t_R)
+                                         net83421 (net)
+                 69.61   20.93 1215.12 v max_length83420/A (BUFx16f_ASAP7_75t_R)
+    12   29.10   19.22   31.94 1247.06 v max_length83420/Y (BUFx16f_ASAP7_75t_R)
+                                         net83420 (net)
+                 39.68   11.25 1258.31 v wire83418/A (BUFx16f_ASAP7_75t_R)
+     9   29.61    9.09   24.37 1282.68 v wire83418/Y (BUFx16f_ASAP7_75t_R)
+                                         net83418 (net)
+                 97.95   30.53 1313.21 v max_length83416/A (BUFx12f_ASAP7_75t_R)
+    10   22.05   19.71   31.08 1344.29 v max_length83416/Y (BUFx12f_ASAP7_75t_R)
+                                         net83416 (net)
+                 36.75   10.07 1354.36 v max_length83415/A (BUFx16f_ASAP7_75t_R)
+    16   29.57   14.13   24.00 1378.36 v max_length83415/Y (BUFx16f_ASAP7_75t_R)
+                                         net83415 (net)
+                 63.81   19.83 1398.19 v max_length83414/A (BUFx16f_ASAP7_75t_R)
+    21   32.14   10.56   28.87 1427.06 v max_length83414/Y (BUFx16f_ASAP7_75t_R)
+                                         net83414 (net)
+                 78.13   23.81 1450.86 v coreplex/RocketTile/core/issue_unit/_211749_/A (NAND2x2_ASAP7_75t_R)
+    14   24.22  101.37   69.99 1520.85 ^ coreplex/RocketTile/core/issue_unit/_211749_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_014307_ (net)
+                101.96    4.33 1525.18 ^ wire77807/A (BUFx16f_ASAP7_75t_R)
+    15   30.84   19.85   30.58 1555.76 ^ wire77807/Y (BUFx16f_ASAP7_75t_R)
+                                         net77807 (net)
+                 58.78   17.56 1573.33 ^ wire77806/A (BUFx16f_ASAP7_75t_R)
+    18   33.71   18.79   25.89 1599.22 ^ wire77806/Y (BUFx16f_ASAP7_75t_R)
+                                         net77806 (net)
+                 68.83   21.16 1620.37 ^ max_length77803/A (BUFx16f_ASAP7_75t_R)
+    12   26.39   12.00   26.23 1646.60 ^ max_length77803/Y (BUFx16f_ASAP7_75t_R)
+                                         net77803 (net)
+                 44.61   12.54 1659.14 ^ wire77802/A (BUFx16f_ASAP7_75t_R)
+    23   34.81   10.61   23.10 1682.24 ^ wire77802/Y (BUFx16f_ASAP7_75t_R)
+                                         net77802 (net)
+                107.89   33.99 1716.23 ^ max_length77800/A (BUFx16f_ASAP7_75t_R)
+    18   23.76   13.55   30.16 1746.39 ^ max_length77800/Y (BUFx16f_ASAP7_75t_R)
+                                         net77800 (net)
+                 59.96   18.34 1764.73 ^ load_slew77798/A (BUFx16f_ASAP7_75t_R)
+    31   35.40   13.08   25.72 1790.45 ^ load_slew77798/Y (BUFx16f_ASAP7_75t_R)
+                                         net77798 (net)
+                 62.75   18.22 1808.67 ^ coreplex/RocketTile/core/issue_unit/_232859_/B (AND2x2_ASAP7_75t_R)
+     3    3.55   19.05   32.97 1841.64 ^ coreplex/RocketTile/core/issue_unit/_232859_/Y (AND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034965_ (net)
+                 19.05    0.05 1841.69 ^ coreplex/RocketTile/core/issue_unit/_232860_/B (OAI21x1_ASAP7_75t_R)
+     6   20.46   98.87   49.76 1891.45 v coreplex/RocketTile/core/issue_unit/_232860_/Y (OAI21x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034966_ (net)
+                 98.88    0.58 1892.03 v coreplex/RocketTile/core/issue_unit/_232861_/B (NAND2x2_ASAP7_75t_R)
+     3    5.54   44.42   38.08 1930.10 ^ coreplex/RocketTile/core/issue_unit/_232861_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034967_ (net)
+                 44.42    0.13 1930.23 ^ coreplex/RocketTile/core/issue_unit/_232878_/B (NOR2x2_ASAP7_75t_R)
+    13   18.89   67.24   40.15 1970.38 v coreplex/RocketTile/core/issue_unit/_232878_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_034984_ (net)
+                 67.24    0.36 1970.74 v wire60126/A (BUFx16f_ASAP7_75t_R)
+    17   31.69   10.73   29.54 2000.28 v wire60126/Y (BUFx16f_ASAP7_75t_R)
+                                         net60126 (net)
+                 93.51   29.07 2029.36 v wire60125/A (BUFx16f_ASAP7_75t_R)
+    18   31.88   12.29   33.68 2063.03 v wire60125/Y (BUFx16f_ASAP7_75t_R)
+                                         net60125 (net)
+                 61.57   18.05 2081.08 v wire60124/A (BUFx16f_ASAP7_75t_R)
+     7   26.60    9.69   28.22 2109.30 v wire60124/Y (BUFx16f_ASAP7_75t_R)
+                                         net60124 (net)
+                120.70   38.07 2147.37 v max_length60123/A (BUFx16f_ASAP7_75t_R)
+     9   24.36   18.24   37.73 2185.11 v max_length60123/Y (BUFx16f_ASAP7_75t_R)
+                                         net60123 (net)
+                 42.56   12.27 2197.38 v wire60122/A (BUFx16f_ASAP7_75t_R)
+    15   33.12    9.90   25.34 2222.72 v wire60122/Y (BUFx16f_ASAP7_75t_R)
+                                         net60122 (net)
+                 22.20    5.57 2228.28 v coreplex/RocketTile/core/issue_unit/_233249_/B (NAND2x2_ASAP7_75t_R)
+     6   16.55   68.36   33.92 2262.20 ^ coreplex/RocketTile/core/issue_unit/_233249_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_035354_ (net)
+                 68.37    0.46 2262.66 ^ load_slew55404/A (BUFx16f_ASAP7_75t_R)
+    11   23.90   11.34   26.28 2288.95 ^ load_slew55404/Y (BUFx16f_ASAP7_75t_R)
+                                         net55404 (net)
+                 35.48    9.55 2298.50 ^ load_slew55403/A (BUFx16f_ASAP7_75t_R)
+    11   23.22   17.17   22.90 2321.40 ^ load_slew55403/Y (BUFx16f_ASAP7_75t_R)
+                                         net55403 (net)
+                 26.67    6.70 2328.10 ^ wire55395/A (BUFx16f_ASAP7_75t_R)
+    17   32.14    8.55   19.41 2347.51 ^ wire55395/Y (BUFx16f_ASAP7_75t_R)
+                                         net55395 (net)
+                119.24   37.64 2385.14 ^ load_slew55394/A (BUFx16f_ASAP7_75t_R)
+    17   30.14   16.20   31.95 2417.10 ^ load_slew55394/Y (BUFx16f_ASAP7_75t_R)
+                                         net55394 (net)
+                 62.30   18.56 2435.66 ^ load_slew55393/A (BUFx16f_ASAP7_75t_R)
+    17   24.72   12.25   25.47 2461.13 ^ load_slew55393/Y (BUFx16f_ASAP7_75t_R)
+                                         net55393 (net)
+                 49.13   14.49 2475.62 ^ max_length55392/A (BUFx16f_ASAP7_75t_R)
+    17   31.19    9.54   23.26 2498.88 ^ max_length55392/Y (BUFx16f_ASAP7_75t_R)
+                                         net55392 (net)
+                 92.07   28.64 2527.52 ^ coreplex/RocketTile/core/issue_unit/_251408_/A1 (AO21x2_ASAP7_75t_R)
+     3    3.76   16.76   28.49 2556.01 ^ coreplex/RocketTile/core/issue_unit/_251408_/Y (AO21x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053061_ (net)
+                 16.76    0.08 2556.09 ^ coreplex/RocketTile/core/issue_unit/_251419_/B (NOR2x2_ASAP7_75t_R)
+     1    2.65   15.84   11.62 2567.71 v coreplex/RocketTile/core/issue_unit/_251419_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053072_ (net)
+                 15.84    0.03 2567.74 v wire46361/A (BUFx16f_ASAP7_75t_R)
+     4   28.33    7.71   17.99 2585.72 v wire46361/Y (BUFx16f_ASAP7_75t_R)
+                                         net46361 (net)
+                153.74   48.66 2634.38 v wire46360/A (BUFx16f_ASAP7_75t_R)
+     4   27.47   14.36   42.01 2676.39 v wire46360/Y (BUFx16f_ASAP7_75t_R)
+                                         net46360 (net)
+                149.51   46.99 2723.39 v coreplex/RocketTile/core/issue_unit/_251420_/B (AND2x6_ASAP7_75t_R)
+     8   24.38   32.33   56.81 2780.20 v coreplex/RocketTile/core/issue_unit/_251420_/Y (AND2x6_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_053073_ (net)
+                 32.33    0.04 2780.24 v max_length38667/A (BUFx16f_ASAP7_75t_R)
+    10   29.43   10.06   22.88 2803.11 v max_length38667/Y (BUFx16f_ASAP7_75t_R)
+                                         net38667 (net)
+                 77.63   24.35 2827.46 v wire38662/A (BUFx16f_ASAP7_75t_R)
+     7   28.22   10.77   31.37 2858.83 v wire38662/Y (BUFx16f_ASAP7_75t_R)
+                                         net38662 (net)
+                125.71   39.65 2898.48 v max_length38661/A (BUFx16f_ASAP7_75t_R)
+     5   23.57   13.37   37.93 2936.41 v max_length38661/Y (BUFx16f_ASAP7_75t_R)
+                                         net38661 (net)
+                 14.34    1.29 2937.70 v wire38660/A (BUFx16f_ASAP7_75t_R)
+    12   30.92    7.25   17.22 2954.92 v wire38660/Y (BUFx16f_ASAP7_75t_R)
+                                         net38660 (net)
+                130.92   41.40 2996.32 v wire38659/A (BUFx16f_ASAP7_75t_R)
+    18   35.89   12.99   38.36 3034.69 v wire38659/Y (BUFx16f_ASAP7_75t_R)
+                                         net38659 (net)
+                140.56   44.23 3078.92 v coreplex/RocketTile/core/issue_unit/_269131_/D (OR5x2_ASAP7_75t_R)
+     7   22.28   85.03   95.84 3174.76 v coreplex/RocketTile/core/issue_unit/_269131_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070331_ (net)
+                 85.08    1.44 3176.20 v coreplex/RocketTile/core/issue_unit/_269142_/A (NAND2x2_ASAP7_75t_R)
+     5   19.01   90.04   59.48 3235.68 ^ coreplex/RocketTile/core/issue_unit/_269142_/Y (NAND2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070342_ (net)
+                 90.04    0.50 3236.19 ^ coreplex/RocketTile/core/issue_unit/_269143_/B (NOR2x2_ASAP7_75t_R)
+     7   20.82   90.26   50.75 3286.94 v coreplex/RocketTile/core/issue_unit/_269143_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/issue_unit/_070343_ (net)
+                 90.26    0.03 3286.97 v wire24102/A (BUFx16f_ASAP7_75t_R)
+    18   35.14   12.05   33.24 3320.22 v wire24102/Y (BUFx16f_ASAP7_75t_R)
+                                         net24102 (net)
+                 52.04   14.33 3334.55 v wire24083/A (BUFx16f_ASAP7_75t_R)
+    21   33.10   11.29   27.06 3361.61 v wire24083/Y (BUFx16f_ASAP7_75t_R)
+                                         net24083 (net)
+                 89.73   28.20 3389.82 v load_slew24082/A (BUFx16f_ASAP7_75t_R)
+    19   29.12   14.90   33.14 3422.95 v load_slew24082/Y (BUFx16f_ASAP7_75t_R)
+                                         net24082 (net)
+                 59.59   17.86 3440.81 v wire24081/A (BUFx16f_ASAP7_75t_R)
+    18   31.09   10.99   28.30 3469.12 v wire24081/Y (BUFx16f_ASAP7_75t_R)
+                                         net24081 (net)
+                 83.99   26.26 3495.38 v coreplex/RocketTile/core/issue_unit/_278544_/B1 (AO221x2_ASAP7_75t_R)
+     2   16.48   52.91   59.10 3554.47 v coreplex/RocketTile/core/issue_unit/_278544_/Y (AO221x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/iss_uops_3_pop2[1] (net)
+                 52.91    0.08 3554.55 v max_length21791/A (BUFx12f_ASAP7_75t_R)
+     1   18.08   10.15   24.34 3578.89 v max_length21791/Y (BUFx12f_ASAP7_75t_R)
+                                         net21791 (net)
+                 70.82   22.07 3600.97 v wire21790/A (BUFx16f_ASAP7_75t_R)
+    35   54.17   10.36   30.09 3631.05 v wire21790/Y (BUFx16f_ASAP7_75t_R)
+                                         net21790 (net)
+                278.49   87.68 3718.73 v load_slew21778/A (BUFx16f_ASAP7_75t_R)
+    36   42.51   26.50   54.44 3773.17 v load_slew21778/Y (BUFx16f_ASAP7_75t_R)
+                                         net21778 (net)
+                 83.74   24.66 3797.84 v load_slew21765/A (BUFx16f_ASAP7_75t_R)
+    29   38.09   19.34   33.19 3831.03 v load_slew21765/Y (BUFx16f_ASAP7_75t_R)
+                                         net21765 (net)
+                 64.01   18.79 3849.82 v load_slew21700/A (BUFx16f_ASAP7_75t_R)
+    26   29.49   16.21   29.58 3879.40 v load_slew21700/Y (BUFx16f_ASAP7_75t_R)
+                                         net21700 (net)
+                 56.49   17.13 3896.53 v wire21699/A (BUFx16f_ASAP7_75t_R)
+    35   43.19   11.84   28.25 3924.78 v wire21699/Y (BUFx16f_ASAP7_75t_R)
+                                         net21699 (net)
+                138.41   43.80 3968.58 v wire21698/A (BUFx16f_ASAP7_75t_R)
+    33   40.84   18.42   40.24 4008.82 v wire21698/Y (BUFx16f_ASAP7_75t_R)
+                                         net21698 (net)
+                 73.59   21.47 4030.29 v load_slew21697/A (BUFx16f_ASAP7_75t_R)
+    34   36.06   17.99   31.90 4062.19 v load_slew21697/Y (BUFx16f_ASAP7_75t_R)
+                                         net21697 (net)
+                 72.73   22.39 4084.58 v load_slew21696/A (BUFx16f_ASAP7_75t_R)
+    33   39.08   21.89   31.41 4115.98 v load_slew21696/Y (BUFx16f_ASAP7_75t_R)
+                                         net21696 (net)
+                 63.17   18.66 4134.64 v load_slew21695/A (BUFx16f_ASAP7_75t_R)
+    36   43.10   11.64   29.18 4163.82 v load_slew21695/Y (BUFx16f_ASAP7_75t_R)
+                                         net21695 (net)
+                132.98   41.98 4205.80 v load_slew21693/A (BUFx16f_ASAP7_75t_R)
+    31   40.08   15.88   39.42 4245.22 v load_slew21693/Y (BUFx16f_ASAP7_75t_R)
+                                         net21693 (net)
+                108.17   33.82 4279.04 v load_slew21691/A (BUFx16f_ASAP7_75t_R)
+    35   40.76   20.80   36.67 4315.71 v load_slew21691/Y (BUFx16f_ASAP7_75t_R)
+                                         net21691 (net)
+                 44.58   11.06 4326.77 v load_slew21690/A (BUFx16f_ASAP7_75t_R)
+    23   30.36   11.22   25.90 4352.67 v load_slew21690/Y (BUFx16f_ASAP7_75t_R)
+                                         net21690 (net)
+                 63.25   19.20 4371.87 v load_slew21689/A (BUFx16f_ASAP7_75t_R)
+    28   29.99   20.00   31.14 4403.01 v load_slew21689/Y (BUFx16f_ASAP7_75t_R)
+                                         net21689 (net)
+                 32.38    8.26 4411.27 v load_slew21687/A (BUFx16f_ASAP7_75t_R)
+    35   40.91   24.13   24.36 4435.62 v load_slew21687/Y (BUFx16f_ASAP7_75t_R)
+                                         net21687 (net)
+                 54.60   16.22 4451.84 v load_slew21686/A (BUFx16f_ASAP7_75t_R)
+    35   40.36   22.55   28.23 4480.07 v load_slew21686/Y (BUFx16f_ASAP7_75t_R)
+                                         net21686 (net)
+                 61.95   18.34 4498.41 v coreplex/RocketTile/core/regfile/_329511_/A (NOR2x2_ASAP7_75t_R)
+     4   11.76   69.36   34.57 4532.98 ^ coreplex/RocketTile/core/regfile/_329511_/Y (NOR2x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_053831_ (net)
+                 71.78    6.98 4539.96 ^ wire19613/A (BUFx16f_ASAP7_75t_R)
+     9   34.89   14.29   26.78 4566.74 ^ wire19613/Y (BUFx16f_ASAP7_75t_R)
+                                         net19613 (net)
+                 77.17   23.39 4590.13 ^ wire19609/A (BUFx16f_ASAP7_75t_R)
+     6   32.33   10.92   27.50 4617.63 ^ wire19609/Y (BUFx16f_ASAP7_75t_R)
+                                         net19609 (net)
+                141.66   44.21 4661.83 ^ wire19599/A (BUFx16f_ASAP7_75t_R)
+     5   31.69   12.75   32.96 4694.79 ^ wire19599/Y (BUFx16f_ASAP7_75t_R)
+                                         net19599 (net)
+                174.81   55.33 4750.12 ^ wire19597/A (BUFx16f_ASAP7_75t_R)
+     9   37.76   13.54   35.02 4785.14 ^ wire19597/Y (BUFx16f_ASAP7_75t_R)
+                                         net19597 (net)
+                165.12   51.89 4837.03 ^ max_length19596/A (BUFx16f_ASAP7_75t_R)
+     8   28.93   13.26   34.50 4871.53 ^ max_length19596/Y (BUFx16f_ASAP7_75t_R)
+                                         net19596 (net)
+                119.14   37.50 4909.03 ^ wire19594/A (BUFx16f_ASAP7_75t_R)
+     4   31.17   12.22   31.22 4940.24 ^ wire19594/Y (BUFx16f_ASAP7_75t_R)
+                                         net19594 (net)
+                159.81   50.10 4990.34 ^ coreplex/RocketTile/core/regfile/_342068_/B2 (AOI22x1_ASAP7_75t_R)
+     1    0.71   33.28   22.33 5012.67 v coreplex/RocketTile/core/regfile/_342068_/Y (AOI22x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066329_ (net)
+                 33.28    0.02 5012.68 v coreplex/RocketTile/core/regfile/_342069_/C (AND3x1_ASAP7_75t_R)
+     1    0.97    9.54   21.95 5034.63 v coreplex/RocketTile/core/regfile/_342069_/Y (AND3x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066330_ (net)
+                  9.54    0.05 5034.68 v coreplex/RocketTile/core/regfile/_342081_/B1 (OA33x2_ASAP7_75t_R)
+     1   18.10   56.13   45.01 5079.69 v coreplex/RocketTile/core/regfile/_342081_/Y (OA33x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066342_ (net)
+                 97.60   25.77 5105.46 v coreplex/RocketTile/core/regfile/_342126_/B (OR5x2_ASAP7_75t_R)
+     1   19.07   73.55   85.48 5190.94 v coreplex/RocketTile/core/regfile/_342126_/Y (OR5x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile/_066387_ (net)
+                115.45   28.99 5219.93 v coreplex/RocketTile/core/regfile/_342217_/A2 (AO31x2_ASAP7_75t_R)
+     1    6.86   23.60   34.23 5254.16 v coreplex/RocketTile/core/regfile/_342217_/Y (AO31x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/regfile_io_read_ports_8_data[59] (net)
+                 25.58    3.61 5257.77 v wire4635/A (BUFx12f_ASAP7_75t_R)
+     1   20.37    9.97   19.71 5277.48 v wire4635/Y (BUFx12f_ASAP7_75t_R)
+                                         net4635 (net)
+                 89.97   28.24 5305.73 v coreplex/RocketTile/core/register_read/_12036_/A1 (OA22x2_ASAP7_75t_R)
+     1    1.66   11.78   31.26 5336.99 v coreplex/RocketTile/core/register_read/_12036_/Y (OA22x2_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/register_read/_03987_ (net)
+                 11.79    0.22 5337.21 v coreplex/RocketTile/core/register_read/_12039_/A2 (AO21x1_ASAP7_75t_R)
+     1    0.69    7.18   15.27 5352.48 v coreplex/RocketTile/core/register_read/_12039_/Y (AO21x1_ASAP7_75t_R)
+                                         coreplex/RocketTile/core/register_read/_T_7196[59] (net)
+                  7.18    0.01 5352.49 v coreplex/RocketTile/core/register_read/_17028_/D (DFFLQNx2_ASAP7_75t_R)
+                               5352.49   data arrival time
+
+                  0.00 7500.00 7500.00   clock clock' (fall edge)
+                          0.00 7500.00   clock network delay (ideal)
+                          0.00 7500.00   clock reconvergence pessimism
+                               7500.00 v coreplex/RocketTile/core/register_read/_17028_/CLK (DFFLQNx2_ASAP7_75t_R)
+                         -9.79 7490.21   library setup time
+                               7490.21   data required time
+-----------------------------------------------------------------------------
+                               7490.21   data required time
+                               -5352.49   data arrival time
+-----------------------------------------------------------------------------
+                               2137.73   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+coreplex/RocketTile/core/rob/_565186_/A1  320.00  561.09 -241.09 (VIOLATED)
+load_slew133088/A                     320.00  561.03 -241.03 (VIOLATED)
+coreplex/RocketTile/core/rob/_460230_/B2  320.00  561.02 -241.02 (VIOLATED)
+coreplex/RocketTile/core/rob/_453987_/B2  320.00  558.94 -238.94 (VIOLATED)
+coreplex/RocketTile/core/rob/_573395_/A1  320.00  558.92 -238.92 (VIOLATED)
+coreplex/RocketTile/core/rob/_574430_/A1  320.00  558.76 -238.76 (VIOLATED)
+coreplex/RocketTile/core/rob/_453379_/B2  320.00  558.35 -238.35 (VIOLATED)
+load_slew133089/A                     320.00  553.82 -233.82 (VIOLATED)
+coreplex/RocketTile/core/rob/_451387_/B2  320.00  553.41 -233.41 (VIOLATED)
+coreplex/RocketTile/core/rob/_452085_/B2  320.00  551.48 -231.48 (VIOLATED)
+coreplex/RocketTile/core/rob/_449568_/B2  320.00  551.15 -231.15 (VIOLATED)
+coreplex/RocketTile/core/rob/_579139_/A1  320.00  551.10 -231.10 (VIOLATED)
+coreplex/RocketTile/core/rob/_579922_/A1  320.00  550.75 -230.75 (VIOLATED)
+coreplex/RocketTile/core/rob/_448981_/B2  320.00  550.11 -230.11 (VIOLATED)
+coreplex/RocketTile/core/rob/_575999_/A1  320.00  549.05 -229.05 (VIOLATED)
+coreplex/RocketTile/core/rob/_580708_/A1  320.00  548.65 -228.65 (VIOLATED)
+coreplex/RocketTile/core/rob/_582622_/A1  320.00  547.14 -227.14 (VIOLATED)
+coreplex/RocketTile/core/rob/_447065_/B2  320.00  547.09 -227.09 (VIOLATED)
+coreplex/RocketTile/core/rob/_581586_/A1  320.00  546.99 -226.99 (VIOLATED)
+coreplex/RocketTile/core/rob/_447734_/B2  320.00  546.68 -226.68 (VIOLATED)
+coreplex/RocketTile/core/rob/_586547_/A1  320.00  545.52 -225.52 (VIOLATED)
+max_length133090/A                    320.00  544.52 -224.52 (VIOLATED)
+coreplex/RocketTile/core/rob/_448379_/B2  320.00  544.46 -224.46 (VIOLATED)
+coreplex/RocketTile/core/rob/_446446_/B2  320.00  542.22 -222.22 (VIOLATED)
+coreplex/RocketTile/core/rob/_583409_/A1  320.00  541.99 -221.99 (VIOLATED)
+coreplex/RocketTile/core/rob/_584191_/A1  320.00  538.79 -218.79 (VIOLATED)
+coreplex/RocketTile/core/rob/_445708_/B2  320.00  538.32 -218.32 (VIOLATED)
+load_slew133093/A                     320.00  527.93 -207.93 (VIOLATED)
+coreplex/RocketTile/core/rob/_479881_/B2  320.00  527.86 -207.86 (VIOLATED)
+coreplex/RocketTile/core/rob/_540066_/A1  320.00  527.67 -207.67 (VIOLATED)
+coreplex/RocketTile/core/rob/_479276_/B2  320.00  526.32 -206.32 (VIOLATED)
+coreplex/RocketTile/core/rob/_540851_/A1  320.00  526.28 -206.28 (VIOLATED)
+coreplex/RocketTile/core/rob/_588898_/A1  320.00  521.96 -201.96 (VIOLATED)
+coreplex/RocketTile/core/rob/_442073_/B2  320.00  521.58 -201.58 (VIOLATED)
+coreplex/RocketTile/core/rob/_440675_/B2  320.00  520.21 -200.21 (VIOLATED)
+coreplex/RocketTile/core/rob/_590470_/A1  320.00  520.19 -200.19 (VIOLATED)
+coreplex/RocketTile/core/rob/_589683_/A1  320.00  514.18 -194.18 (VIOLATED)
+coreplex/RocketTile/core/rob/_441374_/B2  320.00  513.67 -193.67 (VIOLATED)
+coreplex/RocketTile/core/rob/_584978_/A1  320.00  513.37 -193.37 (VIOLATED)
+coreplex/RocketTile/core/rob/_445101_/B2  320.00  512.42 -192.42 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2252_/A  320.00  418.35  -98.35 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2256_/A1  320.00  418.32  -98.32 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2261_/A1  320.00  418.15  -98.15 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2258_/A  320.00  418.11  -98.11 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2327_/A  320.00  417.73  -97.73 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2272_/A  320.00  417.64  -97.64 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2331_/A  320.00  417.62  -97.62 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2325_/A1  320.00  416.53  -96.53 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2301_/A  320.00  415.07  -95.07 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2748_/B  320.00  414.57  -94.57 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2970_/B  320.00  414.56  -94.56 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2859_/B  320.00  414.39  -94.39 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2637_/B  320.00  414.33  -94.33 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2521_/B  320.00  414.00  -94.00 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2349_/A  320.00  410.04  -90.04 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2347_/A  320.00  409.99  -89.99 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2410_/A  320.00  409.21  -89.21 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2417_/A  320.00  409.15  -89.15 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2307_/A  320.00  407.47  -87.47 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2303_/A  320.00  407.41  -87.41 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2312_/A  320.00  406.65  -86.65 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2352_/A  320.00  403.24  -83.24 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2344_/A  320.00  397.73  -77.73 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2724_/B  320.00  384.47  -64.47 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2613_/B  320.00  382.42  -62.42 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2946_/B  320.00  381.76  -61.76 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2492_/B  320.00  378.10  -58.10 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2835_/B  320.00  378.08  -58.08 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2361_/A  320.00  372.52  -52.52 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2364_/A  320.00  369.41  -49.41 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2396_/A1  320.00  353.05  -33.05 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2395_/A  320.00  353.04  -33.04 (VIOLATED)
+coreplex/RocketTile/core/csr/_13844_/B  320.00  337.56  -17.56 (VIOLATED)
+coreplex/RocketTile/core/csr/_13845_/A2  320.00  337.53  -17.53 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2400_/A1  320.00  337.45  -17.45 (VIOLATED)
+coreplex/RocketTile/core/csr/_13856_/A2  320.00  336.56  -16.56 (VIOLATED)
+coreplex/RocketTile/core/csr/_13855_/B  320.00  336.55  -16.55 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2399_/A  320.00  336.49  -16.49 (VIOLATED)
+coreplex/RocketTile/core/csr/_13838_/B  320.00  335.73  -15.73 (VIOLATED)
+coreplex/RocketTile/core/csr/_13839_/A2  320.00  335.69  -15.69 (VIOLATED)
+coreplex/RocketTile/core/csr/_13849_/B  320.00  335.27  -15.27 (VIOLATED)
+coreplex/RocketTile/core/csr/_13850_/A2  320.00  335.22  -15.22 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2378_/C  320.00  334.40  -14.40 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2385_/C  320.00  334.39  -14.39 (VIOLATED)
+coreplex/RocketTile/core/csr/_13840_/B  320.00  333.44  -13.44 (VIOLATED)
+coreplex/RocketTile/core/csr/_13841_/A2  320.00  333.41  -13.41 (VIOLATED)
+coreplex/RocketTile/core/csr/_13842_/B  320.00  332.41  -12.41 (VIOLATED)
+coreplex/RocketTile/core/csr/_13843_/A2  320.00  332.31  -12.31 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2402_/A  320.00  330.85  -10.85 (VIOLATED)
+coreplex/RocketTile/core/lsu/_617164_/C  320.00  330.09  -10.09 (VIOLATED)
+coreplex/RocketTile/core/lsu/_617180_/C  320.00  329.90   -9.90 (VIOLATED)
+rocketchipPeripheryMasterAXI4Memconverter/Queue/_2403_/A1  320.00  329.83   -9.83 (VIOLATED)
+coreplex/RocketTile/core/csr/_14770_/C  320.00  329.81   -9.81 (VIOLATED)
+coreplex/RocketTile/core/csr/_14775_/A  320.00  329.79   -9.79 (VIOLATED)
+coreplex/RocketTile/core/lsu/_617188_/C  320.00  329.65   -9.65 (VIOLATED)
+coreplex/RocketTile/core/csr/_13860_/B  320.00  329.50   -9.50 (VIOLATED)
+coreplex/RocketTile/core/csr/_14792_/C  320.00  329.49   -9.49 (VIOLATED)
+coreplex/RocketTile/core/csr/_14786_/A  320.00  329.43   -9.43 (VIOLATED)
+coreplex/RocketTile/core/csr/_14781_/C  320.00  329.36   -9.36 (VIOLATED)
+coreplex/RocketTile/core/lsu/_617172_/C  320.00  329.29   -9.29 (VIOLATED)
+coreplex/RocketTile/core/csr/_13861_/A2  320.00  329.25   -9.25 (VIOLATED)
+coreplex/RocketTile/core/csr/_14797_/A  320.00  329.22   -9.22 (VIOLATED)
+coreplex/RocketTile/core/rob/_466086_/B1  320.00  329.02   -9.02 (VIOLATED)
+coreplex/RocketTile/core/csr/_14818_/A  320.00  328.98   -8.98 (VIOLATED)
+coreplex/RocketTile/core/rob/_466031_/B1  320.00  328.91   -8.91 (VIOLATED)
+coreplex/RocketTile/core/csr/_14813_/C  320.00  328.73   -8.73 (VIOLATED)
+coreplex/RocketTile/core/rob/_465686_/B1  320.00  328.58   -8.58 (VIOLATED)
+coreplex/RocketTile/core/lsu/_614119_/C  320.00  328.54   -8.54 (VIOLATED)
+coreplex/RocketTile/core/csr/_14821_/B  320.00  328.29   -8.29 (VIOLATED)
+coreplex/RocketTile/core/csr/_14824_/C  320.00  328.21   -8.21 (VIOLATED)
+coreplex/RocketTile/core/rob/_465664_/B1  320.00  328.16   -8.16 (VIOLATED)
+coreplex/RocketTile/core/csr/_14802_/C  320.00  328.13   -8.13 (VIOLATED)
+coreplex/RocketTile/core/lsu/_610971_/C  320.00  327.90   -7.90 (VIOLATED)
+coreplex/RocketTile/core/csr/_14808_/A  320.00  327.71   -7.71 (VIOLATED)
+coreplex/RocketTile/core/csr/_14829_/A  320.00  327.48   -7.48 (VIOLATED)
+coreplex/RocketTile/core/csr/_13871_/B  320.00  327.22   -7.22 (VIOLATED)
+coreplex/RocketTile/core/csr/_13872_/A2  320.00  327.21   -7.21 (VIOLATED)
+coreplex/RocketTile/core/rob/_466057_/B1  320.00  327.21   -7.21 (VIOLATED)
+coreplex/RocketTile/core/lsu/_614104_/C  320.00  327.16   -7.16 (VIOLATED)
+coreplex/RocketTile/core/lsu/_614112_/C  320.00  326.85   -6.85 (VIOLATED)
+coreplex/RocketTile/core/rob/_465981_/B1  320.00  326.59   -6.59 (VIOLATED)
+coreplex/RocketTile/core/csr/_14834_/C  320.00  326.35   -6.35 (VIOLATED)
+coreplex/RocketTile/core/csr/_13865_/A2  320.00  325.68   -5.68 (VIOLATED)
+coreplex/RocketTile/core/csr/_13864_/B  320.00  325.65   -5.65 (VIOLATED)
+coreplex/RocketTile/core/lsu/_614097_/C  320.00  325.33   -5.33 (VIOLATED)
+coreplex/RocketTile/core/lsu/_607785_/C  320.00  325.06   -5.06 (VIOLATED)
+coreplex/RocketTile/core/rob/_465903_/B1  320.00  325.04   -5.04 (VIOLATED)
+coreplex/RocketTile/core/csr/_14841_/A  320.00  325.03   -5.03 (VIOLATED)
+coreplex/RocketTile/core/rob/_438343_/C  320.00  324.90   -4.90 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17697_/B  320.00  324.80   -4.80 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17671_/B  320.00  324.67   -4.67 (VIOLATED)
+coreplex/RocketTile/core/rob/_438419_/C  320.00  324.60   -4.60 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17757_/B  320.00  324.35   -4.35 (VIOLATED)
+coreplex/RocketTile/core/csr/_13869_/B  320.00  324.29   -4.29 (VIOLATED)
+bootrom_TLBuffer/Queue/_1066_/A2      320.00  324.21   -4.21 (VIOLATED)
+coreplex/RocketTile/core/rob/_465750_/B1  320.00  324.19   -4.19 (VIOLATED)
+coreplex/RocketTile/core/csr/_13870_/A2  320.00  324.19   -4.19 (VIOLATED)
+coreplex/RocketTile/core/rob/_465730_/B1  320.00  324.12   -4.12 (VIOLATED)
+coreplex/RocketTile/core/lsu/_607806_/C  320.00  324.12   -4.12 (VIOLATED)
+bootrom_TLBuffer/Queue/_1102_/A2      320.00  324.11   -4.11 (VIOLATED)
+coreplex/RocketTile/core/rob/_438330_/C  320.00  323.94   -3.94 (VIOLATED)
+bootrom_TLBuffer/Queue/_1086_/A2      320.00  323.88   -3.88 (VIOLATED)
+coreplex/RocketTile/core/rob/_465779_/B1  320.00  323.72   -3.72 (VIOLATED)
+coreplex/RocketTile/core/rob/_438498_/C  320.00  323.62   -3.62 (VIOLATED)
+bootrom_TLBuffer/Queue/_1100_/A2      320.00  323.49   -3.49 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17780_/B  320.00  323.48   -3.48 (VIOLATED)
+coreplex/RocketTile/core/csr/_13847_/B  320.00  323.30   -3.30 (VIOLATED)
+coreplex/RocketTile/core/csr/_13848_/A2  320.00  323.29   -3.29 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_3113_/B2  320.00  323.17   -3.17 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_3117_/B2  320.00  323.17   -3.17 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_2817_/A  320.00  323.13   -3.13 (VIOLATED)
+bootrom_TLBuffer/Queue/_1084_/A2      320.00  323.08   -3.08 (VIOLATED)
+coreplex/RocketTile/core/rob/_438310_/C  320.00  323.05   -3.05 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_2686_/B  320.00  323.05   -3.05 (VIOLATED)
+coreplex/RocketTile/core/lsu/_610978_/C  320.00  323.02   -3.02 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_5081_/B  320.00  322.94   -2.94 (VIOLATED)
+coreplex/RocketTile/core/rob/_465940_/B1  320.00  322.92   -2.92 (VIOLATED)
+coreplex/RocketTile/core/rob/_438140_/C  320.00  322.91   -2.91 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17804_/B  320.00  322.85   -2.85 (VIOLATED)
+coreplex/RocketTile/core/lsu/_519785_/A1  320.00  322.82   -2.82 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_3800_/A1  320.00  322.81   -2.81 (VIOLATED)
+coreplex/RocketTile/fpuOpt/sfma/fma/mulAddRecFN_postMul/_3796_/A  320.00  322.81   -2.81 (VIOLATED)
+coreplex/RocketTile/core/lsu/_519782_/A1  320.00  322.80   -2.80 (VIOLATED)
+coreplex/RocketTile/core/lsu/_519784_/A1  320.00  322.80   -2.80 (VIOLATED)
+coreplex/RocketTile/core/csr/_13881_/B  320.00  322.78   -2.78 (VIOLATED)
+coreplex/RocketTile/core/lsu/_519783_/B2  320.00  322.76   -2.76 (VIOLATED)
+coreplex/RocketTile/core/csr/_13882_/A2  320.00  322.75   -2.75 (VIOLATED)
+coreplex/RocketTile/core/rob/_438147_/C  320.00  322.69   -2.69 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2836_/A  320.00  322.69   -2.69 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2841_/B2  320.00  322.67   -2.67 (VIOLATED)
+bootrom_TLBuffer/Queue/_1090_/A2      320.00  322.67   -2.67 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_3064_/A  320.00  322.61   -2.61 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_3311_/B  320.00  322.48   -2.48 (VIOLATED)
+coreplex/RocketTile/core/rob/_465991_/B1  320.00  322.42   -2.42 (VIOLATED)
+coreplex/RocketTile/core/lsu/_527717_/A1  320.00  322.41   -2.41 (VIOLATED)
+coreplex/RocketTile/core/rob/_465650_/B1  320.00  322.40   -2.40 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2898_/A  320.00  322.37   -2.37 (VIOLATED)
+coreplex/RocketTile/core/lsu/_527720_/A1  320.00  322.33   -2.33 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2934_/A  320.00  322.29   -2.29 (VIOLATED)
+bootrom_TLBuffer/Queue/_1120_/A2      320.00  322.28   -2.28 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2901_/B2  320.00  322.28   -2.28 (VIOLATED)
+coreplex/RocketTile/core/lsu/_527719_/A1  320.00  322.27   -2.27 (VIOLATED)
+coreplex/RocketTile/core/lsu/_527719_/B2  320.00  322.24   -2.24 (VIOLATED)
+bootrom_TLBuffer/Queue/_1132_/A2      320.00  322.20   -2.20 (VIOLATED)
+bootrom_TLBuffer/Queue/_1076_/A2      320.00  322.16   -2.16 (VIOLATED)
+coreplex/RocketTile/core/rob/_438110_/C  320.00  322.15   -2.15 (VIOLATED)
+coreplex/RocketTile/core/rob/_438405_/C  320.00  322.14   -2.14 (VIOLATED)
+bootrom_TLBuffer/Queue/_1138_/A2      320.00  322.10   -2.10 (VIOLATED)
+coreplex/RocketTile/core/lsu/_522513_/A1  320.00  322.08   -2.08 (VIOLATED)
+coreplex/RocketTile/core/lsu/_522514_/B2  320.00  322.06   -2.06 (VIOLATED)
+coreplex/RocketTile/core/lsu/_522516_/A1  320.00  322.02   -2.02 (VIOLATED)
+coreplex/RocketTile/core/lsu/_522515_/A1  320.00  322.00   -2.00 (VIOLATED)
+bootrom_TLBuffer/Queue/_1068_/A2      320.00  321.95   -1.95 (VIOLATED)
+coreplex/RocketTile/core/rob/_465721_/B1  320.00  321.91   -1.91 (VIOLATED)
+coreplex/RocketTile/core/lsu/_536762_/A1  320.00  321.85   -1.85 (VIOLATED)
+bootrom_TLBuffer/Queue/_1108_/A2      320.00  321.82   -1.82 (VIOLATED)
+coreplex/RocketTile/core/lsu/_536763_/A1  320.00  321.81   -1.81 (VIOLATED)
+bootrom_TLBuffer/Queue/_1082_/A2      320.00  321.80   -1.80 (VIOLATED)
+coreplex/RocketTile/core/lsu/_536761_/B2  320.00  321.69   -1.69 (VIOLATED)
+coreplex/RocketTile/core/lsu/_533769_/A1  320.00  321.63   -1.63 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2762_/A1  320.00  321.62   -1.62 (VIOLATED)
+coreplex/RocketTile/core/csr/_13900_/A2  320.00  321.61   -1.61 (VIOLATED)
+coreplex/RocketTile/core/rob/_465884_/B1  320.00  321.60   -1.60 (VIOLATED)
+coreplex/RocketTile/core/csr/_13875_/B  320.00  321.59   -1.59 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_40370_/A  320.00  321.57   -1.57 (VIOLATED)
+coreplex/RocketTile/core/lsu/_536760_/A1  320.00  321.56   -1.56 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_41105_/A  320.00  321.56   -1.56 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_41602_/A  320.00  321.54   -1.54 (VIOLATED)
+coreplex/RocketTile/core/lsu/_533768_/A1  320.00  321.53   -1.53 (VIOLATED)
+coreplex/RocketTile/core/csr/_13899_/B  320.00  321.51   -1.51 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_42092_/A  320.00  321.51   -1.51 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_44515_/A  320.00  321.45   -1.45 (VIOLATED)
+coreplex/RocketTile/core/csr/_13910_/B  320.00  321.45   -1.45 (VIOLATED)
+coreplex/RocketTile/core/csr/_13876_/A2  320.00  321.44   -1.44 (VIOLATED)
+coreplex/RocketTile/core/csr/_13911_/A2  320.00  321.42   -1.42 (VIOLATED)
+coreplex/RocketTile/core/lsu/_533766_/B2  320.00  321.41   -1.41 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17824_/B  320.00  321.41   -1.41 (VIOLATED)
+coreplex/RocketTile/core/lsu/_533765_/A1  320.00  321.40   -1.40 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_42361_/A  320.00  321.37   -1.37 (VIOLATED)
+bootrom_TLBuffer/Queue/_1116_/A2      320.00  321.32   -1.32 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_44772_/A  320.00  321.26   -1.26 (VIOLATED)
+coreplex/RocketTile/core/rob/_438392_/C  320.00  321.21   -1.21 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_47100_/A  320.00  321.18   -1.18 (VIOLATED)
+bootrom_TLBuffer/Queue/_1124_/A2      320.00  321.15   -1.15 (VIOLATED)
+bootrom_TLBuffer/Queue/_1128_/A2      320.00  321.14   -1.14 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_45034_/A  320.00  321.07   -1.07 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_41359_/A  320.00  321.05   -1.05 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_41843_/A  320.00  321.02   -1.02 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_47323_/A  320.00  321.02   -1.02 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_42632_/A  320.00  321.01   -1.01 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_45732_/A  320.00  320.99   -0.99 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_46878_/A  320.00  320.98   -0.98 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17669_/B  320.00  320.97   -0.97 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_46655_/A  320.00  320.96   -0.96 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_41142_/A2  320.00  320.92   -0.92 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2570_/A3  320.00  320.90   -0.90 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_46423_/A  320.00  320.90   -0.90 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_42125_/A2  320.00  320.88   -0.88 (VIOLATED)
+coreplex/RocketTile/core/rob/_465671_/B1  320.00  320.87   -0.87 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2434_/A3  320.00  320.82   -0.82 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_45272_/A  320.00  320.81   -0.81 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2594_/A3  320.00  320.80   -0.80 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_45960_/A  320.00  320.80   -0.80 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17754_/B  320.00  320.79   -0.79 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2599_/A3  320.00  320.76   -0.76 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_40063_/A  320.00  320.72   -0.72 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2992_/C  320.00  320.72   -0.72 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2987_/D  320.00  320.69   -0.69 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2062_/B  320.00  320.67   -0.67 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_45499_/A  320.00  320.65   -0.65 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_42872_/A  320.00  320.58   -0.58 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_44354_/B  320.00  320.54   -0.54 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_2927_/A1  320.00  320.50   -0.50 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_43117_/A  320.00  320.48   -0.48 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/ifpu/_3317_/A1  320.00  320.30   -0.30 (VIOLATED)
+coreplex/RocketTile/fpuOpt/FPUFMAPipe/fma/_17777_/B  320.00  320.24   -0.24 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2580_/C  320.00  320.22   -0.22 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_44050_/A  320.00  320.22   -0.22 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_44284_/A  320.00  320.21   -0.21 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_46191_/A  320.00  320.20   -0.20 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2611_/A3  320.00  320.20   -0.20 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2046_/C  320.00  320.19   -0.19 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_43584_/A  320.00  320.18   -0.18 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2098_/C  320.00  320.17   -0.17 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_40861_/A  320.00  320.17   -0.17 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2054_/C  320.00  320.16   -0.16 (VIOLATED)
+bootrom_TLBuffer/Queue/_1088_/A2      320.00  320.15   -0.15 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_39233_/B  320.00  320.14   -0.14 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_3101_/C  320.00  320.12   -0.12 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_40622_/A  320.00  320.11   -0.11 (VIOLATED)
+coreplex/RocketTile/core/lsu/_539904_/B2  320.00  320.06   -0.06 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_43351_/A  320.00  320.05   -0.05 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit/fpu/fpu/dfma/fma/mulAddRecFN_preMul/_2457_/D  320.00  320.01   -0.01 (VIOLATED)
+coreplex/RocketTile/fpuOpt/_43809_/A  320.00  320.01   -0.01 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+coreplex/RocketTile/core/regfile/_345195_/Y   23.04   23.34   -0.30 (VIOLATED)
+coreplex/RocketTile/core/ALUExeUnit_2/fdivsqrt/divsqrt/ds/_07318_/Y   23.04   23.26   -0.22 (VIOLATED)
+coreplex/RocketTile/core/lsu/_404100_/Y   23.04   23.12   -0.08 (VIOLATED)
+coreplex/RocketTile/core/issue_unit/_269257_/Y   23.04   23.05   -0.01 (VIOLATED)
+
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+-241.09022521972656
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.7534
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+-0.30439993739128113
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+23.040000915527344
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0132
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 274
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 4
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 2
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+5352.4878
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+2137.7268
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+39.938938
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             7.37e-02   1.00e-02   3.50e-05   8.37e-02   8.1%
+Combinational          3.51e-01   5.52e-01   2.57e-04   9.03e-01  87.3%
+Macro                  4.56e-02   4.91e-05   3.09e-03   4.87e-02   4.7%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.71e-01   5.61e-01   3.38e-03   1.03e+00 100.0%
+                          45.5%      54.2%       0.3%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 258036 u^2 13% utilization.
+
+Elapsed time: 21:05.43[h:]min:sec. CPU time: user 1259.99 sys 5.39 (99%). Peak memory: 15955772KB.

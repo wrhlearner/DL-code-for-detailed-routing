@@ -1,0 +1,449 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement      75727.6 u
+average displacement        5.3 u
+max displacement           50.4 u
+original HPWL          871531.3 u
+legalized HPWL         950723.5 u
+delta HPWL                    9 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 14271 cells, 264 terminals, 13319 edges and 49570 pins.
+[INFO DPO-0109] Network stats: inst 14535, edges 13319, pins 49570
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 50400 10080 units.
+[INFO DPO-0320] Collected 2045 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 12490 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2240, 10080) - (2392320, 2388960)
+[INFO DPO-0310] Assigned 12490 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.903060e+09.
+[INFO DPO-0302] End of matching; objective is 1.899990e+09, improvement is 0.16 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.883982e+09.
+[INFO DPO-0307] End of global swaps; objective is 1.883982e+09, improvement is 0.84 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.878749e+09.
+[INFO DPO-0309] End of vertical swaps; objective is 1.878749e+09, improvement is 0.28 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.875558e+09.
+[INFO DPO-0305] End of reordering; objective is 1.875558e+09, improvement is 0.17 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 249800 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 249800, swaps 37783, moves 57845 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.845308e+09, Scratch cost 1.832234e+09, Incremental cost 1.832234e+09, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.832234e+09.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.71 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.708470 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 6317 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 3139 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.843238e+09, improvement is 1.03 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           950723.5 u
+Final HPWL              919588.5 u
+Delta HPWL                  -3.3 %
+
+[INFO DPL-0020] Mirrored 616 instances
+[INFO DPL-0021] HPWL before          919588.5 u
+[INFO DPL-0022] HPWL after           918855.4 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _24863_ (positive level-sensitive latch clocked by core_clock)
+Endpoint: _22287_ (rising clock gating-check end-point clocked by core_clock)
+Path Group: gated clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _24863_/E (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+     1    0.01    0.08    0.29    0.29 ^ _24863_/Q (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                                         core_clock_gate_i.en_latch (net)
+                  0.08    0.00    0.29 ^ _22287_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                  0.29   data arrival time
+
+                  0.00    7.50    7.50   clock core_clock (fall edge)
+                          0.00    7.50   clock network delay (ideal)
+                          0.00    7.50   clock reconvergence pessimism
+                                  7.50 v _22287_/A1 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                          0.00    7.50   clock gating hold time
+                                  7.50   data required time
+-----------------------------------------------------------------------------
+                                  7.50   data required time
+                                 -0.29   data arrival time
+-----------------------------------------------------------------------------
+                                 -7.21   slack (VIOLATED)
+
+
+Startpoint: _24874_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _24874_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _24874_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+     2    0.02    0.07    0.38    0.38 v _24874_/Q (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                                         if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i.rdata_q[3] (net)
+                  0.07    0.00    0.38 v _17529_/I (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+     1    0.01    0.07    0.06    0.44 ^ _17529_/ZN (gf180mcu_fd_sc_mcu9t5v0__clkinv_2)
+                                         _05504_ (net)
+                  0.07    0.00    0.44 ^ _17535_/A1 (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+     1    0.00    0.06    0.06    0.49 v _17535_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi221_2)
+                                         _01786_ (net)
+                  0.06    0.00    0.49 v _24874_/D (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                                  0.49   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _24874_/CLK (gf180mcu_fd_sc_mcu9t5v0__dffq_2)
+                          0.07    0.07   library hold time
+                                  0.07   data required time
+-----------------------------------------------------------------------------
+                                  0.07   data required time
+                                 -0.49   data arrival time
+-----------------------------------------------------------------------------
+                                  0.42   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _24863_ (positive level-sensitive latch clocked by core_clock)
+Endpoint: _22287_ (rising clock gating-check end-point clocked by core_clock)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+   996    5.03    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                          5.01    5.01   time given to startpoint
+                  0.09    0.00    5.01 v _24863_/D (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+     1    0.01    0.06    0.40    5.41 v _24863_/Q (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                                         core_clock_gate_i.en_latch (net)
+                  0.06    0.00    5.41 v _22287_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                  5.41   data arrival time
+
+                  0.00   15.00   15.00   clock core_clock (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ _22287_/A1 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                          0.00   15.00   clock gating setup time
+                                 15.00   data required time
+-----------------------------------------------------------------------------
+                                 15.00   data required time
+                                 -5.41   data arrival time
+-----------------------------------------------------------------------------
+                                  9.59   slack (MET)
+
+
+Startpoint: irq_fast_i[3] (input port clocked by core_clock)
+Endpoint: _24863_ (positive level-sensitive latch clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    0.00    0.00    0.00    3.00 v irq_fast_i[3] (in)
+                                         irq_fast_i[3] (net)
+                  0.00    0.00    3.00 v input138/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     3    0.03    0.24    0.77    3.77 v input138/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         net138 (net)
+                  0.24    0.00    3.77 v _21790_/B2 (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+     2    0.02    0.28    0.24    4.00 ^ _21790_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+                                         _09058_ (net)
+                  0.28    0.00    4.00 ^ _21792_/A3 (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+     3    0.03    0.15    0.28    4.28 ^ _21792_/Z (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+                                         _09060_ (net)
+                  0.15    0.00    4.28 ^ _21793_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+     3    0.04    0.18    0.22    4.50 ^ _21793_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _09061_ (net)
+                  0.18    0.00    4.50 ^ _21794_/A4 (gf180mcu_fd_sc_mcu9t5v0__nand4_4)
+     5    0.09    0.31    0.21    4.71 v _21794_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand4_4)
+                                         _09062_ (net)
+                  0.31    0.01    4.71 v _22105_/A3 (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+     2    0.02    0.31    0.25    4.97 ^ _22105_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+                                         net150 (net)
+                  0.31    0.00    4.97 ^ _22289_/A2 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.00    0.09    0.04    5.01 v _22289_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _00008_ (net)
+                  0.09    0.00    5.01 v _24863_/D (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                                  5.01   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _24863_/E (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                          5.01    5.01   time borrowed from endpoint
+                                  5.01   data required time
+-----------------------------------------------------------------------------
+                                  5.01   data required time
+                                 -5.01   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+core_clock pulse width                  7.50
+library setup time                     -0.23
+--------------------------------------------
+max time borrow                         7.27
+actual time borrow                      5.01
+--------------------------------------------
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _24863_ (positive level-sensitive latch clocked by core_clock)
+Endpoint: _22287_ (rising clock gating-check end-point clocked by core_clock)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+   996    5.03    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                          5.01    5.01   time given to startpoint
+                  0.09    0.00    5.01 v _24863_/D (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+     1    0.01    0.06    0.40    5.41 v _24863_/Q (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                                         core_clock_gate_i.en_latch (net)
+                  0.06    0.00    5.41 v _22287_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                  5.41   data arrival time
+
+                  0.00   15.00   15.00   clock core_clock (rise edge)
+                          0.00   15.00   clock network delay (ideal)
+                          0.00   15.00   clock reconvergence pessimism
+                                 15.00 ^ _22287_/A1 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                          0.00   15.00   clock gating setup time
+                                 15.00   data required time
+-----------------------------------------------------------------------------
+                                 15.00   data required time
+                                 -5.41   data arrival time
+-----------------------------------------------------------------------------
+                                  9.59   slack (MET)
+
+
+Startpoint: irq_fast_i[3] (input port clocked by core_clock)
+Endpoint: _24863_ (positive level-sensitive latch clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          3.00    3.00 v input external delay
+     1    0.00    0.00    0.00    3.00 v irq_fast_i[3] (in)
+                                         irq_fast_i[3] (net)
+                  0.00    0.00    3.00 v input138/I (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+     3    0.03    0.24    0.77    3.77 v input138/Z (gf180mcu_fd_sc_mcu9t5v0__dlyb_2)
+                                         net138 (net)
+                  0.24    0.00    3.77 v _21790_/B2 (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+     2    0.02    0.28    0.24    4.00 ^ _21790_/ZN (gf180mcu_fd_sc_mcu9t5v0__aoi22_2)
+                                         _09058_ (net)
+                  0.28    0.00    4.00 ^ _21792_/A3 (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+     3    0.03    0.15    0.28    4.28 ^ _21792_/Z (gf180mcu_fd_sc_mcu9t5v0__and4_2)
+                                         _09060_ (net)
+                  0.15    0.00    4.28 ^ _21793_/A2 (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+     3    0.04    0.18    0.22    4.50 ^ _21793_/Z (gf180mcu_fd_sc_mcu9t5v0__and2_2)
+                                         _09061_ (net)
+                  0.18    0.00    4.50 ^ _21794_/A4 (gf180mcu_fd_sc_mcu9t5v0__nand4_4)
+     5    0.09    0.31    0.21    4.71 v _21794_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand4_4)
+                                         _09062_ (net)
+                  0.31    0.01    4.71 v _22105_/A3 (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+     2    0.02    0.31    0.25    4.97 ^ _22105_/ZN (gf180mcu_fd_sc_mcu9t5v0__oai31_2)
+                                         net150 (net)
+                  0.31    0.00    4.97 ^ _22289_/A2 (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+     1    0.00    0.09    0.04    5.01 v _22289_/ZN (gf180mcu_fd_sc_mcu9t5v0__nand2_2)
+                                         _00008_ (net)
+                  0.09    0.00    5.01 v _24863_/D (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                                  5.01   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _24863_/E (gf180mcu_fd_sc_mcu9t5v0__latsnq_1)
+                          5.01    5.01   time borrowed from endpoint
+                                  5.01   data required time
+-----------------------------------------------------------------------------
+                                  5.01   data required time
+                                 -5.01   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+core_clock pulse width                  7.50
+library setup time                     -0.23
+--------------------------------------------
+max time borrow                         7.27
+actual time borrow                      5.01
+--------------------------------------------
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+0.3431060016155243
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+2.799999952316284
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.1225
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.07497236132621765
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.5406000018119812
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.1387
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+5.0092
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.94e-01   5.54e-02   5.81e-07   3.49e-01  17.1%
+Combinational          1.13e+00   5.62e-01   2.90e-06   1.69e+00  82.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.43e+00   6.18e-01   3.48e-06   2.04e+00 100.0%
+                          69.8%      30.2%       0.0%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 661881 u^2 47% utilization.
+
+Elapsed time: 0:04.68[h:]min:sec. CPU time: user 4.61 sys 0.07 (99%). Peak memory: 207420KB.

@@ -1,0 +1,444 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack 7.99
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _205_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _206_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _205_/CLK (sg13g2_dfrbp_1)
+     5    0.01    0.05    0.20    0.20 v _205_/Q (sg13g2_dfrbp_1)
+                                         sck_old_d (net)
+                  0.05    0.00    0.20 v _206_/D (sg13g2_dfrbp_1)
+                                  0.20   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _206_/CLK (sg13g2_dfrbp_1)
+                         -0.03   -0.03   library hold time
+                                 -0.03   data required time
+-----------------------------------------------------------------------------
+                                 -0.03   data required time
+                                 -0.20   data arrival time
+-----------------------------------------------------------------------------
+                                  0.24   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+    14    0.06    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.09    2.17 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.17 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.28 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.28 v _226_/D (sg13g2_dfrbp_1)
+                                  2.28   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.28   data arrival time
+-----------------------------------------------------------------------------
+                                  7.99   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+    14    0.06    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.09    2.17 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.17 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.28 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.28 v _226_/D (sg13g2_dfrbp_1)
+                                  2.28   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.28   data arrival time
+-----------------------------------------------------------------------------
+                                  7.99   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.26e-04   2.23e-06   1.35e-08   1.28e-04  93.9%
+Combinational          4.52e-06   3.85e-06   9.69e-09   8.38e-06   6.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.30e-04   6.08e-06   2.32e-08   1.36e-04 100.0%
+                          95.5%       4.5%       0.0%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 1960 u^2 21% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+109
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+412
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 12 input buffers.
+[INFO RSZ-0028] Inserted 10 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 15963um.
+[INFO RSZ-0035] Found 1 fanout violations.
+[INFO RSZ-0038] Inserted 2 buffers in 1 nets.
+[INFO RSZ-0039] Resized 14 instances.
+Repair tie lo fanout...
+[WARNING STA-0328] port 'LO' not found.
+Repair tie hi fanout...
+[WARNING STA-0328] port 'HI' not found.
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+[WARNING RSZ-0020] found 1 floating nets.
+
+==========================================================================
+resizer check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 7.71
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _205_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _206_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _205_/CLK (sg13g2_dfrbp_1)
+     5    0.01    0.05    0.21    0.21 v _205_/Q (sg13g2_dfrbp_1)
+                                         sck_old_d (net)
+                  0.05    0.00    0.21 v _206_/D (sg13g2_dfrbp_1)
+                                  0.21   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _206_/CLK (sg13g2_dfrbp_1)
+                         -0.03   -0.03   library hold time
+                                 -0.03   data required time
+-----------------------------------------------------------------------------
+                                 -0.03   data required time
+                                 -0.21   data arrival time
+-----------------------------------------------------------------------------
+                                  0.24   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+     1    0.00    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v input10/A (sg13g2_buf_1)
+     1    0.00    0.02    0.05    2.13 v input10/X (sg13g2_buf_1)
+                                         net10 (net)
+                  0.02    0.00    2.13 v fanout24/A (sg13g2_buf_1)
+     7    0.02    0.07    0.10    2.23 v fanout24/X (sg13g2_buf_1)
+                                         net24 (net)
+                  0.07    0.00    2.23 v fanout23/A (sg13g2_buf_2)
+     8    0.02    0.05    0.11    2.34 v fanout23/X (sg13g2_buf_2)
+                                         net23 (net)
+                  0.05    0.00    2.34 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.11    2.45 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.45 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.56 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.56 v _226_/D (sg13g2_dfrbp_1)
+                                  2.56   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.56   data arrival time
+-----------------------------------------------------------------------------
+                                  7.71   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by core_clock)
+Endpoint: _226_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.08    2.08 v input external delay
+     1    0.00    0.00    0.00    2.08 v rst (in)
+                                         rst (net)
+                  0.00    0.00    2.08 v input10/A (sg13g2_buf_1)
+     1    0.00    0.02    0.05    2.13 v input10/X (sg13g2_buf_1)
+                                         net10 (net)
+                  0.02    0.00    2.13 v fanout24/A (sg13g2_buf_1)
+     7    0.02    0.07    0.10    2.23 v fanout24/X (sg13g2_buf_1)
+                                         net24 (net)
+                  0.07    0.00    2.23 v fanout23/A (sg13g2_buf_2)
+     8    0.02    0.05    0.11    2.34 v fanout23/X (sg13g2_buf_2)
+                                         net23 (net)
+                  0.05    0.00    2.34 v _197_/A (sg13g2_or2_1)
+     1    0.00    0.03    0.11    2.45 v _197_/X (sg13g2_or2_1)
+                                         _051_ (net)
+                  0.03    0.00    2.45 v _201_/A1 (sg13g2_mux2_1)
+     1    0.00    0.03    0.10    2.56 v _201_/X (sg13g2_mux2_1)
+                                         _022_ (net)
+                  0.03    0.00    2.56 v _226_/D (sg13g2_dfrbp_1)
+                                  2.56   data arrival time
+
+                  0.00   10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (ideal)
+                          0.00   10.40   clock reconvergence pessimism
+                                 10.40 ^ _226_/CLK (sg13g2_dfrbp_1)
+                         -0.13   10.27   library setup time
+                                 10.27   data required time
+-----------------------------------------------------------------------------
+                                 10.27   data required time
+                                 -2.56   data arrival time
+-----------------------------------------------------------------------------
+                                  7.71   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+2.30041241645813
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.9174
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+0.0
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+resizer max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.2715294659137726
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.30000001192092896
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.9051
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+2.5574
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+7.7126
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+301.579729
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.26e-04   2.53e-06   1.35e-08   1.29e-04  93.1%
+Combinational          5.64e-06   3.92e-06   1.19e-08   9.57e-06   6.9%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.32e-04   6.44e-06   2.53e-08   1.38e-04 100.0%
+                          95.3%       4.7%       0.0%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 2107 u^2 22% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+133
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+460
+
+Elapsed time: 0:00.10[h:]min:sec. CPU time: user 0.09 sys 0.01 (100%). Peak memory: 89220KB.

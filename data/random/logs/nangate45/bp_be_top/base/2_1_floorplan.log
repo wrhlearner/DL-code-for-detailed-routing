@@ -1,0 +1,233 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_512x64.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_512x64.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x15.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x15.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x96.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_64x96.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 24 unconstrained endpoints.
+number instances in verilog is 48224
+[INFO IFP-0001] Added 484 rows of 4104 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 5215 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 24 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -21417.59
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -10.02
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -10.02
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: be_calculator/_17204_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: be_calculator/_17563_ (rising edge-triggered flip-flop clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_calculator/_17204_/CK (DFF_X1)
+     1    1.06    0.01    0.08    0.08 v be_calculator/_17204_/Q (DFF_X1)
+                                         be_calculator/calc_stage_r_0__decode__rs2_addr__0_ (net)
+                  0.01    0.00    0.08 v be_calculator/_17563_/D (DFF_X1)
+                                  0.08   data arrival time
+
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ be_calculator/_17563_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.08   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: be_mmu/dcache/_25701_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_data_resp_o[330] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_mmu/dcache/_25701_/CK (DFF_X1)
+   663 1167.81    2.67    2.87    2.87 ^ be_mmu/dcache/_25701_/Q (DFF_X1)
+                                         be_mmu/dcache/genblk6_1__lce_data_mem_read_mux.N0 (net)
+                  2.67    0.00    2.87 ^ be_mmu/dcache/_18882_/A (INV_X1)
+   114  185.77    1.49    2.66    5.53 v be_mmu/dcache/_18882_/ZN (INV_X1)
+                                         be_mmu/dcache/_02734_ (net)
+                  1.49    0.00    5.53 v be_mmu/dcache/_18909_/A1 (NOR2_X1)
+   306  512.23    2.05    8.99   14.51 ^ be_mmu/dcache/_18909_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_02760_ (net)
+                  2.05    0.00   14.51 ^ be_mmu/dcache/_22518_/A2 (AOI22_X1)
+     1    1.56    0.27   -0.06   14.45 v be_mmu/dcache/_22518_/ZN (AOI22_X1)
+                                         be_mmu/dcache/_06040_ (net)
+                  0.27    0.00   14.45 v be_mmu/dcache/_22519_/A2 (NOR2_X1)
+     1    1.63    0.16    0.09   14.55 ^ be_mmu/dcache/_22519_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_06041_ (net)
+                  0.16    0.00   14.55 ^ be_mmu/dcache/_22520_/A (AOI21_X1)
+     2    3.08    0.09    0.02   14.57 v be_mmu/dcache/_22520_/ZN (AOI21_X1)
+                                         be_mmu/dcache/_06042_ (net)
+                  0.09    0.00   14.57 v be_mmu/dcache/_22521_/A2 (NAND2_X1)
+     1    1.67    0.08    0.04   14.61 ^ be_mmu/dcache/_22521_/ZN (NAND2_X1)
+                                         be_mmu/dcache/_06043_ (net)
+                  0.08    0.00   14.61 ^ be_mmu/dcache/_22522_/A (OAI21_X1)
+     1    1.40    0.06    0.03   14.64 v be_mmu/dcache/_22522_/ZN (OAI21_X1)
+                                         be_mmu/dcache/_06044_ (net)
+                  0.06    0.00   14.64 v be_mmu/dcache/_22523_/C2 (AOI221_X1)
+     3    2.84    0.25    0.08   14.73 ^ be_mmu/dcache/_22523_/ZN (AOI221_X1)
+                                         be_mmu/dcache/genblk6_5__lce_data_mem_read_mux.data_o[10] (net)
+                  0.25    0.00   14.73 ^ be_mmu/dcache/lce/_14598_/A (MUX2_X1)
+     1    0.97    0.09    0.06   14.78 ^ be_mmu/dcache/lce/_14598_/Z (MUX2_X1)
+                                         be_mmu/dcache/lce/_05231_ (net)
+                  0.09    0.00   14.78 ^ be_mmu/dcache/lce/_14599_/A2 (AND2_X1)
+     1    0.00    0.02    0.04   14.82 ^ be_mmu/dcache/lce/_14599_/ZN (AND2_X1)
+                                         lce_data_resp_o[330] (net)
+                  0.02    0.00   14.82 ^ lce_data_resp_o[330] (out)
+                                 14.82   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                -14.82   data arrival time
+-----------------------------------------------------------------------------
+                                -10.02   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: be_mmu/dcache/_25701_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: lce_data_resp_o[330] (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ be_mmu/dcache/_25701_/CK (DFF_X1)
+   663 1167.81    2.67    2.87    2.87 ^ be_mmu/dcache/_25701_/Q (DFF_X1)
+                                         be_mmu/dcache/genblk6_1__lce_data_mem_read_mux.N0 (net)
+                  2.67    0.00    2.87 ^ be_mmu/dcache/_18882_/A (INV_X1)
+   114  185.77    1.49    2.66    5.53 v be_mmu/dcache/_18882_/ZN (INV_X1)
+                                         be_mmu/dcache/_02734_ (net)
+                  1.49    0.00    5.53 v be_mmu/dcache/_18909_/A1 (NOR2_X1)
+   306  512.23    2.05    8.99   14.51 ^ be_mmu/dcache/_18909_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_02760_ (net)
+                  2.05    0.00   14.51 ^ be_mmu/dcache/_22518_/A2 (AOI22_X1)
+     1    1.56    0.27   -0.06   14.45 v be_mmu/dcache/_22518_/ZN (AOI22_X1)
+                                         be_mmu/dcache/_06040_ (net)
+                  0.27    0.00   14.45 v be_mmu/dcache/_22519_/A2 (NOR2_X1)
+     1    1.63    0.16    0.09   14.55 ^ be_mmu/dcache/_22519_/ZN (NOR2_X1)
+                                         be_mmu/dcache/_06041_ (net)
+                  0.16    0.00   14.55 ^ be_mmu/dcache/_22520_/A (AOI21_X1)
+     2    3.08    0.09    0.02   14.57 v be_mmu/dcache/_22520_/ZN (AOI21_X1)
+                                         be_mmu/dcache/_06042_ (net)
+                  0.09    0.00   14.57 v be_mmu/dcache/_22521_/A2 (NAND2_X1)
+     1    1.67    0.08    0.04   14.61 ^ be_mmu/dcache/_22521_/ZN (NAND2_X1)
+                                         be_mmu/dcache/_06043_ (net)
+                  0.08    0.00   14.61 ^ be_mmu/dcache/_22522_/A (OAI21_X1)
+     1    1.40    0.06    0.03   14.64 v be_mmu/dcache/_22522_/ZN (OAI21_X1)
+                                         be_mmu/dcache/_06044_ (net)
+                  0.06    0.00   14.64 v be_mmu/dcache/_22523_/C2 (AOI221_X1)
+     3    2.84    0.25    0.08   14.73 ^ be_mmu/dcache/_22523_/ZN (AOI221_X1)
+                                         be_mmu/dcache/genblk6_5__lce_data_mem_read_mux.data_o[10] (net)
+                  0.25    0.00   14.73 ^ be_mmu/dcache/lce/_14598_/A (MUX2_X1)
+     1    0.97    0.09    0.06   14.78 ^ be_mmu/dcache/lce/_14598_/Z (MUX2_X1)
+                                         be_mmu/dcache/lce/_05231_ (net)
+                  0.09    0.00   14.78 ^ be_mmu/dcache/lce/_14599_/A2 (AND2_X1)
+     1    0.00    0.02    0.04   14.82 ^ be_mmu/dcache/lce/_14599_/ZN (AND2_X1)
+                                         lce_data_resp_o[330] (net)
+                  0.02    0.00   14.82 ^ lce_data_resp_o[330] (out)
+                                 14.82   data arrival time
+
+                  0.00    5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (ideal)
+                          0.00    5.40   clock reconvergence pessimism
+                         -0.60    4.80   output external delay
+                                  4.80   data required time
+-----------------------------------------------------------------------------
+                                  4.80   data required time
+                                -14.82   data arrival time
+-----------------------------------------------------------------------------
+                                -10.02   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.27e-02   1.41e-03   6.78e-04   1.48e-02  23.3%
+Combinational          1.63e-02   4.61e-03   1.02e-03   2.20e-02  34.5%
+Macro                  2.01e-02   4.46e-05   6.81e-03   2.69e-02  42.3%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.91e-02   6.06e-03   8.51e-03   6.37e-02 100.0%
+                          77.1%       9.5%      13.4%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 228710 u^2 43% utilization.
+
+Elapsed time: 0:04.22[h:]min:sec. CPU time: user 4.17 sys 0.05 (100%). Peak memory: 292504KB.

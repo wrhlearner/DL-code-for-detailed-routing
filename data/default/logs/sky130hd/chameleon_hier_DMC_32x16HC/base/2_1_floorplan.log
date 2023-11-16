@@ -1,0 +1,162 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+[INFO ODB-0225]     Created 441 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 178 input ports missing set_input_delay.
+Warning: There are 4896 unconstrained endpoints.
+number instances in verilog is 10485
+[INFO IFP-0001] Added 328 rows of 1302 site unithd with height 1.
+[INFO RSZ-0026] Removed 280 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 178 input ports missing set_input_delay.
+Warning: There are 4896 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2.01
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: OVHB[0].VALID[7].FF (rising edge-triggered flip-flop clocked by clk)
+Endpoint: hit (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ OVHB[0].VALID[7].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.03    0.33    0.33 ^ OVHB[0].VALID[7].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         OVHB[0].q_wire[7] (net)
+                  0.03    0.00    0.33 ^ OVHB[0].VALID[7].TOBUF/A (sky130_fd_sc_hd__ebufn_2)
+     1    0.09    1.09    0.87    1.20 ^ OVHB[0].VALID[7].TOBUF/Z (sky130_fd_sc_hd__ebufn_2)
+                                         OVHB[0].TDo[7] (net)
+                  1.09    0.00    1.20 ^ _22_/B (sky130_fd_sc_hd__xnor2_1)
+     1    0.00    0.14    0.19    1.39 ^ _22_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _03_ (net)
+                  0.14    0.00    1.39 ^ _23_/D (sky130_fd_sc_hd__nand4_1)
+     1    0.00    0.09    0.12    1.51 v _23_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _04_ (net)
+                  0.09    0.00    1.51 v _38_/A (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.13    0.22    1.74 ^ _38_/Y (sky130_fd_sc_hd__nor4_2)
+                                         hit (net)
+                  0.13    0.00    1.74 ^ hit (out)
+                                  1.74   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -1.74   data arrival time
+-----------------------------------------------------------------------------
+                                  2.01   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: OVHB[0].VALID[7].FF (rising edge-triggered flip-flop clocked by clk)
+Endpoint: hit (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ OVHB[0].VALID[7].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.03    0.33    0.33 ^ OVHB[0].VALID[7].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         OVHB[0].q_wire[7] (net)
+                  0.03    0.00    0.33 ^ OVHB[0].VALID[7].TOBUF/A (sky130_fd_sc_hd__ebufn_2)
+     1    0.09    1.09    0.87    1.20 ^ OVHB[0].VALID[7].TOBUF/Z (sky130_fd_sc_hd__ebufn_2)
+                                         OVHB[0].TDo[7] (net)
+                  1.09    0.00    1.20 ^ _22_/B (sky130_fd_sc_hd__xnor2_1)
+     1    0.00    0.14    0.19    1.39 ^ _22_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _03_ (net)
+                  0.14    0.00    1.39 ^ _23_/D (sky130_fd_sc_hd__nand4_1)
+     1    0.00    0.09    0.12    1.51 v _23_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _04_ (net)
+                  0.09    0.00    1.51 v _38_/A (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.13    0.22    1.74 ^ _38_/Y (sky130_fd_sc_hd__nor4_2)
+                                         hit (net)
+                  0.13    0.00    1.74 ^ hit (out)
+                                  1.74   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -1.74   data arrival time
+-----------------------------------------------------------------------------
+                                  2.01   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.68e-03   1.77e-04   3.90e-08   1.85e-03  15.0%
+Combinational          2.00e-03   8.47e-03   2.08e-08   1.05e-02  85.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.68e-03   8.64e-03   5.97e-08   1.23e-02 100.0%
+                          29.9%      70.1%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 154383 u^2 29% utilization.
+
+Elapsed time: 0:00.76[h:]min:sec. CPU time: user 0.70 sys 0.05 (99%). Peak memory: 144068KB.

@@ -1,0 +1,295 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: 54 270
+[INFO GPL-0004] CoreAreaLxLy: 2160 2160
+[INFO GPL-0005] CoreAreaUxUy: 356400 386640
+[INFO GPL-0006] NumInstances: 9168
+[INFO GPL-0007] NumPlaceInstances: 130
+[INFO GPL-0008] NumFixedInstances: 6446
+[INFO GPL-0009] NumDummyInstances: 2592
+[INFO GPL-0010] NumNets: 19076
+[INFO GPL-0011] NumPins: 38277
+[INFO GPL-0012] DieAreaLxLy: 0 0
+[INFO GPL-0013] DieAreaUxUy: 358560 388800
+[INFO GPL-0014] CoreAreaLxLy: 2160 2160
+[INFO GPL-0015] CoreAreaUxUy: 356400 386640
+[INFO GPL-0016] CoreArea: 136198195200
+[INFO GPL-0017] NonPlaceInstsArea: 122994022320
+[INFO GPL-0018] PlaceInstsArea: 31026240
+[INFO GPL-0019] Util(%): 0.23
+[INFO GPL-0020] StdInstsArea: 31026240
+[INFO GPL-0021] MacroInstsArea: 0
+[InitialPlace]  Iter: 1 CG residual: 0.00000012 HPWL: 2332718016
+[InitialPlace]  Iter: 2 CG residual: 0.00000007 HPWL: 2336072940
+[InitialPlace]  Iter: 3 CG residual: 0.00000003 HPWL: 2332628474
+[InitialPlace]  Iter: 4 CG residual: 0.00000007 HPWL: 2332583339
+[InitialPlace]  Iter: 5 CG residual: 0.00000011 HPWL: 2332584455
+[INFO GPL-0031] FillerInit: NumGCells: 16671
+[INFO GPL-0032] FillerInit: NumGNets: 19076
+[INFO GPL-0033] FillerInit: NumGPins: 38277
+[INFO GPL-0023] TargetDensity: 0.30
+[INFO GPL-0024] AveragePlaceInstArea: 238663
+[INFO GPL-0025] IdealBinArea: 795543
+[INFO GPL-0026] IdealBinCnt: 171201
+[INFO GPL-0027] TotalBinArea: 136198195200
+[INFO GPL-0028] BinCnt: 256 256
+[INFO GPL-0029] BinSize: 1384 1502
+[INFO GPL-0030] NumBins: 65536
+[NesterovSolve] Iter: 1 overflow: 0.187589 HPWL: 60846264
+[NesterovSolve] Snapshot saved at iter = 0
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileLxLy: 0 0
+[INFO GPL-0037] TileSize: 540 540
+[INFO GPL-0038] TileCnt: 664 720
+[INFO GPL-0039] numRoutingLayers: 10
+[INFO GPL-0040] NumTiles: 478080
+[INFO GPL-0063] TotalRouteOverflowH2: 0.0
+[INFO GPL-0064] TotalRouteOverflowV2: 0.0
+[INFO GPL-0065] OverflowTileCnt2: 0
+[INFO GPL-0066] 0.5%RC: 1.0
+[INFO GPL-0067] 1.0%RC: 1.0
+[INFO GPL-0068] 2.0%RC: 0.9386627670217473
+[INFO GPL-0069] 5.0%RC: 0.7587329219246255
+[INFO GPL-0070] 0.5rcK: 1.0
+[INFO GPL-0071] 1.0rcK: 1.0
+[INFO GPL-0072] 2.0rcK: 0.0
+[INFO GPL-0073] 5.0rcK: 0.0
+[INFO GPL-0074] FinalRC: 1.0
+[NesterovSolve] Iter: 10 overflow: 0.219786 HPWL: 60875072
+[NesterovSolve] Iter: 20 overflow: 0.21962 HPWL: 60869711
+[NesterovSolve] Iter: 30 overflow: 0.191733 HPWL: 60870822
+[NesterovSolve] Iter: 40 overflow: 0.1409 HPWL: 60870528
+[NesterovSolve] Iter: 50 overflow: 0.112017 HPWL: 60870790
+[NesterovSolve] Finished with Overflow: 0.099336
+
+==========================================================================
+global place check_setup
+--------------------------------------------------------------------------
+Warning: There are 32 unconstrained endpoints.
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns -263804.41
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns -140.38
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack -140.38
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Endpoint: ces_0_1 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ ces_0_0/clock (Element)
+     1    1.39    5.36  167.19  167.19 ^ ces_0_0/io_outs_right[4] (Element)
+                                         ces_0_0_io_outs_right[4] (net)
+                  5.36    0.00  167.19 ^ ces_0_1/io_ins_right[4] (Element)
+                                167.19   data arrival time
+
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         10.00   10.00   clock uncertainty
+                          0.00   10.00   clock reconvergence pessimism
+                                 10.00 ^ ces_0_1/clock (Element)
+                         98.80  108.80   library hold time
+                                108.80   data required time
+-----------------------------------------------------------------------------
+                                108.80   data required time
+                               -167.19   data arrival time
+-----------------------------------------------------------------------------
+                                 58.40   slack (MET)
+
+
+Startpoint: ces_0_7 (rising edge-triggered flip-flop clocked by clock)
+Endpoint: io_outs_right_0[9] (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ ces_0_7/clock (Element)
+     1    1.50    5.16  163.18  163.18 v ces_0_7/io_outs_right[9] (Element)
+                                         io_outs_right_0[9] (net)
+                  5.16    0.07  163.24 v io_outs_right_0[9] (out)
+                                163.24   data arrival time
+
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                         10.00  285.00   clock uncertainty
+                          0.00  285.00   clock reconvergence pessimism
+                        -64.00  221.00   output external delay
+                                221.00   data required time
+-----------------------------------------------------------------------------
+                                221.00   data required time
+                               -163.24   data arrival time
+-----------------------------------------------------------------------------
+                                -57.76   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: io_ins_up_0[44] (input port clocked by clock_vir)
+Endpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                        240.00  515.00 v input external delay
+     1    2.03    0.00    0.00  515.00 v io_ins_up_0[44] (in)
+                                         io_ins_up_0[44] (net)
+                  0.56    0.18  515.18 v ces_0_0/io_ins_up[44] (Element)
+                                515.18   data arrival time
+
+                  0.00  320.00  320.00   clock clock (rise edge)
+                          0.00  320.00   clock network delay (ideal)
+                        -10.00  310.00   clock uncertainty
+                          0.00  310.00   clock reconvergence pessimism
+                                310.00 ^ ces_0_0/clock (Element)
+                         64.80  374.80   library setup time
+                                374.80   data required time
+-----------------------------------------------------------------------------
+                                374.80   data required time
+                               -515.18   data arrival time
+-----------------------------------------------------------------------------
+                               -140.38   slack (VIOLATED)
+
+
+Startpoint: _134_ (falling edge-triggered flip-flop clocked by clock')
+Endpoint: io_lsbs_3 (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v _134_/CLK (DFFLQNx1_ASAP7_75t_R)
+     1    2.44   22.86   41.38   41.38 v _134_/QN (DFFLQNx1_ASAP7_75t_R)
+                                         _060_ (net)
+                 22.87    0.20   41.58 v _127_/A (INVx3_ASAP7_75t_R)
+     1    0.70    7.02    6.34   47.91 ^ _127_/Y (INVx3_ASAP7_75t_R)
+                                         io_lsbs_3 (net)
+                  7.02    0.05   47.96 ^ io_lsbs_3 (out)
+                                 47.96   data arrival time
+
+                  0.00  320.00  320.00   clock clock_vir (rise edge)
+                        275.00  595.00   clock network delay (ideal)
+                        -10.00  585.00   clock uncertainty
+                          0.00  585.00   clock reconvergence pessimism
+                       -240.00  345.00   output external delay
+                                345.00   data required time
+-----------------------------------------------------------------------------
+                                345.00   data required time
+                                -47.96   data arrival time
+-----------------------------------------------------------------------------
+                                297.04   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: io_ins_up_0[44] (input port clocked by clock_vir)
+Endpoint: ces_0_0 (rising edge-triggered flip-flop clocked by clock)
+Path Group: clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock_vir (rise edge)
+                        275.00  275.00   clock network delay (ideal)
+                        240.00  515.00 v input external delay
+     1    2.03    0.00    0.00  515.00 v io_ins_up_0[44] (in)
+                                         io_ins_up_0[44] (net)
+                  0.56    0.18  515.18 v ces_0_0/io_ins_up[44] (Element)
+                                515.18   data arrival time
+
+                  0.00  320.00  320.00   clock clock (rise edge)
+                          0.00  320.00   clock network delay (ideal)
+                        -10.00  310.00   clock uncertainty
+                          0.00  310.00   clock reconvergence pessimism
+                                310.00 ^ ces_0_0/clock (Element)
+                         64.80  374.80   library setup time
+                                374.80   data required time
+-----------------------------------------------------------------------------
+                                374.80   data required time
+                               -515.18   data arrival time
+-----------------------------------------------------------------------------
+                               -140.38   slack (VIOLATED)
+
+
+Startpoint: _134_ (falling edge-triggered flip-flop clocked by clock')
+Endpoint: io_lsbs_3 (output port clocked by clock_vir)
+Path Group: clock_vir
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clock' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 v _134_/CLK (DFFLQNx1_ASAP7_75t_R)
+     1    2.44   22.86   41.38   41.38 v _134_/QN (DFFLQNx1_ASAP7_75t_R)
+                                         _060_ (net)
+                 22.87    0.20   41.58 v _127_/A (INVx3_ASAP7_75t_R)
+     1    0.70    7.02    6.34   47.91 ^ _127_/Y (INVx3_ASAP7_75t_R)
+                                         io_lsbs_3 (net)
+                  7.02    0.05   47.96 ^ io_lsbs_3 (out)
+                                 47.96   data arrival time
+
+                  0.00  320.00  320.00   clock clock_vir (rise edge)
+                        275.00  595.00   clock network delay (ideal)
+                        -10.00  585.00   clock uncertainty
+                          0.00  585.00   clock reconvergence pessimism
+                       -240.00  345.00   output external delay
+                                345.00   data required time
+-----------------------------------------------------------------------------
+                                345.00   data required time
+                                -47.96   data arrival time
+-----------------------------------------------------------------------------
+                                297.04   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.08e-04   1.29e-05   9.64e-09   3.21e-04  81.6%
+Combinational          7.42e-06   6.46e-05   6.36e-09   7.21e-05  18.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.15e-04   7.76e-05   1.60e-08   3.93e-04 100.0%
+                          80.2%      19.8%       0.0%
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 119649 u^2 88% utilization.
+
+Elapsed time: 0:04.72[h:]min:sec. CPU time: user 4.48 sys 0.24 (99%). Peak memory: 931504KB.

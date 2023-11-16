@@ -1,0 +1,392 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre check_setup
+--------------------------------------------------------------------------
+Warning: There are 178 input ports missing set_input_delay.
+Warning: There are 4896 unconstrained endpoints.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.08
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: DATA[22].genblk1[6].HW.BIT[4].FF
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: Do[4] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ DATA[22].genblk1[6].HW.BIT[4].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.04    0.33    0.33 ^ DATA[22].genblk1[6].HW.BIT[4].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         DATA[22].genblk1[6].HW.q_wire[4] (net)
+                  0.04    0.00    0.33 ^ DATA[22].genblk1[6].HW.BIT[4].OBUF/A (sky130_fd_sc_hd__ebufn_2)
+     1    0.27    3.22    2.36    2.69 ^ DATA[22].genblk1[6].HW.BIT[4].OBUF/Z (sky130_fd_sc_hd__ebufn_2)
+                                         DATA[0].Do[100] (net)
+                  3.22    0.05    2.75 ^ MUX.MUX[4]/A3 (sky130_fd_sc_hd__mux4_1)
+     1    0.03    0.35    0.92    3.67 ^ MUX.MUX[4]/X (sky130_fd_sc_hd__mux4_1)
+                                         Do[4] (net)
+                  0.35    0.00    3.67 ^ Do[4] (out)
+                                  3.67   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -3.67   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: DATA[22].genblk1[6].HW.BIT[4].FF
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: Do[4] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ DATA[22].genblk1[6].HW.BIT[4].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.04    0.33    0.33 ^ DATA[22].genblk1[6].HW.BIT[4].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         DATA[22].genblk1[6].HW.q_wire[4] (net)
+                  0.04    0.00    0.33 ^ DATA[22].genblk1[6].HW.BIT[4].OBUF/A (sky130_fd_sc_hd__ebufn_2)
+     1    0.27    3.22    2.36    2.69 ^ DATA[22].genblk1[6].HW.BIT[4].OBUF/Z (sky130_fd_sc_hd__ebufn_2)
+                                         DATA[0].Do[100] (net)
+                  3.22    0.05    2.75 ^ MUX.MUX[4]/A3 (sky130_fd_sc_hd__mux4_1)
+     1    0.03    0.35    0.92    3.67 ^ MUX.MUX[4]/X (sky130_fd_sc_hd__mux4_1)
+                                         Do[4] (net)
+                  0.35    0.00    3.67 ^ Do[4] (out)
+                                  3.67   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -3.67   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.67e-03   1.89e-04   3.90e-08   1.86e-03   7.0%
+Combinational          1.95e-03   2.27e-02   2.08e-08   2.47e-02  93.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.62e-03   2.29e-02   5.97e-08   2.65e-02 100.0%
+                          13.6%      86.4%       0.0%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 163260 u^2 31% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+17300
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+30624
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 172 input buffers.
+[INFO RSZ-0028] Inserted 33 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 2141um.
+[INFO RSZ-0034] Found 33 slew violations.
+[INFO RSZ-0036] Found 32 capacitance violations.
+[INFO RSZ-0038] Inserted 88 buffers in 33 nets.
+[INFO RSZ-0039] Resized 5379 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 32 tie sky130_fd_sc_hd__conb_1 instances.
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer check_setup
+--------------------------------------------------------------------------
+Warning: There are 178 input ports missing set_input_delay.
+Warning: There are 4896 unconstrained endpoints.
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 1.77
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: OVHB[19].VALID[14].FF
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: hit (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ OVHB[19].VALID[14].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.06    0.35    0.35 ^ OVHB[19].VALID[14].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         OVHB[19].q_wire[14] (net)
+                  0.06    0.00    0.35 ^ OVHB[19].VALID[14].TOBUF/A (sky130_fd_sc_hd__ebufn_8)
+     1    0.25    0.97    0.75    1.10 ^ OVHB[19].VALID[14].TOBUF/Z (sky130_fd_sc_hd__ebufn_8)
+                                         OVHB[0].TDo[14] (net)
+                  0.97    0.05    1.16 ^ _29_/B (sky130_fd_sc_hd__xnor2_1)
+     1    0.00    0.16    0.20    1.36 ^ _29_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _10_ (net)
+                  0.16    0.00    1.36 ^ _33_/A (sky130_fd_sc_hd__nand4_1)
+     1    0.00    0.10    0.12    1.47 v _33_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _14_ (net)
+                  0.10    0.00    1.47 v _38_/C (sky130_fd_sc_hd__nor4_1)
+     1    0.01    0.42    0.39    1.87 ^ _38_/Y (sky130_fd_sc_hd__nor4_1)
+                                         net205 (net)
+                  0.42    0.00    1.87 ^ output205/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.00    0.03    0.11    1.98 ^ output205/X (sky130_fd_sc_hd__clkbuf_1)
+                                         hit (net)
+                  0.03    0.00    1.98 ^ hit (out)
+                                  1.98   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -1.98   data arrival time
+-----------------------------------------------------------------------------
+                                  1.77   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: OVHB[19].VALID[14].FF
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: hit (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ OVHB[19].VALID[14].FF/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.00    0.06    0.35    0.35 ^ OVHB[19].VALID[14].FF/Q (sky130_fd_sc_hd__dfxtp_1)
+                                         OVHB[19].q_wire[14] (net)
+                  0.06    0.00    0.35 ^ OVHB[19].VALID[14].TOBUF/A (sky130_fd_sc_hd__ebufn_8)
+     1    0.25    0.97    0.75    1.10 ^ OVHB[19].VALID[14].TOBUF/Z (sky130_fd_sc_hd__ebufn_8)
+                                         OVHB[0].TDo[14] (net)
+                  0.97    0.05    1.16 ^ _29_/B (sky130_fd_sc_hd__xnor2_1)
+     1    0.00    0.16    0.20    1.36 ^ _29_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _10_ (net)
+                  0.16    0.00    1.36 ^ _33_/A (sky130_fd_sc_hd__nand4_1)
+     1    0.00    0.10    0.12    1.47 v _33_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _14_ (net)
+                  0.10    0.00    1.47 v _38_/C (sky130_fd_sc_hd__nor4_1)
+     1    0.01    0.42    0.39    1.87 ^ _38_/Y (sky130_fd_sc_hd__nor4_1)
+                                         net205 (net)
+                  0.42    0.00    1.87 ^ output205/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.00    0.03    0.11    1.98 ^ output205/X (sky130_fd_sc_hd__clkbuf_1)
+                                         hit (net)
+                  0.03    0.00    1.98 ^ hit (out)
+                                  1.98   data arrival time
+
+                  0.15    8.00    8.00   clock clk (rise edge)
+                          0.00    8.00   clock network delay (ideal)
+                         -0.25    7.75   clock uncertainty
+                          0.00    7.75   clock reconvergence pessimism
+                         -4.00    3.75   output external delay
+                                  3.75   data required time
+-----------------------------------------------------------------------------
+                                  3.75   data required time
+                                 -1.98   data arrival time
+-----------------------------------------------------------------------------
+                                  1.77   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.4162493944168091
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+1.5
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.2775
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.02812987007200718
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.03663099929690361
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.7679
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+1.9773
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+1.7727
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+89.652557
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.70e-03   4.50e-04   3.90e-08   2.15e-03   7.3%
+Combinational          4.41e-03   2.28e-02   3.86e-08   2.72e-02  92.7%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  6.11e-03   2.32e-02   7.76e-08   2.93e-02 100.0%
+                          20.8%      79.2%       0.0%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 245151 u^2 46% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+17624
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+31272
+
+Elapsed time: 0:03.25[h:]min:sec. CPU time: user 3.21 sys 0.03 (99%). Peak memory: 171416KB.

@@ -1,0 +1,236 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0223]     Created 24 technology layers
+[INFO ODB-0224]     Created 9 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7_tech_1x_201209.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+[INFO ODB-0225]     Created 212 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/asap7/lef/asap7sc7p5t_28_R_1x_220121a.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 569
+[INFO IFP-0001] Added 55 rows of 276 site asap7sc7p5t with height 1.
+[INFO RSZ-0026] Removed 35 buffers.
+Default units for flow
+ time 1ps
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1pW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -1729.10
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -68.03
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -68.03
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst (input port clocked by clk)
+Endpoint: _1123_ (falling edge-triggered flip-flop clocked by clk')
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         60.00   60.00 v input external delay
+    18    8.52    0.00    0.00   60.00 v rst (in)
+                                         rst (net)
+                  0.00    0.00   60.00 v _0998_/B (AOI21x1_ASAP7_75t_R)
+     1    0.50    6.48    4.79   64.79 ^ _0998_/Y (AOI21x1_ASAP7_75t_R)
+                                         _0165_ (net)
+                  6.48    0.00   64.79 ^ _1123_/D (DFFLQNx1_ASAP7_75t_R)
+                                 64.79   data arrival time
+
+                  0.00    0.00    0.00   clock clk' (fall edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 v _1123_/CLK (DFFLQNx1_ASAP7_75t_R)
+                         13.93   13.93   library hold time
+                                 13.93   data required time
+-----------------------------------------------------------------------------
+                                 13.93   data required time
+                                -64.79   data arrival time
+-----------------------------------------------------------------------------
+                                 50.86   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: prescale[0] (input port clocked by clk)
+Endpoint: _1096_ (falling edge-triggered flip-flop clocked by clk')
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         60.00   60.00 v input external delay
+     2    1.13    0.00    0.00   60.00 v prescale[0] (in)
+                                         prescale[0] (net)
+                  0.00    0.00   60.00 v _0589_/A (INVx1_ASAP7_75t_R)
+     4    2.49   23.81   12.29   72.29 ^ _0589_/Y (INVx1_ASAP7_75t_R)
+                                         _0530_ (net)
+                 23.81    0.00   72.29 ^ _1046_/A (HAxp5_ASAP7_75t_R)
+     3    1.64   32.52   21.61   93.90 v _1046_/CON (HAxp5_ASAP7_75t_R)
+                                         _0008_ (net)
+                 32.52    0.00   93.90 v _0596_/C (OR5x1_ASAP7_75t_R)
+     3    1.72   23.63   54.55  148.44 v _0596_/Y (OR5x1_ASAP7_75t_R)
+                                         _0198_ (net)
+                 23.63    0.00  148.44 v _0602_/C (OR3x1_ASAP7_75t_R)
+     2    1.17   15.09   34.10  182.54 v _0602_/Y (OR3x1_ASAP7_75t_R)
+                                         _0201_ (net)
+                 15.09    0.00  182.54 v _0603_/C (OR3x1_ASAP7_75t_R)
+     1    0.62   11.35   29.64  212.18 v _0603_/Y (OR3x1_ASAP7_75t_R)
+                                         _0202_ (net)
+                 11.35    0.00  212.18 v _0604_/A (INVx1_ASAP7_75t_R)
+     1    0.85   11.16    9.63  221.81 ^ _0604_/Y (INVx1_ASAP7_75t_R)
+                                         _0549_ (net)
+                 11.16    0.00  221.81 ^ _1055_/B (HAxp5_ASAP7_75t_R)
+     2    1.41   28.61   17.56  239.36 v _1055_/CON (HAxp5_ASAP7_75t_R)
+                                         _0096_ (net)
+                 28.61    0.00  239.36 v _0834_/B (XNOR2x2_ASAP7_75t_R)
+     2    1.09   10.86   30.93  270.30 v _0834_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _0364_ (net)
+                 10.86    0.00  270.30 v _0840_/B (OA21x2_ASAP7_75t_R)
+     1    0.42   10.54   16.91  287.21 v _0840_/Y (OA21x2_ASAP7_75t_R)
+                                         _0369_ (net)
+                 10.54    0.00  287.21 v _0841_/B2 (AO22x1_ASAP7_75t_R)
+     1    0.42   11.07   24.14  311.35 v _0841_/Y (AO22x1_ASAP7_75t_R)
+                                         _0370_ (net)
+                 11.07    0.00  311.35 v _0842_/B2 (AO22x1_ASAP7_75t_R)
+     1    0.53   11.18   24.78  336.13 v _0842_/Y (AO22x1_ASAP7_75t_R)
+                                         _0371_ (net)
+                 11.18    0.00  336.13 v _0843_/B (AND2x2_ASAP7_75t_R)
+     1    0.55   13.28   19.22  355.35 v _0843_/Y (AND2x2_ASAP7_75t_R)
+                                         _0138_ (net)
+                 13.28    0.00  355.35 v _1096_/D (DFFLQNx1_ASAP7_75t_R)
+                                355.35   data arrival time
+
+                  0.00  300.00  300.00   clock clk' (fall edge)
+                          0.00  300.00   clock network delay (ideal)
+                          0.00  300.00   clock reconvergence pessimism
+                                300.00 v _1096_/CLK (DFFLQNx1_ASAP7_75t_R)
+                        -12.67  287.33   library setup time
+                                287.33   data required time
+-----------------------------------------------------------------------------
+                                287.33   data required time
+                               -355.35   data arrival time
+-----------------------------------------------------------------------------
+                                -68.03   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: prescale[0] (input port clocked by clk)
+Endpoint: _1096_ (falling edge-triggered flip-flop clocked by clk')
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                         60.00   60.00 v input external delay
+     2    1.13    0.00    0.00   60.00 v prescale[0] (in)
+                                         prescale[0] (net)
+                  0.00    0.00   60.00 v _0589_/A (INVx1_ASAP7_75t_R)
+     4    2.49   23.81   12.29   72.29 ^ _0589_/Y (INVx1_ASAP7_75t_R)
+                                         _0530_ (net)
+                 23.81    0.00   72.29 ^ _1046_/A (HAxp5_ASAP7_75t_R)
+     3    1.64   32.52   21.61   93.90 v _1046_/CON (HAxp5_ASAP7_75t_R)
+                                         _0008_ (net)
+                 32.52    0.00   93.90 v _0596_/C (OR5x1_ASAP7_75t_R)
+     3    1.72   23.63   54.55  148.44 v _0596_/Y (OR5x1_ASAP7_75t_R)
+                                         _0198_ (net)
+                 23.63    0.00  148.44 v _0602_/C (OR3x1_ASAP7_75t_R)
+     2    1.17   15.09   34.10  182.54 v _0602_/Y (OR3x1_ASAP7_75t_R)
+                                         _0201_ (net)
+                 15.09    0.00  182.54 v _0603_/C (OR3x1_ASAP7_75t_R)
+     1    0.62   11.35   29.64  212.18 v _0603_/Y (OR3x1_ASAP7_75t_R)
+                                         _0202_ (net)
+                 11.35    0.00  212.18 v _0604_/A (INVx1_ASAP7_75t_R)
+     1    0.85   11.16    9.63  221.81 ^ _0604_/Y (INVx1_ASAP7_75t_R)
+                                         _0549_ (net)
+                 11.16    0.00  221.81 ^ _1055_/B (HAxp5_ASAP7_75t_R)
+     2    1.41   28.61   17.56  239.36 v _1055_/CON (HAxp5_ASAP7_75t_R)
+                                         _0096_ (net)
+                 28.61    0.00  239.36 v _0834_/B (XNOR2x2_ASAP7_75t_R)
+     2    1.09   10.86   30.93  270.30 v _0834_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _0364_ (net)
+                 10.86    0.00  270.30 v _0840_/B (OA21x2_ASAP7_75t_R)
+     1    0.42   10.54   16.91  287.21 v _0840_/Y (OA21x2_ASAP7_75t_R)
+                                         _0369_ (net)
+                 10.54    0.00  287.21 v _0841_/B2 (AO22x1_ASAP7_75t_R)
+     1    0.42   11.07   24.14  311.35 v _0841_/Y (AO22x1_ASAP7_75t_R)
+                                         _0370_ (net)
+                 11.07    0.00  311.35 v _0842_/B2 (AO22x1_ASAP7_75t_R)
+     1    0.53   11.18   24.78  336.13 v _0842_/Y (AO22x1_ASAP7_75t_R)
+                                         _0371_ (net)
+                 11.18    0.00  336.13 v _0843_/B (AND2x2_ASAP7_75t_R)
+     1    0.55   13.28   19.22  355.35 v _0843_/Y (AND2x2_ASAP7_75t_R)
+                                         _0138_ (net)
+                 13.28    0.00  355.35 v _1096_/D (DFFLQNx1_ASAP7_75t_R)
+                                355.35   data arrival time
+
+                  0.00  300.00  300.00   clock clk' (fall edge)
+                          0.00  300.00   clock network delay (ideal)
+                          0.00  300.00   clock reconvergence pessimism
+                                300.00 v _1096_/CLK (DFFLQNx1_ASAP7_75t_R)
+                        -12.67  287.33   library setup time
+                                287.33   data required time
+-----------------------------------------------------------------------------
+                                287.33   data required time
+                               -355.35   data arrival time
+-----------------------------------------------------------------------------
+                                -68.03   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.10e-04   8.57e-05   1.81e-08   5.95e-04  37.4%
+Combinational          5.52e-04   4.43e-04   5.93e-08   9.95e-04  62.6%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.06e-03   5.29e-04   7.75e-08   1.59e-03 100.0%
+                          66.7%      33.3%       0.0%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 70 u^2 32% utilization.
+
+Elapsed time: 0:00.90[h:]min:sec. CPU time: user 0.84 sys 0.06 (99%). Peak memory: 188728KB.

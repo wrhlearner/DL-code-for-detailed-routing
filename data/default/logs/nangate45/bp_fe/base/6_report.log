@@ -1,0 +1,422 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO] Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0008] extracting parasitics of bp_fe_top ...
+[INFO RCX-0435] Reading extraction model file /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation bp_fe_top (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 150392 rc segments
+[INFO RCX-0439] Coupling Cap extraction bp_fe_top ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0043] 253562 wires to be extracted
+[INFO RCX-0442] 14% completion -- 36901 wires have been extracted
+[INFO RCX-0442] 38% completion -- 97608 wires have been extracted
+[INFO RCX-0442] 45% completion -- 116167 wires have been extracted
+[INFO RCX-0442] 56% completion -- 143727 wires have been extracted
+[INFO RCX-0442] 68% completion -- 172755 wires have been extracted
+[INFO RCX-0442] 80% completion -- 204369 wires have been extracted
+[INFO RCX-0442] 90% completion -- 229659 wires have been extracted
+[INFO RCX-0442] 100% completion -- 253562 wires have been extracted
+[INFO RCX-0045] Extract 36267 nets, 182329 rsegs, 182329 caps, 360691 ccs
+[INFO RCX-0015] Finished extracting bp_fe_top.
+[INFO RCX-0016] Writing SPEF ...
+[INFO RCX-0443] 36267 nets finished
+[INFO RCX-0017] Finished writing SPEF ...
+[INFO PSM-0022] Using 1.100V for VDD
+[WARNING PSM-0016] Voltage pad location (VSRC) file not specified, defaulting pad location to checkerboard pattern on core area.
+[WARNING PSM-0017] X direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0018] Y direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0065] VSRC location not specified, using default checkerboard pattern with one VDD every size bumps in x-direction and one in two bumps in the y-direction
+[INFO PSM-0076] Setting metal node density to be standard cell height times 5.
+[WARNING PSM-0030] VSRC location at (119.950um, 90.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (96.070um, 88.200um).
+[WARNING PSM-0030] VSRC location at (399.950um, 230.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (376.070um, 238.200um).
+[WARNING PSM-0030] VSRC location at (679.950um, 370.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (684.780um, 358.200um).
+[INFO PSM-0031] Number of PDN nodes on net VDD = 36818.
+[INFO PSM-0064] Number of voltage sources = 4.
+[INFO PSM-0040] All PDN stripes on net VDD are connected.
+########## IR report #################
+Corner: default
+Worstcase voltage: 1.05e+00 V
+Average IR drop  : 3.06e-02 V
+Worstcase IR drop: 4.62e-02 V
+######################################
+[INFO PSM-0022] Using 0.000V for VSS
+[WARNING PSM-0016] Voltage pad location (VSRC) file not specified, defaulting pad location to checkerboard pattern on core area.
+[WARNING PSM-0017] X direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0018] Y direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0065] VSRC location not specified, using default checkerboard pattern with one VDD every size bumps in x-direction and one in two bumps in the y-direction
+[INFO PSM-0076] Setting metal node density to be standard cell height times 5.
+[WARNING PSM-0030] VSRC location at (119.950um, 90.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (124.070um, 103.200um).
+[WARNING PSM-0030] VSRC location at (399.950um, 230.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (404.070um, 223.200um).
+[WARNING PSM-0030] VSRC location at (119.950um, 510.300um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (122.070um, 523.200um).
+[INFO PSM-0031] Number of PDN nodes on net VSS = 36119.
+[INFO PSM-0064] Number of voltage sources = 4.
+[INFO PSM-0040] All PDN stripes on net VSS are connected.
+########## IR report #################
+Corner: default
+Worstcase voltage: 4.47e-02 V
+Average IR drop  : 2.96e-02 V
+Worstcase IR drop: 4.47e-02 V
+######################################
+
+==========================================================================
+finish check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 input port missing set_input_delay.
+Warning: There are 1065 unconstrained endpoints.
+
+==========================================================================
+finish report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+finish report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+finish report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2.28
+
+==========================================================================
+finish report_clock_skew
+--------------------------------------------------------------------------
+Clock CLK
+Latency      CRPR       Skew
+icache_1/lce/_21277_/CK ^
+   0.22
+icache_1/data_mem_banks_0__data_mem_bank/macro_mem/mem/clk ^
+   0.31      0.00      -0.10
+
+
+==========================================================================
+finish report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: bp_fe_pc_gen_1/_3919_
+            (rising edge-triggered flip-flop clocked by CLK)
+Endpoint: _242_ (rising edge-triggered flip-flop clocked by CLK)
+Path Group: CLK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock source latency
+     1   46.84    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk_i/A (BUF_X4)
+     2   39.94    0.02    0.04    0.05 ^ clkbuf_0_clk_i/Z (BUF_X4)
+                                         clknet_0_clk_i (net)
+                  0.03    0.01    0.06 ^ clkbuf_1_1_0_clk_i/A (BUF_X4)
+     4   56.21    0.03    0.05    0.11 ^ clkbuf_1_1_0_clk_i/Z (BUF_X4)
+                                         clknet_1_1_0_clk_i (net)
+                  0.03    0.01    0.12 ^ clkbuf_3_4_0_clk_i/A (BUF_X4)
+     2   21.35    0.01    0.03    0.16 ^ clkbuf_3_4_0_clk_i/Z (BUF_X4)
+                                         clknet_3_4_0_clk_i (net)
+                  0.01    0.00    0.16 ^ clkbuf_4_8__f_clk_i/A (BUF_X4)
+     8   44.70    0.03    0.04    0.20 ^ clkbuf_4_8__f_clk_i/Z (BUF_X4)
+                                         clknet_4_8__leaf_clk_i (net)
+                  0.03    0.01    0.21 ^ clkbuf_leaf_103_clk_i/A (BUF_X4)
+    30   45.92    0.03    0.05    0.26 ^ clkbuf_leaf_103_clk_i/Z (BUF_X4)
+                                         clknet_leaf_103_clk_i (net)
+                  0.03    0.00    0.26 ^ bp_fe_pc_gen_1/_3919_/CK (DFF_X2)
+     6   16.76    0.01    0.11    0.37 v bp_fe_pc_gen_1/_3919_/Q (DFF_X2)
+                                         pc_gen_icache[18] (net)
+                  0.01    0.00    0.37 v _242_/D (DFF_X2)
+                                  0.37   data arrival time
+
+                          0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock source latency
+     1   46.84    0.00    0.00    0.00 ^ clk_i (in)
+                                         clk_i (net)
+                  0.02    0.01    0.01 ^ clkbuf_0_clk_i/A (BUF_X4)
+     2   39.94    0.02    0.04    0.05 ^ clkbuf_0_clk_i/Z (BUF_X4)
+                                         clknet_0_clk_i (net)
+                  0.02    0.01    0.06 ^ clkbuf_1_0_0_clk_i/A (BUF_X4)
+     4   52.31    0.03    0.05    0.11 ^ clkbuf_1_0_0_clk_i/Z (BUF_X4)
+                                         clknet_1_0_0_clk_i (net)
+                  0.03    0.01    0.12 ^ clkbuf_3_1_0_clk_i/A (BUF_X4)
+     2   24.08    0.02    0.04    0.15 ^ clkbuf_3_1_0_clk_i/Z (BUF_X4)
+                                         clknet_3_1_0_clk_i (net)
+                  0.02    0.00    0.15 ^ clkbuf_4_2__f_clk_i/A (BUF_X4)
+    14   92.10    0.05    0.07    0.22 ^ clkbuf_4_2__f_clk_i/Z (BUF_X4)
+                                         clknet_4_2__leaf_clk_i (net)
+                  0.05    0.01    0.23 ^ clkbuf_leaf_138_clk_i/A (BUF_X4)
+    30   45.54    0.03    0.05    0.28 ^ clkbuf_leaf_138_clk_i/Z (BUF_X4)
+                                         clknet_leaf_138_clk_i (net)
+                  0.03    0.00    0.28 ^ _242_/CK (DFF_X2)
+                          0.00    0.28   clock reconvergence pessimism
+                          0.01    0.29   library hold time
+                                  0.29   data required time
+-----------------------------------------------------------------------------
+                                  0.29   data required time
+                                 -0.37   data arrival time
+-----------------------------------------------------------------------------
+                                  0.08   slack (MET)
+
+
+
+==========================================================================
+finish report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: reset_i (input port clocked by CLK)
+Endpoint: lce_cce_resp_v_o (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          1.08    1.08 v input external delay
+     1   24.50    0.00    0.00    1.08 v reset_i (in)
+                                         reset_i (net)
+                  0.00    0.00    1.08 v input1194/A (BUF_X32)
+    46  179.03    0.01    0.02    1.10 v input1194/Z (BUF_X32)
+                                         net1194 (net)
+                  0.11    0.09    1.19 v max_length2699/A (BUF_X32)
+    79  201.26    0.01    0.06    1.25 v max_length2699/Z (BUF_X32)
+                                         net2699 (net)
+                  0.11    0.09    1.33 v bp_fe_pc_gen_1/_2213_/A1 (NOR3_X2)
+     3   12.02    0.06    0.11    1.45 ^ bp_fe_pc_gen_1/_2213_/ZN (NOR3_X2)
+                                         pc_gen_icache_v (net)
+                  0.06    0.00    1.45 ^ icache_1/_21625_/A2 (NAND3_X4)
+    68  204.93    0.13    0.16    1.61 v icache_1/_21625_/ZN (NAND3_X4)
+                                         icache_1/_04056_ (net)
+                  0.15    0.06    1.67 v icache_1/_21638_/A2 (AND2_X2)
+     6   18.81    0.02    0.09    1.76 v icache_1/_21638_/ZN (AND2_X2)
+                                         icache_1/tag_mem.macro_mem.w_i (net)
+                  0.02    0.00    1.76 v icache_1/lce/_14944_/A2 (NOR2_X1)
+     2    3.72    0.02    0.04    1.80 ^ icache_1/lce/_14944_/ZN (NOR2_X1)
+                                         icache_1/lce/_04910_ (net)
+                  0.02    0.00    1.80 ^ icache_1/lce/_14945_/B1 (OAI33_X1)
+     1    1.77    0.02    0.03    1.83 v icache_1/lce/_14945_/ZN (OAI33_X1)
+                                         icache_1/metadata_mem_pkt_v_lo (net)
+                  0.02    0.00    1.83 v icache_1/_21639_/A (INV_X1)
+     2    8.37    0.02    0.03    1.86 ^ icache_1/_21639_/ZN (INV_X1)
+                                         icache_1/_04065_ (net)
+                  0.02    0.00    1.86 ^ icache_1/_21640_/A2 (NOR2_X1)
+     3    7.35    0.03    0.02    1.88 v icache_1/_21640_/ZN (NOR2_X1)
+                                         icache_1/metadata_mem_pkt_yumi_li (net)
+                  0.03    0.00    1.88 v icache_1/lce/_15026_/A2 (NOR2_X1)
+     1    1.88    0.02    0.04    1.92 ^ icache_1/lce/_15026_/ZN (NOR2_X1)
+                                         icache_1/lce/_04932_ (net)
+                  0.02    0.00    1.92 ^ icache_1/lce/_15027_/B2 (OAI33_X1)
+     1    7.14    0.02    0.04    1.96 v icache_1/lce/_15027_/ZN (OAI33_X1)
+                                         icache_1/lce/_04933_ (net)
+                  0.02    0.00    1.96 v icache_1/lce/_15028_/A2 (OR2_X1)
+     1    1.47    0.01    0.06    2.01 v icache_1/lce/_15028_/ZN (OR2_X1)
+                                         net1388 (net)
+                  0.01    0.00    2.01 v output1388/A (BUF_X1)
+     1    0.90    0.00    0.03    2.04 v output1388/Z (BUF_X1)
+                                         lce_cce_resp_v_o (net)
+                  0.00    0.00    2.04 v lce_cce_resp_v_o (out)
+                                  2.04   data arrival time
+
+                          5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (propagated)
+                          0.00    5.40   clock reconvergence pessimism
+                         -1.08    4.32   output external delay
+                                  4.32   data required time
+-----------------------------------------------------------------------------
+                                  4.32   data required time
+                                 -2.04   data arrival time
+-----------------------------------------------------------------------------
+                                  2.28   slack (MET)
+
+
+
+==========================================================================
+finish report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: reset_i (input port clocked by CLK)
+Endpoint: lce_cce_resp_v_o (output port clocked by CLK)
+Path Group: CLK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CLK (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          1.08    1.08 v input external delay
+     1   24.50    0.00    0.00    1.08 v reset_i (in)
+                                         reset_i (net)
+                  0.00    0.00    1.08 v input1194/A (BUF_X32)
+    46  179.03    0.01    0.02    1.10 v input1194/Z (BUF_X32)
+                                         net1194 (net)
+                  0.11    0.09    1.19 v max_length2699/A (BUF_X32)
+    79  201.26    0.01    0.06    1.25 v max_length2699/Z (BUF_X32)
+                                         net2699 (net)
+                  0.11    0.09    1.33 v bp_fe_pc_gen_1/_2213_/A1 (NOR3_X2)
+     3   12.02    0.06    0.11    1.45 ^ bp_fe_pc_gen_1/_2213_/ZN (NOR3_X2)
+                                         pc_gen_icache_v (net)
+                  0.06    0.00    1.45 ^ icache_1/_21625_/A2 (NAND3_X4)
+    68  204.93    0.13    0.16    1.61 v icache_1/_21625_/ZN (NAND3_X4)
+                                         icache_1/_04056_ (net)
+                  0.15    0.06    1.67 v icache_1/_21638_/A2 (AND2_X2)
+     6   18.81    0.02    0.09    1.76 v icache_1/_21638_/ZN (AND2_X2)
+                                         icache_1/tag_mem.macro_mem.w_i (net)
+                  0.02    0.00    1.76 v icache_1/lce/_14944_/A2 (NOR2_X1)
+     2    3.72    0.02    0.04    1.80 ^ icache_1/lce/_14944_/ZN (NOR2_X1)
+                                         icache_1/lce/_04910_ (net)
+                  0.02    0.00    1.80 ^ icache_1/lce/_14945_/B1 (OAI33_X1)
+     1    1.77    0.02    0.03    1.83 v icache_1/lce/_14945_/ZN (OAI33_X1)
+                                         icache_1/metadata_mem_pkt_v_lo (net)
+                  0.02    0.00    1.83 v icache_1/_21639_/A (INV_X1)
+     2    8.37    0.02    0.03    1.86 ^ icache_1/_21639_/ZN (INV_X1)
+                                         icache_1/_04065_ (net)
+                  0.02    0.00    1.86 ^ icache_1/_21640_/A2 (NOR2_X1)
+     3    7.35    0.03    0.02    1.88 v icache_1/_21640_/ZN (NOR2_X1)
+                                         icache_1/metadata_mem_pkt_yumi_li (net)
+                  0.03    0.00    1.88 v icache_1/lce/_15026_/A2 (NOR2_X1)
+     1    1.88    0.02    0.04    1.92 ^ icache_1/lce/_15026_/ZN (NOR2_X1)
+                                         icache_1/lce/_04932_ (net)
+                  0.02    0.00    1.92 ^ icache_1/lce/_15027_/B2 (OAI33_X1)
+     1    7.14    0.02    0.04    1.96 v icache_1/lce/_15027_/ZN (OAI33_X1)
+                                         icache_1/lce/_04933_ (net)
+                  0.02    0.00    1.96 v icache_1/lce/_15028_/A2 (OR2_X1)
+     1    1.47    0.01    0.06    2.01 v icache_1/lce/_15028_/ZN (OR2_X1)
+                                         net1388 (net)
+                  0.01    0.00    2.01 v output1388/A (BUF_X1)
+     1    0.90    0.00    0.03    2.04 v output1388/Z (BUF_X1)
+                                         lce_cce_resp_v_o (net)
+                  0.00    0.00    2.04 v lce_cce_resp_v_o (out)
+                                  2.04   data arrival time
+
+                          5.40    5.40   clock CLK (rise edge)
+                          0.00    5.40   clock network delay (propagated)
+                          0.00    5.40   clock reconvergence pessimism
+                         -1.08    4.32   output external delay
+                                  4.32   data required time
+-----------------------------------------------------------------------------
+                                  4.32   data required time
+                                 -2.04   data arrival time
+-----------------------------------------------------------------------------
+                                  2.28   slack (MET)
+
+
+
+==========================================================================
+finish report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+icache_1/lce/_10241_/ZN               237.43  246.76   -9.33 (VIOLATED)
+icache_1/_13156_/ZN                    63.32   71.48   -8.16 (VIOLATED)
+icache_1/_12037_/ZN                   101.01  106.00   -4.99 (VIOLATED)
+icache_1/_17876_/ZN                   106.81  111.26   -4.45 (VIOLATED)
+icache_1/_12099_/ZN                    41.50   45.49   -3.99 (VIOLATED)
+icache_1/_12236_/ZN                    27.62   29.35   -1.73 (VIOLATED)
+icache_1/_12258_/ZN                   101.01  102.52   -1.50 (VIOLATED)
+icache_1/_12029_/ZN                   237.43  238.58   -1.16 (VIOLATED)
+bp_fe_pc_gen_1/genblk1_branch_prediction_1/btb_1/_2842_/ZN   11.48   11.88   -0.39 (VIOLATED)
+bp_fe_pc_gen_1/genblk1_branch_prediction_1/_0702_/ZN   27.62   27.87   -0.25 (VIOLATED)
+
+
+==========================================================================
+finish max_slew_check_slack
+--------------------------------------------------------------------------
+0.058122120797634125
+
+==========================================================================
+finish max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+finish max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.2928
+
+==========================================================================
+finish max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_capacitance_check_slack
+--------------------------------------------------------------------------
+-9.331646919250488
+
+==========================================================================
+finish max_capacitance_check_limit
+--------------------------------------------------------------------------
+237.42698669433594
+
+==========================================================================
+finish max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0393
+
+==========================================================================
+finish max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+finish max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+finish max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 10
+
+==========================================================================
+finish setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+finish hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+finish critical path delay
+--------------------------------------------------------------------------
+2.0393
+
+==========================================================================
+finish critical path slack
+--------------------------------------------------------------------------
+2.2807
+
+==========================================================================
+finish slack div critical path delay
+--------------------------------------------------------------------------
+111.837395
+
+==========================================================================
+finish report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.45e-03   5.82e-04   3.49e-04   7.38e-03  13.5%
+Combinational          6.53e-03   9.81e-03   1.12e-03   1.75e-02  31.8%
+Macro                  2.21e-02   3.41e-04   7.60e-03   3.00e-02  54.7%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.50e-02   1.07e-02   9.07e-03   5.48e-02 100.0%
+                          63.9%      19.6%      16.5%
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 222363 u^2 49% utilization.
+
+[WARNING GUI-0076] Could not find the Qt platform plugin "wayland" in ""
+Elapsed time: 0:23.62[h:]min:sec. CPU time: user 23.40 sys 0.26 (100%). Peak memory: 715276KB.

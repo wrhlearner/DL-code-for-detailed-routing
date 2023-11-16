@@ -1,0 +1,290 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0222] Reading LEF file: ./designs/nangate45/tinyRocket/fakeram45_1024x32.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  ./designs/nangate45/tinyRocket/fakeram45_1024x32.lef
+[INFO ODB-0222] Reading LEF file: ./designs/nangate45/tinyRocket/fakeram45_64x32.lef
+[INFO ODB-0225]     Created 1 library cells
+[INFO ODB-0226] Finished LEF file:  ./designs/nangate45/tinyRocket/fakeram45_64x32.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There are 136 input ports missing set_input_delay.
+Warning: There are 132 output ports missing set_output_delay.
+Warning: There are 165 unconstrained endpoints.
+number instances in verilog is 26019
+[INFO IFP-0001] Added 342 rows of 2130 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 2210 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+Warning: There are 136 input ports missing set_input_delay.
+Warning: There are 132 output ports missing set_output_delay.
+Warning: There are 165 unconstrained endpoints.
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -1511.28
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -2.89
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -2.89
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: frontend/_6350_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: frontend/icache.data_arrays_0.data_arrays_0_0_ext.mem
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ frontend/_6350_/CK (DFF_X1)
+     4    6.66    0.02    0.10    0.10 ^ frontend/_6350_/Q (DFF_X1)
+                                         frontend/icache.invalidated (net)
+                  0.02    0.00    0.10 ^ frontend/_3841_/A1 (NOR2_X1)
+     1    5.00    0.01    0.02    0.11 v frontend/_3841_/ZN (NOR2_X1)
+                                         frontend/icache._T_94 (net)
+                  0.01    0.00    0.11 v frontend/icache.data_arrays_0.data_arrays_0_0_ext.mem/we_in (fakeram45_64x32)
+                                  0.11   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ frontend/icache.data_arrays_0.data_arrays_0_0_ext.mem/clk (fakeram45_64x32)
+                          0.05    0.05   library hold time
+                                  0.05   data required time
+-----------------------------------------------------------------------------
+                                  0.05   data required time
+                                 -0.11   data arrival time
+-----------------------------------------------------------------------------
+                                  0.06   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: frontend/_6626_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: frontend/_6189_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ frontend/_6626_/CK (DFF_X1)
+    69  130.92    0.30    0.39    0.39 ^ frontend/_6626_/Q (DFF_X1)
+                                         frontend/fq._T_1_0 (net)
+                  0.30    0.00    0.39 ^ frontend/_3805_/S (MUX2_X1)
+     6   13.74    0.04    0.09    0.48 ^ frontend/_3805_/Z (MUX2_X1)
+                                         core_io_imem_resp_bits_pc[1] (net)
+                  0.04    0.00    0.48 ^ core/_22835_/A (HA_X1)
+    17   34.01    0.08    0.12    0.60 ^ core/_22835_/CO (HA_X1)
+                                         core/_11904_ (net)
+                  0.08    0.00    0.60 ^ core/_12778_/S (MUX2_X1)
+     2    2.35    0.01    0.07    0.67 v core/_12778_/Z (MUX2_X1)
+                                         core/_05992_ (net)
+                  0.01    0.00    0.67 v core/_12781_/B1 (AOI21_X1)
+    57  106.71    0.51    0.56    1.23 ^ core/_12781_/ZN (AOI21_X1)
+                                         core/_05995_ (net)
+                  0.51    0.00    1.23 ^ core/_12927_/A1 (NAND2_X2)
+    16   30.75    0.13    0.12    1.35 v core/_12927_/ZN (NAND2_X2)
+                                         core/_06141_ (net)
+                  0.13    0.00    1.35 v core/_13082_/B2 (OAI221_X1)
+     2    4.85    0.07    0.11    1.46 ^ core/_13082_/ZN (OAI221_X1)
+                                         core/_06295_ (net)
+                  0.07    0.00    1.46 ^ core/_13088_/A1 (NOR2_X1)
+     1    2.94    0.02    0.01    1.48 v core/_13088_/ZN (NOR2_X1)
+                                         core/_06301_ (net)
+                  0.02    0.00    1.48 v core/_13095_/A (AOI21_X2)
+   447  852.25    1.99    2.20    3.68 ^ core/_13095_/ZN (AOI21_X2)
+                                         core/_06308_ (net)
+                  1.99    0.00    3.68 ^ core/_13297_/A2 (NOR2_X1)
+     5    7.40    0.33   -0.01    3.66 v core/_13297_/ZN (NOR2_X1)
+                                         core/_06510_ (net)
+                  0.33    0.00    3.66 v core/_13302_/B2 (AOI221_X1)
+     1    1.63    0.07    0.15    3.82 ^ core/_13302_/ZN (AOI221_X1)
+                                         core/_06515_ (net)
+                  0.07    0.00    3.82 ^ core/_13308_/B2 (AOI221_X1)
+     1    0.88    0.02    0.03    3.85 v core/_13308_/ZN (AOI221_X1)
+                                         core/_06521_ (net)
+                  0.02    0.00    3.85 v core/_13326_/A3 (AND4_X1)
+     1    1.55    0.01    0.04    3.89 v core/_13326_/ZN (AND4_X1)
+                                         core/_06539_ (net)
+                  0.01    0.00    3.89 v core/_13501_/B1 (AOI221_X4)
+     4   10.54    0.01    0.12    4.01 ^ core/_13501_/ZN (AOI221_X4)
+                                         core/_06714_ (net)
+                  0.01    0.00    4.01 ^ core/_15746_/A1 (AND2_X1)
+     3    4.19    0.01    0.04    4.05 ^ core/_15746_/ZN (AND2_X1)
+                                         core/_08407_ (net)
+                  0.01    0.00    4.05 ^ core/_15752_/A1 (AND2_X1)
+     9   16.77    0.04    0.07    4.12 ^ core/_15752_/ZN (AND2_X1)
+                                         core_io_imem_resp_ready (net)
+                  0.04    0.00    4.12 ^ frontend/_4207_/A (INV_X1)
+     6    9.11    0.02    0.03    4.15 v frontend/_4207_/ZN (INV_X1)
+                                         frontend/_0947_ (net)
+                  0.02    0.00    4.15 v frontend/_4283_/B2 (OAI22_X1)
+    65  124.80    0.60    0.67    4.82 ^ frontend/_4283_/ZN (OAI22_X1)
+                                         frontend/_0992_ (net)
+                  0.60    0.00    4.82 ^ frontend/_4286_/S (MUX2_X1)
+     1    1.06    0.02    0.05    4.87 v frontend/_4286_/Z (MUX2_X1)
+                                         frontend/_0037_ (net)
+                  0.02    0.00    4.87 v frontend/_6189_/D (DFF_X1)
+                                  4.87   data arrival time
+
+                  0.00    2.03    2.03   clock core_clock (rise edge)
+                          0.00    2.03   clock network delay (ideal)
+                          0.00    2.03   clock reconvergence pessimism
+                                  2.03 ^ frontend/_6189_/CK (DFF_X1)
+                         -0.04    1.99   library setup time
+                                  1.99   data required time
+-----------------------------------------------------------------------------
+                                  1.99   data required time
+                                 -4.87   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.89   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: frontend/_6626_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: frontend/_6189_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ frontend/_6626_/CK (DFF_X1)
+    69  130.92    0.30    0.39    0.39 ^ frontend/_6626_/Q (DFF_X1)
+                                         frontend/fq._T_1_0 (net)
+                  0.30    0.00    0.39 ^ frontend/_3805_/S (MUX2_X1)
+     6   13.74    0.04    0.09    0.48 ^ frontend/_3805_/Z (MUX2_X1)
+                                         core_io_imem_resp_bits_pc[1] (net)
+                  0.04    0.00    0.48 ^ core/_22835_/A (HA_X1)
+    17   34.01    0.08    0.12    0.60 ^ core/_22835_/CO (HA_X1)
+                                         core/_11904_ (net)
+                  0.08    0.00    0.60 ^ core/_12778_/S (MUX2_X1)
+     2    2.35    0.01    0.07    0.67 v core/_12778_/Z (MUX2_X1)
+                                         core/_05992_ (net)
+                  0.01    0.00    0.67 v core/_12781_/B1 (AOI21_X1)
+    57  106.71    0.51    0.56    1.23 ^ core/_12781_/ZN (AOI21_X1)
+                                         core/_05995_ (net)
+                  0.51    0.00    1.23 ^ core/_12927_/A1 (NAND2_X2)
+    16   30.75    0.13    0.12    1.35 v core/_12927_/ZN (NAND2_X2)
+                                         core/_06141_ (net)
+                  0.13    0.00    1.35 v core/_13082_/B2 (OAI221_X1)
+     2    4.85    0.07    0.11    1.46 ^ core/_13082_/ZN (OAI221_X1)
+                                         core/_06295_ (net)
+                  0.07    0.00    1.46 ^ core/_13088_/A1 (NOR2_X1)
+     1    2.94    0.02    0.01    1.48 v core/_13088_/ZN (NOR2_X1)
+                                         core/_06301_ (net)
+                  0.02    0.00    1.48 v core/_13095_/A (AOI21_X2)
+   447  852.25    1.99    2.20    3.68 ^ core/_13095_/ZN (AOI21_X2)
+                                         core/_06308_ (net)
+                  1.99    0.00    3.68 ^ core/_13297_/A2 (NOR2_X1)
+     5    7.40    0.33   -0.01    3.66 v core/_13297_/ZN (NOR2_X1)
+                                         core/_06510_ (net)
+                  0.33    0.00    3.66 v core/_13302_/B2 (AOI221_X1)
+     1    1.63    0.07    0.15    3.82 ^ core/_13302_/ZN (AOI221_X1)
+                                         core/_06515_ (net)
+                  0.07    0.00    3.82 ^ core/_13308_/B2 (AOI221_X1)
+     1    0.88    0.02    0.03    3.85 v core/_13308_/ZN (AOI221_X1)
+                                         core/_06521_ (net)
+                  0.02    0.00    3.85 v core/_13326_/A3 (AND4_X1)
+     1    1.55    0.01    0.04    3.89 v core/_13326_/ZN (AND4_X1)
+                                         core/_06539_ (net)
+                  0.01    0.00    3.89 v core/_13501_/B1 (AOI221_X4)
+     4   10.54    0.01    0.12    4.01 ^ core/_13501_/ZN (AOI221_X4)
+                                         core/_06714_ (net)
+                  0.01    0.00    4.01 ^ core/_15746_/A1 (AND2_X1)
+     3    4.19    0.01    0.04    4.05 ^ core/_15746_/ZN (AND2_X1)
+                                         core/_08407_ (net)
+                  0.01    0.00    4.05 ^ core/_15752_/A1 (AND2_X1)
+     9   16.77    0.04    0.07    4.12 ^ core/_15752_/ZN (AND2_X1)
+                                         core_io_imem_resp_ready (net)
+                  0.04    0.00    4.12 ^ frontend/_4207_/A (INV_X1)
+     6    9.11    0.02    0.03    4.15 v frontend/_4207_/ZN (INV_X1)
+                                         frontend/_0947_ (net)
+                  0.02    0.00    4.15 v frontend/_4283_/B2 (OAI22_X1)
+    65  124.80    0.60    0.67    4.82 ^ frontend/_4283_/ZN (OAI22_X1)
+                                         frontend/_0992_ (net)
+                  0.60    0.00    4.82 ^ frontend/_4286_/S (MUX2_X1)
+     1    1.06    0.02    0.05    4.87 v frontend/_4286_/Z (MUX2_X1)
+                                         frontend/_0037_ (net)
+                  0.02    0.00    4.87 v frontend/_6189_/D (DFF_X1)
+                                  4.87   data arrival time
+
+                  0.00    2.03    2.03   clock core_clock (rise edge)
+                          0.00    2.03   clock network delay (ideal)
+                          0.00    2.03   clock reconvergence pessimism
+                                  2.03 ^ frontend/_6189_/CK (DFF_X1)
+                         -0.04    1.99   library setup time
+                                  1.99   data required time
+-----------------------------------------------------------------------------
+                                  1.99   data required time
+                                 -4.87   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.89   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.11e-02   4.70e-03   3.19e-04   2.61e-02  15.6%
+Combinational          9.84e-02   4.02e-02   6.16e-04   1.39e-01  83.0%
+Macro                  2.25e-03   2.42e-06   1.63e-04   2.42e-03   1.4%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.22e-01   4.49e-02   1.10e-03   1.68e-01 100.0%
+                          72.6%      26.8%       0.7%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 49554 u^2 26% utilization.
+
+Elapsed time: 0:02.12[h:]min:sec. CPU time: user 2.09 sys 0.02 (99%). Peak memory: 192804KB.

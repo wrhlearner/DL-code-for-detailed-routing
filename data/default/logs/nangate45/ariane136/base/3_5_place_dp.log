@@ -1,0 +1,982 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement     145032.5 u
+average displacement        0.8 u
+max displacement           27.3 u
+original HPWL         5097906.1 u
+legalized HPWL        5201143.6 u
+delta HPWL                    2 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 171715 cells, 495 terminals, 187422 edges and 608856 pins.
+[INFO DPO-0109] Network stats: inst 172210, edges 187422, pins 608856
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 20240 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 156445 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (20140, 25200) - (2895980, 2895200)
+[INFO DPO-0310] Assigned 156445 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 1.070403e+10.
+[INFO DPO-0302] End of matching; objective is 1.070254e+10, improvement is 0.01 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 1.061782e+10.
+[INFO DPO-0307] End of global swaps; objective is 1.061782e+10, improvement is 0.79 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 1.059587e+10.
+[INFO DPO-0309] End of vertical swaps; objective is 1.059587e+10, improvement is 0.21 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 1.058934e+10.
+[INFO DPO-0305] End of reordering; objective is 1.058934e+10, improvement is 0.06 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 3128900 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 3128900, swaps 221513, moves 1278271 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 1.051309e+10, Scratch cost 1.044649e+10, Incremental cost 1.044649e+10, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 1.044649e+10.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.63 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.633469 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 77883 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 53814 cell flips.
+[INFO DPO-0384] End of flipping; objective is 1.046094e+10, improvement is 0.59 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL          5201143.6 u
+Final HPWL             5074694.6 u
+Delta HPWL                  -2.4 %
+
+[INFO DPL-0020] Mirrored 9610 instances
+[INFO DPL-0021] HPWL before          5074694.6 u
+[INFO DPL-0022] HPWL after           5073173.4 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+Warning: There are 4 unclocked register/latch pins.
+Warning: There are 2391 unconstrained endpoints.
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.98
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by core_clock)
+Endpoint: i_perf_counters/_11823_
+          (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00 ^ input external delay
+     1   13.54    0.00    0.00    0.00 ^ rst_ni (in)
+                                         rst_ni (net)
+                  0.00    0.00    0.00 ^ input211/A (BUF_X16)
+     1   27.04    0.01    0.02    0.02 ^ input211/Z (BUF_X16)
+                                         net211 (net)
+                  0.01    0.00    0.02 ^ wire5535/A (BUF_X32)
+   104  378.70    0.01    0.02    0.04 ^ wire5535/Z (BUF_X32)
+                                         net5535 (net)
+                  0.17    0.14    0.18 ^ i_perf_counters/_11823_/RN (DFFR_X1)
+                                  0.18   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ i_perf_counters/_11823_/CK (DFFR_X1)
+                          0.40    0.40   library removal time
+                                  0.40   data required time
+-----------------------------------------------------------------------------
+                                  0.40   data required time
+                                 -0.18   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.22   slack (VIOLATED)
+
+
+Startpoint: irq_i[0] (input port clocked by core_clock)
+Endpoint: csr_regfile_i/_17405_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00 ^ input external delay
+     1    2.80    0.00    0.00    0.00 ^ irq_i[0] (in)
+                                         irq_i[0] (net)
+                  0.00    0.00    0.00 ^ input209/A (CLKBUF_X3)
+     1   21.78    0.02    0.04    0.04 ^ input209/Z (CLKBUF_X3)
+                                         net209 (net)
+                  0.02    0.01    0.05 ^ csr_regfile_i/_17405_/D (DFFR_X1)
+                                  0.05   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ csr_regfile_i/_17405_/CK (DFFR_X1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.05   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by core_clock)
+Endpoint: ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00 ^ input external delay
+     1   13.54    0.00    0.00    0.00 ^ rst_ni (in)
+                                         rst_ni (net)
+                  0.00    0.00    0.00 ^ input211/A (BUF_X16)
+     1   27.04    0.01    0.02    0.02 ^ input211/Z (BUF_X16)
+                                         net211 (net)
+                  0.01    0.00    0.02 ^ wire5535/A (BUF_X32)
+   104  378.70    0.01    0.02    0.04 ^ wire5535/Z (BUF_X32)
+                                         net5535 (net)
+                  0.09    0.07    0.11 ^ wire5442/A (BUF_X32)
+   109  316.34    0.01    0.03    0.15 ^ wire5442/Z (BUF_X32)
+                                         net5442 (net)
+                  0.06    0.05    0.20 ^ max_length5441/A (BUF_X32)
+    91  297.06    0.01    0.03    0.23 ^ max_length5441/Z (BUF_X32)
+                                         net5441 (net)
+                  0.05    0.04    0.27 ^ max_length5434/A (BUF_X32)
+    79  220.45    0.01    0.03    0.30 ^ max_length5434/Z (BUF_X32)
+                                         net5434 (net)
+                  0.04    0.03    0.34 ^ max_length5433/A (BUF_X32)
+    77  233.35    0.01    0.03    0.37 ^ max_length5433/Z (BUF_X32)
+                                         net5433 (net)
+                  0.01    0.00    0.37 ^ max_length5432/A (BUF_X32)
+    89  240.52    0.01    0.02    0.39 ^ max_length5432/Z (BUF_X32)
+                                         net5432 (net)
+                  0.05    0.04    0.43 ^ max_length5431/A (BUF_X32)
+   126  376.98    0.01    0.03    0.46 ^ max_length5431/Z (BUF_X32)
+                                         net5431 (net)
+                  0.16    0.13    0.59 ^ max_length5428/A (BUF_X32)
+   115  335.64    0.02    0.04    0.63 ^ max_length5428/Z (BUF_X32)
+                                         net5428 (net)
+                  0.08    0.06    0.69 ^ max_length5422/A (BUF_X32)
+   120  349.80    0.01    0.03    0.73 ^ max_length5422/Z (BUF_X32)
+                                         net5422 (net)
+                  0.06    0.05    0.78 ^ wire5421/A (BUF_X32)
+   114  329.48    0.01    0.03    0.81 ^ wire5421/Z (BUF_X32)
+                                         net5421 (net)
+                  0.13    0.11    0.92 ^ max_length5410/A (BUF_X32)
+   104  307.79    0.01    0.03    0.95 ^ max_length5410/Z (BUF_X32)
+                                         net5410 (net)
+                  0.07    0.06    1.01 ^ max_length5408/A (BUF_X32)
+    75  258.12    0.01    0.03    1.04 ^ max_length5408/Z (BUF_X32)
+                                         net5408 (net)
+                  0.06    0.05    1.09 ^ max_length5406/A (BUF_X32)
+    80  215.95    0.01    0.03    1.12 ^ max_length5406/Z (BUF_X32)
+                                         net5406 (net)
+                  0.04    0.03    1.15 ^ max_length5405/A (BUF_X32)
+   110  326.27    0.01    0.03    1.18 ^ max_length5405/Z (BUF_X32)
+                                         net5405 (net)
+                  0.04    0.03    1.21 ^ max_length5401/A (BUF_X32)
+   114  287.36    0.01    0.03    1.24 ^ max_length5401/Z (BUF_X32)
+                                         net5401 (net)
+                  0.06    0.05    1.29 ^ max_length5400/A (BUF_X32)
+   119  328.82    0.01    0.03    1.33 ^ max_length5400/Z (BUF_X32)
+                                         net5400 (net)
+                  0.06    0.05    1.37 ^ max_length5398/A (BUF_X32)
+   120  301.33    0.01    0.03    1.41 ^ max_length5398/Z (BUF_X32)
+                                         net5398 (net)
+                  0.05    0.04    1.44 ^ wire5397/A (BUF_X32)
+   117  264.95    0.01    0.03    1.48 ^ wire5397/Z (BUF_X32)
+                                         net5397 (net)
+                  0.07    0.05    1.53 ^ ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_/RN (DFFR_X1)
+                                  1.53   data arrival time
+
+                  0.00    6.00    6.00   clock core_clock (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_/CK (DFFR_X1)
+                          0.05    6.05   library recovery time
+                                  6.05   data required time
+-----------------------------------------------------------------------------
+                                  6.05   data required time
+                                 -1.53   data arrival time
+-----------------------------------------------------------------------------
+                                  4.52   slack (MET)
+
+
+Startpoint: issue_stage_i/i_scoreboard/_57557_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: issue_stage_i/i_scoreboard/_59893_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ issue_stage_i/i_scoreboard/_57557_/CK (DFFR_X2)
+     4   14.69    0.02    0.14    0.14 ^ issue_stage_i/i_scoreboard/_57557_/Q (DFFR_X2)
+                                         issue_stage_i/i_scoreboard/N68 (net)
+                  0.02    0.00    0.14 ^ issue_stage_i/i_scoreboard/_57550_/A (HA_X1)
+     5   36.37    0.08    0.12    0.26 ^ issue_stage_i/i_scoreboard/_57550_/CO (HA_X1)
+                                         issue_stage_i/i_scoreboard/_28617_ (net)
+                  0.08    0.00    0.26 ^ issue_stage_i/i_scoreboard/_28644_/A2 (AND2_X4)
+    31  133.61    0.07    0.11    0.36 ^ issue_stage_i/i_scoreboard/_28644_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_24212_ (net)
+                  0.07    0.00    0.37 ^ wire4028/A (BUF_X16)
+    52  194.11    0.02    0.04    0.41 ^ wire4028/Z (BUF_X16)
+                                         net4028 (net)
+                  0.02    0.01    0.42 ^ max_length4025/A (BUF_X32)
+    65  190.33    0.01    0.03    0.44 ^ max_length4025/Z (BUF_X32)
+                                         net4025 (net)
+                  0.05    0.04    0.49 ^ max_length4024/A (BUF_X32)
+    49  136.40    0.01    0.03    0.52 ^ max_length4024/Z (BUF_X32)
+                                         net4024 (net)
+                  0.01    0.00    0.52 ^ issue_stage_i/i_scoreboard/_29596_/A (AOI21_X1)
+     1    1.64    0.01    0.01    0.53 v issue_stage_i/i_scoreboard/_29596_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_25087_ (net)
+                  0.01    0.00    0.53 v issue_stage_i/i_scoreboard/_29597_/A (AOI21_X1)
+     1    2.19    0.02    0.04    0.57 ^ issue_stage_i/i_scoreboard/_29597_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_25088_ (net)
+                  0.02    0.00    0.57 ^ issue_stage_i/i_scoreboard/_29598_/B1 (OAI21_X1)
+     1    1.08    0.01    0.02    0.59 v issue_stage_i/i_scoreboard/_29598_/ZN (OAI21_X1)
+                                         issue_stage_i/i_scoreboard/_25089_ (net)
+                  0.01    0.00    0.59 v issue_stage_i/i_scoreboard/_29599_/A (MUX2_X1)
+     1    1.29    0.01    0.06    0.65 v issue_stage_i/i_scoreboard/_29599_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25090_ (net)
+                  0.01    0.00    0.65 v issue_stage_i/i_scoreboard/_29600_/B (MUX2_X1)
+     1    1.10    0.01    0.06    0.70 v issue_stage_i/i_scoreboard/_29600_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25091_ (net)
+                  0.01    0.00    0.70 v issue_stage_i/i_scoreboard/_29601_/B (MUX2_X1)
+     1    1.66    0.01    0.06    0.76 v issue_stage_i/i_scoreboard/_29601_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25092_ (net)
+                  0.01    0.00    0.76 v issue_stage_i/i_scoreboard/_29602_/B (MUX2_X2)
+     7   24.23    0.02    0.08    0.84 v issue_stage_i/i_scoreboard/_29602_/Z (MUX2_X2)
+                                         commit_stage_i.commit_instr_i[284] (net)
+                  0.02    0.00    0.84 v _2626_/A2 (NAND2_X1)
+     1    1.85    0.01    0.02    0.86 ^ _2626_/ZN (NAND2_X1)
+                                         _0358_ (net)
+                  0.01    0.00    0.86 ^ _2627_/A3 (NAND3_X1)
+     1    3.58    0.02    0.03    0.89 v _2627_/ZN (NAND3_X1)
+                                         _0359_ (net)
+                  0.02    0.00    0.89 v _2628_/A4 (NOR4_X2)
+     1    6.56    0.06    0.10    0.99 ^ _2628_/ZN (NOR4_X2)
+                                         _0360_ (net)
+                  0.06    0.00    0.99 ^ _2634_/A (AOI21_X4)
+     5   17.99    0.02    0.03    1.01 v _2634_/ZN (AOI21_X4)
+                                         _0366_ (net)
+                  0.02    0.00    1.01 v _2648_/A2 (NOR2_X2)
+     3   16.96    0.05    0.07    1.08 ^ _2648_/ZN (NOR2_X2)
+                                         _0378_ (net)
+                  0.05    0.00    1.08 ^ _2651_/B1 (OAI21_X4)
+    10   50.75    0.03    0.05    1.13 v _2651_/ZN (OAI21_X4)
+                                         _0381_ (net)
+                  0.03    0.00    1.13 v _2966_/A1 (NOR2_X4)
+     7   45.70    0.06    0.08    1.21 ^ _2966_/ZN (NOR2_X4)
+                                         _0558_ (net)
+                  0.06    0.00    1.21 ^ _3189_/A2 (AND2_X4)
+     7   30.22    0.02    0.05    1.27 ^ _3189_/ZN (AND2_X4)
+                                         commit_stage_i.csr_op_o[5] (net)
+                  0.02    0.00    1.27 ^ csr_regfile_i/_09113_/A1 (AND2_X2)
+     4   22.07    0.03    0.06    1.33 ^ csr_regfile_i/_09113_/ZN (AND2_X2)
+                                         csr_regfile_i/_03824_ (net)
+                  0.03    0.00    1.33 ^ csr_regfile_i/_11285_/A (AOI21_X4)
+     4   19.32    0.02    0.02    1.35 v csr_regfile_i/_11285_/ZN (AOI21_X4)
+                                         csr_regfile_i/_05846_ (net)
+                  0.02    0.00    1.35 v csr_regfile_i/_14356_/A3 (NOR3_X1)
+     2    4.83    0.05    0.08    1.43 ^ csr_regfile_i/_14356_/ZN (NOR3_X1)
+                                         csr_regfile_i/_01912_ (net)
+                  0.05    0.00    1.43 ^ csr_regfile_i/_14359_/A3 (NAND4_X1)
+     1    1.25    0.02    0.03    1.47 v csr_regfile_i/_14359_/ZN (NAND4_X1)
+                                         csr_regfile_i/_01915_ (net)
+                  0.02    0.00    1.47 v csr_regfile_i/_14360_/A2 (OR2_X1)
+     1    6.64    0.01    0.06    1.53 v csr_regfile_i/_14360_/ZN (OR2_X1)
+                                         csr_regfile_i/_01916_ (net)
+                  0.01    0.00    1.53 v csr_regfile_i/_14361_/B2 (AOI21_X4)
+     6   29.48    0.05    0.06    1.59 ^ csr_regfile_i/_14361_/ZN (AOI21_X4)
+                                         csr_regfile_i/_01917_ (net)
+                  0.05    0.00    1.59 ^ csr_regfile_i/_14373_/A (INV_X1)
+     2    4.55    0.01    0.02    1.61 v csr_regfile_i/_14373_/ZN (INV_X1)
+                                         csr_regfile_i/_01927_ (net)
+                  0.01    0.00    1.61 v csr_regfile_i/_15282_/A (OAI21_X2)
+     2    9.10    0.03    0.03    1.64 ^ csr_regfile_i/_15282_/ZN (OAI21_X2)
+                                         commit_stage_i.csr_exception_i[0] (net)
+                  0.03    0.00    1.64 ^ _2662_/A1 (NAND3_X2)
+     3    8.41    0.02    0.03    1.67 v _2662_/ZN (NAND3_X2)
+                                         _0390_ (net)
+                  0.02    0.00    1.67 v _2786_/A2 (AND2_X4)
+    63  124.97    0.02    0.05    1.72 v _2786_/ZN (AND2_X4)
+                                         _0446_ (net)
+                  0.05    0.04    1.76 v _2850_/A2 (AOI22_X1)
+     1    2.17    0.03    0.06    1.82 ^ _2850_/ZN (AOI22_X1)
+                                         _0485_ (net)
+                  0.03    0.00    1.82 ^ _2851_/A2 (NOR2_X1)
+     3    7.38    0.02    0.02    1.84 v _2851_/ZN (NOR2_X1)
+                                         commit_stage_i.exception_o[90] (net)
+                  0.02    0.00    1.84 v csr_regfile_i/_14549_/A4 (NOR4_X1)
+     1    3.99    0.06    0.11    1.95 ^ csr_regfile_i/_14549_/ZN (NOR4_X1)
+                                         csr_regfile_i/_02038_ (net)
+                  0.06    0.00    1.95 ^ csr_regfile_i/_14550_/A4 (NAND4_X2)
+     1    6.76    0.03    0.04    2.00 v csr_regfile_i/_14550_/ZN (NAND4_X2)
+                                         csr_regfile_i/_02039_ (net)
+                  0.03    0.00    2.00 v csr_regfile_i/_14551_/A4 (NOR4_X4)
+     2   19.35    0.07    0.12    2.12 ^ csr_regfile_i/_14551_/ZN (NOR4_X4)
+                                         csr_regfile_i/_02040_ (net)
+                  0.07    0.01    2.12 ^ csr_regfile_i/_14565_/A2 (NAND2_X2)
+     2   13.42    0.02    0.04    2.16 v csr_regfile_i/_14565_/ZN (NAND2_X2)
+                                         csr_regfile_i/_02053_ (net)
+                  0.02    0.00    2.16 v csr_regfile_i/_14566_/A (INV_X1)
+     2    3.56    0.01    0.02    2.18 ^ csr_regfile_i/_14566_/ZN (INV_X1)
+                                         csr_regfile_i/_02054_ (net)
+                  0.01    0.00    2.18 ^ csr_regfile_i/_15272_/A1 (NAND2_X1)
+     1    1.68    0.01    0.01    2.20 v csr_regfile_i/_15272_/ZN (NAND2_X1)
+                                         csr_regfile_i/_02656_ (net)
+                  0.01    0.00    2.20 v csr_regfile_i/_15273_/A3 (NAND3_X1)
+     2    3.54    0.02    0.02    2.22 ^ csr_regfile_i/_15273_/ZN (NAND3_X1)
+                                         csr_regfile_i/_02657_ (net)
+                  0.02    0.00    2.22 ^ csr_regfile_i/_15425_/A2 (NAND2_X1)
+     1    5.75    0.02    0.02    2.25 v csr_regfile_i/_15425_/ZN (NAND2_X1)
+                                         csr_regfile_i/_02742_ (net)
+                  0.02    0.00    2.25 v csr_regfile_i/_15426_/A (OAI21_X4)
+    17   84.91    0.10    0.05    2.30 ^ csr_regfile_i/_15426_/ZN (OAI21_X4)
+                                         controller_i.set_debug_pc_i (net)
+                  0.10    0.02    2.32 ^ _2673_/A2 (NOR3_X1)
+     1    5.88    0.03    0.03    2.35 v _2673_/ZN (NOR3_X1)
+                                         _0400_ (net)
+                  0.03    0.00    2.35 v _2674_/A2 (NAND2_X4)
+    55  228.85    0.08    0.09    2.44 ^ _2674_/ZN (NAND2_X4)
+                                         controller_i.flush_ex_o (net)
+                  0.12    0.06    2.50 ^ ex_stage_i/i_mult/_5338_/B2 (OAI21_X4)
+    37   98.17    0.06    0.09    2.59 v ex_stage_i/i_mult/_5338_/ZN (OAI21_X4)
+                                         ex_stage_i/mult_valid (net)
+                  0.07    0.01    2.60 v ex_stage_i/_6130_/A1 (AND2_X4)
+    32  109.30    0.03    0.08    2.68 v ex_stage_i/_6130_/ZN (AND2_X4)
+                                         ex_stage_i/_1221_ (net)
+                  0.04    0.02    2.70 v ex_stage_i/_7561_/S (MUX2_X2)
+    31   91.53    0.10    0.16    2.86 ^ ex_stage_i/_7561_/Z (MUX2_X2)
+                                         flu_trans_id_ex_id[0] (net)
+                  0.10    0.02    2.88 ^ issue_stage_i/i_scoreboard/_54152_/S (MUX2_X1)
+     1    1.05    0.01    0.06    2.95 v issue_stage_i/i_scoreboard/_54152_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_21756_ (net)
+                  0.01    0.00    2.95 v issue_stage_i/i_scoreboard/_54154_/A (MUX2_X1)
+     1    1.80    0.01    0.06    3.01 v issue_stage_i/i_scoreboard/_54154_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_21758_ (net)
+                  0.01    0.00    3.01 v issue_stage_i/i_scoreboard/_54155_/C1 (OAI222_X1)
+     1    1.26    0.05    0.05    3.06 ^ issue_stage_i/i_scoreboard/_54155_/ZN (OAI222_X1)
+                                         issue_stage_i/i_scoreboard/_21759_ (net)
+                  0.05    0.00    3.06 ^ issue_stage_i/i_scoreboard/_54157_/A1 (AND2_X1)
+     3    9.61    0.02    0.06    3.12 ^ issue_stage_i/i_scoreboard/_54157_/ZN (AND2_X1)
+                                         issue_stage_i/i_scoreboard/_21761_ (net)
+                  0.02    0.00    3.12 ^ issue_stage_i/i_scoreboard/_54177_/B (XNOR2_X1)
+     2    3.42    0.03    0.05    3.16 ^ issue_stage_i/i_scoreboard/_54177_/ZN (XNOR2_X1)
+                                         issue_stage_i/i_scoreboard/_21781_ (net)
+                  0.03    0.00    3.16 ^ issue_stage_i/i_scoreboard/_54197_/A2 (NAND2_X1)
+     2    4.70    0.01    0.02    3.19 v issue_stage_i/i_scoreboard/_54197_/ZN (NAND2_X1)
+                                         issue_stage_i/i_scoreboard/_21800_ (net)
+                  0.01    0.00    3.19 v issue_stage_i/i_scoreboard/_54199_/A2 (OR4_X4)
+     5   25.81    0.02    0.11    3.29 v issue_stage_i/i_scoreboard/_54199_/ZN (OR4_X4)
+                                         issue_stage_i/i_scoreboard/_21802_ (net)
+                  0.02    0.01    3.30 v issue_stage_i/i_scoreboard/_54251_/B2 (OAI21_X2)
+     2   10.24    0.03    0.05    3.35 ^ issue_stage_i/i_scoreboard/_54251_/ZN (OAI21_X2)
+                                         issue_stage_i/i_scoreboard/_21854_ (net)
+                  0.03    0.00    3.35 ^ issue_stage_i/i_scoreboard/_54539_/A2 (NAND2_X4)
+     6   31.39    0.02    0.03    3.39 v issue_stage_i/i_scoreboard/_54539_/ZN (NAND2_X4)
+                                         issue_stage_i/i_scoreboard/_22131_ (net)
+                  0.02    0.01    3.39 v issue_stage_i/i_scoreboard/_54540_/A2 (NAND2_X4)
+    10   50.63    0.04    0.04    3.43 ^ issue_stage_i/i_scoreboard/_54540_/ZN (NAND2_X4)
+                                         issue_stage_i/i_scoreboard/_22132_ (net)
+                  0.04    0.01    3.45 ^ issue_stage_i/i_scoreboard/_56537_/B1 (AOI21_X2)
+     1    6.59    0.02    0.03    3.47 v issue_stage_i/i_scoreboard/_56537_/ZN (AOI21_X2)
+                                         issue_stage_i/i_scoreboard/_24009_ (net)
+                  0.02    0.00    3.47 v issue_stage_i/i_scoreboard/_56538_/B2 (AOI22_X4)
+    18   86.59    0.11    0.15    3.62 ^ issue_stage_i/i_scoreboard/_56538_/ZN (AOI22_X4)
+                                         issue_stage_i/rs2_valid_iro_sb (net)
+                  0.11    0.00    3.62 ^ issue_stage_i/i_issue_read_operands/_4380_/A1 (NOR2_X1)
+     2    7.46    0.03    0.03    3.65 v issue_stage_i/i_issue_read_operands/_4380_/ZN (NOR2_X1)
+                                         issue_stage_i/i_issue_read_operands/_1535_ (net)
+                  0.03    0.00    3.65 v issue_stage_i/i_issue_read_operands/_4846_/B1 (AOI21_X4)
+    12   22.67    0.04    0.06    3.71 ^ issue_stage_i/i_issue_read_operands/_4846_/ZN (AOI21_X4)
+                                         issue_stage_i/i_issue_read_operands/_2001_ (net)
+                  0.04    0.00    3.71 ^ issue_stage_i/i_issue_read_operands/_4849_/A1 (NAND2_X1)
+     1    5.99    0.02    0.03    3.74 v issue_stage_i/i_issue_read_operands/_4849_/ZN (NAND2_X1)
+                                         issue_stage_i/i_issue_read_operands/_2004_ (net)
+                  0.02    0.00    3.74 v issue_stage_i/i_issue_read_operands/_4850_/A3 (NOR3_X4)
+     3   22.17    0.05    0.08    3.82 ^ issue_stage_i/i_issue_read_operands/_4850_/ZN (NOR3_X4)
+                                         issue_stage_i/issue_ack_iro_sb (net)
+                  0.05    0.01    3.83 ^ issue_stage_i/i_scoreboard/_36825_/A1 (AND2_X4)
+    11   57.95    0.03    0.07    3.90 ^ issue_stage_i/i_scoreboard/_36825_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_06793_ (net)
+                  0.03    0.00    3.90 ^ issue_stage_i/i_scoreboard/_36862_/A3 (NAND4_X4)
+    52  189.11    0.10    0.11    4.02 v issue_stage_i/i_scoreboard/_36862_/ZN (NAND4_X4)
+                                         issue_stage_i/i_scoreboard/_06821_ (net)
+                  0.10    0.01    4.02 v issue_stage_i/i_scoreboard/_36956_/A2 (AND2_X1)
+     5   11.58    0.02    0.08    4.11 v issue_stage_i/i_scoreboard/_36956_/ZN (AND2_X1)
+                                         issue_stage_i/i_scoreboard/_06895_ (net)
+                  0.02    0.00    4.11 v issue_stage_i/i_scoreboard/_36999_/B2 (AOI21_X1)
+     1    1.82    0.03    0.03    4.14 ^ issue_stage_i/i_scoreboard/_36999_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_06938_ (net)
+                  0.03    0.00    4.14 ^ issue_stage_i/i_scoreboard/_37001_/B1 (OAI21_X1)
+     1    3.12    0.01    0.02    4.16 v issue_stage_i/i_scoreboard/_37001_/ZN (OAI21_X1)
+                                         issue_stage_i/i_scoreboard/_06940_ (net)
+                  0.01    0.00    4.16 v issue_stage_i/i_scoreboard/_37002_/C2 (AOI221_X2)
+     6   23.59    0.11    0.13    4.30 ^ issue_stage_i/i_scoreboard/_37002_/ZN (AOI221_X2)
+                                         issue_stage_i/i_scoreboard/_06941_ (net)
+                  0.11    0.00    4.30 ^ issue_stage_i/i_scoreboard/_47232_/A2 (AND2_X4)
+     2   56.08    0.03    0.08    4.38 ^ issue_stage_i/i_scoreboard/_47232_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_15635_ (net)
+                  0.03    0.00    4.38 ^ issue_stage_i/i_scoreboard/_47233_/A (INV_X32)
+   125  449.32    0.01    0.01    4.39 v issue_stage_i/i_scoreboard/_47233_/ZN (INV_X32)
+                                         issue_stage_i/i_scoreboard/_15636_ (net)
+                  0.32    0.26    4.65 v issue_stage_i/i_scoreboard/_47771_/A2 (NOR2_X4)
+    13   65.05    0.11    0.21    4.86 ^ issue_stage_i/i_scoreboard/_47771_/ZN (NOR2_X4)
+                                         issue_stage_i/i_scoreboard/_16046_ (net)
+                  0.11    0.01    4.87 ^ wire459/A (BUF_X16)
+    30  105.26    0.02    0.04    4.91 ^ wire459/Z (BUF_X16)
+                                         net459 (net)
+                  0.03    0.02    4.93 ^ issue_stage_i/i_scoreboard/_47932_/B1 (AOI21_X1)
+     1    1.55    0.03    0.02    4.95 v issue_stage_i/i_scoreboard/_47932_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_16188_ (net)
+                  0.03    0.00    4.95 v issue_stage_i/i_scoreboard/_47937_/B1 (AOI21_X1)
+     1    1.52    0.02    0.03    4.98 ^ issue_stage_i/i_scoreboard/_47937_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/mem_n[2331] (net)
+                  0.02    0.00    4.98 ^ issue_stage_i/i_scoreboard/_59893_/D (DFFR_X1)
+                                  4.98   data arrival time
+
+                  0.00    6.00    6.00   clock core_clock (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ issue_stage_i/i_scoreboard/_59893_/CK (DFFR_X1)
+                         -0.04    5.96   library setup time
+                                  5.96   data required time
+-----------------------------------------------------------------------------
+                                  5.96   data required time
+                                 -4.98   data arrival time
+-----------------------------------------------------------------------------
+                                  0.98   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by core_clock)
+Endpoint: ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00 ^ input external delay
+     1   13.54    0.00    0.00    0.00 ^ rst_ni (in)
+                                         rst_ni (net)
+                  0.00    0.00    0.00 ^ input211/A (BUF_X16)
+     1   27.04    0.01    0.02    0.02 ^ input211/Z (BUF_X16)
+                                         net211 (net)
+                  0.01    0.00    0.02 ^ wire5535/A (BUF_X32)
+   104  378.70    0.01    0.02    0.04 ^ wire5535/Z (BUF_X32)
+                                         net5535 (net)
+                  0.09    0.07    0.11 ^ wire5442/A (BUF_X32)
+   109  316.34    0.01    0.03    0.15 ^ wire5442/Z (BUF_X32)
+                                         net5442 (net)
+                  0.06    0.05    0.20 ^ max_length5441/A (BUF_X32)
+    91  297.06    0.01    0.03    0.23 ^ max_length5441/Z (BUF_X32)
+                                         net5441 (net)
+                  0.05    0.04    0.27 ^ max_length5434/A (BUF_X32)
+    79  220.45    0.01    0.03    0.30 ^ max_length5434/Z (BUF_X32)
+                                         net5434 (net)
+                  0.04    0.03    0.34 ^ max_length5433/A (BUF_X32)
+    77  233.35    0.01    0.03    0.37 ^ max_length5433/Z (BUF_X32)
+                                         net5433 (net)
+                  0.01    0.00    0.37 ^ max_length5432/A (BUF_X32)
+    89  240.52    0.01    0.02    0.39 ^ max_length5432/Z (BUF_X32)
+                                         net5432 (net)
+                  0.05    0.04    0.43 ^ max_length5431/A (BUF_X32)
+   126  376.98    0.01    0.03    0.46 ^ max_length5431/Z (BUF_X32)
+                                         net5431 (net)
+                  0.16    0.13    0.59 ^ max_length5428/A (BUF_X32)
+   115  335.64    0.02    0.04    0.63 ^ max_length5428/Z (BUF_X32)
+                                         net5428 (net)
+                  0.08    0.06    0.69 ^ max_length5422/A (BUF_X32)
+   120  349.80    0.01    0.03    0.73 ^ max_length5422/Z (BUF_X32)
+                                         net5422 (net)
+                  0.06    0.05    0.78 ^ wire5421/A (BUF_X32)
+   114  329.48    0.01    0.03    0.81 ^ wire5421/Z (BUF_X32)
+                                         net5421 (net)
+                  0.13    0.11    0.92 ^ max_length5410/A (BUF_X32)
+   104  307.79    0.01    0.03    0.95 ^ max_length5410/Z (BUF_X32)
+                                         net5410 (net)
+                  0.07    0.06    1.01 ^ max_length5408/A (BUF_X32)
+    75  258.12    0.01    0.03    1.04 ^ max_length5408/Z (BUF_X32)
+                                         net5408 (net)
+                  0.06    0.05    1.09 ^ max_length5406/A (BUF_X32)
+    80  215.95    0.01    0.03    1.12 ^ max_length5406/Z (BUF_X32)
+                                         net5406 (net)
+                  0.04    0.03    1.15 ^ max_length5405/A (BUF_X32)
+   110  326.27    0.01    0.03    1.18 ^ max_length5405/Z (BUF_X32)
+                                         net5405 (net)
+                  0.04    0.03    1.21 ^ max_length5401/A (BUF_X32)
+   114  287.36    0.01    0.03    1.24 ^ max_length5401/Z (BUF_X32)
+                                         net5401 (net)
+                  0.06    0.05    1.29 ^ max_length5400/A (BUF_X32)
+   119  328.82    0.01    0.03    1.33 ^ max_length5400/Z (BUF_X32)
+                                         net5400 (net)
+                  0.06    0.05    1.37 ^ max_length5398/A (BUF_X32)
+   120  301.33    0.01    0.03    1.41 ^ max_length5398/Z (BUF_X32)
+                                         net5398 (net)
+                  0.05    0.04    1.44 ^ wire5397/A (BUF_X32)
+   117  264.95    0.01    0.03    1.48 ^ wire5397/Z (BUF_X32)
+                                         net5397 (net)
+                  0.07    0.05    1.53 ^ ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_/RN (DFFR_X1)
+                                  1.53   data arrival time
+
+                  0.00    6.00    6.00   clock core_clock (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ ex_stage_i/lsu_i/i_mmu/i_itlb/_10767_/CK (DFFR_X1)
+                          0.05    6.05   library recovery time
+                                  6.05   data required time
+-----------------------------------------------------------------------------
+                                  6.05   data required time
+                                 -1.53   data arrival time
+-----------------------------------------------------------------------------
+                                  4.52   slack (MET)
+
+
+Startpoint: issue_stage_i/i_scoreboard/_57557_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: issue_stage_i/i_scoreboard/_59893_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ issue_stage_i/i_scoreboard/_57557_/CK (DFFR_X2)
+     4   14.69    0.02    0.14    0.14 ^ issue_stage_i/i_scoreboard/_57557_/Q (DFFR_X2)
+                                         issue_stage_i/i_scoreboard/N68 (net)
+                  0.02    0.00    0.14 ^ issue_stage_i/i_scoreboard/_57550_/A (HA_X1)
+     5   36.37    0.08    0.12    0.26 ^ issue_stage_i/i_scoreboard/_57550_/CO (HA_X1)
+                                         issue_stage_i/i_scoreboard/_28617_ (net)
+                  0.08    0.00    0.26 ^ issue_stage_i/i_scoreboard/_28644_/A2 (AND2_X4)
+    31  133.61    0.07    0.11    0.36 ^ issue_stage_i/i_scoreboard/_28644_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_24212_ (net)
+                  0.07    0.00    0.37 ^ wire4028/A (BUF_X16)
+    52  194.11    0.02    0.04    0.41 ^ wire4028/Z (BUF_X16)
+                                         net4028 (net)
+                  0.02    0.01    0.42 ^ max_length4025/A (BUF_X32)
+    65  190.33    0.01    0.03    0.44 ^ max_length4025/Z (BUF_X32)
+                                         net4025 (net)
+                  0.05    0.04    0.49 ^ max_length4024/A (BUF_X32)
+    49  136.40    0.01    0.03    0.52 ^ max_length4024/Z (BUF_X32)
+                                         net4024 (net)
+                  0.01    0.00    0.52 ^ issue_stage_i/i_scoreboard/_29596_/A (AOI21_X1)
+     1    1.64    0.01    0.01    0.53 v issue_stage_i/i_scoreboard/_29596_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_25087_ (net)
+                  0.01    0.00    0.53 v issue_stage_i/i_scoreboard/_29597_/A (AOI21_X1)
+     1    2.19    0.02    0.04    0.57 ^ issue_stage_i/i_scoreboard/_29597_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_25088_ (net)
+                  0.02    0.00    0.57 ^ issue_stage_i/i_scoreboard/_29598_/B1 (OAI21_X1)
+     1    1.08    0.01    0.02    0.59 v issue_stage_i/i_scoreboard/_29598_/ZN (OAI21_X1)
+                                         issue_stage_i/i_scoreboard/_25089_ (net)
+                  0.01    0.00    0.59 v issue_stage_i/i_scoreboard/_29599_/A (MUX2_X1)
+     1    1.29    0.01    0.06    0.65 v issue_stage_i/i_scoreboard/_29599_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25090_ (net)
+                  0.01    0.00    0.65 v issue_stage_i/i_scoreboard/_29600_/B (MUX2_X1)
+     1    1.10    0.01    0.06    0.70 v issue_stage_i/i_scoreboard/_29600_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25091_ (net)
+                  0.01    0.00    0.70 v issue_stage_i/i_scoreboard/_29601_/B (MUX2_X1)
+     1    1.66    0.01    0.06    0.76 v issue_stage_i/i_scoreboard/_29601_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_25092_ (net)
+                  0.01    0.00    0.76 v issue_stage_i/i_scoreboard/_29602_/B (MUX2_X2)
+     7   24.23    0.02    0.08    0.84 v issue_stage_i/i_scoreboard/_29602_/Z (MUX2_X2)
+                                         commit_stage_i.commit_instr_i[284] (net)
+                  0.02    0.00    0.84 v _2626_/A2 (NAND2_X1)
+     1    1.85    0.01    0.02    0.86 ^ _2626_/ZN (NAND2_X1)
+                                         _0358_ (net)
+                  0.01    0.00    0.86 ^ _2627_/A3 (NAND3_X1)
+     1    3.58    0.02    0.03    0.89 v _2627_/ZN (NAND3_X1)
+                                         _0359_ (net)
+                  0.02    0.00    0.89 v _2628_/A4 (NOR4_X2)
+     1    6.56    0.06    0.10    0.99 ^ _2628_/ZN (NOR4_X2)
+                                         _0360_ (net)
+                  0.06    0.00    0.99 ^ _2634_/A (AOI21_X4)
+     5   17.99    0.02    0.03    1.01 v _2634_/ZN (AOI21_X4)
+                                         _0366_ (net)
+                  0.02    0.00    1.01 v _2648_/A2 (NOR2_X2)
+     3   16.96    0.05    0.07    1.08 ^ _2648_/ZN (NOR2_X2)
+                                         _0378_ (net)
+                  0.05    0.00    1.08 ^ _2651_/B1 (OAI21_X4)
+    10   50.75    0.03    0.05    1.13 v _2651_/ZN (OAI21_X4)
+                                         _0381_ (net)
+                  0.03    0.00    1.13 v _2966_/A1 (NOR2_X4)
+     7   45.70    0.06    0.08    1.21 ^ _2966_/ZN (NOR2_X4)
+                                         _0558_ (net)
+                  0.06    0.00    1.21 ^ _3189_/A2 (AND2_X4)
+     7   30.22    0.02    0.05    1.27 ^ _3189_/ZN (AND2_X4)
+                                         commit_stage_i.csr_op_o[5] (net)
+                  0.02    0.00    1.27 ^ csr_regfile_i/_09113_/A1 (AND2_X2)
+     4   22.07    0.03    0.06    1.33 ^ csr_regfile_i/_09113_/ZN (AND2_X2)
+                                         csr_regfile_i/_03824_ (net)
+                  0.03    0.00    1.33 ^ csr_regfile_i/_11285_/A (AOI21_X4)
+     4   19.32    0.02    0.02    1.35 v csr_regfile_i/_11285_/ZN (AOI21_X4)
+                                         csr_regfile_i/_05846_ (net)
+                  0.02    0.00    1.35 v csr_regfile_i/_14356_/A3 (NOR3_X1)
+     2    4.83    0.05    0.08    1.43 ^ csr_regfile_i/_14356_/ZN (NOR3_X1)
+                                         csr_regfile_i/_01912_ (net)
+                  0.05    0.00    1.43 ^ csr_regfile_i/_14359_/A3 (NAND4_X1)
+     1    1.25    0.02    0.03    1.47 v csr_regfile_i/_14359_/ZN (NAND4_X1)
+                                         csr_regfile_i/_01915_ (net)
+                  0.02    0.00    1.47 v csr_regfile_i/_14360_/A2 (OR2_X1)
+     1    6.64    0.01    0.06    1.53 v csr_regfile_i/_14360_/ZN (OR2_X1)
+                                         csr_regfile_i/_01916_ (net)
+                  0.01    0.00    1.53 v csr_regfile_i/_14361_/B2 (AOI21_X4)
+     6   29.48    0.05    0.06    1.59 ^ csr_regfile_i/_14361_/ZN (AOI21_X4)
+                                         csr_regfile_i/_01917_ (net)
+                  0.05    0.00    1.59 ^ csr_regfile_i/_14373_/A (INV_X1)
+     2    4.55    0.01    0.02    1.61 v csr_regfile_i/_14373_/ZN (INV_X1)
+                                         csr_regfile_i/_01927_ (net)
+                  0.01    0.00    1.61 v csr_regfile_i/_15282_/A (OAI21_X2)
+     2    9.10    0.03    0.03    1.64 ^ csr_regfile_i/_15282_/ZN (OAI21_X2)
+                                         commit_stage_i.csr_exception_i[0] (net)
+                  0.03    0.00    1.64 ^ _2662_/A1 (NAND3_X2)
+     3    8.41    0.02    0.03    1.67 v _2662_/ZN (NAND3_X2)
+                                         _0390_ (net)
+                  0.02    0.00    1.67 v _2786_/A2 (AND2_X4)
+    63  124.97    0.02    0.05    1.72 v _2786_/ZN (AND2_X4)
+                                         _0446_ (net)
+                  0.05    0.04    1.76 v _2850_/A2 (AOI22_X1)
+     1    2.17    0.03    0.06    1.82 ^ _2850_/ZN (AOI22_X1)
+                                         _0485_ (net)
+                  0.03    0.00    1.82 ^ _2851_/A2 (NOR2_X1)
+     3    7.38    0.02    0.02    1.84 v _2851_/ZN (NOR2_X1)
+                                         commit_stage_i.exception_o[90] (net)
+                  0.02    0.00    1.84 v csr_regfile_i/_14549_/A4 (NOR4_X1)
+     1    3.99    0.06    0.11    1.95 ^ csr_regfile_i/_14549_/ZN (NOR4_X1)
+                                         csr_regfile_i/_02038_ (net)
+                  0.06    0.00    1.95 ^ csr_regfile_i/_14550_/A4 (NAND4_X2)
+     1    6.76    0.03    0.04    2.00 v csr_regfile_i/_14550_/ZN (NAND4_X2)
+                                         csr_regfile_i/_02039_ (net)
+                  0.03    0.00    2.00 v csr_regfile_i/_14551_/A4 (NOR4_X4)
+     2   19.35    0.07    0.12    2.12 ^ csr_regfile_i/_14551_/ZN (NOR4_X4)
+                                         csr_regfile_i/_02040_ (net)
+                  0.07    0.01    2.12 ^ csr_regfile_i/_14565_/A2 (NAND2_X2)
+     2   13.42    0.02    0.04    2.16 v csr_regfile_i/_14565_/ZN (NAND2_X2)
+                                         csr_regfile_i/_02053_ (net)
+                  0.02    0.00    2.16 v csr_regfile_i/_14566_/A (INV_X1)
+     2    3.56    0.01    0.02    2.18 ^ csr_regfile_i/_14566_/ZN (INV_X1)
+                                         csr_regfile_i/_02054_ (net)
+                  0.01    0.00    2.18 ^ csr_regfile_i/_15272_/A1 (NAND2_X1)
+     1    1.68    0.01    0.01    2.20 v csr_regfile_i/_15272_/ZN (NAND2_X1)
+                                         csr_regfile_i/_02656_ (net)
+                  0.01    0.00    2.20 v csr_regfile_i/_15273_/A3 (NAND3_X1)
+     2    3.54    0.02    0.02    2.22 ^ csr_regfile_i/_15273_/ZN (NAND3_X1)
+                                         csr_regfile_i/_02657_ (net)
+                  0.02    0.00    2.22 ^ csr_regfile_i/_15425_/A2 (NAND2_X1)
+     1    5.75    0.02    0.02    2.25 v csr_regfile_i/_15425_/ZN (NAND2_X1)
+                                         csr_regfile_i/_02742_ (net)
+                  0.02    0.00    2.25 v csr_regfile_i/_15426_/A (OAI21_X4)
+    17   84.91    0.10    0.05    2.30 ^ csr_regfile_i/_15426_/ZN (OAI21_X4)
+                                         controller_i.set_debug_pc_i (net)
+                  0.10    0.02    2.32 ^ _2673_/A2 (NOR3_X1)
+     1    5.88    0.03    0.03    2.35 v _2673_/ZN (NOR3_X1)
+                                         _0400_ (net)
+                  0.03    0.00    2.35 v _2674_/A2 (NAND2_X4)
+    55  228.85    0.08    0.09    2.44 ^ _2674_/ZN (NAND2_X4)
+                                         controller_i.flush_ex_o (net)
+                  0.12    0.06    2.50 ^ ex_stage_i/i_mult/_5338_/B2 (OAI21_X4)
+    37   98.17    0.06    0.09    2.59 v ex_stage_i/i_mult/_5338_/ZN (OAI21_X4)
+                                         ex_stage_i/mult_valid (net)
+                  0.07    0.01    2.60 v ex_stage_i/_6130_/A1 (AND2_X4)
+    32  109.30    0.03    0.08    2.68 v ex_stage_i/_6130_/ZN (AND2_X4)
+                                         ex_stage_i/_1221_ (net)
+                  0.04    0.02    2.70 v ex_stage_i/_7561_/S (MUX2_X2)
+    31   91.53    0.10    0.16    2.86 ^ ex_stage_i/_7561_/Z (MUX2_X2)
+                                         flu_trans_id_ex_id[0] (net)
+                  0.10    0.02    2.88 ^ issue_stage_i/i_scoreboard/_54152_/S (MUX2_X1)
+     1    1.05    0.01    0.06    2.95 v issue_stage_i/i_scoreboard/_54152_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_21756_ (net)
+                  0.01    0.00    2.95 v issue_stage_i/i_scoreboard/_54154_/A (MUX2_X1)
+     1    1.80    0.01    0.06    3.01 v issue_stage_i/i_scoreboard/_54154_/Z (MUX2_X1)
+                                         issue_stage_i/i_scoreboard/_21758_ (net)
+                  0.01    0.00    3.01 v issue_stage_i/i_scoreboard/_54155_/C1 (OAI222_X1)
+     1    1.26    0.05    0.05    3.06 ^ issue_stage_i/i_scoreboard/_54155_/ZN (OAI222_X1)
+                                         issue_stage_i/i_scoreboard/_21759_ (net)
+                  0.05    0.00    3.06 ^ issue_stage_i/i_scoreboard/_54157_/A1 (AND2_X1)
+     3    9.61    0.02    0.06    3.12 ^ issue_stage_i/i_scoreboard/_54157_/ZN (AND2_X1)
+                                         issue_stage_i/i_scoreboard/_21761_ (net)
+                  0.02    0.00    3.12 ^ issue_stage_i/i_scoreboard/_54177_/B (XNOR2_X1)
+     2    3.42    0.03    0.05    3.16 ^ issue_stage_i/i_scoreboard/_54177_/ZN (XNOR2_X1)
+                                         issue_stage_i/i_scoreboard/_21781_ (net)
+                  0.03    0.00    3.16 ^ issue_stage_i/i_scoreboard/_54197_/A2 (NAND2_X1)
+     2    4.70    0.01    0.02    3.19 v issue_stage_i/i_scoreboard/_54197_/ZN (NAND2_X1)
+                                         issue_stage_i/i_scoreboard/_21800_ (net)
+                  0.01    0.00    3.19 v issue_stage_i/i_scoreboard/_54199_/A2 (OR4_X4)
+     5   25.81    0.02    0.11    3.29 v issue_stage_i/i_scoreboard/_54199_/ZN (OR4_X4)
+                                         issue_stage_i/i_scoreboard/_21802_ (net)
+                  0.02    0.01    3.30 v issue_stage_i/i_scoreboard/_54251_/B2 (OAI21_X2)
+     2   10.24    0.03    0.05    3.35 ^ issue_stage_i/i_scoreboard/_54251_/ZN (OAI21_X2)
+                                         issue_stage_i/i_scoreboard/_21854_ (net)
+                  0.03    0.00    3.35 ^ issue_stage_i/i_scoreboard/_54539_/A2 (NAND2_X4)
+     6   31.39    0.02    0.03    3.39 v issue_stage_i/i_scoreboard/_54539_/ZN (NAND2_X4)
+                                         issue_stage_i/i_scoreboard/_22131_ (net)
+                  0.02    0.01    3.39 v issue_stage_i/i_scoreboard/_54540_/A2 (NAND2_X4)
+    10   50.63    0.04    0.04    3.43 ^ issue_stage_i/i_scoreboard/_54540_/ZN (NAND2_X4)
+                                         issue_stage_i/i_scoreboard/_22132_ (net)
+                  0.04    0.01    3.45 ^ issue_stage_i/i_scoreboard/_56537_/B1 (AOI21_X2)
+     1    6.59    0.02    0.03    3.47 v issue_stage_i/i_scoreboard/_56537_/ZN (AOI21_X2)
+                                         issue_stage_i/i_scoreboard/_24009_ (net)
+                  0.02    0.00    3.47 v issue_stage_i/i_scoreboard/_56538_/B2 (AOI22_X4)
+    18   86.59    0.11    0.15    3.62 ^ issue_stage_i/i_scoreboard/_56538_/ZN (AOI22_X4)
+                                         issue_stage_i/rs2_valid_iro_sb (net)
+                  0.11    0.00    3.62 ^ issue_stage_i/i_issue_read_operands/_4380_/A1 (NOR2_X1)
+     2    7.46    0.03    0.03    3.65 v issue_stage_i/i_issue_read_operands/_4380_/ZN (NOR2_X1)
+                                         issue_stage_i/i_issue_read_operands/_1535_ (net)
+                  0.03    0.00    3.65 v issue_stage_i/i_issue_read_operands/_4846_/B1 (AOI21_X4)
+    12   22.67    0.04    0.06    3.71 ^ issue_stage_i/i_issue_read_operands/_4846_/ZN (AOI21_X4)
+                                         issue_stage_i/i_issue_read_operands/_2001_ (net)
+                  0.04    0.00    3.71 ^ issue_stage_i/i_issue_read_operands/_4849_/A1 (NAND2_X1)
+     1    5.99    0.02    0.03    3.74 v issue_stage_i/i_issue_read_operands/_4849_/ZN (NAND2_X1)
+                                         issue_stage_i/i_issue_read_operands/_2004_ (net)
+                  0.02    0.00    3.74 v issue_stage_i/i_issue_read_operands/_4850_/A3 (NOR3_X4)
+     3   22.17    0.05    0.08    3.82 ^ issue_stage_i/i_issue_read_operands/_4850_/ZN (NOR3_X4)
+                                         issue_stage_i/issue_ack_iro_sb (net)
+                  0.05    0.01    3.83 ^ issue_stage_i/i_scoreboard/_36825_/A1 (AND2_X4)
+    11   57.95    0.03    0.07    3.90 ^ issue_stage_i/i_scoreboard/_36825_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_06793_ (net)
+                  0.03    0.00    3.90 ^ issue_stage_i/i_scoreboard/_36862_/A3 (NAND4_X4)
+    52  189.11    0.10    0.11    4.02 v issue_stage_i/i_scoreboard/_36862_/ZN (NAND4_X4)
+                                         issue_stage_i/i_scoreboard/_06821_ (net)
+                  0.10    0.01    4.02 v issue_stage_i/i_scoreboard/_36956_/A2 (AND2_X1)
+     5   11.58    0.02    0.08    4.11 v issue_stage_i/i_scoreboard/_36956_/ZN (AND2_X1)
+                                         issue_stage_i/i_scoreboard/_06895_ (net)
+                  0.02    0.00    4.11 v issue_stage_i/i_scoreboard/_36999_/B2 (AOI21_X1)
+     1    1.82    0.03    0.03    4.14 ^ issue_stage_i/i_scoreboard/_36999_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_06938_ (net)
+                  0.03    0.00    4.14 ^ issue_stage_i/i_scoreboard/_37001_/B1 (OAI21_X1)
+     1    3.12    0.01    0.02    4.16 v issue_stage_i/i_scoreboard/_37001_/ZN (OAI21_X1)
+                                         issue_stage_i/i_scoreboard/_06940_ (net)
+                  0.01    0.00    4.16 v issue_stage_i/i_scoreboard/_37002_/C2 (AOI221_X2)
+     6   23.59    0.11    0.13    4.30 ^ issue_stage_i/i_scoreboard/_37002_/ZN (AOI221_X2)
+                                         issue_stage_i/i_scoreboard/_06941_ (net)
+                  0.11    0.00    4.30 ^ issue_stage_i/i_scoreboard/_47232_/A2 (AND2_X4)
+     2   56.08    0.03    0.08    4.38 ^ issue_stage_i/i_scoreboard/_47232_/ZN (AND2_X4)
+                                         issue_stage_i/i_scoreboard/_15635_ (net)
+                  0.03    0.00    4.38 ^ issue_stage_i/i_scoreboard/_47233_/A (INV_X32)
+   125  449.32    0.01    0.01    4.39 v issue_stage_i/i_scoreboard/_47233_/ZN (INV_X32)
+                                         issue_stage_i/i_scoreboard/_15636_ (net)
+                  0.32    0.26    4.65 v issue_stage_i/i_scoreboard/_47771_/A2 (NOR2_X4)
+    13   65.05    0.11    0.21    4.86 ^ issue_stage_i/i_scoreboard/_47771_/ZN (NOR2_X4)
+                                         issue_stage_i/i_scoreboard/_16046_ (net)
+                  0.11    0.01    4.87 ^ wire459/A (BUF_X16)
+    30  105.26    0.02    0.04    4.91 ^ wire459/Z (BUF_X16)
+                                         net459 (net)
+                  0.03    0.02    4.93 ^ issue_stage_i/i_scoreboard/_47932_/B1 (AOI21_X1)
+     1    1.55    0.03    0.02    4.95 v issue_stage_i/i_scoreboard/_47932_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/_16188_ (net)
+                  0.03    0.00    4.95 v issue_stage_i/i_scoreboard/_47937_/B1 (AOI21_X1)
+     1    1.52    0.02    0.03    4.98 ^ issue_stage_i/i_scoreboard/_47937_/ZN (AOI21_X1)
+                                         issue_stage_i/i_scoreboard/mem_n[2331] (net)
+                  0.02    0.00    4.98 ^ issue_stage_i/i_scoreboard/_59893_/D (DFFR_X1)
+                                  4.98   data arrival time
+
+                  0.00    6.00    6.00   clock core_clock (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ issue_stage_i/i_scoreboard/_59893_/CK (DFFR_X1)
+                         -0.04    5.96   library setup time
+                                  5.96   data required time
+-----------------------------------------------------------------------------
+                                  5.96   data required time
+                                 -4.98   data arrival time
+-----------------------------------------------------------------------------
+                                  0.98   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+i_cache_subsystem/i_nbdcache/_13314_/ZN    0.20    0.21   -0.01 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+i_cache_subsystem/i_nbdcache/_13314_/ZN   25.63   49.39  -23.76 (VIOLATED)
+i_frontend/i_btb/_13336_/ZN           106.81  126.73  -19.92 (VIOLATED)
+i_cache_subsystem/i_nbdcache/_07139_/ZN   63.32   74.48  -11.15 (VIOLATED)
+ex_stage_i/_9486_/Q                   120.85  129.42   -8.57 (VIOLATED)
+csr_regfile_i/_08812_/ZN               63.32   69.01   -5.69 (VIOLATED)
+ex_stage_i/lsu_i/i_store_unit/store_buffer_i/_10096_/CO   60.58   65.90   -5.32 (VIOLATED)
+csr_regfile_i/_08836_/ZN               41.50   45.30   -3.79 (VIOLATED)
+issue_stage_i/i_issue_read_operands/i_ariane_regfile/_11061_/ZN  237.43  240.67   -3.25 (VIOLATED)
+issue_stage_i/i_issue_read_operands/i_ariane_regfile/_18892_/ZN   63.32   66.44   -3.11 (VIOLATED)
+i_cache_subsystem/i_nbdcache/_07936_/ZN   11.48   14.42   -2.94 (VIOLATED)
+ex_stage_i/_9478_/Q                   120.85  122.45   -1.60 (VIOLATED)
+ex_stage_i/lsu_i/_4883_/CO             60.58   61.71   -1.14 (VIOLATED)
+i_frontend/i_fetch_fifo/i_fifo_v3/_7976_/CO   60.58   61.16   -0.58 (VIOLATED)
+csr_regfile_i/_08662_/ZN               41.50   42.01   -0.51 (VIOLATED)
+issue_stage_i/i_scoreboard/_50414_/ZN  106.81  107.09   -0.28 (VIOLATED)
+csr_regfile_i/_09027_/ZN               63.32   63.56   -0.24 (VIOLATED)
+ex_stage_i/lsu_i/i_mmu/_1709_/ZN       41.50   41.73   -0.23 (VIOLATED)
+_3526_/ZN                              39.60   39.65   -0.06 (VIOLATED)
+
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+-0.008537073619663715
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.0430
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+-23.755264282226562
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+25.63479995727539
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.9267
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 1
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 18
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 687
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+4.9800
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+0.9826
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+19.730924
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.51e-02   1.17e-02   1.96e-03   4.88e-02  17.5%
+Combinational          5.94e-02   7.02e-02   5.95e-03   1.36e-01  48.7%
+Macro                  7.02e-02   5.91e-04   2.31e-02   9.39e-02  33.7%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.65e-01   8.25e-02   3.10e-02   2.78e-01 100.0%
+                          59.2%      29.7%      11.1%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 778510 u^2 38% utilization.
+
+Elapsed time: 1:08.66[h:]min:sec. CPU time: user 68.34 sys 0.31 (99%). Peak memory: 1228220KB.

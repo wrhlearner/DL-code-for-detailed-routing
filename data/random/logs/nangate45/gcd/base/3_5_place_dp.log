@@ -1,0 +1,394 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement        415.5 u
+average displacement        0.9 u
+max displacement            5.1 u
+original HPWL            1547.6 u
+legalized HPWL           1920.4 u
+delta HPWL                   24 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 442 cells, 54 terminals, 471 edges and 1293 pins.
+[INFO DPO-0109] Network stats: inst 496, edges 471, pins 1293
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 14000 2800 units.
+[INFO DPO-0320] Collected 96 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 400 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2280, 2800) - (63460, 61600)
+[INFO DPO-0310] Assigned 400 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 3.931565e+06.
+[INFO DPO-0301] Pass   2 of matching; objective is 3.890685e+06.
+[INFO DPO-0302] End of matching; objective is 3.890685e+06, improvement is 1.04 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 3.739825e+06.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 3.710630e+06.
+[INFO DPO-0307] End of global swaps; objective is 3.710630e+06, improvement is 4.63 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 3.701620e+06.
+[INFO DPO-0309] End of vertical swaps; objective is 3.701620e+06, improvement is 0.24 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 3.655130e+06.
+[INFO DPO-0304] Pass   2 of reordering; objective is 3.647595e+06.
+[INFO DPO-0305] End of reordering; objective is 3.647595e+06, improvement is 1.46 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 8000 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 8000, swaps 1764, moves  1948 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 3.647595e+06, Scratch cost 3.589320e+06, Incremental cost 3.589320e+06, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 3.589320e+06.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 1.60 percent.
+[INFO DPO-0332] End of pass, Generator displacement called 8000 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 16000, swaps 3555, moves  3932 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 3.589320e+06, Scratch cost 3.572030e+06, Incremental cost 3.572030e+06, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 3.572030e+06.
+[INFO DPO-0327] Pass   2 of random improver; improvement in cost is 0.48 percent.
+[INFO DPO-0328] End of random improver; improvement is 2.071639 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 176 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 144 cell flips.
+[INFO DPO-0384] End of flipping; objective is 3.479140e+06, improvement is 2.60 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL             1920.4 u
+Final HPWL                1681.0 u
+Delta HPWL                 -12.5 %
+
+[INFO DPL-0020] Mirrored 11 instances
+[INFO DPL-0021] HPWL before            1681.0 u
+[INFO DPL-0022] HPWL after             1679.4 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns -0.87
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns -0.08
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack -0.08
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _673_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _673_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _673_/CK (DFF_X1)
+     2    2.59    0.01    0.08    0.08 v _673_/Q (DFF_X1)
+                                         ctrl.state.out[1] (net)
+                  0.01    0.00    0.08 v _505_/A2 (NAND2_X1)
+     1    1.81    0.01    0.02    0.10 ^ _505_/ZN (NAND2_X1)
+                                         _177_ (net)
+                  0.01    0.00    0.10 ^ _506_/A (OAI21_X1)
+     1    1.28    0.01    0.01    0.11 v _506_/ZN (OAI21_X1)
+                                         _001_ (net)
+                  0.01    0.00    0.11 v _673_/D (DFF_X1)
+                                  0.11   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _673_/CK (DFF_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.11   data arrival time
+-----------------------------------------------------------------------------
+                                  0.11   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _692_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: resp_msg[15] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _692_/CK (DFF_X2)
+     5    9.27    0.02    0.12    0.12 ^ _692_/Q (DFF_X2)
+                                         dpath.a_lt_b$in0[1] (net)
+                  0.02    0.00    0.12 ^ _350_/A2 (NOR2_X1)
+     1    1.70    0.01    0.01    0.13 v _350_/ZN (NOR2_X1)
+                                         _041_ (net)
+                  0.01    0.00    0.13 v _351_/B2 (OAI21_X1)
+     3    6.10    0.04    0.05    0.18 ^ _351_/ZN (OAI21_X1)
+                                         _042_ (net)
+                  0.04    0.00    0.18 ^ _363_/A1 (NAND2_X1)
+     1    1.74    0.01    0.02    0.20 v _363_/ZN (NAND2_X1)
+                                         _054_ (net)
+                  0.01    0.00    0.20 v _367_/A1 (NAND2_X1)
+     3    6.22    0.02    0.03    0.23 ^ _367_/ZN (NAND2_X1)
+                                         _058_ (net)
+                  0.02    0.00    0.23 ^ _376_/A1 (NAND2_X1)
+     1    3.21    0.01    0.02    0.25 v _376_/ZN (NAND2_X1)
+                                         _067_ (net)
+                  0.01    0.00    0.25 v _393_/A1 (NAND2_X2)
+     5   11.63    0.02    0.03    0.27 ^ _393_/ZN (NAND2_X2)
+                                         _084_ (net)
+                  0.02    0.00    0.27 ^ _404_/A1 (NAND2_X1)
+     1    1.64    0.01    0.02    0.29 v _404_/ZN (NAND2_X1)
+                                         _095_ (net)
+                  0.01    0.00    0.29 v _415_/A1 (NAND2_X1)
+     3    6.07    0.02    0.02    0.31 ^ _415_/ZN (NAND2_X1)
+                                         _106_ (net)
+                  0.02    0.00    0.31 ^ _421_/A1 (NAND2_X1)
+     1    1.72    0.01    0.02    0.33 v _421_/ZN (NAND2_X1)
+                                         _112_ (net)
+                  0.01    0.00    0.33 v _427_/A1 (NAND2_X1)
+     2    4.27    0.01    0.02    0.35 ^ _427_/ZN (NAND2_X1)
+                                         _118_ (net)
+                  0.01    0.00    0.35 ^ _431_/A1 (NAND2_X1)
+     2    3.32    0.01    0.02    0.37 v _431_/ZN (NAND2_X1)
+                                         _122_ (net)
+                  0.01    0.00    0.37 v _433_/A1 (NAND2_X1)
+     1    1.76    0.01    0.02    0.38 ^ _433_/ZN (NAND2_X1)
+                                         _124_ (net)
+                  0.01    0.00    0.38 ^ _437_/A1 (NAND2_X1)
+     2    2.85    0.01    0.02    0.40 v _437_/ZN (NAND2_X1)
+                                         _128_ (net)
+                  0.01    0.00    0.40 v _439_/A1 (AND2_X1)
+     1    1.27    0.01    0.03    0.43 v _439_/ZN (AND2_X1)
+                                         net43 (net)
+                  0.01    0.00    0.43 v output43/A (BUF_X1)
+     1    0.18    0.00    0.02    0.45 v output43/Z (BUF_X1)
+                                         resp_msg[15] (net)
+                  0.00    0.00    0.45 v resp_msg[15] (out)
+                                  0.45   data arrival time
+
+                  0.00    0.46    0.46   clock core_clock (rise edge)
+                          0.00    0.46   clock network delay (ideal)
+                          0.00    0.46   clock reconvergence pessimism
+                         -0.09    0.37   output external delay
+                                  0.37   data required time
+-----------------------------------------------------------------------------
+                                  0.37   data required time
+                                 -0.45   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.08   slack (VIOLATED)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _692_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: resp_msg[15] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _692_/CK (DFF_X2)
+     5    9.27    0.02    0.12    0.12 ^ _692_/Q (DFF_X2)
+                                         dpath.a_lt_b$in0[1] (net)
+                  0.02    0.00    0.12 ^ _350_/A2 (NOR2_X1)
+     1    1.70    0.01    0.01    0.13 v _350_/ZN (NOR2_X1)
+                                         _041_ (net)
+                  0.01    0.00    0.13 v _351_/B2 (OAI21_X1)
+     3    6.10    0.04    0.05    0.18 ^ _351_/ZN (OAI21_X1)
+                                         _042_ (net)
+                  0.04    0.00    0.18 ^ _363_/A1 (NAND2_X1)
+     1    1.74    0.01    0.02    0.20 v _363_/ZN (NAND2_X1)
+                                         _054_ (net)
+                  0.01    0.00    0.20 v _367_/A1 (NAND2_X1)
+     3    6.22    0.02    0.03    0.23 ^ _367_/ZN (NAND2_X1)
+                                         _058_ (net)
+                  0.02    0.00    0.23 ^ _376_/A1 (NAND2_X1)
+     1    3.21    0.01    0.02    0.25 v _376_/ZN (NAND2_X1)
+                                         _067_ (net)
+                  0.01    0.00    0.25 v _393_/A1 (NAND2_X2)
+     5   11.63    0.02    0.03    0.27 ^ _393_/ZN (NAND2_X2)
+                                         _084_ (net)
+                  0.02    0.00    0.27 ^ _404_/A1 (NAND2_X1)
+     1    1.64    0.01    0.02    0.29 v _404_/ZN (NAND2_X1)
+                                         _095_ (net)
+                  0.01    0.00    0.29 v _415_/A1 (NAND2_X1)
+     3    6.07    0.02    0.02    0.31 ^ _415_/ZN (NAND2_X1)
+                                         _106_ (net)
+                  0.02    0.00    0.31 ^ _421_/A1 (NAND2_X1)
+     1    1.72    0.01    0.02    0.33 v _421_/ZN (NAND2_X1)
+                                         _112_ (net)
+                  0.01    0.00    0.33 v _427_/A1 (NAND2_X1)
+     2    4.27    0.01    0.02    0.35 ^ _427_/ZN (NAND2_X1)
+                                         _118_ (net)
+                  0.01    0.00    0.35 ^ _431_/A1 (NAND2_X1)
+     2    3.32    0.01    0.02    0.37 v _431_/ZN (NAND2_X1)
+                                         _122_ (net)
+                  0.01    0.00    0.37 v _433_/A1 (NAND2_X1)
+     1    1.76    0.01    0.02    0.38 ^ _433_/ZN (NAND2_X1)
+                                         _124_ (net)
+                  0.01    0.00    0.38 ^ _437_/A1 (NAND2_X1)
+     2    2.85    0.01    0.02    0.40 v _437_/ZN (NAND2_X1)
+                                         _128_ (net)
+                  0.01    0.00    0.40 v _439_/A1 (AND2_X1)
+     1    1.27    0.01    0.03    0.43 v _439_/ZN (AND2_X1)
+                                         net43 (net)
+                  0.01    0.00    0.43 v output43/A (BUF_X1)
+     1    0.18    0.00    0.02    0.45 v output43/Z (BUF_X1)
+                                         resp_msg[15] (net)
+                  0.00    0.00    0.45 v resp_msg[15] (out)
+                                  0.45   data arrival time
+
+                  0.00    0.46    0.46   clock core_clock (rise edge)
+                          0.00    0.46   clock network delay (ideal)
+                          0.00    0.46   clock reconvergence pessimism
+                         -0.09    0.37   output external delay
+                                  0.37   data required time
+-----------------------------------------------------------------------------
+                                  0.37   data required time
+                                 -0.45   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.08   slack (VIOLATED)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+0.09241374582052231
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.4655
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+14.230117797851562
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+16.021699905395508
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8882
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 40
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+0.4488
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+-0.0808
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+-18.003565
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.00e-04   9.34e-05   3.16e-06   5.96e-04  36.9%
+Combinational          5.43e-04   4.69e-04   8.60e-06   1.02e-03  63.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.04e-03   5.62e-04   1.18e-05   1.62e-03 100.0%
+                          64.5%      34.8%       0.7%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 541 u^2 60% utilization.
+
+Elapsed time: 0:00.31[h:]min:sec. CPU time: user 0.30 sys 0.01 (99%). Peak memory: 97472KB.

@@ -1,0 +1,398 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: Metal2
+[INFO GRT-0021] Max routing layer: Metal5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer Metal1  Track-Pitch = 0.4800  line-2-Via Pitch: 0.3650
+[INFO GRT-0088] Layer Metal2  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal3  Track-Pitch = 0.4800  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal4  Track-Pitch = 0.4200  line-2-Via Pitch: 0.4100
+[INFO GRT-0088] Layer Metal5  Track-Pitch = 3.4800  line-2-Via Pitch: 0.4100
+[INFO GRT-0019] Found 6 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 35
+[INFO GRT-0003] Macros: 0
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VSS has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[WARNING GRT-0040] Net VDD has wires outside die area.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+Metal1     Vertical            0             0          0.00%
+Metal2     Horizontal       8382          7476          10.81%
+Metal3     Vertical         7392          6563          11.21%
+Metal4     Horizontal       8382          7518          10.31%
+Metal5     Vertical          968           462          52.27%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 1828
+[INFO GRT-0198] Via related Steiner nodes: 46
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 2033
+[INFO GRT-0112] Final usage 3D: 7641
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+Metal1               0             0            0.00%             0 /  0 /  0
+Metal2            7476           784           10.49%             0 /  0 /  0
+Metal3            6563           758           11.55%             0 /  0 /  0
+Metal4            7518             0            0.00%             0 /  0 /  0
+Metal5             462             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            22019          1542            7.00%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 18669 um
+[INFO GRT-0014] Routed nets: 449
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+
+==========================================================================
+global route check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 6.34
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock core_clock
+Latency      CRPR       Skew
+_659_/CLK ^
+   0.20
+_663_/CLK ^
+   0.23      0.00      -0.02
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _650_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: _650_ (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     4    0.02    0.06    0.08    0.08 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.06    0.00    0.08 ^ clkbuf_2_0__f_clk/A (sg13g2_buf_2)
+     7    0.03    0.08    0.12    0.20 ^ clkbuf_2_0__f_clk/X (sg13g2_buf_2)
+                                         clknet_2_0__leaf_clk (net)
+                  0.08    0.00    0.20 ^ _650_/CLK (sg13g2_dfrbp_1)
+     2    0.01    0.03    0.23    0.43 v _650_/Q (sg13g2_dfrbp_1)
+                                         ctrl.state.out[1] (net)
+                  0.03    0.00    0.43 v _483_/A1 (sg13g2_a21oi_1)
+     1    0.00    0.04    0.07    0.50 ^ _483_/Y (sg13g2_a21oi_1)
+                                         _166_ (net)
+                  0.04    0.00    0.50 ^ _484_/B (sg13g2_nor2_1)
+     1    0.00    0.02    0.03    0.53 v _484_/Y (sg13g2_nor2_1)
+                                         _001_ (net)
+                  0.02    0.00    0.53 v _650_/D (sg13g2_dfrbp_1)
+                                  0.53   data arrival time
+
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     4    0.02    0.06    0.08    0.08 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.06    0.00    0.08 ^ clkbuf_2_0__f_clk/A (sg13g2_buf_2)
+     7    0.03    0.08    0.12    0.20 ^ clkbuf_2_0__f_clk/X (sg13g2_buf_2)
+                                         clknet_2_0__leaf_clk (net)
+                  0.08    0.00    0.20 ^ _650_/CLK (sg13g2_dfrbp_1)
+                          0.00    0.20   clock reconvergence pessimism
+                         -0.01    0.20   library hold time
+                                  0.20   data required time
+-----------------------------------------------------------------------------
+                                  0.20   data required time
+                                 -0.53   data arrival time
+-----------------------------------------------------------------------------
+                                  0.34   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _656_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: resp_msg[13] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     4    0.02    0.06    0.08    0.08 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.06    0.00    0.08 ^ clkbuf_2_2__f_clk/A (sg13g2_buf_2)
+     9    0.04    0.09    0.13    0.21 ^ clkbuf_2_2__f_clk/X (sg13g2_buf_2)
+                                         clknet_2_2__leaf_clk (net)
+                  0.09    0.00    0.21 ^ _656_/CLK (sg13g2_dfrbp_1)
+     8    0.03    0.15    0.32    0.53 ^ _656_/Q (sg13g2_dfrbp_1)
+                                         dpath.a_lt_b$in1[4] (net)
+                  0.15    0.00    0.53 ^ _347_/A_N (sg13g2_nand2b_1)
+     2    0.01    0.06    0.12    0.65 ^ _347_/Y (sg13g2_nand2b_1)
+                                         _049_ (net)
+                  0.06    0.00    0.65 ^ _375_/A (sg13g2_and2_1)
+     1    0.00    0.03    0.09    0.74 ^ _375_/X (sg13g2_and2_1)
+                                         _077_ (net)
+                  0.03    0.00    0.74 ^ _376_/D (sg13g2_nand4_1)
+     4    0.02    0.21    0.21    0.95 v _376_/Y (sg13g2_nand4_1)
+                                         _078_ (net)
+                  0.21    0.00    0.95 v _430_/A2 (sg13g2_o21ai_1)
+     8    0.04    0.44    0.43    1.38 ^ _430_/Y (sg13g2_o21ai_1)
+                                         _124_ (net)
+                  0.44    0.00    1.38 ^ _456_/B2 (sg13g2_a221oi_1)
+     1    0.00    0.11    0.16    1.54 v _456_/Y (sg13g2_a221oi_1)
+                                         _145_ (net)
+                  0.11    0.00    1.54 v _457_/B (sg13g2_nor2_1)
+     2    0.01    0.11    0.12    1.67 ^ _457_/Y (sg13g2_nor2_1)
+                                         _146_ (net)
+                  0.11    0.00    1.67 ^ _460_/A (sg13g2_xor2_1)
+     2    0.02    0.17    0.21    1.88 ^ _460_/X (sg13g2_xor2_1)
+                                         net41 (net)
+                  0.17    0.00    1.88 ^ output41/A (sg13g2_buf_1)
+     1    0.00    0.02    0.10    1.98 ^ output41/X (sg13g2_buf_1)
+                                         resp_msg[13] (net)
+                  0.02    0.00    1.98 ^ resp_msg[13] (out)
+                                  1.98   data arrival time
+
+                         10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (propagated)
+                          0.00   10.40   clock reconvergence pessimism
+                         -2.08    8.32   output external delay
+                                  8.32   data required time
+-----------------------------------------------------------------------------
+                                  8.32   data required time
+                                 -1.98   data arrival time
+-----------------------------------------------------------------------------
+                                  6.34   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _656_ (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: resp_msg[13] (output port clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.01    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sg13g2_buf_2)
+     4    0.02    0.06    0.08    0.08 ^ clkbuf_0_clk/X (sg13g2_buf_2)
+                                         clknet_0_clk (net)
+                  0.06    0.00    0.08 ^ clkbuf_2_2__f_clk/A (sg13g2_buf_2)
+     9    0.04    0.09    0.13    0.21 ^ clkbuf_2_2__f_clk/X (sg13g2_buf_2)
+                                         clknet_2_2__leaf_clk (net)
+                  0.09    0.00    0.21 ^ _656_/CLK (sg13g2_dfrbp_1)
+     8    0.03    0.15    0.32    0.53 ^ _656_/Q (sg13g2_dfrbp_1)
+                                         dpath.a_lt_b$in1[4] (net)
+                  0.15    0.00    0.53 ^ _347_/A_N (sg13g2_nand2b_1)
+     2    0.01    0.06    0.12    0.65 ^ _347_/Y (sg13g2_nand2b_1)
+                                         _049_ (net)
+                  0.06    0.00    0.65 ^ _375_/A (sg13g2_and2_1)
+     1    0.00    0.03    0.09    0.74 ^ _375_/X (sg13g2_and2_1)
+                                         _077_ (net)
+                  0.03    0.00    0.74 ^ _376_/D (sg13g2_nand4_1)
+     4    0.02    0.21    0.21    0.95 v _376_/Y (sg13g2_nand4_1)
+                                         _078_ (net)
+                  0.21    0.00    0.95 v _430_/A2 (sg13g2_o21ai_1)
+     8    0.04    0.44    0.43    1.38 ^ _430_/Y (sg13g2_o21ai_1)
+                                         _124_ (net)
+                  0.44    0.00    1.38 ^ _456_/B2 (sg13g2_a221oi_1)
+     1    0.00    0.11    0.16    1.54 v _456_/Y (sg13g2_a221oi_1)
+                                         _145_ (net)
+                  0.11    0.00    1.54 v _457_/B (sg13g2_nor2_1)
+     2    0.01    0.11    0.12    1.67 ^ _457_/Y (sg13g2_nor2_1)
+                                         _146_ (net)
+                  0.11    0.00    1.67 ^ _460_/A (sg13g2_xor2_1)
+     2    0.02    0.17    0.21    1.88 ^ _460_/X (sg13g2_xor2_1)
+                                         net41 (net)
+                  0.17    0.00    1.88 ^ output41/A (sg13g2_buf_1)
+     1    0.00    0.02    0.10    1.98 ^ output41/X (sg13g2_buf_1)
+                                         resp_msg[13] (net)
+                  0.02    0.00    1.98 ^ resp_msg[13] (out)
+                                  1.98   data arrival time
+
+                         10.40   10.40   clock core_clock (rise edge)
+                          0.00   10.40   clock network delay (propagated)
+                          0.00   10.40   clock reconvergence pessimism
+                         -2.08    8.32   output external delay
+                                  8.32   data required time
+-----------------------------------------------------------------------------
+                                  8.32   data required time
+                                 -1.98   data arrival time
+-----------------------------------------------------------------------------
+                                  6.34   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_2_3__f_clk/X                       8     10     -2 (VIOLATED)
+clkbuf_2_1__f_clk/X                       8      9        (VIOLATED)
+clkbuf_2_2__f_clk/X                       8      9        (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+2.0651657581329346
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.8236
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+-2.0
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+global route max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+-0.2500
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.2572319507598877
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.30000001192092896
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8574
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 3
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+1.9814
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+6.3386
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+319.905118
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.91e-04   1.45e-05   1.88e-08   2.05e-04  53.4%
+Combinational          8.43e-05   9.47e-05   5.10e-08   1.79e-04  46.6%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.75e-04   1.09e-04   6.99e-08   3.84e-04 100.0%
+                          71.6%      28.4%       0.0%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 5465 u^2 22% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO FLW-0007] clock core_clock period 10.400001
+[INFO FLW-0008] Clock core_clock period 3.858
+[INFO FLW-0009] Clock core_clock slack 6.339
+[INFO FLW-0011] Path endpoint count 87
+Elapsed time: 0:00.20[h:]min:sec. CPU time: user 0.18 sys 0.02 (100%). Peak memory: 142560KB.

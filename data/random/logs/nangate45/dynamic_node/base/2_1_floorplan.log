@@ -1,0 +1,208 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0223]     Created 22 technology layers
+[INFO ODB-0224]     Created 27 technology vias
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef
+[INFO ODB-0222] Reading LEF file: /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+[INFO ODB-0225]     Created 135 library cells
+[INFO ODB-0226] Finished LEF file:  /home/jborg/Data/Research/DLPnR/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+number instances in verilog is 10750
+[WARNING IFP-0028] Core area lower left (5.000, 5.000) snapped to (5.130, 5.600).
+[INFO IFP-0001] Added 168 rows of 1242 site FreePDK45_38x28_10R_NP_162NW_34O with height 1.
+[INFO RSZ-0026] Removed 903 buffers.
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+
+==========================================================================
+floorplan final check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns -301.05
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns -1.18
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack -1.18
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _19103_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _19103_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _19103_/CK (DFF_X1)
+     1    1.60    0.01    0.06    0.06 ^ _19103_/QN (DFF_X1)
+                                         dynamic_node_top.proc_input.NIB.head_ptr_next[0] (net)
+                  0.01    0.00    0.06 ^ _18393_/A1 (NAND2_X1)
+     1    1.45    0.01    0.01    0.07 v _18393_/ZN (NAND2_X1)
+                                         _03545_ (net)
+                  0.01    0.00    0.07 v _18395_/B1 (AOI21_X1)
+     1    1.14    0.02    0.02    0.10 ^ _18395_/ZN (AOI21_X1)
+                                         _00097_ (net)
+                  0.02    0.00    0.10 ^ _19103_/D (DFF_X1)
+                                  0.10   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _19103_/CK (DFF_X1)
+                          0.01    0.01   library hold time
+                                  0.01   data required time
+-----------------------------------------------------------------------------
+                                  0.01   data required time
+                                 -0.10   data arrival time
+-----------------------------------------------------------------------------
+                                  0.09   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _20600_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dataOut_W[24] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _20600_/CK (DFF_X1)
+   458  877.14    2.00    2.18    2.18 ^ _20600_/Q (DFF_X1)
+                                         _00005_ (net)
+                  2.00    0.00    2.18 ^ _11484_/A (INV_X1)
+    11   18.71    0.40    0.18    2.36 v _11484_/ZN (INV_X1)
+                                         _04763_ (net)
+                  0.40    0.00    2.36 v _11504_/A1 (NAND2_X1)
+     5    9.84    0.10    0.15    2.50 ^ _11504_/ZN (NAND2_X1)
+                                         _04783_ (net)
+                  0.10    0.00    2.50 ^ _11510_/B1 (OAI222_X1)
+     1    1.56    0.04    0.05    2.55 v _11510_/ZN (OAI222_X1)
+                                         _04789_ (net)
+                  0.04    0.00    2.55 v _11511_/B2 (OAI21_X1)
+     8   15.09    0.08    0.11    2.67 ^ _11511_/ZN (OAI21_X1)
+                                         _04790_ (net)
+                  0.08    0.00    2.67 ^ _14502_/A2 (NAND2_X1)
+     1    0.88    0.02    0.02    2.68 v _14502_/ZN (NAND2_X1)
+                                         _07588_ (net)
+                  0.02    0.00    2.68 v _14503_/A3 (AND3_X1)
+     1    1.56    0.01    0.04    2.72 v _14503_/ZN (AND3_X1)
+                                         _07589_ (net)
+                  0.01    0.00    2.72 v _14504_/A2 (NOR2_X1)
+     1    0.00    0.02    0.02    2.74 ^ _14504_/ZN (NOR2_X1)
+                                         dataOut_W[24] (net)
+                  0.02    0.00    2.74 ^ dataOut_W[24] (out)
+                                  2.74   data arrival time
+
+                  0.00    6.66    6.66   clock clk (rise edge)
+                          0.00    6.66   clock network delay (ideal)
+                          0.00    6.66   clock reconvergence pessimism
+                         -5.10    1.56   output external delay
+                                  1.56   data required time
+-----------------------------------------------------------------------------
+                                  1.56   data required time
+                                 -2.74   data arrival time
+-----------------------------------------------------------------------------
+                                 -1.18   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _20600_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: dataOut_W[24] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _20600_/CK (DFF_X1)
+   458  877.14    2.00    2.18    2.18 ^ _20600_/Q (DFF_X1)
+                                         _00005_ (net)
+                  2.00    0.00    2.18 ^ _11484_/A (INV_X1)
+    11   18.71    0.40    0.18    2.36 v _11484_/ZN (INV_X1)
+                                         _04763_ (net)
+                  0.40    0.00    2.36 v _11504_/A1 (NAND2_X1)
+     5    9.84    0.10    0.15    2.50 ^ _11504_/ZN (NAND2_X1)
+                                         _04783_ (net)
+                  0.10    0.00    2.50 ^ _11510_/B1 (OAI222_X1)
+     1    1.56    0.04    0.05    2.55 v _11510_/ZN (OAI222_X1)
+                                         _04789_ (net)
+                  0.04    0.00    2.55 v _11511_/B2 (OAI21_X1)
+     8   15.09    0.08    0.11    2.67 ^ _11511_/ZN (OAI21_X1)
+                                         _04790_ (net)
+                  0.08    0.00    2.67 ^ _14502_/A2 (NAND2_X1)
+     1    0.88    0.02    0.02    2.68 v _14502_/ZN (NAND2_X1)
+                                         _07588_ (net)
+                  0.02    0.00    2.68 v _14503_/A3 (AND3_X1)
+     1    1.56    0.01    0.04    2.72 v _14503_/ZN (AND3_X1)
+                                         _07589_ (net)
+                  0.01    0.00    2.72 v _14504_/A2 (NOR2_X1)
+     1    0.00    0.02    0.02    2.74 ^ _14504_/ZN (NOR2_X1)
+                                         dataOut_W[24] (net)
+                  0.02    0.00    2.74 ^ dataOut_W[24] (out)
+                                  2.74   data arrival time
+
+                  0.00    6.66    6.66   clock clk (rise edge)
+                          0.00    6.66   clock network delay (ideal)
+                          0.00    6.66   clock reconvergence pessimism
+                         -5.10    1.56   output external delay
+                                  1.56   data required time
+-----------------------------------------------------------------------------
+                                  1.56   data required time
+                                 -2.74   data arrival time
+-----------------------------------------------------------------------------
+                                 -1.18   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.54e-03   5.14e-04   1.79e-04   4.23e-03  43.2%
+Combinational          3.58e-03   1.73e-03   2.39e-04   5.55e-03  56.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.12e-03   2.24e-03   4.18e-04   9.78e-03 100.0%
+                          72.8%      22.9%       4.3%
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 21516 u^2 39% utilization.
+
+Elapsed time: 0:01.13[h:]min:sec. CPU time: user 1.11 sys 0.02 (99%). Peak memory: 137912KB.

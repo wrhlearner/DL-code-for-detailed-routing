@@ -1,0 +1,1259 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre check_setup
+--------------------------------------------------------------------------
+Warning: There are 94 unclocked register/latch pins.
+Warning: There are 490 unconstrained endpoints.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns -1516899968.00
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns -148183.06
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack -148183.06
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_
+          (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        500.00  500.00 ^ input external delay
+     9   13.39    0.00    0.00  500.00 ^ rst_l (in)
+                                         rst_l (net)
+                 13.83    4.36  504.36 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                504.36   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         15.86   15.86   library removal time
+                                 15.86   data required time
+-----------------------------------------------------------------------------
+                                 15.86   data required time
+                               -504.36   data arrival time
+-----------------------------------------------------------------------------
+                                488.50   slack (MET)
+
+
+Startpoint: swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    0.76   13.41   35.64   35.64 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_01_ (net)
+                 13.41    0.01   35.65 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_11_/A (INVx1_ASAP7_75t_R)
+     1    0.72    7.10    6.41   42.06 v swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_11_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/rden[0] (net)
+                  7.10    0.01   42.07 v swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                 42.07   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          9.17    9.17   library hold time
+                                  9.17   data required time
+-----------------------------------------------------------------------------
+                                  9.17   data required time
+                                -42.07   data arrival time
+-----------------------------------------------------------------------------
+                                 32.90   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        500.00  500.00 ^ input external delay
+     9   13.39    0.00    0.00  500.00 ^ rst_l (in)
+                                         rst_l (net)
+                 14.99    4.73  504.73 ^ swerv/_117_/B (OA21x2_ASAP7_75t_R)
+ 13904 19466.85 20574.16 5550.61 6055.34 ^ swerv/_117_/Y (OA21x2_ASAP7_75t_R)
+                                         core_rst_l (net)
+               347455.00 110344.06 116399.40 ^ swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               116399.40   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                       -34283.66 -31783.67   library recovery time
+                               -31783.67   data required time
+-----------------------------------------------------------------------------
+                               -31783.67   data required time
+                               -116399.40   data arrival time
+-----------------------------------------------------------------------------
+                               -148183.06   slack (VIOLATED)
+
+
+Startpoint: swerv/dec/tlu/freeff/_19_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/dec/tlu/freeff/_19_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    1.97   21.72   41.08   41.08 ^ swerv/dec/tlu/freeff/_19_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/dec/tlu/freeff/_03_ (net)
+                 21.72    0.00   41.08 ^ swerv/dec/tlu/freeff/_12_/A (INVx3_ASAP7_75t_R)
+    66  128.85  192.29   63.79  104.87 v swerv/dec/tlu/freeff/_12_/Y (INVx3_ASAP7_75t_R)
+                                         swerv/dec_tlu_flush_lower_wb (net)
+                782.13  247.04  351.91 v swerv/lsu/bus_intf/_1948_/A (INVx1_ASAP7_75t_R)
+     1    0.70   77.85   54.95  406.86 ^ swerv/lsu/bus_intf/_1948_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/_1536_ (net)
+                 77.85    0.01  406.88 ^ swerv/lsu/bus_intf/_1949_/B (AND3x1_ASAP7_75t_R)
+    38  128.19  988.17  290.22  697.09 ^ swerv/lsu/bus_intf/_1949_/Y (AND3x1_ASAP7_75t_R)
+                                         lsu_freeze_dc3 (net)
+               1286.77  289.33  986.42 ^ swerv/exu/_3182_/A (NOR2x1_ASAP7_75t_R)
+     2    1.58  162.98  124.24 1110.66 v swerv/exu/_3182_/Y (NOR2x1_ASAP7_75t_R)
+                                         swerv/exu_flush_upper_e2 (net)
+                162.98    0.00 1110.66 v swerv/exu/_3183_/B (OR2x2_ASAP7_75t_R)
+    97  124.76  400.55   77.34 1187.99 v swerv/exu/_3183_/Y (OR2x2_ASAP7_75t_R)
+                                         swerv/exu_flush_final (net)
+               1045.30  327.92 1515.91 v swerv/ifu/ifc/_381_/A (INVx2_ASAP7_75t_R)
+    46   43.96  451.58  326.53 1842.44 ^ swerv/ifu/ifc/_381_/Y (INVx2_ASAP7_75t_R)
+                                         swerv/ifu/ifc/_032_ (net)
+                453.63   17.69 1860.13 ^ swerv/ifu/ifc/_531_/A1 (AO21x1_ASAP7_75t_R)
+     9   19.63  132.41   74.06 1934.19 ^ swerv/ifu/ifc/_531_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/ifu/ifc_fetch_addr_f1[8] (net)
+                140.61   17.62 1951.81 ^ swerv/ifu/bp/f1hash/_4_/B (XNOR2x1_ASAP7_75t_R)
+     1    1.67   30.14   23.26 1975.07 v swerv/ifu/bp/f1hash/_4_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/f1hash/_0_ (net)
+                 30.14    0.01 1975.08 v swerv/ifu/bp/f1hash/_5_/B (XNOR2x1_ASAP7_75t_R)
+   628  615.92 4474.55 1715.46 3690.54 ^ swerv/ifu/bp/f1hash/_5_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/btb_rd_addr_f1[4] (net)
+               4475.61   42.44 3732.98 ^ swerv/ifu/bp/_4517_/A (INVx1_ASAP7_75t_R)
+   208  225.43 1666.38 5166.54 8899.52 v swerv/ifu/bp/_4517_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/ifu/bp/_0446_ (net)
+               1666.38  183.14 9082.66 v swerv/ifu/bp/_4605_/A1 (AO21x1_ASAP7_75t_R)
+     1    0.84   31.60  166.89 9249.56 v swerv/ifu/bp/_4605_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/_0524_ (net)
+                 31.60    0.03 9249.58 v swerv/ifu/bp/_4611_/A2 (OA21x2_ASAP7_75t_R)
+     1    2.67   45.33   25.96 9275.55 v swerv/ifu/bp/_4611_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/ifu/bp/btb_bank0_rd_data_way0_f2_in[10] (net)
+                 45.37    0.63 9276.18 v swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               9276.18   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -8.49 2491.51   library setup time
+                               2491.51   data required time
+-----------------------------------------------------------------------------
+                               2491.51   data required time
+                               -9276.18   data arrival time
+-----------------------------------------------------------------------------
+                               -6784.67   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        500.00  500.00 ^ input external delay
+     9   13.39    0.00    0.00  500.00 ^ rst_l (in)
+                                         rst_l (net)
+                 14.99    4.73  504.73 ^ swerv/_117_/B (OA21x2_ASAP7_75t_R)
+ 13904 19466.85 20574.16 5550.61 6055.34 ^ swerv/_117_/Y (OA21x2_ASAP7_75t_R)
+                                         core_rst_l (net)
+               347455.00 110344.06 116399.40 ^ swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               116399.40   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/ifu/mem_ctl/CLK_GRP_TAG_VALID_0__TAG_VALID_28__ic_way0_tagvalid_dup/dffs/_3_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                       -34283.66 -31783.67   library recovery time
+                               -31783.67   data required time
+-----------------------------------------------------------------------------
+                               -31783.67   data required time
+                               -116399.40   data arrival time
+-----------------------------------------------------------------------------
+                               -148183.06   slack (VIOLATED)
+
+
+Startpoint: swerv/dec/tlu/freeff/_19_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/dec/tlu/freeff/_19_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    1.97   21.72   41.08   41.08 ^ swerv/dec/tlu/freeff/_19_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/dec/tlu/freeff/_03_ (net)
+                 21.72    0.00   41.08 ^ swerv/dec/tlu/freeff/_12_/A (INVx3_ASAP7_75t_R)
+    66  128.85  192.29   63.79  104.87 v swerv/dec/tlu/freeff/_12_/Y (INVx3_ASAP7_75t_R)
+                                         swerv/dec_tlu_flush_lower_wb (net)
+                782.13  247.04  351.91 v swerv/lsu/bus_intf/_1948_/A (INVx1_ASAP7_75t_R)
+     1    0.70   77.85   54.95  406.86 ^ swerv/lsu/bus_intf/_1948_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/_1536_ (net)
+                 77.85    0.01  406.88 ^ swerv/lsu/bus_intf/_1949_/B (AND3x1_ASAP7_75t_R)
+    38  128.19  988.17  290.22  697.09 ^ swerv/lsu/bus_intf/_1949_/Y (AND3x1_ASAP7_75t_R)
+                                         lsu_freeze_dc3 (net)
+               1286.77  289.33  986.42 ^ swerv/exu/_3182_/A (NOR2x1_ASAP7_75t_R)
+     2    1.58  162.98  124.24 1110.66 v swerv/exu/_3182_/Y (NOR2x1_ASAP7_75t_R)
+                                         swerv/exu_flush_upper_e2 (net)
+                162.98    0.00 1110.66 v swerv/exu/_3183_/B (OR2x2_ASAP7_75t_R)
+    97  124.76  400.55   77.34 1187.99 v swerv/exu/_3183_/Y (OR2x2_ASAP7_75t_R)
+                                         swerv/exu_flush_final (net)
+               1045.30  327.92 1515.91 v swerv/ifu/ifc/_381_/A (INVx2_ASAP7_75t_R)
+    46   43.96  451.58  326.53 1842.44 ^ swerv/ifu/ifc/_381_/Y (INVx2_ASAP7_75t_R)
+                                         swerv/ifu/ifc/_032_ (net)
+                453.63   17.69 1860.13 ^ swerv/ifu/ifc/_531_/A1 (AO21x1_ASAP7_75t_R)
+     9   19.63  132.41   74.06 1934.19 ^ swerv/ifu/ifc/_531_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/ifu/ifc_fetch_addr_f1[8] (net)
+                140.61   17.62 1951.81 ^ swerv/ifu/bp/f1hash/_4_/B (XNOR2x1_ASAP7_75t_R)
+     1    1.67   30.14   23.26 1975.07 v swerv/ifu/bp/f1hash/_4_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/f1hash/_0_ (net)
+                 30.14    0.01 1975.08 v swerv/ifu/bp/f1hash/_5_/B (XNOR2x1_ASAP7_75t_R)
+   628  615.92 4474.55 1715.46 3690.54 ^ swerv/ifu/bp/f1hash/_5_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/btb_rd_addr_f1[4] (net)
+               4475.61   42.44 3732.98 ^ swerv/ifu/bp/_4517_/A (INVx1_ASAP7_75t_R)
+   208  225.43 1666.38 5166.54 8899.52 v swerv/ifu/bp/_4517_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/ifu/bp/_0446_ (net)
+               1666.38  183.14 9082.66 v swerv/ifu/bp/_4605_/A1 (AO21x1_ASAP7_75t_R)
+     1    0.84   31.60  166.89 9249.56 v swerv/ifu/bp/_4605_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/ifu/bp/_0524_ (net)
+                 31.60    0.03 9249.58 v swerv/ifu/bp/_4611_/A2 (OA21x2_ASAP7_75t_R)
+     1    2.67   45.33   25.96 9275.55 v swerv/ifu/bp/_4611_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/ifu/bp/btb_bank0_rd_data_way0_f2_in[10] (net)
+                 45.37    0.63 9276.18 v swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               9276.18   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/ifu/bp/btb_bank0_way0_data_out/genblock_dff/_63_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -8.49 2491.51   library setup time
+                               2491.51   data required time
+-----------------------------------------------------------------------------
+                               2491.51   data required time
+                               -9276.18   data arrival time
+-----------------------------------------------------------------------------
+                               -6784.67   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.67e-01   1.50e-03   1.71e-06   2.68e-01  78.9%
+Combinational          8.97e-03   1.75e-02   1.22e-05   2.65e-02   7.8%
+Macro                  4.13e-02   1.29e-04   3.61e-03   4.50e-02  13.3%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.17e-01   1.92e-02   3.62e-03   3.40e-01 100.0%
+                          93.3%       5.6%       1.1%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 49381 u^2 16% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+147203
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+424589
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 492 input buffers.
+[INFO RSZ-0028] Inserted 612 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 822 slew violations.
+[INFO RSZ-0036] Found 172 capacitance violations.
+[INFO RSZ-0037] Found 1266 long wires.
+[INFO RSZ-0038] Inserted 2911 buffers in 1715 nets.
+[INFO RSZ-0039] Resized 18964 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 734 tie TIELOx1_ASAP7_75t_R instances.
+Repair tie hi fanout...
+[INFO RSZ-0042] Inserted 14486 tie TIEHIx1_ASAP7_75t_R instances.
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer check_setup
+--------------------------------------------------------------------------
+Warning: There are 94 unclocked register/latch pins.
+Warning: There are 490 unconstrained endpoints.
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 222.31
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: swerv/dbg/dmcontrol_dmactive_ff/dffs/_3_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dbg/dmi_rddata_reg/dffs/_66_
+          (removal check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/dbg/dmcontrol_dmactive_ff/dffs/_3_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    2.02   22.61   41.45   41.45 v swerv/dbg/dmcontrol_dmactive_ff/dffs/_3_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/dbg/dmcontrol_dmactive_ff/dffs/_0_ (net)
+                 22.61    0.02   41.47 v swerv/dbg/dmcontrol_dmactive_ff/dffs/_2_/A (INVx3_ASAP7_75t_R)
+     3    3.77   13.70   10.92   52.40 ^ swerv/dbg/dmcontrol_dmactive_ff/dffs/_2_/Y (INVx3_ASAP7_75t_R)
+                                         swerv/dbg/dmcontrol_reg_0 (net)
+                 13.70    0.03   52.43 ^ swerv/dbg/_0962_/A2 (OA21x2_ASAP7_75t_R)
+    21   33.93  113.11   58.11  110.54 ^ swerv/dbg/_0962_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/dbg/dbg_dm_rst_l (net)
+                113.18    1.80  112.34 ^ swerv/dbg/dmi_rddata_reg/dffs/_66_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                112.34   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ swerv/dbg/dmi_rddata_reg/dffs/_66_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         11.10   11.10   library removal time
+                                 11.10   data required time
+-----------------------------------------------------------------------------
+                                 11.10   data required time
+                               -112.34   data arrival time
+-----------------------------------------------------------------------------
+                                101.24   slack (MET)
+
+
+Startpoint: swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1    0.76   13.41   35.64   35.64 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_13_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_01_ (net)
+                 13.41    0.01   35.65 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_11_/A (INVx1_ASAP7_75t_R)
+     1    0.72    7.10    6.41   42.06 v swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_11_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/rden[0] (net)
+                  7.10    0.01   42.07 v swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                 42.07   data arrival time
+
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ swerv/dmi_wrapper/i_dmi_jtag_to_core_sync/_14_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          9.17    9.17   library hold time
+                                  9.17   data required time
+-----------------------------------------------------------------------------
+                                  9.17   data required time
+                                -42.07   data arrival time
+-----------------------------------------------------------------------------
+                                 32.90   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: swerv/dec/decode/i1wb1instff/genblock_dff/_65_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        500.00  500.00 ^ input external delay
+     1    2.02    0.00    0.00  500.00 ^ rst_l (in)
+                                         rst_l (net)
+                  0.47    0.15  500.15 ^ input386/A (BUFx6f_ASAP7_75t_R)
+     9   12.76   18.08   12.55  512.70 ^ input386/Y (BUFx6f_ASAP7_75t_R)
+                                         net386 (net)
+                 22.71    4.69  517.39 ^ swerv/_117_/B (OA21x2_ASAP7_75t_R)
+    23   38.57  126.71   67.37  584.76 ^ swerv/_117_/Y (OA21x2_ASAP7_75t_R)
+                                         core_rst_l (net)
+                126.90    2.90  587.66 ^ load_slew3174/A (BUFx16f_ASAP7_75t_R)
+    26   37.02   27.47   36.34  624.00 ^ load_slew3174/Y (BUFx16f_ASAP7_75t_R)
+                                         net3174 (net)
+                 30.93    5.06  629.06 ^ wire3173/A (BUFx16f_ASAP7_75t_R)
+    32   48.44   23.85   20.80  649.86 ^ wire3173/Y (BUFx16f_ASAP7_75t_R)
+                                         net3173 (net)
+                 83.65   25.43  675.29 ^ load_slew3172/A (BUFx16f_ASAP7_75t_R)
+    26   38.76   27.03   31.20  706.49 ^ load_slew3172/Y (BUFx16f_ASAP7_75t_R)
+                                         net3172 (net)
+                 45.00   11.90  718.39 ^ wire3165/A (BUFx16f_ASAP7_75t_R)
+    36   53.27   30.51   25.81  744.20 ^ wire3165/Y (BUFx16f_ASAP7_75t_R)
+                                         net3165 (net)
+                 66.63   19.14  763.34 ^ load_slew3163/A (BUFx16f_ASAP7_75t_R)
+    31   44.20   28.70   28.78  792.12 ^ load_slew3163/Y (BUFx16f_ASAP7_75t_R)
+                                         net3163 (net)
+                 59.68   17.25  809.37 ^ wire3162/A (BUFx16f_ASAP7_75t_R)
+    36   52.27   32.73   31.75  841.12 ^ wire3162/Y (BUFx16f_ASAP7_75t_R)
+                                         net3162 (net)
+                 35.38    4.90  846.03 ^ load_slew3161/A (BUFx16f_ASAP7_75t_R)
+    33   49.48   26.94   24.04  870.07 ^ load_slew3161/Y (BUFx16f_ASAP7_75t_R)
+                                         net3161 (net)
+                 74.87   22.66  892.72 ^ load_slew3159/A (BUFx16f_ASAP7_75t_R)
+    34   49.36   30.16   30.42  923.14 ^ load_slew3159/Y (BUFx16f_ASAP7_75t_R)
+                                         net3159 (net)
+                 61.35   17.49  940.64 ^ wire3158/A (BUFx16f_ASAP7_75t_R)
+    35   51.04   30.96   30.58  971.21 ^ wire3158/Y (BUFx16f_ASAP7_75t_R)
+                                         net3158 (net)
+                 53.53   14.37  985.58 ^ wire3157/A (BUFx16f_ASAP7_75t_R)
+    34   49.47   30.35   29.08 1014.66 ^ wire3157/Y (BUFx16f_ASAP7_75t_R)
+                                         net3157 (net)
+                 50.28   13.23 1027.89 ^ load_slew3156/A (BUFx16f_ASAP7_75t_R)
+    32   48.47   30.41   28.99 1056.88 ^ load_slew3156/Y (BUFx16f_ASAP7_75t_R)
+                                         net3156 (net)
+                 41.55    9.47 1066.35 ^ load_slew3154/A (BUFx16f_ASAP7_75t_R)
+    27   40.06   26.81   27.38 1093.73 ^ load_slew3154/Y (BUFx16f_ASAP7_75t_R)
+                                         net3154 (net)
+                 29.69    4.60 1098.33 ^ load_slew3153/A (BUFx16f_ASAP7_75t_R)
+    24   37.60   24.17   22.85 1121.17 ^ load_slew3153/Y (BUFx16f_ASAP7_75t_R)
+                                         net3153 (net)
+                 25.27    2.79 1123.96 ^ load_slew3096/A (BUFx16f_ASAP7_75t_R)
+    28   40.37   26.27   22.76 1146.72 ^ load_slew3096/Y (BUFx16f_ASAP7_75t_R)
+                                         net3096 (net)
+                 38.92    9.60 1156.31 ^ load_slew3095/A (BUFx16f_ASAP7_75t_R)
+    32   46.86   29.25   26.35 1182.67 ^ load_slew3095/Y (BUFx16f_ASAP7_75t_R)
+                                         net3095 (net)
+                 43.68   10.77 1193.43 ^ load_slew3094/A (BUFx16f_ASAP7_75t_R)
+    31   49.18   30.32   28.57 1222.00 ^ load_slew3094/Y (BUFx16f_ASAP7_75t_R)
+                                         net3094 (net)
+                 44.77   11.01 1233.01 ^ load_slew3091/A (BUFx16f_ASAP7_75t_R)
+    32   48.81   30.80   29.25 1262.27 ^ load_slew3091/Y (BUFx16f_ASAP7_75t_R)
+                                         net3091 (net)
+                 33.21    4.57 1266.84 ^ wire3090/A (BUFx16f_ASAP7_75t_R)
+    31   48.49   29.40   23.11 1289.95 ^ wire3090/Y (BUFx16f_ASAP7_75t_R)
+                                         net3090 (net)
+                 57.57   16.37 1306.32 ^ load_slew3085/A (BUFx16f_ASAP7_75t_R)
+    32   45.86   29.16   28.00 1334.32 ^ load_slew3085/Y (BUFx16f_ASAP7_75t_R)
+                                         net3085 (net)
+                 34.93    6.34 1340.65 ^ wire3084/A (BUFx16f_ASAP7_75t_R)
+    37   52.05   31.79   25.36 1366.01 ^ wire3084/Y (BUFx16f_ASAP7_75t_R)
+                                         net3084 (net)
+                 50.74   13.14 1379.15 ^ load_slew3083/A (BUFx16f_ASAP7_75t_R)
+    36   52.06   32.09   29.09 1408.24 ^ load_slew3083/Y (BUFx16f_ASAP7_75t_R)
+                                         net3083 (net)
+                 42.83    9.37 1417.62 ^ load_slew3082/A (BUFx16f_ASAP7_75t_R)
+    30   44.20   28.79   26.19 1443.81 ^ load_slew3082/Y (BUFx16f_ASAP7_75t_R)
+                                         net3082 (net)
+                 29.69    2.83 1446.64 ^ load_slew3001/A (BUFx16f_ASAP7_75t_R)
+    29   42.77   27.30   23.20 1469.84 ^ load_slew3001/Y (BUFx16f_ASAP7_75t_R)
+                                         net3001 (net)
+                 47.89   12.98 1482.83 ^ load_slew3000/A (BUFx16f_ASAP7_75t_R)
+    35   51.06   30.03   26.00 1508.83 ^ load_slew3000/Y (BUFx16f_ASAP7_75t_R)
+                                         net3000 (net)
+                 61.72   17.42 1526.25 ^ load_slew2998/A (BUFx16f_ASAP7_75t_R)
+    36   51.10   32.26   30.12 1556.37 ^ load_slew2998/Y (BUFx16f_ASAP7_75t_R)
+                                         net2998 (net)
+                 46.81   11.33 1567.71 ^ wire2997/A (BUFx16f_ASAP7_75t_R)
+    38   53.88   32.91   28.17 1595.88 ^ wire2997/Y (BUFx16f_ASAP7_75t_R)
+                                         net2997 (net)
+                 46.83   10.94 1606.82 ^ load_slew2995/A (BUFx16f_ASAP7_75t_R)
+    36   52.76   32.45   26.96 1633.78 ^ load_slew2995/Y (BUFx16f_ASAP7_75t_R)
+                                         net2995 (net)
+                 53.36   14.00 1647.78 ^ load_slew2992/A (BUFx16f_ASAP7_75t_R)
+    25   35.97   24.37   28.77 1676.55 ^ load_slew2992/Y (BUFx16f_ASAP7_75t_R)
+                                         net2992 (net)
+                 27.59    4.56 1681.11 ^ load_slew2991/A (BUFx16f_ASAP7_75t_R)
+    34   47.73   29.41   25.30 1706.41 ^ load_slew2991/Y (BUFx16f_ASAP7_75t_R)
+                                         net2991 (net)
+                 38.79    8.53 1714.94 ^ load_slew2990/A (BUFx16f_ASAP7_75t_R)
+    36   50.29   30.79   26.22 1741.16 ^ load_slew2990/Y (BUFx16f_ASAP7_75t_R)
+                                         net2990 (net)
+                 49.39   12.76 1753.93 ^ load_slew2989/A (BUFx16f_ASAP7_75t_R)
+    27   41.21   27.39   28.43 1782.35 ^ load_slew2989/Y (BUFx16f_ASAP7_75t_R)
+                                         net2989 (net)
+                 27.54    1.33 1783.68 ^ load_slew2988/A (BUFx16f_ASAP7_75t_R)
+    25   39.73   24.87   21.63 1805.31 ^ load_slew2988/Y (BUFx16f_ASAP7_75t_R)
+                                         net2988 (net)
+                 56.47   16.72 1822.03 ^ load_slew2980/A (BUFx16f_ASAP7_75t_R)
+    32   48.86   30.17   26.83 1848.86 ^ load_slew2980/Y (BUFx16f_ASAP7_75t_R)
+                                         net2980 (net)
+                 59.18   16.76 1865.62 ^ load_slew2978/A (BUFx16f_ASAP7_75t_R)
+    29   43.19   27.47   28.49 1894.11 ^ load_slew2978/Y (BUFx16f_ASAP7_75t_R)
+                                         net2978 (net)
+                 30.10    4.27 1898.38 ^ load_slew2977/A (BUFx16f_ASAP7_75t_R)
+    25   37.95   24.01   22.38 1920.76 ^ load_slew2977/Y (BUFx16f_ASAP7_75t_R)
+                                         net2977 (net)
+                 25.25    2.90 1923.66 ^ wire2976/A (BUFx16f_ASAP7_75t_R)
+    33   49.70   30.63   24.59 1948.25 ^ wire2976/Y (BUFx16f_ASAP7_75t_R)
+                                         net2976 (net)
+                 41.97    9.70 1957.95 ^ load_slew2975/A (BUFx16f_ASAP7_75t_R)
+    32   46.86   28.16   26.66 1984.61 ^ load_slew2975/Y (BUFx16f_ASAP7_75t_R)
+                                         net2975 (net)
+                 52.65   14.56 1999.17 ^ wire2974/A (BUFx16f_ASAP7_75t_R)
+    34   51.50   26.80   26.50 2025.66 ^ wire2974/Y (BUFx16f_ASAP7_75t_R)
+                                         net2974 (net)
+                 83.85   25.50 2051.16 ^ load_slew2970/A (BUFx16f_ASAP7_75t_R)
+    35   49.14   31.88   34.58 2085.75 ^ load_slew2970/Y (BUFx16f_ASAP7_75t_R)
+                                         net2970 (net)
+                 35.23    5.41 2091.15 ^ load_slew2969/A (BUFx16f_ASAP7_75t_R)
+    37   52.66   32.35   28.41 2119.56 ^ load_slew2969/Y (BUFx16f_ASAP7_75t_R)
+                                         net2969 (net)
+                 32.41    0.98 2120.54 ^ load_slew2966/A (BUFx16f_ASAP7_75t_R)
+    36   51.89   31.16   24.85 2145.39 ^ load_slew2966/Y (BUFx16f_ASAP7_75t_R)
+                                         net2966 (net)
+                 53.44   14.31 2159.71 ^ wire2964/A (BUFx16f_ASAP7_75t_R)
+    39   54.47   33.47   31.21 2190.91 ^ wire2964/Y (BUFx16f_ASAP7_75t_R)
+                                         net2964 (net)
+                 33.88    2.25 2193.17 ^ load_slew2961/A (BUFx16f_ASAP7_75t_R)
+    37   52.51   31.35   25.29 2218.46 ^ load_slew2961/Y (BUFx16f_ASAP7_75t_R)
+                                         net2961 (net)
+                 53.95   14.41 2232.86 ^ load_slew2959/A (BUFx16f_ASAP7_75t_R)
+    36   48.57   30.62   28.54 2261.40 ^ load_slew2959/Y (BUFx16f_ASAP7_75t_R)
+                                         net2959 (net)
+                 47.34   12.04 2273.44 ^ swerv/dec/decode/i1wb1instff/genblock_dff/_65_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               2273.44   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/dec/decode/i1wb1instff/genblock_dff/_65_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -4.25 2495.75   library recovery time
+                               2495.75   data required time
+-----------------------------------------------------------------------------
+                               2495.75   data required time
+                               -2273.44   data arrival time
+-----------------------------------------------------------------------------
+                                222.31   slack (MET)
+
+
+Startpoint: swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1   13.35   89.78   75.60   75.60 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/sadc3ff/_02_ (net)
+                 89.79    0.34   75.94 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_35_/A (CKINVDCx20_ASAP7_75t_R)
+    40   49.00   30.36   13.99   89.92 v swerv/lsu/lsu_lsc_ctl/sadc3ff/_35_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         swerv/lsu/lsu_addr_dc3[1] (net)
+                 30.36    0.20   90.13 v max_length3331/A (BUFx16f_ASAP7_75t_R)
+    40   47.58   13.14   22.34  112.46 v max_length3331/Y (BUFx16f_ASAP7_75t_R)
+                                         net3331 (net)
+                 58.03   16.08  128.54 v max_length3330/A (BUFx16f_ASAP7_75t_R)
+    49   62.81    9.72   27.57  156.11 v max_length3330/Y (BUFx16f_ASAP7_75t_R)
+                                         net3330 (net)
+                222.67   70.13  226.24 v max_length3328/A (BUFx16f_ASAP7_75t_R)
+    54   53.93   33.65   53.64  279.87 v max_length3328/Y (BUFx16f_ASAP7_75t_R)
+                                         net3328 (net)
+                 55.52   14.27  294.14 v swerv/lsu/dccm_ctl/_0859_/C (AO221x1_ASAP7_75t_R)
+     1    1.00   10.88   31.47  325.61 v swerv/lsu/dccm_ctl/_0859_/Y (AO221x1_ASAP7_75t_R)
+                                         swerv/lsu/dccm_ctl/_0314_ (net)
+                 10.88    0.06  325.67 v swerv/lsu/dccm_ctl/_0860_/B (OA21x2_ASAP7_75t_R)
+     1    3.85   15.59   17.40  343.07 v swerv/lsu/dccm_ctl/_0860_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_ld_data_dc3[0] (net)
+                 15.99    1.34  344.41 v swerv/lsu/lsu_lsc_ctl/_1183_/A1 (AO21x1_ASAP7_75t_R)
+     2    1.75   12.61   20.47  364.88 v swerv/lsu/lsu_lsc_ctl/_1183_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0150_ (net)
+                 12.61    0.01  364.89 v swerv/lsu/lsu_lsc_ctl/_1190_/C (AND3x1_ASAP7_75t_R)
+     1    0.69    7.76   15.38  380.26 v swerv/lsu/lsu_lsc_ctl/_1190_/Y (AND3x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0156_ (net)
+                  7.76    0.01  380.27 v swerv/lsu/lsu_lsc_ctl/_1191_/B (AO21x2_ASAP7_75t_R)
+     2    3.31   13.93   21.67  401.94 v swerv/lsu/lsu_lsc_ctl/_1191_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/rs1_dc1[0] (net)
+                 14.02    0.60  402.54 v swerv/lsu/lsu_lsc_ctl/lsadder/_437_/B (HAxp5_ASAP7_75t_R)
+     1    0.78   18.93   13.71  416.26 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_437_/CON (HAxp5_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_007_ (net)
+                 18.93    0.01  416.27 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_396_/A (INVx1_ASAP7_75t_R)
+     1    2.13   15.17   11.88  428.15 v swerv/lsu/lsu_lsc_ctl/lsadder/_396_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_174_ (net)
+                 15.17    0.05  428.20 v swerv/lsu/lsu_lsc_ctl/lsadder/_398_/A (FAx1_ASAP7_75t_R)
+     3    3.71   66.31   37.65  465.85 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_398_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_175_ (net)
+                 66.31    0.27  466.12 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_399_/A (FAx1_ASAP7_75t_R)
+     2    8.92  212.35  155.50  621.62 v swerv/lsu/lsu_lsc_ctl/lsadder/_399_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_addr_dc1[2] (net)
+                212.40    1.72  623.35 v wire1695/A (BUFx6f_ASAP7_75t_R)
+     5   11.25   20.42   43.19  666.54 v wire1695/Y (BUFx6f_ASAP7_75t_R)
+                                         net1695 (net)
+                 28.06    6.45  672.99 v swerv/lsu/bus_intf/_1946_/B (XOR2x2_ASAP7_75t_R)
+     3   14.56   48.88   41.99  714.99 v swerv/lsu/bus_intf/_1946_/Y (XOR2x2_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/ldst_dual_dc1 (net)
+                 70.77   16.92  731.91 v swerv/lsu/bus_intf/bus_buffer/_09405_/A (OR3x1_ASAP7_75t_R)
+     1    2.34   20.28   42.09  774.00 v swerv/lsu/bus_intf/bus_buffer/_09405_/Y (OR3x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09303_ (net)
+                 20.29    0.27  774.27 v swerv/lsu/bus_intf/bus_buffer/_19942_/CI (FAx1_ASAP7_75t_R)
+     1    0.85   24.87   36.93  811.20 v swerv/lsu/bus_intf/bus_buffer/_19942_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09315_ (net)
+                 24.87    0.02  811.23 v swerv/lsu/bus_intf/bus_buffer/_19937_/A (INVx1_ASAP7_75t_R)
+     1    2.25   19.63   15.13  826.36 ^ swerv/lsu/bus_intf/bus_buffer/_19937_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09304_ (net)
+                 19.64    0.23  826.59 ^ swerv/lsu/bus_intf/bus_buffer/_19945_/CI (FAx1_ASAP7_75t_R)
+     1    1.68   48.25   49.14  875.73 v swerv/lsu/bus_intf/bus_buffer/_19945_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09326_ (net)
+                 48.25    0.02  875.75 v swerv/lsu/bus_intf/bus_buffer/_19948_/CI (FAx1_ASAP7_75t_R)
+     1    2.30   53.36   39.00  914.75 ^ swerv/lsu/bus_intf/bus_buffer/_19948_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09321_ (net)
+     1    0.81   30.77   18.23  932.98 v swerv/lsu/bus_intf/bus_buffer/_19948_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09332_ (net)
+                 30.77    0.02  933.00 v swerv/lsu/bus_intf/bus_buffer/_19928_/A (INVx1_ASAP7_75t_R)
+     1    1.73   18.10   14.68  947.68 ^ swerv/lsu/bus_intf/bus_buffer/_19928_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09327_ (net)
+                 18.10    0.04  947.72 ^ swerv/lsu/bus_intf/bus_buffer/_19949_/CI (FAx1_ASAP7_75t_R)
+     1    0.77   33.38   33.26  980.98 ^ swerv/lsu/bus_intf/bus_buffer/_19949_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00001_ (net)
+                 33.38    0.01  980.99 ^ swerv/lsu/bus_intf/bus_buffer/_19927_/A (INVx1_ASAP7_75t_R)
+     1    1.26   13.81   11.21  992.20 v swerv/lsu/bus_intf/bus_buffer/_19927_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09331_ (net)
+                 13.81    0.06  992.26 v swerv/lsu/bus_intf/bus_buffer/_19966_/B (HAxp5_ASAP7_75t_R)
+     1    0.82   19.72   13.80 1006.06 ^ swerv/lsu/bus_intf/bus_buffer/_19966_/CON (HAxp5_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00027_ (net)
+                 19.72    0.02 1006.08 ^ swerv/lsu/bus_intf/bus_buffer/_19925_/A (INVx1_ASAP7_75t_R)
+     1    2.18   15.56   12.20 1018.28 v swerv/lsu/bus_intf/bus_buffer/_19925_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09333_ (net)
+                 15.56    0.07 1018.35 v swerv/lsu/bus_intf/bus_buffer/_19950_/A (FAx1_ASAP7_75t_R)
+     1    2.06   50.25   27.68 1046.03 ^ swerv/lsu/bus_intf/bus_buffer/_19950_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09335_ (net)
+                 50.25    0.02 1046.05 ^ swerv/lsu/bus_intf/bus_buffer/_19951_/A (FAx1_ASAP7_75t_R)
+     1    1.82   34.45   27.28 1073.34 v swerv/lsu/bus_intf/bus_buffer/_19951_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00017_ (net)
+                 34.45    0.07 1073.41 v swerv/lsu/bus_intf/bus_buffer/_09438_/B (XOR2x1_ASAP7_75t_R)
+     1    1.75   21.81   29.44 1102.85 v swerv/lsu/bus_intf/bus_buffer/_09438_/Y (XOR2x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_02875_ (net)
+                 21.81    0.03 1102.88 v swerv/lsu/bus_intf/bus_buffer/_09439_/B (XNOR2x1_ASAP7_75t_R)
+     1    0.80   11.55   20.53 1123.41 v swerv/lsu/bus_intf/bus_buffer/_09439_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_02876_ (net)
+                 11.55    0.02 1123.44 v swerv/lsu/bus_intf/bus_buffer/_09440_/B (AO21x2_ASAP7_75t_R)
+     1   15.73   46.39   31.91 1155.34 v swerv/lsu/bus_intf/bus_buffer/_09440_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu_load_stall_any (net)
+                 74.88   19.26 1174.60 v wire1206/A (BUFx16f_ASAP7_75t_R)
+     2   21.78   11.83   31.72 1206.33 v wire1206/Y (BUFx16f_ASAP7_75t_R)
+                                         net1206 (net)
+                102.01   32.01 1238.33 v swerv/lsu/_32_/B (OR2x6_ASAP7_75t_R)
+     4   16.08   23.08   45.59 1283.93 v swerv/lsu/_32_/Y (OR2x6_ASAP7_75t_R)
+                                         swerv/lsu_store_stall_any (net)
+                 23.17    0.72 1284.65 v swerv/dec/decode/_05687_/A1 (OA21x2_ASAP7_75t_R)
+     1    0.54   10.86   19.26 1303.91 v swerv/dec/decode/_05687_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01039_ (net)
+                 10.86    0.00 1303.91 v swerv/dec/decode/_05688_/C (AO221x1_ASAP7_75t_R)
+     1    0.72    9.87   22.31 1326.22 v swerv/dec/decode/_05688_/Y (AO221x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01040_ (net)
+                  9.87    0.02 1326.24 v swerv/dec/decode/_05689_/B (AND2x2_ASAP7_75t_R)
+     2    1.43   15.17   17.54 1343.78 v swerv/dec/decode/_05689_/Y (AND2x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01041_ (net)
+                 15.17    0.04 1343.82 v swerv/dec/decode/_05690_/D (OR4x1_ASAP7_75t_R)
+     2    1.21   14.33   34.59 1378.41 v swerv/dec/decode/_05690_/Y (OR4x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01042_ (net)
+                 14.33    0.03 1378.44 v swerv/dec/decode/_05766_/C (OR5x1_ASAP7_75t_R)
+     1    1.18   16.33   39.94 1418.37 v swerv/dec/decode/_05766_/Y (OR5x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01118_ (net)
+                 16.33    0.03 1418.40 v swerv/dec/decode/_05767_/C (AOI211x1_ASAP7_75t_R)
+     7   14.67  137.48   62.97 1481.36 ^ swerv/dec/decode/_05767_/Y (AOI211x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01119_ (net)
+                137.49    0.57 1481.93 ^ swerv/dec/decode/_06275_/A (NAND3x2_ASAP7_75t_R)
+    13   32.31  120.71   74.14 1556.07 v swerv/dec/decode/_06275_/Y (NAND3x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01616_ (net)
+                120.74    1.30 1557.37 v swerv/dec/decode/_06276_/A (CKINVDCx20_ASAP7_75t_R)
+    39   65.61   35.93   24.52 1581.90 ^ swerv/dec/decode/_06276_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         swerv/dec/decode/_01617_ (net)
+                 48.72    8.01 1589.90 ^ swerv/dec/decode/_08719_/A2 (AO21x2_ASAP7_75t_R)
+     1    4.63   19.79   28.74 1618.64 ^ swerv/dec/decode/_08719_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu_p[0] (net)
+                 20.10    1.36 1620.00 ^ wire1151/A (BUFx16f_ASAP7_75t_R)
+     4   23.77   10.09   19.19 1639.20 ^ wire1151/Y (BUFx16f_ASAP7_75t_R)
+                                         net1151 (net)
+                119.34   37.56 1676.75 ^ swerv/lsu/_27_/B (OR3x1_ASAP7_75t_R)
+     1    2.27   19.69   32.37 1709.12 ^ swerv/lsu/_27_/Y (OR3x1_ASAP7_75t_R)
+                                         swerv/lsu/_04_ (net)
+                 19.69    0.03 1709.15 ^ swerv/lsu/_28_/B (NOR2x2_ASAP7_75t_R)
+     2   10.10   37.24   19.77 1728.92 v swerv/lsu/_28_/Y (NOR2x2_ASAP7_75t_R)
+                                         swerv/dccm_ready (net)
+                 44.25    8.29 1737.22 v swerv/dma_ctrl/_3771_/A (AND3x4_ASAP7_75t_R)
+     8   27.41   48.61   45.73 1782.95 v swerv/dma_ctrl/_3771_/Y (AND3x4_ASAP7_75t_R)
+                                         swerv/dma_dccm_req (net)
+                 53.23    7.84 1790.78 v swerv/lsu/lsu_lsc_ctl/_1097_/A (CKINVDCx16_ASAP7_75t_R)
+    25   24.90   25.05   14.38 1805.17 ^ swerv/lsu/lsu_lsc_ctl/_1097_/Y (CKINVDCx16_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0096_ (net)
+                 25.05    0.28 1805.45 ^ max_length1106/A (BUFx16f_ASAP7_75t_R)
+    24   31.76    8.33   19.02 1824.47 ^ max_length1106/Y (BUFx16f_ASAP7_75t_R)
+                                         net1106 (net)
+                119.65   37.68 1862.14 ^ max_length1105/A (BUFx16f_ASAP7_75t_R)
+    49   47.66   17.59   33.42 1895.57 ^ max_length1105/Y (BUFx16f_ASAP7_75t_R)
+                                         net1105 (net)
+                128.08   40.39 1935.96 ^ swerv/lsu/lsu_lsc_ctl/_1624_/A (AND2x2_ASAP7_75t_R)
+     1    0.71    9.95   29.95 1965.91 ^ swerv/lsu/lsu_lsc_ctl/_1624_/Y (AND2x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0491_ (net)
+                  9.95    0.01 1965.92 ^ swerv/lsu/lsu_lsc_ctl/_1625_/B (AO21x1_ASAP7_75t_R)
+     1    0.71   10.62   11.79 1977.71 ^ swerv/lsu/lsu_lsc_ctl/_1625_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/store_data_d[17] (net)
+                 10.62    0.01 1977.72 ^ swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               1977.72   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.01 2484.99   library setup time
+                               2484.99   data required time
+-----------------------------------------------------------------------------
+                               2484.99   data required time
+                               -1977.72   data arrival time
+-----------------------------------------------------------------------------
+                                507.27   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_l (input port clocked by core_clock)
+Endpoint: swerv/dec/decode/i1wb1instff/genblock_dff/_65_
+          (recovery check against rising-edge clock core_clock)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        500.00  500.00 ^ input external delay
+     1    2.02    0.00    0.00  500.00 ^ rst_l (in)
+                                         rst_l (net)
+                  0.47    0.15  500.15 ^ input386/A (BUFx6f_ASAP7_75t_R)
+     9   12.76   18.08   12.55  512.70 ^ input386/Y (BUFx6f_ASAP7_75t_R)
+                                         net386 (net)
+                 22.71    4.69  517.39 ^ swerv/_117_/B (OA21x2_ASAP7_75t_R)
+    23   38.57  126.71   67.37  584.76 ^ swerv/_117_/Y (OA21x2_ASAP7_75t_R)
+                                         core_rst_l (net)
+                126.90    2.90  587.66 ^ load_slew3174/A (BUFx16f_ASAP7_75t_R)
+    26   37.02   27.47   36.34  624.00 ^ load_slew3174/Y (BUFx16f_ASAP7_75t_R)
+                                         net3174 (net)
+                 30.93    5.06  629.06 ^ wire3173/A (BUFx16f_ASAP7_75t_R)
+    32   48.44   23.85   20.80  649.86 ^ wire3173/Y (BUFx16f_ASAP7_75t_R)
+                                         net3173 (net)
+                 83.65   25.43  675.29 ^ load_slew3172/A (BUFx16f_ASAP7_75t_R)
+    26   38.76   27.03   31.20  706.49 ^ load_slew3172/Y (BUFx16f_ASAP7_75t_R)
+                                         net3172 (net)
+                 45.00   11.90  718.39 ^ wire3165/A (BUFx16f_ASAP7_75t_R)
+    36   53.27   30.51   25.81  744.20 ^ wire3165/Y (BUFx16f_ASAP7_75t_R)
+                                         net3165 (net)
+                 66.63   19.14  763.34 ^ load_slew3163/A (BUFx16f_ASAP7_75t_R)
+    31   44.20   28.70   28.78  792.12 ^ load_slew3163/Y (BUFx16f_ASAP7_75t_R)
+                                         net3163 (net)
+                 59.68   17.25  809.37 ^ wire3162/A (BUFx16f_ASAP7_75t_R)
+    36   52.27   32.73   31.75  841.12 ^ wire3162/Y (BUFx16f_ASAP7_75t_R)
+                                         net3162 (net)
+                 35.38    4.90  846.03 ^ load_slew3161/A (BUFx16f_ASAP7_75t_R)
+    33   49.48   26.94   24.04  870.07 ^ load_slew3161/Y (BUFx16f_ASAP7_75t_R)
+                                         net3161 (net)
+                 74.87   22.66  892.72 ^ load_slew3159/A (BUFx16f_ASAP7_75t_R)
+    34   49.36   30.16   30.42  923.14 ^ load_slew3159/Y (BUFx16f_ASAP7_75t_R)
+                                         net3159 (net)
+                 61.35   17.49  940.64 ^ wire3158/A (BUFx16f_ASAP7_75t_R)
+    35   51.04   30.96   30.58  971.21 ^ wire3158/Y (BUFx16f_ASAP7_75t_R)
+                                         net3158 (net)
+                 53.53   14.37  985.58 ^ wire3157/A (BUFx16f_ASAP7_75t_R)
+    34   49.47   30.35   29.08 1014.66 ^ wire3157/Y (BUFx16f_ASAP7_75t_R)
+                                         net3157 (net)
+                 50.28   13.23 1027.89 ^ load_slew3156/A (BUFx16f_ASAP7_75t_R)
+    32   48.47   30.41   28.99 1056.88 ^ load_slew3156/Y (BUFx16f_ASAP7_75t_R)
+                                         net3156 (net)
+                 41.55    9.47 1066.35 ^ load_slew3154/A (BUFx16f_ASAP7_75t_R)
+    27   40.06   26.81   27.38 1093.73 ^ load_slew3154/Y (BUFx16f_ASAP7_75t_R)
+                                         net3154 (net)
+                 29.69    4.60 1098.33 ^ load_slew3153/A (BUFx16f_ASAP7_75t_R)
+    24   37.60   24.17   22.85 1121.17 ^ load_slew3153/Y (BUFx16f_ASAP7_75t_R)
+                                         net3153 (net)
+                 25.27    2.79 1123.96 ^ load_slew3096/A (BUFx16f_ASAP7_75t_R)
+    28   40.37   26.27   22.76 1146.72 ^ load_slew3096/Y (BUFx16f_ASAP7_75t_R)
+                                         net3096 (net)
+                 38.92    9.60 1156.31 ^ load_slew3095/A (BUFx16f_ASAP7_75t_R)
+    32   46.86   29.25   26.35 1182.67 ^ load_slew3095/Y (BUFx16f_ASAP7_75t_R)
+                                         net3095 (net)
+                 43.68   10.77 1193.43 ^ load_slew3094/A (BUFx16f_ASAP7_75t_R)
+    31   49.18   30.32   28.57 1222.00 ^ load_slew3094/Y (BUFx16f_ASAP7_75t_R)
+                                         net3094 (net)
+                 44.77   11.01 1233.01 ^ load_slew3091/A (BUFx16f_ASAP7_75t_R)
+    32   48.81   30.80   29.25 1262.27 ^ load_slew3091/Y (BUFx16f_ASAP7_75t_R)
+                                         net3091 (net)
+                 33.21    4.57 1266.84 ^ wire3090/A (BUFx16f_ASAP7_75t_R)
+    31   48.49   29.40   23.11 1289.95 ^ wire3090/Y (BUFx16f_ASAP7_75t_R)
+                                         net3090 (net)
+                 57.57   16.37 1306.32 ^ load_slew3085/A (BUFx16f_ASAP7_75t_R)
+    32   45.86   29.16   28.00 1334.32 ^ load_slew3085/Y (BUFx16f_ASAP7_75t_R)
+                                         net3085 (net)
+                 34.93    6.34 1340.65 ^ wire3084/A (BUFx16f_ASAP7_75t_R)
+    37   52.05   31.79   25.36 1366.01 ^ wire3084/Y (BUFx16f_ASAP7_75t_R)
+                                         net3084 (net)
+                 50.74   13.14 1379.15 ^ load_slew3083/A (BUFx16f_ASAP7_75t_R)
+    36   52.06   32.09   29.09 1408.24 ^ load_slew3083/Y (BUFx16f_ASAP7_75t_R)
+                                         net3083 (net)
+                 42.83    9.37 1417.62 ^ load_slew3082/A (BUFx16f_ASAP7_75t_R)
+    30   44.20   28.79   26.19 1443.81 ^ load_slew3082/Y (BUFx16f_ASAP7_75t_R)
+                                         net3082 (net)
+                 29.69    2.83 1446.64 ^ load_slew3001/A (BUFx16f_ASAP7_75t_R)
+    29   42.77   27.30   23.20 1469.84 ^ load_slew3001/Y (BUFx16f_ASAP7_75t_R)
+                                         net3001 (net)
+                 47.89   12.98 1482.83 ^ load_slew3000/A (BUFx16f_ASAP7_75t_R)
+    35   51.06   30.03   26.00 1508.83 ^ load_slew3000/Y (BUFx16f_ASAP7_75t_R)
+                                         net3000 (net)
+                 61.72   17.42 1526.25 ^ load_slew2998/A (BUFx16f_ASAP7_75t_R)
+    36   51.10   32.26   30.12 1556.37 ^ load_slew2998/Y (BUFx16f_ASAP7_75t_R)
+                                         net2998 (net)
+                 46.81   11.33 1567.71 ^ wire2997/A (BUFx16f_ASAP7_75t_R)
+    38   53.88   32.91   28.17 1595.88 ^ wire2997/Y (BUFx16f_ASAP7_75t_R)
+                                         net2997 (net)
+                 46.83   10.94 1606.82 ^ load_slew2995/A (BUFx16f_ASAP7_75t_R)
+    36   52.76   32.45   26.96 1633.78 ^ load_slew2995/Y (BUFx16f_ASAP7_75t_R)
+                                         net2995 (net)
+                 53.36   14.00 1647.78 ^ load_slew2992/A (BUFx16f_ASAP7_75t_R)
+    25   35.97   24.37   28.77 1676.55 ^ load_slew2992/Y (BUFx16f_ASAP7_75t_R)
+                                         net2992 (net)
+                 27.59    4.56 1681.11 ^ load_slew2991/A (BUFx16f_ASAP7_75t_R)
+    34   47.73   29.41   25.30 1706.41 ^ load_slew2991/Y (BUFx16f_ASAP7_75t_R)
+                                         net2991 (net)
+                 38.79    8.53 1714.94 ^ load_slew2990/A (BUFx16f_ASAP7_75t_R)
+    36   50.29   30.79   26.22 1741.16 ^ load_slew2990/Y (BUFx16f_ASAP7_75t_R)
+                                         net2990 (net)
+                 49.39   12.76 1753.93 ^ load_slew2989/A (BUFx16f_ASAP7_75t_R)
+    27   41.21   27.39   28.43 1782.35 ^ load_slew2989/Y (BUFx16f_ASAP7_75t_R)
+                                         net2989 (net)
+                 27.54    1.33 1783.68 ^ load_slew2988/A (BUFx16f_ASAP7_75t_R)
+    25   39.73   24.87   21.63 1805.31 ^ load_slew2988/Y (BUFx16f_ASAP7_75t_R)
+                                         net2988 (net)
+                 56.47   16.72 1822.03 ^ load_slew2980/A (BUFx16f_ASAP7_75t_R)
+    32   48.86   30.17   26.83 1848.86 ^ load_slew2980/Y (BUFx16f_ASAP7_75t_R)
+                                         net2980 (net)
+                 59.18   16.76 1865.62 ^ load_slew2978/A (BUFx16f_ASAP7_75t_R)
+    29   43.19   27.47   28.49 1894.11 ^ load_slew2978/Y (BUFx16f_ASAP7_75t_R)
+                                         net2978 (net)
+                 30.10    4.27 1898.38 ^ load_slew2977/A (BUFx16f_ASAP7_75t_R)
+    25   37.95   24.01   22.38 1920.76 ^ load_slew2977/Y (BUFx16f_ASAP7_75t_R)
+                                         net2977 (net)
+                 25.25    2.90 1923.66 ^ wire2976/A (BUFx16f_ASAP7_75t_R)
+    33   49.70   30.63   24.59 1948.25 ^ wire2976/Y (BUFx16f_ASAP7_75t_R)
+                                         net2976 (net)
+                 41.97    9.70 1957.95 ^ load_slew2975/A (BUFx16f_ASAP7_75t_R)
+    32   46.86   28.16   26.66 1984.61 ^ load_slew2975/Y (BUFx16f_ASAP7_75t_R)
+                                         net2975 (net)
+                 52.65   14.56 1999.17 ^ wire2974/A (BUFx16f_ASAP7_75t_R)
+    34   51.50   26.80   26.50 2025.66 ^ wire2974/Y (BUFx16f_ASAP7_75t_R)
+                                         net2974 (net)
+                 83.85   25.50 2051.16 ^ load_slew2970/A (BUFx16f_ASAP7_75t_R)
+    35   49.14   31.88   34.58 2085.75 ^ load_slew2970/Y (BUFx16f_ASAP7_75t_R)
+                                         net2970 (net)
+                 35.23    5.41 2091.15 ^ load_slew2969/A (BUFx16f_ASAP7_75t_R)
+    37   52.66   32.35   28.41 2119.56 ^ load_slew2969/Y (BUFx16f_ASAP7_75t_R)
+                                         net2969 (net)
+                 32.41    0.98 2120.54 ^ load_slew2966/A (BUFx16f_ASAP7_75t_R)
+    36   51.89   31.16   24.85 2145.39 ^ load_slew2966/Y (BUFx16f_ASAP7_75t_R)
+                                         net2966 (net)
+                 53.44   14.31 2159.71 ^ wire2964/A (BUFx16f_ASAP7_75t_R)
+    39   54.47   33.47   31.21 2190.91 ^ wire2964/Y (BUFx16f_ASAP7_75t_R)
+                                         net2964 (net)
+                 33.88    2.25 2193.17 ^ load_slew2961/A (BUFx16f_ASAP7_75t_R)
+    37   52.51   31.35   25.29 2218.46 ^ load_slew2961/Y (BUFx16f_ASAP7_75t_R)
+                                         net2961 (net)
+                 53.95   14.41 2232.86 ^ load_slew2959/A (BUFx16f_ASAP7_75t_R)
+    36   48.57   30.62   28.54 2261.40 ^ load_slew2959/Y (BUFx16f_ASAP7_75t_R)
+                                         net2959 (net)
+                 47.34   12.04 2273.44 ^ swerv/dec/decode/i1wb1instff/genblock_dff/_65_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                               2273.44   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/dec/decode/i1wb1instff/genblock_dff/_65_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         -4.25 2495.75   library recovery time
+                               2495.75   data required time
+-----------------------------------------------------------------------------
+                               2495.75   data required time
+                               -2273.44   data arrival time
+-----------------------------------------------------------------------------
+                                222.31   slack (MET)
+
+
+Startpoint: swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clock (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     1   13.35   89.78   75.60   75.60 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_66_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/sadc3ff/_02_ (net)
+                 89.79    0.34   75.94 ^ swerv/lsu/lsu_lsc_ctl/sadc3ff/_35_/A (CKINVDCx20_ASAP7_75t_R)
+    40   49.00   30.36   13.99   89.92 v swerv/lsu/lsu_lsc_ctl/sadc3ff/_35_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         swerv/lsu/lsu_addr_dc3[1] (net)
+                 30.36    0.20   90.13 v max_length3331/A (BUFx16f_ASAP7_75t_R)
+    40   47.58   13.14   22.34  112.46 v max_length3331/Y (BUFx16f_ASAP7_75t_R)
+                                         net3331 (net)
+                 58.03   16.08  128.54 v max_length3330/A (BUFx16f_ASAP7_75t_R)
+    49   62.81    9.72   27.57  156.11 v max_length3330/Y (BUFx16f_ASAP7_75t_R)
+                                         net3330 (net)
+                222.67   70.13  226.24 v max_length3328/A (BUFx16f_ASAP7_75t_R)
+    54   53.93   33.65   53.64  279.87 v max_length3328/Y (BUFx16f_ASAP7_75t_R)
+                                         net3328 (net)
+                 55.52   14.27  294.14 v swerv/lsu/dccm_ctl/_0859_/C (AO221x1_ASAP7_75t_R)
+     1    1.00   10.88   31.47  325.61 v swerv/lsu/dccm_ctl/_0859_/Y (AO221x1_ASAP7_75t_R)
+                                         swerv/lsu/dccm_ctl/_0314_ (net)
+                 10.88    0.06  325.67 v swerv/lsu/dccm_ctl/_0860_/B (OA21x2_ASAP7_75t_R)
+     1    3.85   15.59   17.40  343.07 v swerv/lsu/dccm_ctl/_0860_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_ld_data_dc3[0] (net)
+                 15.99    1.34  344.41 v swerv/lsu/lsu_lsc_ctl/_1183_/A1 (AO21x1_ASAP7_75t_R)
+     2    1.75   12.61   20.47  364.88 v swerv/lsu/lsu_lsc_ctl/_1183_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0150_ (net)
+                 12.61    0.01  364.89 v swerv/lsu/lsu_lsc_ctl/_1190_/C (AND3x1_ASAP7_75t_R)
+     1    0.69    7.76   15.38  380.26 v swerv/lsu/lsu_lsc_ctl/_1190_/Y (AND3x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0156_ (net)
+                  7.76    0.01  380.27 v swerv/lsu/lsu_lsc_ctl/_1191_/B (AO21x2_ASAP7_75t_R)
+     2    3.31   13.93   21.67  401.94 v swerv/lsu/lsu_lsc_ctl/_1191_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/rs1_dc1[0] (net)
+                 14.02    0.60  402.54 v swerv/lsu/lsu_lsc_ctl/lsadder/_437_/B (HAxp5_ASAP7_75t_R)
+     1    0.78   18.93   13.71  416.26 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_437_/CON (HAxp5_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_007_ (net)
+                 18.93    0.01  416.27 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_396_/A (INVx1_ASAP7_75t_R)
+     1    2.13   15.17   11.88  428.15 v swerv/lsu/lsu_lsc_ctl/lsadder/_396_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_174_ (net)
+                 15.17    0.05  428.20 v swerv/lsu/lsu_lsc_ctl/lsadder/_398_/A (FAx1_ASAP7_75t_R)
+     3    3.71   66.31   37.65  465.85 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_398_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/lsadder/_175_ (net)
+                 66.31    0.27  466.12 ^ swerv/lsu/lsu_lsc_ctl/lsadder/_399_/A (FAx1_ASAP7_75t_R)
+     2    8.92  212.35  155.50  621.62 v swerv/lsu/lsu_lsc_ctl/lsadder/_399_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_addr_dc1[2] (net)
+                212.40    1.72  623.35 v wire1695/A (BUFx6f_ASAP7_75t_R)
+     5   11.25   20.42   43.19  666.54 v wire1695/Y (BUFx6f_ASAP7_75t_R)
+                                         net1695 (net)
+                 28.06    6.45  672.99 v swerv/lsu/bus_intf/_1946_/B (XOR2x2_ASAP7_75t_R)
+     3   14.56   48.88   41.99  714.99 v swerv/lsu/bus_intf/_1946_/Y (XOR2x2_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/ldst_dual_dc1 (net)
+                 70.77   16.92  731.91 v swerv/lsu/bus_intf/bus_buffer/_09405_/A (OR3x1_ASAP7_75t_R)
+     1    2.34   20.28   42.09  774.00 v swerv/lsu/bus_intf/bus_buffer/_09405_/Y (OR3x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09303_ (net)
+                 20.29    0.27  774.27 v swerv/lsu/bus_intf/bus_buffer/_19942_/CI (FAx1_ASAP7_75t_R)
+     1    0.85   24.87   36.93  811.20 v swerv/lsu/bus_intf/bus_buffer/_19942_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09315_ (net)
+                 24.87    0.02  811.23 v swerv/lsu/bus_intf/bus_buffer/_19937_/A (INVx1_ASAP7_75t_R)
+     1    2.25   19.63   15.13  826.36 ^ swerv/lsu/bus_intf/bus_buffer/_19937_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09304_ (net)
+                 19.64    0.23  826.59 ^ swerv/lsu/bus_intf/bus_buffer/_19945_/CI (FAx1_ASAP7_75t_R)
+     1    1.68   48.25   49.14  875.73 v swerv/lsu/bus_intf/bus_buffer/_19945_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09326_ (net)
+                 48.25    0.02  875.75 v swerv/lsu/bus_intf/bus_buffer/_19948_/CI (FAx1_ASAP7_75t_R)
+     1    2.30   53.36   39.00  914.75 ^ swerv/lsu/bus_intf/bus_buffer/_19948_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09321_ (net)
+     1    0.81   30.77   18.23  932.98 v swerv/lsu/bus_intf/bus_buffer/_19948_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09332_ (net)
+                 30.77    0.02  933.00 v swerv/lsu/bus_intf/bus_buffer/_19928_/A (INVx1_ASAP7_75t_R)
+     1    1.73   18.10   14.68  947.68 ^ swerv/lsu/bus_intf/bus_buffer/_19928_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09327_ (net)
+                 18.10    0.04  947.72 ^ swerv/lsu/bus_intf/bus_buffer/_19949_/CI (FAx1_ASAP7_75t_R)
+     1    0.77   33.38   33.26  980.98 ^ swerv/lsu/bus_intf/bus_buffer/_19949_/SN (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00001_ (net)
+                 33.38    0.01  980.99 ^ swerv/lsu/bus_intf/bus_buffer/_19927_/A (INVx1_ASAP7_75t_R)
+     1    1.26   13.81   11.21  992.20 v swerv/lsu/bus_intf/bus_buffer/_19927_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09331_ (net)
+                 13.81    0.06  992.26 v swerv/lsu/bus_intf/bus_buffer/_19966_/B (HAxp5_ASAP7_75t_R)
+     1    0.82   19.72   13.80 1006.06 ^ swerv/lsu/bus_intf/bus_buffer/_19966_/CON (HAxp5_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00027_ (net)
+                 19.72    0.02 1006.08 ^ swerv/lsu/bus_intf/bus_buffer/_19925_/A (INVx1_ASAP7_75t_R)
+     1    2.18   15.56   12.20 1018.28 v swerv/lsu/bus_intf/bus_buffer/_19925_/Y (INVx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09333_ (net)
+                 15.56    0.07 1018.35 v swerv/lsu/bus_intf/bus_buffer/_19950_/A (FAx1_ASAP7_75t_R)
+     1    2.06   50.25   27.68 1046.03 ^ swerv/lsu/bus_intf/bus_buffer/_19950_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_09335_ (net)
+                 50.25    0.02 1046.05 ^ swerv/lsu/bus_intf/bus_buffer/_19951_/A (FAx1_ASAP7_75t_R)
+     1    1.82   34.45   27.28 1073.34 v swerv/lsu/bus_intf/bus_buffer/_19951_/CON (FAx1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_00017_ (net)
+                 34.45    0.07 1073.41 v swerv/lsu/bus_intf/bus_buffer/_09438_/B (XOR2x1_ASAP7_75t_R)
+     1    1.75   21.81   29.44 1102.85 v swerv/lsu/bus_intf/bus_buffer/_09438_/Y (XOR2x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_02875_ (net)
+                 21.81    0.03 1102.88 v swerv/lsu/bus_intf/bus_buffer/_09439_/B (XNOR2x1_ASAP7_75t_R)
+     1    0.80   11.55   20.53 1123.41 v swerv/lsu/bus_intf/bus_buffer/_09439_/Y (XNOR2x1_ASAP7_75t_R)
+                                         swerv/lsu/bus_intf/bus_buffer/_02876_ (net)
+                 11.55    0.02 1123.44 v swerv/lsu/bus_intf/bus_buffer/_09440_/B (AO21x2_ASAP7_75t_R)
+     1   15.73   46.39   31.91 1155.34 v swerv/lsu/bus_intf/bus_buffer/_09440_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu_load_stall_any (net)
+                 74.88   19.26 1174.60 v wire1206/A (BUFx16f_ASAP7_75t_R)
+     2   21.78   11.83   31.72 1206.33 v wire1206/Y (BUFx16f_ASAP7_75t_R)
+                                         net1206 (net)
+                102.01   32.01 1238.33 v swerv/lsu/_32_/B (OR2x6_ASAP7_75t_R)
+     4   16.08   23.08   45.59 1283.93 v swerv/lsu/_32_/Y (OR2x6_ASAP7_75t_R)
+                                         swerv/lsu_store_stall_any (net)
+                 23.17    0.72 1284.65 v swerv/dec/decode/_05687_/A1 (OA21x2_ASAP7_75t_R)
+     1    0.54   10.86   19.26 1303.91 v swerv/dec/decode/_05687_/Y (OA21x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01039_ (net)
+                 10.86    0.00 1303.91 v swerv/dec/decode/_05688_/C (AO221x1_ASAP7_75t_R)
+     1    0.72    9.87   22.31 1326.22 v swerv/dec/decode/_05688_/Y (AO221x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01040_ (net)
+                  9.87    0.02 1326.24 v swerv/dec/decode/_05689_/B (AND2x2_ASAP7_75t_R)
+     2    1.43   15.17   17.54 1343.78 v swerv/dec/decode/_05689_/Y (AND2x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01041_ (net)
+                 15.17    0.04 1343.82 v swerv/dec/decode/_05690_/D (OR4x1_ASAP7_75t_R)
+     2    1.21   14.33   34.59 1378.41 v swerv/dec/decode/_05690_/Y (OR4x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01042_ (net)
+                 14.33    0.03 1378.44 v swerv/dec/decode/_05766_/C (OR5x1_ASAP7_75t_R)
+     1    1.18   16.33   39.94 1418.37 v swerv/dec/decode/_05766_/Y (OR5x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01118_ (net)
+                 16.33    0.03 1418.40 v swerv/dec/decode/_05767_/C (AOI211x1_ASAP7_75t_R)
+     7   14.67  137.48   62.97 1481.36 ^ swerv/dec/decode/_05767_/Y (AOI211x1_ASAP7_75t_R)
+                                         swerv/dec/decode/_01119_ (net)
+                137.49    0.57 1481.93 ^ swerv/dec/decode/_06275_/A (NAND3x2_ASAP7_75t_R)
+    13   32.31  120.71   74.14 1556.07 v swerv/dec/decode/_06275_/Y (NAND3x2_ASAP7_75t_R)
+                                         swerv/dec/decode/_01616_ (net)
+                120.74    1.30 1557.37 v swerv/dec/decode/_06276_/A (CKINVDCx20_ASAP7_75t_R)
+    39   65.61   35.93   24.52 1581.90 ^ swerv/dec/decode/_06276_/Y (CKINVDCx20_ASAP7_75t_R)
+                                         swerv/dec/decode/_01617_ (net)
+                 48.72    8.01 1589.90 ^ swerv/dec/decode/_08719_/A2 (AO21x2_ASAP7_75t_R)
+     1    4.63   19.79   28.74 1618.64 ^ swerv/dec/decode/_08719_/Y (AO21x2_ASAP7_75t_R)
+                                         swerv/lsu_p[0] (net)
+                 20.10    1.36 1620.00 ^ wire1151/A (BUFx16f_ASAP7_75t_R)
+     4   23.77   10.09   19.19 1639.20 ^ wire1151/Y (BUFx16f_ASAP7_75t_R)
+                                         net1151 (net)
+                119.34   37.56 1676.75 ^ swerv/lsu/_27_/B (OR3x1_ASAP7_75t_R)
+     1    2.27   19.69   32.37 1709.12 ^ swerv/lsu/_27_/Y (OR3x1_ASAP7_75t_R)
+                                         swerv/lsu/_04_ (net)
+                 19.69    0.03 1709.15 ^ swerv/lsu/_28_/B (NOR2x2_ASAP7_75t_R)
+     2   10.10   37.24   19.77 1728.92 v swerv/lsu/_28_/Y (NOR2x2_ASAP7_75t_R)
+                                         swerv/dccm_ready (net)
+                 44.25    8.29 1737.22 v swerv/dma_ctrl/_3771_/A (AND3x4_ASAP7_75t_R)
+     8   27.41   48.61   45.73 1782.95 v swerv/dma_ctrl/_3771_/Y (AND3x4_ASAP7_75t_R)
+                                         swerv/dma_dccm_req (net)
+                 53.23    7.84 1790.78 v swerv/lsu/lsu_lsc_ctl/_1097_/A (CKINVDCx16_ASAP7_75t_R)
+    25   24.90   25.05   14.38 1805.17 ^ swerv/lsu/lsu_lsc_ctl/_1097_/Y (CKINVDCx16_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0096_ (net)
+                 25.05    0.28 1805.45 ^ max_length1106/A (BUFx16f_ASAP7_75t_R)
+    24   31.76    8.33   19.02 1824.47 ^ max_length1106/Y (BUFx16f_ASAP7_75t_R)
+                                         net1106 (net)
+                119.65   37.68 1862.14 ^ max_length1105/A (BUFx16f_ASAP7_75t_R)
+    49   47.66   17.59   33.42 1895.57 ^ max_length1105/Y (BUFx16f_ASAP7_75t_R)
+                                         net1105 (net)
+                128.08   40.39 1935.96 ^ swerv/lsu/lsu_lsc_ctl/_1624_/A (AND2x2_ASAP7_75t_R)
+     1    0.71    9.95   29.95 1965.91 ^ swerv/lsu/lsu_lsc_ctl/_1624_/Y (AND2x2_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/_0491_ (net)
+                  9.95    0.01 1965.92 ^ swerv/lsu/lsu_lsc_ctl/_1625_/B (AO21x1_ASAP7_75t_R)
+     1    0.71   10.62   11.79 1977.71 ^ swerv/lsu/lsu_lsc_ctl/_1625_/Y (AO21x1_ASAP7_75t_R)
+                                         swerv/lsu/lsu_lsc_ctl/store_data_d[17] (net)
+                 10.62    0.01 1977.72 ^ swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               1977.72   data arrival time
+
+                  0.00 2500.00 2500.00   clock core_clock (rise edge)
+                          0.00 2500.00   clock network delay (ideal)
+                          0.00 2500.00   clock reconvergence pessimism
+                               2500.00 ^ swerv/lsu/lsu_lsc_ctl/sddc1ff/_146_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.01 2484.99   library setup time
+                               2484.99   data required time
+-----------------------------------------------------------------------------
+                               2484.99   data required time
+                               -1977.72   data arrival time
+-----------------------------------------------------------------------------
+                                507.27   slack (MET)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.2640388011932373
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.0008
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.3921610116958618
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+23.040000915527344
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.0170
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+2273.4429
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+222.3117
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+9.778636
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             7.31e-03   1.96e-03   1.71e-06   9.28e-03  12.1%
+Combinational          8.55e-03   1.37e-02   1.57e-05   2.22e-02  29.1%
+Macro                  4.13e-02   9.33e-05   3.61e-03   4.50e-02  58.8%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.71e-02   1.57e-02   3.63e-03   7.65e-02 100.0%
+                          74.7%      20.5%       4.7%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 52038 u^2 16% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+164986
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+446387
+
+Elapsed time: 1:04.46[h:]min:sec. CPU time: user 64.06 sys 0.40 (99%). Peak memory: 1277412KB.

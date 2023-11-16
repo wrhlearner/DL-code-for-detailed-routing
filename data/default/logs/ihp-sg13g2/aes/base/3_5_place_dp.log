@@ -1,0 +1,421 @@
+OpenROAD autotuner-v1-2861-g832b18e7 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[WARNING DPL-0038] No 1-site fill cells detected.  To remove 1-site gaps use the -disallow_one_site_gaps flag.
+Placement Analysis
+---------------------------------
+total displacement      61915.3 u
+average displacement        3.1 u
+max displacement           30.5 u
+original HPWL          931059.2 u
+legalized HPWL         971834.4 u
+delta HPWL                    4 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 19736 cells, 388 terminals, 20525 edges and 69686 pins.
+[INFO DPO-0109] Network stats: inst 20124, edges 20525, pins 69686
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 18900 3780 units.
+[INFO DPO-0320] Collected 388 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 19736 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2400, 3780) - (1048320, 1047060)
+[INFO DPO-0310] Assigned 19736 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 9.747253e+08.
+[INFO DPO-0302] End of matching; objective is 9.715931e+08, improvement is 0.32 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 9.475881e+08.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 9.401221e+08.
+[INFO DPO-0307] End of global swaps; objective is 9.401221e+08, improvement is 3.24 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 9.359106e+08.
+[INFO DPO-0309] End of vertical swaps; objective is 9.359106e+08, improvement is 0.45 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 9.293104e+08.
+[INFO DPO-0305] End of reordering; objective is 9.293104e+08, improvement is 0.71 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 394720 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 394720, swaps 78917, moves 80510 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 9.263214e+08, Scratch cost 9.086503e+08, Incremental cost 9.086503e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 9.086503e+08.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 1.91 percent.
+[INFO DPO-0332] End of pass, Generator displacement called 394720 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 789440, swaps 153818, moves 159130 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 9.086503e+08, Scratch cost 9.007155e+08, Incremental cost 9.007155e+08, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 9.007155e+08.
+[INFO DPO-0327] Pass   2 of random improver; improvement in cost is 0.87 percent.
+[INFO DPO-0328] End of random improver; improvement is 2.764259 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 9888 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 6603 cell flips.
+[INFO DPO-0384] End of flipping; objective is 8.961566e+08, improvement is 0.84 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL           971834.4 u
+Final HPWL              891479.8 u
+Delta HPWL                  -8.3 %
+
+[INFO DPL-0020] Mirrored 1614 instances
+[INFO DPL-0021] HPWL before          891479.8 u
+[INFO DPL-0022] HPWL after           891263.6 u
+[INFO DPL-0023] HPWL delta               -0.0 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place check_setup
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2.56
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: _38952_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _38952_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _38952_/CLK (sg13g2_dfrbp_1)
+     1    0.00    0.04    0.14    0.14 v _38952_/Q_N (sg13g2_dfrbp_1)
+                                         u0.r0.rcnt_next[0] (net)
+                  0.04    0.00    0.14 v _38538_/B_N (sg13g2_nor2b_1)
+     1    0.00    0.02    0.07    0.21 v _38538_/Y (sg13g2_nor2b_1)
+                                         _00557_ (net)
+                  0.02    0.00    0.21 v _38952_/D (sg13g2_dfrbp_1)
+                                  0.21   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _38952_/CLK (sg13g2_dfrbp_1)
+                         -0.02   -0.02   library hold time
+                                 -0.02   data required time
+-----------------------------------------------------------------------------
+                                 -0.02   data required time
+                                 -0.21   data arrival time
+-----------------------------------------------------------------------------
+                                  0.24   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: _38905_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _38832_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _38905_/CLK (sg13g2_dfrbp_1)
+     3    0.01    0.05    0.21    0.21 ^ _38905_/Q (sg13g2_dfrbp_1)
+                                         us22.a[4] (net)
+                  0.05    0.00    0.21 ^ fanout2595/A (sg13g2_buf_2)
+     8    0.03    0.06    0.11    0.32 ^ fanout2595/X (sg13g2_buf_2)
+                                         net2595 (net)
+                  0.06    0.00    0.32 ^ fanout2594/A (sg13g2_buf_2)
+     8    0.03    0.07    0.12    0.44 ^ fanout2594/X (sg13g2_buf_2)
+                                         net2594 (net)
+                  0.07    0.00    0.44 ^ _35213_/A_N (sg13g2_nand2b_1)
+     1    0.00    0.03    0.08    0.52 ^ _35213_/Y (sg13g2_nand2b_1)
+                                         _07854_ (net)
+                  0.03    0.00    0.52 ^ fanout760/A (sg13g2_buf_2)
+     8    0.03    0.08    0.11    0.63 ^ fanout760/X (sg13g2_buf_2)
+                                         net760 (net)
+                  0.08    0.00    0.63 ^ fanout759/A (sg13g2_buf_1)
+     4    0.01    0.06    0.11    0.74 ^ fanout759/X (sg13g2_buf_1)
+                                         net759 (net)
+                  0.06    0.00    0.74 ^ fanout758/A (sg13g2_buf_1)
+     6    0.02    0.09    0.12    0.86 ^ fanout758/X (sg13g2_buf_1)
+                                         net758 (net)
+                  0.09    0.00    0.86 ^ fanout757/A (sg13g2_buf_2)
+     8    0.03    0.07    0.13    0.99 ^ fanout757/X (sg13g2_buf_2)
+                                         net757 (net)
+                  0.07    0.00    0.99 ^ _35286_/A (sg13g2_nor2_1)
+     4    0.01    0.05    0.07    1.06 v _35286_/Y (sg13g2_nor2_1)
+                                         _07934_ (net)
+                  0.05    0.00    1.06 v fanout417/A (sg13g2_buf_2)
+     8    0.03    0.05    0.11    1.17 v fanout417/X (sg13g2_buf_2)
+                                         net417 (net)
+                  0.05    0.00    1.17 v _37821_/A1 (sg13g2_a21oi_1)
+     1    0.00    0.06    0.07    1.24 ^ _37821_/Y (sg13g2_a21oi_1)
+                                         _10715_ (net)
+                  0.06    0.00    1.24 ^ _37822_/D (sg13g2_nand4_1)
+     2    0.01    0.11    0.14    1.38 v _37822_/Y (sg13g2_nand4_1)
+                                         _10716_ (net)
+                  0.11    0.00    1.38 v _38006_/B (sg13g2_or4_1)
+     1    0.00    0.04    0.22    1.59 v _38006_/X (sg13g2_or4_1)
+                                         _10916_ (net)
+                  0.04    0.00    1.59 v _38023_/A (sg13g2_nor4_1)
+     1    0.00    0.12    0.15    1.75 ^ _38023_/Y (sg13g2_nor4_1)
+                                         _10935_ (net)
+                  0.12    0.00    1.75 ^ _38024_/D (sg13g2_nand4_1)
+     7    0.04    0.46    0.43    2.17 v _38024_/Y (sg13g2_nand4_1)
+                                         _10936_ (net)
+                  0.46    0.00    2.17 v _38145_/A (sg13g2_xnor2_1)
+     3    0.02    0.22    0.28    2.45 ^ _38145_/Y (sg13g2_xnor2_1)
+                                         _11060_ (net)
+                  0.22    0.00    2.45 ^ _38165_/A (sg13g2_xor2_1)
+     1    0.01    0.08    0.17    2.62 ^ _38165_/X (sg13g2_xor2_1)
+                                         _11079_ (net)
+                  0.08    0.00    2.62 ^ _38168_/A (sg13g2_xnor2_1)
+     1    0.00    0.04    0.08    2.70 v _38168_/Y (sg13g2_xnor2_1)
+                                         _11083_ (net)
+                  0.04    0.00    2.70 v _38170_/A2 (sg13g2_o21ai_1)
+     1    0.01    0.09    0.10    2.80 ^ _38170_/Y (sg13g2_o21ai_1)
+                                         _11085_ (net)
+                  0.09    0.00    2.80 ^ _38171_/B (sg13g2_xnor2_1)
+     1    0.00    0.05    0.10    2.90 ^ _38171_/Y (sg13g2_xnor2_1)
+                                         _00036_ (net)
+                  0.05    0.00    2.90 ^ _38832_/D (sg13g2_dfrbp_1)
+                                  2.90   data arrival time
+
+                  0.00    5.60    5.60   clock clk (rise edge)
+                          0.00    5.60   clock network delay (ideal)
+                          0.00    5.60   clock reconvergence pessimism
+                                  5.60 ^ _38832_/CLK (sg13g2_dfrbp_1)
+                         -0.14    5.46   library setup time
+                                  5.46   data required time
+-----------------------------------------------------------------------------
+                                  5.46   data required time
+                                 -2.90   data arrival time
+-----------------------------------------------------------------------------
+                                  2.56   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: _38905_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _38832_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _38905_/CLK (sg13g2_dfrbp_1)
+     3    0.01    0.05    0.21    0.21 ^ _38905_/Q (sg13g2_dfrbp_1)
+                                         us22.a[4] (net)
+                  0.05    0.00    0.21 ^ fanout2595/A (sg13g2_buf_2)
+     8    0.03    0.06    0.11    0.32 ^ fanout2595/X (sg13g2_buf_2)
+                                         net2595 (net)
+                  0.06    0.00    0.32 ^ fanout2594/A (sg13g2_buf_2)
+     8    0.03    0.07    0.12    0.44 ^ fanout2594/X (sg13g2_buf_2)
+                                         net2594 (net)
+                  0.07    0.00    0.44 ^ _35213_/A_N (sg13g2_nand2b_1)
+     1    0.00    0.03    0.08    0.52 ^ _35213_/Y (sg13g2_nand2b_1)
+                                         _07854_ (net)
+                  0.03    0.00    0.52 ^ fanout760/A (sg13g2_buf_2)
+     8    0.03    0.08    0.11    0.63 ^ fanout760/X (sg13g2_buf_2)
+                                         net760 (net)
+                  0.08    0.00    0.63 ^ fanout759/A (sg13g2_buf_1)
+     4    0.01    0.06    0.11    0.74 ^ fanout759/X (sg13g2_buf_1)
+                                         net759 (net)
+                  0.06    0.00    0.74 ^ fanout758/A (sg13g2_buf_1)
+     6    0.02    0.09    0.12    0.86 ^ fanout758/X (sg13g2_buf_1)
+                                         net758 (net)
+                  0.09    0.00    0.86 ^ fanout757/A (sg13g2_buf_2)
+     8    0.03    0.07    0.13    0.99 ^ fanout757/X (sg13g2_buf_2)
+                                         net757 (net)
+                  0.07    0.00    0.99 ^ _35286_/A (sg13g2_nor2_1)
+     4    0.01    0.05    0.07    1.06 v _35286_/Y (sg13g2_nor2_1)
+                                         _07934_ (net)
+                  0.05    0.00    1.06 v fanout417/A (sg13g2_buf_2)
+     8    0.03    0.05    0.11    1.17 v fanout417/X (sg13g2_buf_2)
+                                         net417 (net)
+                  0.05    0.00    1.17 v _37821_/A1 (sg13g2_a21oi_1)
+     1    0.00    0.06    0.07    1.24 ^ _37821_/Y (sg13g2_a21oi_1)
+                                         _10715_ (net)
+                  0.06    0.00    1.24 ^ _37822_/D (sg13g2_nand4_1)
+     2    0.01    0.11    0.14    1.38 v _37822_/Y (sg13g2_nand4_1)
+                                         _10716_ (net)
+                  0.11    0.00    1.38 v _38006_/B (sg13g2_or4_1)
+     1    0.00    0.04    0.22    1.59 v _38006_/X (sg13g2_or4_1)
+                                         _10916_ (net)
+                  0.04    0.00    1.59 v _38023_/A (sg13g2_nor4_1)
+     1    0.00    0.12    0.15    1.75 ^ _38023_/Y (sg13g2_nor4_1)
+                                         _10935_ (net)
+                  0.12    0.00    1.75 ^ _38024_/D (sg13g2_nand4_1)
+     7    0.04    0.46    0.43    2.17 v _38024_/Y (sg13g2_nand4_1)
+                                         _10936_ (net)
+                  0.46    0.00    2.17 v _38145_/A (sg13g2_xnor2_1)
+     3    0.02    0.22    0.28    2.45 ^ _38145_/Y (sg13g2_xnor2_1)
+                                         _11060_ (net)
+                  0.22    0.00    2.45 ^ _38165_/A (sg13g2_xor2_1)
+     1    0.01    0.08    0.17    2.62 ^ _38165_/X (sg13g2_xor2_1)
+                                         _11079_ (net)
+                  0.08    0.00    2.62 ^ _38168_/A (sg13g2_xnor2_1)
+     1    0.00    0.04    0.08    2.70 v _38168_/Y (sg13g2_xnor2_1)
+                                         _11083_ (net)
+                  0.04    0.00    2.70 v _38170_/A2 (sg13g2_o21ai_1)
+     1    0.01    0.09    0.10    2.80 ^ _38170_/Y (sg13g2_o21ai_1)
+                                         _11085_ (net)
+                  0.09    0.00    2.80 ^ _38171_/B (sg13g2_xnor2_1)
+     1    0.00    0.05    0.10    2.90 ^ _38171_/Y (sg13g2_xnor2_1)
+                                         _00036_ (net)
+                  0.05    0.00    2.90 ^ _38832_/D (sg13g2_dfrbp_1)
+                                  2.90   data arrival time
+
+                  0.00    5.60    5.60   clock clk (rise edge)
+                          0.00    5.60   clock network delay (ideal)
+                          0.00    5.60   clock reconvergence pessimism
+                                  5.60 ^ _38832_/CLK (sg13g2_dfrbp_1)
+                         -0.14    5.46   library setup time
+                                  5.46   data required time
+-----------------------------------------------------------------------------
+                                  5.46   data required time
+                                 -2.90   data arrival time
+-----------------------------------------------------------------------------
+                                  2.56   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+2.017515182495117
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+2.5074000358581543
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.8046
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+0.0
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+detailed place max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.25553545355796814
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.30000001192092896
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8518
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+2.9009
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+2.5621
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+88.320866
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.29e-03   5.10e-04   2.85e-07   9.80e-03  15.6%
+Combinational          2.73e-02   2.55e-02   2.43e-06   5.28e-02  84.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.66e-02   2.60e-02   2.72e-06   6.26e-02 100.0%
+                          58.5%      41.5%       0.0%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 210225 u^2 19% utilization.
+
+Elapsed time: 0:06.80[h:]min:sec. CPU time: user 6.77 sys 0.03 (99%). Peak memory: 180420KB.
