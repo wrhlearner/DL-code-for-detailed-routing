@@ -2,6 +2,62 @@ import os
 import torch
 import random
 
+def getDefaultData(defaultStrategy, defaultOutput) -> list:
+    """Wrap up default strategies and outputs to generate an input list"""
+    dataset = []
+    defaultInputSet = []
+    inputset = []
+#     coef = {'size' : None, 'offset' : None, 'mazeEndIter' : None, 'MarkerCost' : None, 
+#              'FixedShapeCost' : None, 'Decay' : None, 'ripupMode': None, 'followGuide' : None}
+    # parse default strategy and output
+    # check input file exists
+    if not os.path.exists(defaultStrategy):
+        print("Default strategy {} doesn't exist!".format(defaultStrategy))
+        return []
+    # parse default strategy
+    with open(defaultStrategy, 'r') as f:
+        line = f.readline()
+        temp = line.split("@")
+        for i in range(len(temp) - 1):
+            element = temp[i]
+            coef = dict([])
+            # parse 1 strategy
+            result = element.split(",")[:-1]
+            coef['size'] = int(result[0])
+            coef['offset'] = int(result[1])
+            coef['mazeEndIter'] = int(result[2])
+            coef['MarkerCost'] = int(result[3])
+            coef['FixedShapeCost'] = int(result[4])
+            coef['Decay'] = float(result[5])
+            if result[6] == 'ALL':
+                coef['ripupMode'] = 0
+            elif result[6] == 'DRC':
+                coef['ripupMode'] = 1
+            else:
+                coef['ripupMode'] = 2
+            if result[7] == 'True':
+                coef['followGuide'] = 1
+            elif result[7] == 'False':
+                coef['followGuide'] = 0
+            # add result to list
+            defaultInputSet.append(coef)
+    # check input file exists
+    if not os.path.exists(defaultOutput):
+        print("Default strategy output {} doesn't exist!".format(defaultOutput))
+        return []
+    # parse default strategy outputs
+    with open(defaultOutput, 'r') as f:
+        allLines = f.readlines()
+        for line in allLines:
+            result = line.split(',')[:-1]
+            datapoint = []
+            for i, value in enumerate(result):
+                datapoint.append([defaultInputSet[i], int(value)])
+            # add datapoint into dataset
+            dataset.append(datapoint)
+            
+    return dataset
+    
 def getData(strategy, output, defaultStrategy, defaultOutput) -> list:
     """Wrap up strategies and outputs to generate an input list"""
     dataset = []
@@ -122,6 +178,21 @@ def datasetToTensor(dataset, dim=9):
             datapoint.append(drc)
             datain.append(datapoint)
             drc = it[1]
+        Dataset.append(torch.Tensor(datain).reshape(-1, 1, dim))
+    
+    return Dataset
+
+def originalDatasetToTensor(dataset, dim=9):
+    """Turning the input to tensor to construct dataset"""
+    Dataset = []
+    for element in dataset:
+        datain = []
+        for i, it in enumerate(element):
+            coef = it[0]
+            drc = it[1]
+            datapoint = list(coef.values())
+            datapoint.append(drc)
+            datain.append(datapoint)
         Dataset.append(torch.Tensor(datain).reshape(-1, 1, dim))
     
     return Dataset
