@@ -1,6 +1,56 @@
 import os
 import torch
 import random
+import pandas as pd
+
+def parseRawData(strategy: str, output: str, csvfile: str, default: bool=True, createCSV: bool=False) -> pd.core.frame.DataFrame:
+    """Extract strategy and DRC values, save them into a csv file"""
+    if createCSV:
+        dataset = []
+        coeff = []
+        # parse strategy
+        with open(strategy, 'r') as f:
+            data = f.readlines()
+        if default:
+            # default strategy, only 1
+            coeff = data[0].split('@')[:-1]
+            coeff = [[float(value) if i < 7 
+                      else value for i, value in enumerate(x.split(',')[:-1])] 
+                     for x in coeff]
+        else:
+            # artificially generated strategies, multiple
+            pass
+        # parse DRC values and form dataset
+        with open(output, 'r') as f:
+            data = f.readlines()
+        for i, value in enumerate(data):
+            # for each design, combine them with strategy settings
+            drc = [int(x) for x in value.split(',')[:-1]]
+            drclen = len(drc)
+            # print(f"drc: {drc}\ndrclen: {drclen}")
+            if default:
+                for j, seq in enumerate(coeff):
+                    # for each DRC sequence, combine them with drc values
+                    design = [i]
+                    for x in seq:
+                        design.append(x)
+                    if j < drclen:
+                        design.append(drc[j])
+                    else:
+                        design.append(0)
+                    dataset.append(design)
+            else:
+                pass
+        # save data to csv
+        columns = ['design', 'size', 'offset', 'mazeEndIter', 
+                   'DRCCost', 'MarkerCost', 'FixedShapeCost', 
+                   'Decay', 'ripupMode', 'followGuide', 'DRC']
+        df = pd.DataFrame(dataset, columns=columns)
+        df.to_csv(csvfile, index=False)
+    else:
+        df = pd.read_csv(csvfile)
+        
+    return df
 
 def getDefaultData(defaultStrategy, defaultOutput) -> list:
     """Wrap up default strategies and outputs to generate an input list"""
