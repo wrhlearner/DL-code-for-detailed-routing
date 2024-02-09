@@ -1,0 +1,146 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/sky130hd/aes/base/route.guide -congestion_report_file ./reports/sky130hd/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
+[INFO GRT-0019] Found 90 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 97
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 13805
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal     181545        102811          43.37%
+met2       Vertical       136135        106450          21.81%
+met3       Horizontal      90725         69952          22.90%
+met4       Vertical        54625         31772          41.84%
+met5       Horizontal      18145          8934          50.76%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 61089
+[INFO GRT-0198] Via related Steiner nodes: 2120
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 69769
+[INFO GRT-0112] Final usage 3D: 280315
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1            102811         29516           28.71%             0 /  0 /  0
+met2            106450         30717           28.86%             0 /  0 /  0
+met3             69952          7254           10.37%             0 /  0 /  0
+met4             31772          3424           10.78%             0 /  0 /  0
+met5              8934            97            1.09%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           319919         71008           22.20%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 739114 um
+[INFO GRT-0014] Routed nets: 12273
+
+==========================================================================
+global route pre repair design report_design_area
+--------------------------------------------------------------------------
+Design area 116158 u^2 27% utilization.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 2141um.
+[INFO RSZ-0034] Found 17 slew violations.
+[INFO RSZ-0036] Found 20 capacitance violations.
+[INFO RSZ-0038] Inserted 20 buffers in 20 nets.
+[INFO RSZ-0039] Resized 1010 instances.
+
+==========================================================================
+global route post repair design report_design_area
+--------------------------------------------------------------------------
+Design area 119815 u^2 28% utilization.
+Placement Analysis
+---------------------------------
+total displacement       2939.9 u
+average displacement        0.2 u
+max displacement           12.7 u
+original HPWL          392003.4 u
+legalized HPWL         394254.1 u
+delta HPWL                    1 %
+
+Repair setup and hold violations...
+[INFO RSZ-0033] No hold violations found.
+
+==========================================================================
+global route post repair timing report_design_area
+--------------------------------------------------------------------------
+Design area 119815 u^2 28% utilization.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          394254.1 u
+legalized HPWL         394254.1 u
+delta HPWL                    0 %
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[INFO GRT-0012] Found 155 antenna violations.
+[INFO GRT-0015] Inserted 159 diodes.
+[INFO GRT-0012] Found 6 antenna violations.
+[INFO GRT-0015] Inserted 6 diodes.
+[INFO GRT-0012] Found 4 antenna violations.
+[INFO GRT-0015] Inserted 6 diodes.
+[INFO GRT-0012] Found 2 antenna violations.
+[INFO GRT-0015] Inserted 2 diodes.
+[INFO GRT-0012] Found 2 antenna violations.
+[INFO GRT-0015] Inserted 2 diodes.
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+Net: _00187_
+  Pin: _24865_/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met3
+      Partial area ratio:  441.90
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+  Pin: _24865_/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met3
+      Partial area ratio:  441.90
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: _00215_
+  Pin: _24845_/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met4
+      Partial area ratio:  967.62
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+  Pin: _24845_/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met4
+      Partial area ratio:  967.62
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+[INFO ANT-0002] Found 2 net violations.
+[INFO ANT-0001] Found 4 pin violations.
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 120253 u^2 28% utilization.
+[INFO FLW-0007] clock clk period 5.600000
+[INFO FLW-0008] Clock clk period 5.018
+[INFO FLW-0009] Clock clk slack 0.318
+[INFO FLW-0011] Path endpoint count 1102
+Elapsed time: 0:20.28[h:]min:sec. CPU time: user 18.03 sys 2.24 (99%). Peak memory: 713260KB.

@@ -1,0 +1,50 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/sky130hd/coyote_tc/base/route.guide -congestion_report_file ./reports/sky130hd/coyote_tc/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
+[INFO GRT-0019] Found 5792 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 173
+[WARNING GRT-0038] Found blockage outside die area in instance u_TCK.u_in.
+[WARNING GRT-0038] Found blockage outside die area in instance u_TDI.u_in.
+[WARNING GRT-0038] Found blockage outside die area in instance u_TDO.u_io.
+[WARNING GRT-0038] Found blockage outside die area in instance u_TMS.u_in.
+[WARNING GRT-0038] Found blockage outside die area in instance u_TRST.u_in.
+[WARNING GRT-0038] Found blockage outside die area in instance u_en_i.u_in.
+[INFO GRT-0003] Macros: 15
+[INFO GRT-0004] Blockages: 19739720
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal   10061800       4855171          51.75%
+met2       Vertical      7538478       4589658          39.12%
+met3       Horizontal    5030900       2919062          41.98%
+met4       Vertical      3016992       1612820          46.54%
+met5       Horizontal    1006180        427911          57.47%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0103] Extra Run for hard benchmark.
+[INFO GRT-0197] Via related to pin nodes: 1587440
+[INFO GRT-0198] Via related Steiner nodes: 73104
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 2159322
+[INFO GRT-0112] Final usage 3D: 10325162
+[ERROR GRT-0119] Routing congestion too high. Check the congestion heatmap in the GUI and load ./reports/sky130hd/coyote_tc/base/congestion.rpt in the DRC viewer.
+Error: global_route.tcl, 39 GRT-0119
+Command exited with non-zero status 1
+Elapsed time: 58:29.79[h:]min:sec. CPU time: user 3507.73 sys 1.51 (99%). Peak memory: 3002516KB.

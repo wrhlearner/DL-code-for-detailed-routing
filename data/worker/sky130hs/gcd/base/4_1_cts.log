@@ -1,0 +1,86 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hs__clkbuf_8.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hs__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hs__clkbuf_8
+                    sky130_fd_sc_hs__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hs__clkbuf_16.
+[INFO CTS-0039] Number of created patterns = 11620.
+[INFO CTS-0084] Compiling LUT.
+Min. len    Max. len    Min. cap    Max. cap    Min. slew   Max. slew
+2           8           1           31          1           11          
+[WARNING CTS-0043] 960 wires are pure wire and no slew degradation.
+TritonCTS forced slew degradation on these wires.
+[INFO CTS-0046]     Number of wire segments: 10468.
+[INFO CTS-0047]     Number of keys in characterization LUT: 303.
+[INFO CTS-0048]     Actual min input cap: 1.
+[INFO CTS-0007] Net "clk" found for clock "core_clock".
+[INFO CTS-0010]  Clock net "clk" has 35 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 35.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 16650  dbu (16 um).
+[INFO CTS-0023]  Original sink region: [(3675, 8450), (83355, 84790)].
+[INFO CTS-0024]  Normalized sink region: [(0.220721, 0.507508), (5.00631, 5.09249)].
+[INFO CTS-0025]     Width:  4.7856.
+[INFO CTS-0026]     Height: 4.5850.
+[WARNING CTS-0045] Creating fake entries in the LUT.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 18
+    Sub-region size: 2.3928 X 4.5850
+[INFO CTS-0034]     Segment length (rounded): 1.
+    Key: 10566 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 1 delay: 1
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 9
+    Sub-region size: 2.3928 X 2.2925
+[INFO CTS-0034]     Segment length (rounded): 1.
+    Key: 10566 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 1 delay: 1
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 35.
+[INFO CTS-0018]     Created 5 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 5 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 7:1, 8:1, 9:1, 11:1..
+[INFO CTS-0017]     Max level of the clock tree: 2.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 35
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 130.39 um
+[INFO CTS-0102]  Path depth 2 - 2
+
+==========================================================================
+cts pre-repair report_design_area
+--------------------------------------------------------------------------
+Design area 3620 u^2 46% utilization.
+[INFO RSZ-0058] Using max wire length 2083um.
+
+==========================================================================
+cts post-repair report_design_area
+--------------------------------------------------------------------------
+Design area 3620 u^2 46% utilization.
+Placement Analysis
+---------------------------------
+total displacement         25.3 u
+average displacement        0.1 u
+max displacement            5.2 u
+original HPWL            4859.1 u
+legalized HPWL           5059.6 u
+delta HPWL                    4 %
+
+Repair setup and hold violations...
+TNS end percent 100
+[INFO RSZ-0033] No hold violations found.
+Error: cts.tcl, 111 couldn't execute "eqy": no such file or directory
+Command exited with non-zero status 1
+Elapsed time: 0:02.03[h:]min:sec. CPU time: user 1.96 sys 0.07 (99%). Peak memory: 148864KB.

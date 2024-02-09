@@ -1,0 +1,130 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/nangate45/aes/base/route.guide -congestion_report_file ./reports/nangate45/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 106 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 93
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       155663         69882          55.11%
+metal3     Horizontal     211205         97374          53.90%
+metal4     Vertical        99134         67921          31.49%
+metal5     Horizontal      98641         69849          29.19%
+metal6     Vertical        99134         70210          29.18%
+metal7     Horizontal      28200         12724          54.88%
+metal8     Vertical        28443         14160          50.22%
+metal9     Horizontal      14041         13923          0.84%
+metal10    Vertical        14162         13924          1.68%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 96018
+[INFO GRT-0198] Via related Steiner nodes: 5057
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 115127
+[INFO GRT-0112] Final usage 3D: 463285
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           69882         29927           42.83%             0 /  0 /  0
+metal3           97374         39287           40.35%             0 /  0 /  0
+metal4           67921         19111           28.14%             0 /  0 /  0
+metal5           69849         15586           22.31%             0 /  0 /  0
+metal6           70210         10180           14.50%             0 /  0 /  0
+metal7           12724          1920           15.09%             0 /  0 /  0
+metal8           14160           303            2.14%             0 /  0 /  0
+metal9           13923          1589           11.41%             0 /  0 /  0
+metal10          13924             1            0.01%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           429967        117904           27.42%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 361664 um
+[INFO GRT-0014] Routed nets: 15477
+
+==========================================================================
+global route pre repair design report_design_area
+--------------------------------------------------------------------------
+Design area 24134 u^2 46% utilization.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 661um.
+[INFO RSZ-0036] Found 2 capacitance violations.
+[INFO RSZ-0038] Inserted 1 buffers in 2 nets.
+[INFO RSZ-0039] Resized 1135 instances.
+
+==========================================================================
+global route post repair design report_design_area
+--------------------------------------------------------------------------
+Design area 23961 u^2 45% utilization.
+Placement Analysis
+---------------------------------
+total displacement       1112.5 u
+average displacement        0.1 u
+max displacement            5.5 u
+original HPWL          203092.9 u
+legalized HPWL         203960.3 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+[INFO RSZ-0094] Found 146 endpoints with setup violations.
+[INFO RSZ-0040] Inserted 14 buffers.
+[INFO RSZ-0041] Resized 31 instances.
+[INFO RSZ-0043] Swapped pins on 5 instances.
+[INFO RSZ-0049] Cloned 1 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+
+==========================================================================
+global route post repair timing report_design_area
+--------------------------------------------------------------------------
+Design area 24011 u^2 45% utilization.
+Placement Analysis
+---------------------------------
+total displacement         86.5 u
+average displacement        0.0 u
+max displacement            3.8 u
+original HPWL          204060.5 u
+legalized HPWL         204117.0 u
+delta HPWL                    0 %
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 24011 u^2 45% utilization.
+[INFO FLW-0007] clock clk period 0.820000
+[INFO FLW-0008] Clock clk period 0.895
+[INFO FLW-0009] Clock clk slack -0.122
+[INFO FLW-0011] Path endpoint count 1406
+Elapsed time: 0:20.17[h:]min:sec. CPU time: user 17.13 sys 3.04 (99%). Peak memory: 412536KB.

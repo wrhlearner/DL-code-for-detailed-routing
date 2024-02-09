@@ -1,0 +1,99 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+clock_tree_synthesis -sink_clustering_enable -balance_levels -distance_between_buffers 60
+[INFO CTS-0050] Root buffer is BUFx4_ASAP7_75t_R.
+[INFO CTS-0051] Sink buffer is BUFx8_ASAP7_75t_R.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFx4_ASAP7_75t_R
+                    BUFx10_ASAP7_75t_R
+[INFO CTS-0049] Characterization buffer is BUFx10_ASAP7_75t_R.
+[INFO CTS-0039] Number of created patterns = 11620.
+[INFO CTS-0084] Compiling LUT.
+Min. len    Max. len    Min. cap    Max. cap    Min. slew   Max. slew
+2           8           1           20          1           7           
+[WARNING CTS-0043] 1120 wires are pure wire and no slew degradation.
+TritonCTS forced slew degradation on these wires.
+[INFO CTS-0046]     Number of wire segments: 11214.
+[INFO CTS-0047]     Number of keys in characterization LUT: 334.
+[INFO CTS-0048]     Actual min input cap: 1.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 79 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 79.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 1350  dbu (1 um).
+[INFO CTS-0021]  Distance between buffers: 22 units (60 um).
+[INFO CTS-0023]  Original sink region: [(1879, 1485), (15670, 13635)].
+[INFO CTS-0024]  Normalized sink region: [(1.39185, 1.1), (11.6074, 10.1)].
+[INFO CTS-0025]     Width:  10.2156.
+[INFO CTS-0026]     Height: 9.0000.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 40
+    Sub-region size: 5.1078 X 9.0000
+[INFO CTS-0034]     Segment length (rounded): 2.
+    Key: 0 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 2 delay: 1
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 20
+    Sub-region size: 5.1078 X 4.5000
+[INFO CTS-0034]     Segment length (rounded): 2.
+    Key: 0 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 2 delay: 1
+[WARNING CTS-0045] Creating fake entries in the LUT.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 2.5539 X 4.5000
+[INFO CTS-0034]     Segment length (rounded): 1.
+    Key: 11361 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 1 delay: 1
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 79.
+[INFO CTS-0018]     Created 9 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 9 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 5:1, 8:1, 9:1, 10:1, 11:2, 12:1, 13:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 79
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 22.87 um
+[INFO CTS-0102]  Path depth 2 - 2
+
+==========================================================================
+cts pre-repair report_design_area
+--------------------------------------------------------------------------
+Design area 80 u^2 36% utilization.
+[INFO RSZ-0058] Using max wire length 192um.
+
+==========================================================================
+cts post-repair report_design_area
+--------------------------------------------------------------------------
+Design area 80 u^2 36% utilization.
+Placement Analysis
+---------------------------------
+total displacement          5.1 u
+average displacement        0.0 u
+max displacement            0.6 u
+original HPWL            1069.9 u
+legalized HPWL           1125.3 u
+delta HPWL                    5 %
+
+Repair setup and hold violations...
+TNS end percent 100
+[INFO RSZ-0094] Found 56 endpoints with setup violations.
+[INFO RSZ-0040] Inserted 44 buffers.
+[INFO RSZ-0041] Resized 27 instances.
+[INFO RSZ-0043] Swapped pins on 13 instances.
+[INFO RSZ-0049] Cloned 5 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Error: cts.tcl, 111 couldn't execute "eqy": no such file or directory
+Command exited with non-zero status 1
+Elapsed time: 0:02.68[h:]min:sec. CPU time: user 2.61 sys 0.06 (99%). Peak memory: 204184KB.

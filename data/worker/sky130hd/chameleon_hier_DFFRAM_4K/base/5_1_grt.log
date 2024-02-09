@@ -1,0 +1,229 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/sky130hd/chameleon_hier_DFFRAM_4K/base/route.guide -congestion_report_file ./reports/sky130hd/chameleon_hier_DFFRAM_4K/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met4
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 0.6150
+[INFO GRT-0019] Found 17463 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 83
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 634783
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal    1972538       1090441          44.72%
+met2       Vertical      1486475       1170232          21.27%
+met3       Horizontal     986130        771090          21.81%
+met4       Vertical       693854        432234          37.71%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 441322
+[INFO GRT-0198] Via related Steiner nodes: 34106
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 551223
+[INFO GRT-0112] Final usage 3D: 2397006
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1           1090441        326354           29.93%             0 /  0 /  0
+met2           1170232        327221           27.96%             0 /  0 /  0
+met3            771090         45741            5.93%             0 /  0 /  0
+met4            432234         44021           10.18%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total          3463997        743337           21.46%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 7186398 um
+[INFO GRT-0014] Routed nets: 62481
+Warning: There are 47 input ports missing set_input_delay.
+Warning: There are 32 output ports missing set_output_delay.
+Warning: There are 36896 unconstrained endpoints.
+
+==========================================================================
+global route pre repair design report_design_area
+--------------------------------------------------------------------------
+Design area 2170867 u^2 46% utilization.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 2141um.
+[INFO RSZ-0034] Found 2 slew violations.
+[INFO RSZ-0036] Found 2 capacitance violations.
+[INFO RSZ-0038] Inserted 2 buffers in 2 nets.
+[INFO RSZ-0039] Resized 2684 instances.
+Warning: There are 47 input ports missing set_input_delay.
+Warning: There are 32 output ports missing set_output_delay.
+Warning: There are 36896 unconstrained endpoints.
+
+==========================================================================
+global route post repair design report_design_area
+--------------------------------------------------------------------------
+Design area 2160223 u^2 46% utilization.
+Placement Analysis
+---------------------------------
+total displacement      26319.5 u
+average displacement        0.2 u
+max displacement           69.8 u
+original HPWL         3375530.5 u
+legalized HPWL        3403258.8 u
+delta HPWL                    1 %
+
+Repair setup and hold violations...
+[INFO RSZ-0033] No hold violations found.
+Warning: There are 47 input ports missing set_input_delay.
+Warning: There are 32 output ports missing set_output_delay.
+Warning: There are 36896 unconstrained endpoints.
+
+==========================================================================
+global route post repair timing report_design_area
+--------------------------------------------------------------------------
+Design area 2160223 u^2 46% utilization.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL         3403258.8 u
+legalized HPWL        3403258.8 u
+delta HPWL                    0 %
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[0\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[10\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[12\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[13\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[16\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[18\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[20\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[22\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[23\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[24\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[31\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[7\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[8\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[1\].RAMCOLS.B_0_2.Do\[17\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[1\].RAMCOLS.B_0_2.Do\[21\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[1\].RAMCOLS.B_0_2.Do\[25\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[1\].RAMCOLS.B_0_2.Do\[31\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net62 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net61 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net60 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net55 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net53 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net52 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net51 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net49 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[0\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[16\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[21\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[22\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[26\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[4\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.B_0_0.Do\[5\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net79 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net net78 requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[10\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[24\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[25\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[26\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[28\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[5\] requires more than 10 diodes per gate to repair violations.
+[WARNING ANT-0009] Net COLUMN\[3\].RAMCOLS.Do\[9\] requires more than 10 diodes per gate to repair violations.
+[INFO GRT-0012] Found 311 antenna violations.
+[INFO GRT-0015] Inserted 1071 diodes.
+[INFO GRT-0012] Found 91 antenna violations.
+[INFO GRT-0015] Inserted 307 diodes.
+[INFO GRT-0054] Using detailed placer to place 20 diodes.
+[WARNING ANT-0009] Net COLUMN\[0\].RAMCOLS.B_0_3.Do\[4\] requires more than 10 diodes per gate to repair violations.
+[INFO GRT-0012] Found 26 antenna violations.
+[INFO GRT-0015] Inserted 86 diodes.
+[INFO GRT-0054] Using detailed placer to place 12 diodes.
+[INFO GRT-0012] Found 8 antenna violations.
+[INFO GRT-0015] Inserted 28 diodes.
+[INFO GRT-0012] Found 8 antenna violations.
+[INFO GRT-0015] Inserted 11 diodes.
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+Net: net853
+  Pin: COLUMN\[2\].RAMCOLS.B_0_1.WORD\[15\].W.B0.BIT\[1\].FF/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met2
+      Partial area ratio:  465.11
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: COLUMN\[0\].RAMCOLS.B_0_1.DEC.DEC_L1\[2\].U.EN
+  Pin: COLUMN\[0\].RAMCOLS.B_0_1.DEC.DEC_L1\[2\].U.AND0/D_N (sky130_fd_sc_hd__nor4b_4)
+    Layer: met3
+      Partial area ratio:  405.33
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: net611
+  Pin: COLUMN\[3\].RAMCOLS.B_0_0.WORD\[15\].W.B3.BIT\[4\].FF/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met1
+      Partial area ratio:  437.00
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: net615
+  Pin: COLUMN\[2\].RAMCOLS.B_0_1.WORD\[45\].W.B3.BIT\[4\].FF/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met3
+      Partial area ratio: 1059.05
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: net590
+  Pin: COLUMN\[2\].RAMCOLS.B_0_2.WORD\[41\].W.B3.BIT\[5\].FF/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met1
+      Partial area ratio:  457.11
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: net252
+  Pin: COLUMN\[2\].RAMCOLS.B_0_1.DEC.DEC_L0.AND2/A_N (sky130_fd_sc_hd__and4bb_4)
+    Layer: met4
+      Partial area ratio:  927.62
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+  Pin: COLUMN\[2\].RAMCOLS.B_0_1.DEC.DEC_L0.AND2/A_N (sky130_fd_sc_hd__and4bb_4)
+    Layer: met4
+      Partial area ratio:  927.62
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+Net: net415
+  Pin: COLUMN\[0\].RAMCOLS.B_0_1.WORD\[46\].W.B0.BIT\[7\].FF/D (sky130_fd_sc_hd__dfxtp_1)
+    Layer: met4
+      Partial area ratio:  708.57
+      Required ratio:  400.00 (Side area) (VIOLATED)
+
+
+[INFO ANT-0002] Found 7 net violations.
+[INFO ANT-0001] Found 8 pin violations.
+Warning: There are 47 input ports missing set_input_delay.
+Warning: There are 32 output ports missing set_output_delay.
+Warning: There are 36896 unconstrained endpoints.
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 2163984 u^2 46% utilization.
+[INFO FLW-0007] clock CLK period 8.000000
+[INFO FLW-0008] Clock CLK period 4.921
+[INFO FLW-0009] Clock CLK slack 2.821
+[INFO FLW-0011] Path endpoint count 38911
+Elapsed time: 2:08.53[h:]min:sec. CPU time: user 127.53 sys 0.99 (99%). Peak memory: 3739608KB.

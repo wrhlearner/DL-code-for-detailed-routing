@@ -1,0 +1,157 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+clock_tree_synthesis -sink_clustering_enable -balance_levels
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hs__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hs__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hs__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hs__clkbuf_16.
+[INFO CTS-0039] Number of created patterns = 4200.
+[INFO CTS-0084] Compiling LUT.
+Min. len    Max. len    Min. cap    Max. cap    Min. slew   Max. slew
+2           8           1           31          1           11          
+[WARNING CTS-0043] 480 wires are pure wire and no slew degradation.
+TritonCTS forced slew degradation on these wires.
+[INFO CTS-0046]     Number of wire segments: 3774.
+[INFO CTS-0047]     Number of keys in characterization LUT: 243.
+[INFO CTS-0048]     Actual min input cap: 1.
+[INFO CTS-0007] Net "clk_i" found for clock "core_clock".
+[INFO CTS-0010]  Clock net "clk_i" has 996 sinks.
+[INFO CTS-0010]  Clock net "core_clock_gate_i.clk_o" has 937 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk_i.
+[INFO CTS-0028]  Total number of sinks: 996.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 16650  dbu (16 um).
+[INFO CTS-0206] Best clustering solution was found from clustering size of 30 and clustering diameter of 50.
+[INFO CTS-0019]  Total number of sinks after clustering: 84.
+[INFO CTS-0024]  Normalized sink region: [(0.556652, 4.94999), (17.1145, 32.3167)].
+[INFO CTS-0025]     Width:  16.5578.
+[INFO CTS-0026]     Height: 27.3667.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 42
+    Sub-region size: 16.5578 X 13.6833
+[INFO CTS-0034]     Segment length (rounded): 6.
+    Key: 40 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 6 delay: 1
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 21
+    Sub-region size: 8.2789 X 13.6833
+[INFO CTS-0034]     Segment length (rounded): 4.
+    Key: 13 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 4 delay: 1
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 11
+    Sub-region size: 8.2789 X 6.8417
+[INFO CTS-0034]     Segment length (rounded): 4.
+    Key: 36 inSlew: 3 inCap: 1 outSlew: 3 load: 1 length: 4 delay: 1
+ Out of 21 sinks, 1 sinks closer to other cluster.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 84.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net core_clock_gate_i.clk_o.
+[INFO CTS-0028]  Total number of sinks: 937.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 16650  dbu (16 um).
+[INFO CTS-0206] Best clustering solution was found from clustering size of 20 and clustering diameter of 50.
+[INFO CTS-0019]  Total number of sinks after clustering: 88.
+[INFO CTS-0024]  Normalized sink region: [(14.2507, 1.15386), (38.0095, 38.2334)].
+[INFO CTS-0025]     Width:  23.7588.
+[INFO CTS-0026]     Height: 37.0796.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 44
+    Sub-region size: 23.7588 X 18.5398
+[INFO CTS-0034]     Segment length (rounded): 10.
+    Key: 95 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 8 delay: 1
+    Key: 0 inSlew: 1 inCap: 1 outSlew: 2 load: 1 length: 2 delay: 1
+ Out of 88 sinks, 4 sinks closer to other cluster.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 22
+    Sub-region size: 11.8794 X 18.5398
+[INFO CTS-0034]     Segment length (rounded): 6.
+    Key: 91 inSlew: 3 inCap: 1 outSlew: 3 load: 1 length: 6 delay: 1
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 11
+    Sub-region size: 11.8794 X 9.2699
+[INFO CTS-0034]     Segment length (rounded): 4.
+    Key: 16 inSlew: 3 inCap: 1 outSlew: 1 load: 1 length: 4 delay: 7
+      location: 0.5 buffer: sky130_fd_sc_hs__clkbuf_16
+ Out of 26 sinks, 1 sinks closer to other cluster.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 88.
+[INFO CTS-0093] Fixing tree levels for max depth 7
+Fixing from level 3 (parent=0 + current=3) to max 7 for driver clk_i
+[INFO CTS-0018]     Created 429 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 7.
+[INFO CTS-0015]     Created 429 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:1, 8:2, 9:3, 10:11, 11:21, 12:30, 13:15, 14:10..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0018]     Created 97 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 3.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 97 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 6:5, 7:2, 8:6, 9:7, 10:16, 11:28, 12:17, 13:13, 14:1, 15:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk_i"
+[INFO CTS-0099]  Sinks 996
+[INFO CTS-0100]  Leaf buffers 84
+[INFO CTS-0101]  Average sink wire length 651.07 um
+[INFO CTS-0102]  Path depth 3 - 7
+[INFO CTS-0098] Clock net "core_clock_gate_i.clk_o"
+[INFO CTS-0099]  Sinks 937
+[INFO CTS-0100]  Leaf buffers 88
+[INFO CTS-0101]  Average sink wire length 731.32 um
+[INFO CTS-0102]  Path depth 3 - 3
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+cts pre-repair report_design_area
+--------------------------------------------------------------------------
+Design area 249785 u^2 59% utilization.
+[INFO RSZ-0058] Using max wire length 2083um.
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+cts post-repair report_design_area
+--------------------------------------------------------------------------
+Design area 249785 u^2 59% utilization.
+Placement Analysis
+---------------------------------
+total displacement       9591.6 u
+average displacement        0.5 u
+max displacement           27.8 u
+original HPWL          549095.9 u
+legalized HPWL         569058.3 u
+delta HPWL                    4 %
+
+Repair setup and hold violations...
+TNS end percent 100
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          569058.3 u
+legalized HPWL         569058.3 u
+delta HPWL                    0 %
+
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 249785 u^2 59% utilization.
+Elapsed time: 0:30.97[h:]min:sec. CPU time: user 30.93 sys 0.04 (99%). Peak memory: 223764KB.

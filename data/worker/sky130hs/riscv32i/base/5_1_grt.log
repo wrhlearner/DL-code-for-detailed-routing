@@ -1,0 +1,127 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/sky130hs/riscv32i/base/route.guide -congestion_report_file ./reports/sky130hs/riscv32i/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4800  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3700  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4800  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.7400  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9600  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.3300  line-2-Via Pitch: 3.1100
+[INFO GRT-0019] Found 108 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 122
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 592
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal      69540         42221          39.29%
+met2       Vertical        54840         42807          21.94%
+met3       Horizontal      33000         24687          25.19%
+met4       Vertical        22080         13983          36.67%
+met5       Horizontal       7320          3601          50.81%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 30686
+[INFO GRT-0198] Via related Steiner nodes: 1443
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 35944
+[INFO GRT-0112] Final usage 3D: 150489
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1             42221         19421           46.00%             0 /  0 /  0
+met2             42807         20705           48.37%             0 /  0 /  0
+met3             24687          1119            4.53%             0 /  0 /  0
+met4             13983          1412           10.10%             0 /  0 /  0
+met5              3601             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           127299         42657           33.51%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 447062 um
+[INFO GRT-0014] Routed nets: 6500
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+global route pre repair design report_design_area
+--------------------------------------------------------------------------
+Design area 106180 u^2 56% utilization.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 2083um.
+[INFO RSZ-0034] Found 21 slew violations.
+[INFO RSZ-0036] Found 21 capacitance violations.
+[INFO RSZ-0038] Inserted 24 buffers in 22 nets.
+[INFO RSZ-0039] Resized 747 instances.
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+global route post repair design report_design_area
+--------------------------------------------------------------------------
+Design area 112871 u^2 60% utilization.
+Placement Analysis
+---------------------------------
+total displacement      11919.6 u
+average displacement        1.4 u
+max displacement           90.7 u
+original HPWL          232800.4 u
+legalized HPWL         246026.8 u
+delta HPWL                    6 %
+
+Repair setup and hold violations...
+[INFO RSZ-0033] No hold violations found.
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+global route post repair timing report_design_area
+--------------------------------------------------------------------------
+Design area 112871 u^2 60% utilization.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          246026.8 u
+legalized HPWL         246026.8 u
+delta HPWL                    0 %
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[INFO GRT-0012] Found 17 antenna violations.
+[INFO GRT-0015] Inserted 21 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0015] Inserted 1 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0015] Inserted 1 diodes.
+[INFO GRT-0012] Found 0 antenna violations.
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Warning: There are 65 input ports missing set_input_delay.
+Warning: There are 3 unconstrained endpoints.
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 112945 u^2 60% utilization.
+[INFO FLW-0007] clock clk period 7.600000
+[INFO FLW-0008] Clock clk period 6.704
+[INFO FLW-0009] Clock clk slack 0.543
+[INFO FLW-0011] Path endpoint count 1242
+Elapsed time: 0:20.94[h:]min:sec. CPU time: user 18.56 sys 2.38 (99%). Peak memory: 431584KB.

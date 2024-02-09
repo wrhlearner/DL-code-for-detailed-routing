@@ -1,0 +1,123 @@
+OpenROAD v2.0-11432-gead3236e5 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+global_route -guide_file ./results/asap7/ibex/base/route.guide -congestion_report_file ./reports/asap7/ibex/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.0390  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.0640
+[INFO GRT-0019] Found 280 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 95
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 10770
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal     279300        100523          64.01%
+M3         Vertical       324576        148566          54.23%
+M4         Horizontal     237993        107296          54.92%
+M5         Vertical       237993        101258          57.45%
+M6         Horizontal     173166         76894          55.60%
+M7         Vertical       173166         85994          50.34%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 102609
+[INFO GRT-0198] Via related Steiner nodes: 6738
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 125732
+[INFO GRT-0112] Final usage 3D: 555318
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+M1                   0             0            0.00%             0 /  0 /  0
+M2              100523         47179           46.93%             0 /  0 /  0
+M3              148566         68973           46.43%             0 /  0 /  0
+M4              107296         35056           32.67%             0 /  0 /  0
+M5              101258         19544           19.30%             0 /  0 /  0
+M6               76894          4964            6.46%             0 /  0 /  0
+M7               85994          2406            2.80%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           620531        178122           28.70%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 131808 um
+[INFO GRT-0014] Routed nets: 20018
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+global route pre repair design report_design_area
+--------------------------------------------------------------------------
+Design area 2528 u^2 44% utilization.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0036] Found 3 capacitance violations.
+[INFO RSZ-0038] Inserted 3 buffers in 3 nets.
+[INFO RSZ-0039] Resized 97 instances.
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+global route post repair design report_design_area
+--------------------------------------------------------------------------
+Design area 2531 u^2 45% utilization.
+Placement Analysis
+---------------------------------
+total displacement         20.3 u
+average displacement        0.0 u
+max displacement            1.0 u
+original HPWL           71930.0 u
+legalized HPWL          71946.2 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+[INFO RSZ-0094] Found 71 endpoints with setup violations.
+[INFO RSZ-0040] Inserted 3 buffers.
+[INFO RSZ-0049] Cloned 1 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+global route post repair timing report_design_area
+--------------------------------------------------------------------------
+Design area 2531 u^2 45% utilization.
+Placement Analysis
+---------------------------------
+total displacement          2.1 u
+average displacement        0.0 u
+max displacement            0.4 u
+original HPWL           71965.0 u
+legalized HPWL          71968.1 u
+delta HPWL                    0 %
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Warning: There are 6 unconstrained endpoints.
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 2531 u^2 45% utilization.
+[INFO FLW-0007] clock core_clock period 1760.000000
+[INFO FLW-0008] Clock core_clock period 1680.102
+[INFO FLW-0009] Clock core_clock slack -8.528
+[INFO FLW-0011] Path endpoint count 3741
+Elapsed time: 1:05.42[h:]min:sec. CPU time: user 65.08 sys 0.34 (99%). Peak memory: 547784KB.
