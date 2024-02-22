@@ -125,7 +125,7 @@ class DREnv(gym.Env):
         self._prev_drc = -1
         self._curr_drc = self.np_random.integers(1, self.size, size=1, dtype=int)
         self._index = -1    # before running any detailed routing DRC sequence setting
-        self._reward = 65   # reward starting value
+        self._reward = -1   # reward starting value
         observation = self._get_obs()
         info = self._get_info()
     
@@ -137,6 +137,7 @@ class DREnv(gym.Env):
     def step(self, action):
         # Map the action (element of {0,1,2,3}) to the setting we use
         setting = self._action_to_setting[action]
+        reward = self._reward
         
         # update DRC values
         # for a fake-runtime, generate a random number which is smaller or equal to previous DRC
@@ -146,7 +147,9 @@ class DREnv(gym.Env):
         # update index
         self._index += 1
         if self._index == 64 and self._curr_drc != 0:
+            # punish truncated case
             truncated = True
+            reward = -255    # -255 is a large value without detailed thought
         else:
             truncated = False
 
@@ -155,10 +158,8 @@ class DREnv(gym.Env):
             terminated = False
         else:
             terminated = True
-
-        # udpate reward: encourage finishing detailed routing using less iterations
-        if not terminated:
-            self._reward = self._reward - 1
+            # udpate reward: encourage finishing detailed routing using less iterations
+            reward = 0
 
         # update observation and info
         observation = self._get_obs()
@@ -167,7 +168,7 @@ class DREnv(gym.Env):
         # if self.render_mode == "human":
         #     self._render_frame()
     
-        return observation, self._reward, terminated, truncated, info
+        return observation, reward, terminated, truncated, info
 
     # def render(self):
     #     if self.render_mode == "rgb_array":
