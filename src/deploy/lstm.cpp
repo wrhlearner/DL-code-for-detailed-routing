@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <memory>
+#include "env.h"
 
 int main(int argc, const char* argv[]) {
   if (argc != 2) {
-    std::cerr << "usage: LSTM ../model/LSTM_hidden10_layer10_window2.pt\n";
+    std::cerr << "usage: dqn ../model/DQN_FC.pt\n";
     std::cout << "argc: " << argc << std::endl;
     return -1;
   }
