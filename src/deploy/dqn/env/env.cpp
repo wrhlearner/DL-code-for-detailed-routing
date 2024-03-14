@@ -1,32 +1,31 @@
 #include<iostream>
 #include "env.h"
 
-// public functions
-Env::Env(double (*action)[ITEMNUM], int window_size, bool render_mode, double drcmax, int input_size){
-
-}
-
-void Env::reset(int seed){
-
-}
-
-void Env::step(double (*action)[ITEMNUM]){
-
-}
-
 // private functions
-void Env::preprocessing(){
 
-}
 
-double* Env::action_to_setting(double (*action)[ITEMNUM]){
+// public functions
+Env::Env(int windowSize, int inputSize, double drcmax){
 
-}
+};
 
-double* Env::get_obs(double (*action)[ITEMNUM]){
+Env::~Env(){
 
-}
+};
 
-std::string* Env::get_info(){
+void Env::reset(std::map<std::string, int>& info, double* observation[]){
 
-}
+};
+
+void Env::step(int action, double* observation[], double* reward, bool* terminated, bool* truncated, std::map<std::string, int>& info){
+
+};
+
+int Env::selectAction(double* observation[]){
+
+};
+
+void Env::getAction(){
+    // print action space within environment
+
+};

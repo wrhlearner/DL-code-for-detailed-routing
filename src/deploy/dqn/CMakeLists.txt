@@ -13,7 +13,7 @@ add_subdirectory(env)
 find_package(Torch REQUIRED)
 
 # TODO 2: add executable using the specified source file
-add_executable(DQN main.cpp)
+add_executable(DQN dqn.cpp)
 
 # link the library to executable
 target_link_libraries(DQN env)

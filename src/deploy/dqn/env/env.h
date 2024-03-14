@@ -1,29 +1,35 @@
-#include<iostream>
-#include <torch/script.h>
+#include <iostream>
+#include <map>
+#include <string>
 
 #define ITEMNUM 9
-
+#define ROWNUM  65
+#define WINDOW  2
 // environment implementaion
 class Env{
-public:
-    Env(double (*action)[ITEMNUM], int window_size, bool render_mode, double drcmax, int input_size);
-    void reset(int seed);
-    void step(double (*action)[ITEMNUM]);
-
 private:
     double size;
     double maxdrc;
-    int window_size;
-    int input_size;
+    int windowSize;
+    int inputSize;
     int index;
-    double (*actions)[ITEMNUM];
-    double (*observations)[ITEMNUM];
-
+    
     void preprocessing();
-    double* action_to_setting(double (*action)[ITEMNUM]);
-    double* get_obs(double (*action)[ITEMNUM]);
-    std::string* get_info();
-}
+    void action_to_setting(double* action[]);
+    void get_obs(double* action[]);
+    void get_info(std::string* info);
 
-// select action
-int select_action(double (*observation), )
+public:
+    double reward;
+    bool terminated;
+    bool truncated;
+    double* actions[ROWNUM];
+    double* obs[WINDOW];
+
+    Env(int windowSize, int inputSize, double drcmax);
+    ~Env();
+    void reset(std::map<std::string, int>& info, double* observation[]);
+    void step(int action, double* observation[], double* reward, bool* terminated, bool* truncated, std::map<std::string, int>& info);
+    int selectAction(double* observation[]);
+    void getAction();
+};

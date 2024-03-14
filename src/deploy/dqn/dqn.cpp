@@ -1,23 +1,23 @@
+#include<iostream>
+
+// TODO 3: include dependencies
+#include "test.h"
+
 // pytorch C++ API https://pytorch.org/cppdocs/
 #include <torch/script.h> // One-stop header.
-
-#include <iostream>
-#include <memory>
-
-#include "env.cpp"
 
 // define environment settings
 #define WINDOWSIZE  2
 #define INPUTSIZE   9
 #define DRCMAX      1e6
 
+
 int main(int argc, const char* argv[]) {
   if (argc != 2) {
-    std::cerr << "usage: LSTM ../model/LSTM_hidden10_layer10_window2.pt\n";
+    std::cerr << "usage: DQN <path to model>\n";
     std::cout << "argc: " << argc << std::endl;
     return -1;
   }
-
 
   torch::jit::script::Module module;
   try {
@@ -29,43 +29,8 @@ int main(int argc, const char* argv[]) {
     return -1;
   }
 
-  std::cout << "ok\n";
-  
-//   environment implementation
-//   python version of test code
-// # test loop
-// count = 0
-// # start trial
-// env.reset()
-// action = select_test_action(observation, model)
-// observation, reward, terminated, truncated, info = env.step(action)
-// while not(terminated or truncated):
-//     print(f"iteration {count} action {action} DRC = {int(observation[-1, -1] * 1e6)}\n")
-//     # start next iteration
-//     count += 1
-//     action = select_test_action(observation, model)
-//     observation, reward, terminated, truncated, info = env.step(action)
-    
-// print(f"iteration {count} action {action} DRC = {int(observation[-1, -1] * 1e6)}\n")
-// env.close()
-
-  // instantiate environment object
-  double (*actions)[ITEMNUM] = [];
-  int window_size = WINDOWSIZE;
-  bool render_mode = false;
-  double drcmax = DRCMAX;
-  int input_size = INPUTSIZE;
-
-  Env env(actions, window_size, render_mode, drcmax, input_size);
-  
-  //   start test loop
-  int count = 0;
-
-  int seed = -1;
-  int action;
-
-  env.reset(seed);
-  action = 
+  // load env
+  helloWorld();
 
   // Create a vector of inputs.
   std::vector<torch::jit::IValue> inputs;
