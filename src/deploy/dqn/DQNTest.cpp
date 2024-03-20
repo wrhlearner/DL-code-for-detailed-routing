@@ -35,7 +35,7 @@ int main(int argc, const char* argv[]) {
   // Create a vector of inputs.
   std::vector<torch::jit::IValue> inputs;
   inputs.push_back(torch::ones({3, 9}));
-
++
   // Execute the model and turn its output into a tensor.
   at::Tensor output = module.forward(inputs).toTensor();
   std::cout << output << std::endl;
