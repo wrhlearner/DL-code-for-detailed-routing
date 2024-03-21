@@ -1,25 +1,31 @@
 #pragma once
 
 #include <iostream>
+#include <filesystem>
+#include <fstream>
 #include <string>
 
 #define NUMACT 3
-
-typedef struct Action* action;
 
 struct Action{
     // defined by OpenROAD, no need to change
     int a;
     bool b;
-    char c[5];
+    std::string c;
 };
 
-namespace file{
+typedef struct Action action;
+typedef action* ptrAction;
+class File{
 
-    int count;      // record number of data point for synchronization
+public:
 
-    void initFile(std::string filename, action act[]);
-    void getAction(action act, std::string filename);
+    int envCount;       // C++ environment flag status
+    int agentCount;     // C++ agent flag status
+
+    File();
+    void initFile(std::string filename, ptrAction act[]);
+    void getAction(ptrAction act, std::string filename);
     void updateDumpFile(int drc, std::string filename);
 
 };
