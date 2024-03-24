@@ -1,17 +1,21 @@
 #pragma once
 
 #include <iostream>
+#include <thread>
 #include <filesystem>
 #include <fstream>
+#include <sstream>
 #include <string>
+#include <vector>
 
 #define NUMACT 3
+#define SLEEPTIME 1
 
 struct Action{
     // defined by OpenROAD, no need to change
     int a;
-    bool b;
-    std::string c;
+    float b;
+    float c;
 };
 
 typedef struct Action action;
@@ -24,7 +28,6 @@ public:
     int agentCount;     // C++ agent flag status
 
     File();
-    void initFile(std::string filename, ptrAction act[]);
     void getAction(ptrAction act, std::string filename);
     void updateDumpFile(int drc, std::string filename);
 

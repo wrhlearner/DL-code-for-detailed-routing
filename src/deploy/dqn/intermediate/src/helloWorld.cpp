@@ -12,21 +12,10 @@ int step(ptrAction act){
 int main(int argc, char* argv[]){
     
     // TODO 1: transfer initial data of environment for initialization
-    std::string initFilename = "../data/initFile.txt";
-    std::string dumpFilename = "../data/dumpFile.txt";
-    ptrAction actionSpace[NUMACT];
+    std::string initFilename = "./data/initFile.txt";
+    std::string dumpFilename = "./data/dumpFile.txt";
 
     File fileAPI;
-
-    // initialize action space
-    for(int i = 0; i<NUMACT; i++){
-        actionSpace[i] = new action;
-        actionSpace[i]->a = i;
-        actionSpace[i]->b = true;
-        actionSpace[i]->c = "this is a test!";
-    }
-
-    fileAPI.initFile(initFilename, actionSpace);
 
     // TODO 2: start loop
     int drc = 1;

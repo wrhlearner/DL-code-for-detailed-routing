@@ -176,13 +176,15 @@ You have to finish the following tasks to finish development
 
 The columns of dump file has the following items:
 
-> agentCount, action, envCount, drc, 
+> agentCount action envCount drc 
+>
+> // they are space separated integers
 
 ```tex
-0, 32, 0, 14001
-1, 25, 1, 271
-2, 65, 2, 0
-3, 45, 0, 54213
-4, 12, 
+4 12 
+3 45 0 54213
+2 65 2 0
+1 25 1 271
+0 32 0 14001
 ```
 
