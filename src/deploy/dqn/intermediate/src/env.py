@@ -3,11 +3,14 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
+# environment settings
+DRCMAX = 1e6
+
 class DREnv(gym.Env):
     # draw bar chart and line curve for visuliazation
     # metadata = ("render_modes": [])
 
-    def __init__(self, actions, window_size=2, render_mode=None, drcmax=1e6, input_size=9, actionFile="./data/initFile.txt"):
+    def __init__(self, actions, window_size=2, render_mode=None, drcmax=DRCMAX, input_size=9, actionFile="./data/initFile.txt"):
         self.size = drcmax
         self.maxdrc = None
         self.window_size = window_size
@@ -123,16 +126,12 @@ class DREnv(gym.Env):
         # return selected value
         return list(self.actions.iloc[action, :])
 
-    def _get_obs(self, action):
-        """get DRC value for current iteration"""
+    def _get_obs(self, action, drc):
+        """get DRC value for current iteration
+        Use DRC value from external input
+        """
         if action:
             # update DRC value
-            # randomly generate DRC value for current iteration
-            if int(self._curr_drc * self.maxdrc) == 0:
-                drc = 0
-            else:
-                drc = np.array(self.np_random.integers(0, int(self._curr_drc * self.maxdrc), size=1, dtype=int) / self.maxdrc)
-            # print(f"self._curr_drc {self._curr_drc}, self.maxdrc {self.maxdrc}")
             self._curr_drc = drc
             # generate observation for current iteration
             setting = self._action_to_setting(action)
@@ -154,7 +153,7 @@ class DREnv(gym.Env):
         super().reset(seed=seed)
 
         self._preprocessing()
-        observation = self._get_obs(None)
+        observation = self._get_obs(None, DRCMAX)
         info = self._get_info()
     
         # if self.render_mode == "human":
@@ -162,7 +161,7 @@ class DREnv(gym.Env):
     
         return observation, info
 
-    def step(self, action):
+    def step(self, action, drc):
         # Map the action (element of {0,1,2,3}) to the setting we use
         reward = self._reward
         
@@ -170,7 +169,7 @@ class DREnv(gym.Env):
         self._index += 1
 
         # update observation
-        observation = self._get_obs(action)
+        observation = self._get_obs(action, drc)
 
         # update truncated
         if self._index == 64 and self._curr_drc != 0:

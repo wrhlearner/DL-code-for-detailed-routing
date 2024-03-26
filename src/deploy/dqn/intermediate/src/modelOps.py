@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
+import numpy as np
 
 
 class DQN(nn.Module):
@@ -23,11 +24,14 @@ class DQN(nn.Module):
         
         return self.layer3(x)
 
-def loadModel(input_size, seq_len, n_actions, output_size, device):
+def loadModel(input_size, seq_len, n_actions, output_size):
     """Tasks:
     1. load model
     2. create training settings
     """
+    global device
+    global LR
+
     # load model
     policy_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(device)
     target_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(device)
@@ -43,7 +47,10 @@ def loadModel(input_size, seq_len, n_actions, output_size, device):
         num_episodes = 50
     return policy_net, target_net, optimizer, criterion, num_episodes
 
-def optimize_model():
+def optimize_model(memory, actions, policy_net, target_net, optimizer, criterion):
+    global BATCH_SIZE
+    global GAMMA
+
     if len(memory) < BATCH_SIZE:
         return
     transitions = memory.sample(BATCH_SIZE)
@@ -96,3 +103,5 @@ def optimize_model():
         # In-place gradient clipping
         torch.nn.utils.clip_grad_value_(policy_net.parameters(), 100)
         optimizer.step()
+
+    return policy_net, target_net
