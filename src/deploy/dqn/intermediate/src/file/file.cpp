@@ -12,6 +12,7 @@ void File::getAction(ptrAction act, std::string filename){
     int fileAgentCount;     // agentCount in dump file
     bool flag = false;      // check whether dump file has been updated
     int actionValue;        // stores the index of action space
+    std::string firstLine;
     // if dump file exists and agentCount in dump file 
     // has been updated, then proceed to get action
     // otherwise, wait for updating
@@ -25,10 +26,12 @@ void File::getAction(ptrAction act, std::string filename){
                 return;
             }
             // read most updated agentCount value
-            dumpFile >> fileAgentCount;
+            std::getline(dumpFile, firstLine);
+            std::istringstream iss(firstLine);
+            iss >> fileAgentCount;
+            iss >> actionValue;
             if(fileAgentCount > File::agentCount){
                 // update and return new action
-                dumpFile >> actionValue;
                 act->a = actionValue;
                 // update C++ agent status flag
                 File::agentCount = fileAgentCount;
@@ -40,9 +43,11 @@ void File::getAction(ptrAction act, std::string filename){
             dumpFile.close();
         }
     }
+    // report value
+    std::cout << "getAction\nagentCount: " << this->agentCount << ", action: " << act->a << "\n\n";
 };
 
-void File::updateDumpFile(int state, std::string filename){
+void File::updateDumpFile(int drc, std::string filename){
     // environment -> state -> dump File -> state -> agent
     // open dump File, update dump file envCount state
     std::ifstream dumpFile(filename);
@@ -60,10 +65,10 @@ void File::updateDumpFile(int state, std::string filename){
     std::stringstream ss(firstLine);
     int fileAgentCount, fileAction;
     ss >> fileAgentCount;
-    ss.ignore();
+    // ss.ignore();
     ss >> fileAction;
     firstLine = std::to_string(fileAgentCount) + " " + std::to_string(fileAction) + " " \
-            + std::to_string(++File::envCount) + " " + std::to_string(state);
+            + std::to_string(++this->envCount) + " " + std::to_string(drc);
     // get the rest of the file
     while(std::getline(dumpFile, line)){
         lines.push_back(line);
@@ -83,4 +88,6 @@ void File::updateDumpFile(int state, std::string filename){
         newDumpFile << line << std::endl;
     // close the updated dump file
     newDumpFile.close();
+    // report value
+    std::cout << "updateDumpFile\nfile::envCount: " << this->envCount << ", drc: " << drc << "\n\n";
 };
