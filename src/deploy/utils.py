@@ -13,28 +13,28 @@ import numpy as np
 import config
 
 
-def init(filename):
-    """get action space"""
-    actionSpace = []
-    action = []
+# def init(filename):
+#     """Read and parse initFile.txt to get action space"""
+#     actionSpace = []
+#     action = []
 
-    # wait if init file doesn't exists
-    while(not os.path.exists(filename)):
-        time.sleep(1)        
-    # read and parse action space file if init file does exist
-    with open(filename, 'r') as file:
-        while True:
-            action = file.readline()
-            if action:
-                # parse actions
-                action = [int(action.split(' ')[0]),
-                          float(action.split(' ')[1]),
-                          float(action.split(' ')[2])]
-                actionSpace.append(action)
-            else:   # line is empty
-                break
+#     # wait if init file doesn't exists
+#     while(not os.path.exists(filename)):
+#         time.sleep(1)        
+#     # read and parse action space file if init file does exist
+#     with open(filename, 'r') as file:
+#         while True:
+#             action = file.readline()
+#             if action:
+#                 # parse actions
+#                 action = [int(action.split(' ')[0]),
+#                           float(action.split(' ')[1]),
+#                           float(action.split(' ')[2])]
+#                 actionSpace.append(action)
+#             else:   # line is empty
+#                 break
 
-    return actionSpace
+#     return actionSpace
 
 def getActionFromNetwork(env, filename, model, actions):
     """Tasks: 
@@ -46,6 +46,7 @@ def getActionFromNetwork(env, filename, model, actions):
     4. update env
     5. increase envCount or end python code if envCount in dump file == -1
     """
+
     action = None
     state = None
     reward = None
@@ -64,10 +65,10 @@ def getActionFromNetwork(env, filename, model, actions):
         # 2.1 increase agentCount value by 1
         lines = file.readlines()
         # update dump file with increased agentCount value and action
-        newFirstLine = str(config.agentCount + 1) + " " + str(actionValue)
+        newFirstLine = str(config.agentCount + 1) + " " + str(actionValue) + "\n"
         config.agentCount = config.agentCount + 1
         if lines:
-            lines.insert(1, newFirstLine)
+            lines.insert(0, newFirstLine)
         else:
             lines = [newFirstLine]
 

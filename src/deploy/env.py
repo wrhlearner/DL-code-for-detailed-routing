@@ -132,10 +132,10 @@ class DREnv(gym.Env):
         """
         if action:
             # update DRC value
-            self._curr_drc = drc
+            self._curr_drc = drc/self.size
             # generate observation for current iteration
             setting = self._action_to_setting(action)
-            line = np.append(setting, drc)
+            line = np.append(setting, self._curr_drc)
             # update the whole observation
             self.observations = np.r_[self.observations, [line]]
             self.observations = np.delete(self.observations, 0, 0)

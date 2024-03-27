@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 from itertools import count
 # scientific computing related
 import numpy as np
-# torch related
-import torch
 # self defined files
 from utils import ReplayMemory, getActionFromNetwork, saveWeightedModel, saveMemory, plot_durations
 from env import DREnv
@@ -30,7 +28,7 @@ if __name__ == "__main__":
     observation, info = env.reset()
     n_observations = len(observation)
 
-    print("Start python code!")
+    print(f"Start python code at {os.getcwd()}")
     # Get number of actions from gym action space
     n_actions = env.n_actions
     seq_len = n_observations
@@ -51,16 +49,22 @@ if __name__ == "__main__":
 
     ########## create dump file ##########
     # create dump file
+    print(f"Check dump file at {config.dumpFile}\n")
     if not os.path.exists(config.dumpFile):
+        print(f"Dump file {config.dumpFile} doesn't exist!")
         with open(config.dumpFile, 'w') as file:
-            pass
+            print(f"Create dump file at {config.dumpFile}.")
+    else:
+        print(f"Dump file {config.dumpFile} exists!")
     ########## create dump file ##########
         
-    ########## training loop ##########
+    ########## training loop ##########clear
     for i_episode in range(config.num_episodes):
         # Initialize the environment and get its state
+        print(f"Start design {i_episode}")
         state, info = env.reset()
         for t in count():
+            print(f"Start design {i_episode} iteration {t}")
             action, state, reward, terminated, truncated, info, endPython = getActionFromNetwork(env, config.dumpFile, policy_net, actions)
             done = terminated or truncated or endPython
 

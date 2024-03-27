@@ -23,10 +23,10 @@ agentCount = -1     # agent status flag in dump file
 envCount = -1       # env status flag in python code
 
 # TODO1: initialization
-initFile = "./data/initFile.txt"
-dumpFile = "./data/dumpFile.txt"
-modelDir = "../model/"             # model output directory
-trainDataDir = "./data/trainDataFile.txt"   # save memory info
+initFile = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/data/initFile.txt"
+dumpFile = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/data/dumpFile.txt"
+modelDir = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/model/"                                 # model output directory
+trainDataDir = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/data/trainDataFile.txt"      # save memory info
 
 # memory settings
 MEMSIZE = 1000
