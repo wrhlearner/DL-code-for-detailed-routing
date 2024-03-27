@@ -25,11 +25,11 @@ bash> make							# change makefile to select design to run
 
 ## **For Development**
 
-<img src="/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/dqn/intermediate/doc/data transfer diagram.jpg" style="zoom:30%;" />
+![](/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/intermediate/figs/data transfer diagram.jpg)
 
 This is how C++ and python code run and how they communicate with each other through intermediate files. 
 
-![](/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/dqn/intermediate/doc/code base state machine.jpg)
+![](/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/intermediate/figs/code base state machine.jpg)
 
 This is the state machine for C++/Python/bash code to run.
 
