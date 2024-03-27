@@ -1,52 +1,30 @@
-import numpy as np
-from utils import *
-from env import DREnv
-from modelOps import *
+# basics
+import os
 import matplotlib
-import torch
+import matplotlib.pyplot as plt
 from itertools import count
+# scientific computing related
+import numpy as np
+# torch related
+import torch
+# self defined files
+from utils import ReplayMemory, getActionFromNetwork, saveWeightedModel, saveMemory, plot_durations
+from env import DREnv
+from modelOps import loadModel, optimize_model
+import config
+
 
 # set up matplotlib
-is_ipython = 'inline' in matplotlib.get_backend()
-# if is_ipython:
-#     from IPython import display
+if config.is_ipython:
+    from IPython import display
 
 plt.ion()
 
 if __name__ == "__main__":
     ########## initialization ##########
-    # training settings
-    BATCH_SIZE = 1
-    GAMMA = 0.99
-    EPS_START = 0.9
-    EPS_END = 0.05
-    EPS_DECAY = 1000
-    TAU = 0.005
-    LR = 1e-4
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    if torch.cuda.is_available():
-        num_episodes = 150
-    else:
-        num_episodes = 50
-
-    # status variable
-    agentCount = -1     # agent status flag in dump file
-    envCount = -1       # env status flag in python code
-
-    # TODO1: initialization
-    initFile = "./data/initFile.txt"
-    dumpFile = "./data/dumpFile.txt"
-    modelDir = "../../../../model/"             # model output directory
-    trainDataDir = "./data/trainDataFile.txt"   # save memory info
-
-    # other settings
-    DRCMAX = 1e6
-
     # initialize environment
     actions = None
-    window_size = 2
-    input_size = 9
-    env = DREnv(actions, window_size=window_size, input_size=input_size, actionFile=initFile)
+    env = DREnv(actions, window_size=config.window_size, input_size=config.input_size, actionFile=config.initFile)
 
     # Get the number of state observations
     observation, info = env.reset()
@@ -54,22 +32,18 @@ if __name__ == "__main__":
 
     print("Start python code!")
     # Get number of actions from gym action space
-    n_actions = env.action_space.n
+    n_actions = env.n_actions
     seq_len = n_observations
     output_size = n_actions
 
     # instantiate model and memory
-    policy_net, target_net, optimizer, criterion, num_episodes = loadModel(input_size, seq_len, n_actions, output_size)
-    memory = ReplayMemory(1000)
+    policy_net, target_net, optimizer, criterion, config.num_episodes = loadModel(config.input_size, seq_len, n_actions, output_size)
+    memory = ReplayMemory(config.MEMSIZE)
 
-    # settings for selecting actions
-    steps_done = 0
     # create actions for network input
     df_actions = env.actions.copy()
     df_actions.loc[:, 'drc'] = np.ones(len(df_actions)) * -1
     actions = df_actions.to_numpy()
-    # settings for plotting training process
-    episode_durations = []
 
     action = None
     state = None
@@ -77,17 +51,17 @@ if __name__ == "__main__":
 
     ########## create dump file ##########
     # create dump file
-    if not os.path.exists(dumpFile):
-        with open(dumpFile, 'w') as file:
+    if not os.path.exists(config.dumpFile):
+        with open(config.dumpFile, 'w') as file:
             pass
     ########## create dump file ##########
         
     ########## training loop ##########
-    for i_episode in range(num_episodes):
+    for i_episode in range(config.num_episodes):
         # Initialize the environment and get its state
         state, info = env.reset()
         for t in count():
-            action, state, reward, terminated, truncated, info, endPython = getActionFromNetwork(env, dumpFile, policy_net)
+            action, state, reward, terminated, truncated, info, endPython = getActionFromNetwork(env, config.dumpFile, policy_net, actions)
             done = terminated or truncated or endPython
 
             if terminated:
@@ -109,13 +83,13 @@ if __name__ == "__main__":
             target_net_state_dict = target_net.state_dict()
             policy_net_state_dict = policy_net.state_dict()
             for key in policy_net_state_dict:
-                target_net_state_dict[key] = policy_net_state_dict[key]*TAU + target_net_state_dict[key]*(1-TAU)
+                target_net_state_dict[key] = policy_net_state_dict[key]*config.TAU + target_net_state_dict[key]*(1-config.TAU)
             target_net.load_state_dict(target_net_state_dict)
 
             if done:
-                saveWeightedModel(policy_net, modelDir, agentCount)
-                saveMemory(memory, trainDataDir)
-                episode_durations.append(t + 1)
+                saveWeightedModel(policy_net, config.modelDir, config.agentCount)
+                saveMemory(memory, config.trainDataDir)
+                config.episode_durations.append(t + 1)
                 plot_durations()
                 break
 

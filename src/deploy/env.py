@@ -2,15 +2,13 @@ import gymnasium as gym
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
-
-# environment settings
-DRCMAX = 1e6
+import config
 
 class DREnv(gym.Env):
     # draw bar chart and line curve for visuliazation
     # metadata = ("render_modes": [])
 
-    def __init__(self, actions, window_size=2, render_mode=None, drcmax=DRCMAX, input_size=9, actionFile="./data/initFile.txt"):
+    def __init__(self, actions, window_size=2, render_mode=None, drcmax=config.DRCMAX, input_size=9, actionFile=config.initFile):
         self.size = drcmax
         self.maxdrc = None
         self.window_size = window_size
@@ -23,6 +21,7 @@ class DREnv(gym.Env):
             # MARKERCOST = 32
             # ripupMode: ALL->0, DRC->0.5, NEARDRC->1
             # followGuide: True->1, False->0
+            # TODO: set actions by specification. Use IO to read and parse actions in the future
             actions = [[7,  0,  3,      8,       0,       8, 0.950, 0    ,  1],
                         [7, -2,  3,      8,       8,       8, 0.950, 0    ,  1],
                         [7, -5,  3,      8,       8,       8, 0.950, 0    ,  1],
@@ -90,10 +89,11 @@ class DREnv(gym.Env):
                         [7, -6, 64, 64 * 8, 16 * 32, 100 * 8, 0.999, 0.5    , 0]]
         columns = ['size', 'offset', 'mazeEndIter', 'DRCCost', 'MarkerCost', 'FixedShapeCost', 'Decay', 'ripupMode', 'followGuide']
         self.actions = pd.DataFrame(actions, columns=columns)
-        self.action_space = spaces.Discrete(self.actions.shape[0])
+        self.n_actions = self.actions.shape[0]
+        # self.action_space = spaces.Discrete(self.actions.shape[0])
         # Observations are boxes containing the historical DRC sequence settings and DRC values
         self.observations = None
-        self.observation_space = spaces.Box(low=-1, high=1, shape=(self.window_size, self.input_size), dtype=float)
+        # self.observation_space = spaces.Box(low=-1, high=1, shape=(self.window_size, self.input_size), dtype=float)
 
     def _preprocessing(self):
         if 'size' in self.actions.columns:
@@ -153,7 +153,7 @@ class DREnv(gym.Env):
         super().reset(seed=seed)
 
         self._preprocessing()
-        observation = self._get_obs(None, DRCMAX)
+        observation = self._get_obs(None, config.DRCMAX)
         info = self._get_info()
     
         # if self.render_mode == "human":

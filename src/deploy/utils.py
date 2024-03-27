@@ -1,12 +1,16 @@
+# basics
 import os
 import time
 from collections import namedtuple, deque
-import numpy as np
 import random
 import math
 import matplotlib.pyplot as plt
+# torch related
 import torch
-import modelOps
+# scientific computing
+import numpy as np
+# self defined
+import config
 
 
 def init(filename):
@@ -32,7 +36,7 @@ def init(filename):
 
     return actionSpace
 
-def getActionFromNetwork(env, filename, model):
+def getActionFromNetwork(env, filename, model, actions):
     """Tasks: 
     1. get action from network
     2. update dump file: 
@@ -42,11 +46,6 @@ def getActionFromNetwork(env, filename, model):
     4. update env
     5. increase envCount or end python code if envCount in dump file == -1
     """
-    global device
-    global dumpFile
-    global agentCount
-    global envCount
-
     action = None
     state = None
     reward = None
@@ -56,33 +55,33 @@ def getActionFromNetwork(env, filename, model):
     endPython = False
 
     # task 1: get action from network
-    action = select_action(state, model, env)
+    action = select_action(state, model, env, actions)
     actionValue = action.item()
 
     # task 2: update dump file
     lines = None
-    with open(dumpFile, "r") as file:
+    with open(config.dumpFile, "r") as file:
         # 2.1 increase agentCount value by 1
         lines = file.readlines()
         # update dump file with increased agentCount value and action
-        newFirstLine = str(agentCount + 1) + " " + str(actionValue)
-        agentCount = agentCount + 1
+        newFirstLine = str(config.agentCount + 1) + " " + str(actionValue)
+        config.agentCount = config.agentCount + 1
         if lines:
             lines.insert(1, newFirstLine)
         else:
             lines = [newFirstLine]
 
-    with open(dumpFile, 'w') as file:
+    with open(config.dumpFile, 'w') as file:
         # 2.2 write action to dump file
         file.writelines(lines)
 
     # task 3: wait and parse dump file. Get DRC value
-    lastTime = os.path.getmtime(dumpFile)
+    lastTime = os.path.getmtime(config.dumpFile)
     while True:
-        curTime = os.path.getmtime(dumpFile)
+        curTime = os.path.getmtime(config.dumpFile)
         if curTime != lastTime:
             # parse dump file for updated DRC value
-            with open(dumpFile, "r") as file:
+            with open(config.dumpFile, "r") as file:
                 line = file.readline()
             _, _, fileEnvCount, drc = [int(x) for x in line.split(" ")]
             break
@@ -90,20 +89,16 @@ def getActionFromNetwork(env, filename, model):
     # task 4: update env
     # get updated state from environment
     state, reward, terminated, truncated, info = env.step(actionValue, drc)
-    reward = torch.tensor([reward], device=device)
+    reward = torch.tensor([reward], device=config.device)
     # task 5: increase envCount or end python code if envCount in dump file == -1
     if fileEnvCount != -1:
         # increase envCount
-        envCount = envCount + 1
+        config.envCount = config.envCount + 1
     else:
         # end python
         endPython = True
 
     return action, state, reward, terminated, truncated, info, endPython
-
-def updateNetwork(state, policy_net, target_net):
-    """update policy network. wrap up training code here"""
-    pass
 
 def saveWeightedModel(model, modelDir, count, modelname="DQN_FC_"):
     """save updated model with a new name"""
@@ -115,8 +110,7 @@ def saveWeightedModel(model, modelDir, count, modelname="DQN_FC_"):
     scriptModule.save(modelpath)
 
 # a data structure containing several named elements
-Transition = namedtuple('Transition',
-                        ('state', 'action', 'next_state', 'reward'))
+Transition = namedtuple('Transition', ('state', 'action', 'next_state', 'reward'))
 
 class ReplayMemory(object):
     def __init__(self, capacity):
@@ -132,17 +126,10 @@ class ReplayMemory(object):
     def __len__(self):
         return len(self.memory)
     
-def select_action(state, policy_net, env):
-    global EPS_END
-    global EPS_START
-    global EPS_DECAY
-    global steps_done
-    global actions
-
+def select_action(state, policy_net, env, actions):
     sample = random.random()
-    eps_threshold = EPS_END + (EPS_START - EPS_END) * \
-        math.exp(-1. * steps_done / EPS_DECAY)
-    steps_done += 1
+    eps_threshold = config.EPS_END + (config.EPS_START - config.EPS_END) * math.exp(-1. * config.steps_done / config.EPS_DECAY)
+    config.steps_done += 1
     if sample > eps_threshold:
         # select action according to policy
         with torch.no_grad():
@@ -152,33 +139,29 @@ def select_action(state, policy_net, env):
             # inputs shape torch.Size([67, 9])
             inputs = np.vstack((state, actions))
             inputs = torch.from_numpy(inputs)
-            inputs = inputs.to(device, dtype=torch.float32)
+            inputs = inputs.to(config.device, dtype=torch.float32)
             # select the action with minimum DRC output as optimum action
             return policy_net(inputs).min(0).indices.view(1, 1)
     else:
         # select action randomly from action space
-        return torch.tensor([[env.action_space.sample()]], device=device, dtype=torch.long)
+        return torch.tensor([[random.randint(0, env.n_actions - 1)]], device=config.device, dtype=torch.long)
     
-def select_test_action(state, model):
-    global actions
+def select_test_action(state, model, actions):
     # select action according to policy
     with torch.no_grad():
         inputs = np.vstack((state, actions))
         inputs = torch.from_numpy(inputs)
-        inputs = inputs.to(device, dtype=torch.float32)
+        inputs = inputs.to(config.device, dtype=torch.float32)
         # select the action with minimum DRC output as optimum action
         action = model(inputs).min(0).indices.view(1, 1)
         return action.item()
 
 def plot_durations(show_result=False):
-    global episode_durations
-    global is_ipython
-
-    if is_ipython:
+    if config.is_ipython:
         from IPython import display
     
     plt.figure(1)
-    durations_t = torch.tensor(episode_durations, dtype=torch.float)
+    durations_t = torch.tensor(config.episode_durations, dtype=torch.float)
     if show_result:
         plt.title('Result')
     else:
@@ -194,7 +177,7 @@ def plot_durations(show_result=False):
         plt.plot(means.numpy())
 
     plt.pause(0.001)  # pause a bit so that plots are updated
-    if is_ipython:
+    if config.is_ipython:
         if not show_result:
             display.display(plt.gcf())
             display.clear_output(wait=True)

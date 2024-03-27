@@ -1,9 +1,13 @@
 # model definition and function definitions
+# torch related
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
+# scientific computing
 import numpy as np
+# self defined
+import config
 
 
 class DQN(nn.Module):
@@ -29,16 +33,14 @@ def loadModel(input_size, seq_len, n_actions, output_size):
     1. load model
     2. create training settings
     """
-    global device
-    global LR
 
     # load model
-    policy_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(device)
-    target_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(device)
+    policy_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(config.device)
+    target_net = DQN(input_size=input_size * (seq_len + n_actions), output_size=output_size).to(config.device)
     target_net.load_state_dict(policy_net.state_dict())
 
     # create training settings
-    optimizer = optim.AdamW(policy_net.parameters(), lr=LR, amsgrad=True)
+    optimizer = optim.AdamW(policy_net.parameters(), lr=config.LR, amsgrad=True)
     criterion = nn.SmoothL1Loss()
 
     if torch.cuda.is_available():
@@ -48,12 +50,9 @@ def loadModel(input_size, seq_len, n_actions, output_size):
     return policy_net, target_net, optimizer, criterion, num_episodes
 
 def optimize_model(memory, actions, policy_net, target_net, optimizer, criterion):
-    global BATCH_SIZE
-    global GAMMA
-
-    if len(memory) < BATCH_SIZE:
+    if len(memory) < config.BATCH_SIZE:
         return
-    transitions = memory.sample(BATCH_SIZE)
+    transitions = memory.sample(config.BATCH_SIZE)
     # Transpose the batch (see https://stackoverflow.com/a/19343/3343043 for
     # detailed explanation). This converts batch-array of Transitions
     # to Transition of batch-arrays.
@@ -69,11 +68,11 @@ def optimize_model(memory, actions, policy_net, target_net, optimizer, criterion
         # inputs shape torch.Size([67, 9])
         state_inputs = np.vstack((batch.state, actions))
         state_inputs = torch.from_numpy(state_inputs)
-        state_inputs = state_inputs.to(device, dtype=torch.float32)
+        state_inputs = state_inputs.to(config.device, dtype=torch.float32)
 
         next_state_inputs = np.vstack((batch.next_state, actions))
         next_state_inputs = torch.from_numpy(next_state_inputs)
-        next_state_inputs = next_state_inputs.to(device, dtype=torch.float32)
+        next_state_inputs = next_state_inputs.to(config.device, dtype=torch.float32)
         
         # Compute Q(s_t, a) - the model computes Q(s_t), then we select the
         # columns of actions taken. These are the actions which would've been taken
@@ -87,12 +86,12 @@ def optimize_model(memory, actions, policy_net, target_net, optimizer, criterion
         # This is merged based on the mask, such that we'll have either the expected
         # state value or 0 in case the state was final.
         # target_net is the approximation of the perfect policy network
-        next_state_values = torch.zeros(BATCH_SIZE, device=device)
+        next_state_values = torch.zeros(config.BATCH_SIZE, device=config.device)
         with torch.no_grad():
             # TODO: change max to min to select DRC setting that yields minimum DRC values
             next_state_values[0] = target_net(next_state_inputs).min(0).values
         # Compute the expected Q values
-        expected_state_action_values = (next_state_values * GAMMA) + reward_batch
+        expected_state_action_values = (next_state_values * config.GAMMA) + reward_batch
     
         # Compute Huber loss
         loss = criterion(state_action_values, expected_state_action_values.unsqueeze(1))
