@@ -1,6 +1,10 @@
-#include "file.cpp"
+// debug C++ (CMake project) https://www.youtube.com/watch?v=Rfj40xW9q6w
+// debug launch.json settings https://vector-of-bool.github.io/docs/vscode-cmake-tools/debugging.html
 #include <iostream>
 #include <string>
+#include "file.cpp"
+
+#define INITDRC 100
 
 int step(bool init, int drc){
     // make one step
@@ -20,13 +24,13 @@ int step(bool init, int drc){
 int main(int argc, char* argv[]){
     
     // TODO 1: transfer initial data of environment for initialization
-    std::string initFilename = "../data/initFile.txt";
-    std::string dumpFilename = "../data/dumpFile.txt";
+    std::string dumpFilename = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/data/dumpFile.txt";
 
     File fileAPI;
 
     // TODO 2: start loop
-    int drc = step(true, 10);
+    int drc;
+    bool init = true;
     ptrAction act = new action;
 
     // report initial status
@@ -36,7 +40,12 @@ int main(int argc, char* argv[]){
         // get action for current iteration
         fileAPI.getAction(act, dumpFilename);
         // make one step, and update dump File
-        drc = step(false, drc);
+        if(init){
+            drc = step(init, INITDRC);
+            init = false;
+        }
+        else
+            drc = step(init, drc);
         fileAPI.updateDumpFile(drc, dumpFilename);
         // report iteration info
         std::cout << "iteration " << fileAPI.envCount << " finished!\n\n";
