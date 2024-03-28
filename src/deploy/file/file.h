@@ -10,6 +10,7 @@
 
 #define NUMACT 3
 #define SLEEPTIME 1
+#define INITDRC 100
 
 struct Action{
     // defined by OpenROAD, no need to change

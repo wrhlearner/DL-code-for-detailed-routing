@@ -4,8 +4,6 @@
 #include <string>
 #include "file.cpp"
 
-#define INITDRC 100
-
 int step(bool init, int drc){
     // make one step
     // defined by OpenROAD, no need to change
