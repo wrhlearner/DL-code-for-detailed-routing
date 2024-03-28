@@ -1,5 +1,6 @@
 # basics
 import os
+import sys
 import matplotlib
 import matplotlib.pyplot as plt
 from itertools import count
@@ -65,9 +66,12 @@ if __name__ == "__main__":
         state, info = env.reset()
         for t in count():
             print(f"Start design {i_episode} iteration {t}")
-            action, state, reward, terminated, truncated, info, endPython = getActionFromNetwork(env, config.dumpFile, policy_net, actions)
-            done = terminated or truncated or endPython
-
+            action, state, reward, terminated, truncated, info, endPython = getActionFromNetwork(env, state, config.dumpFile, policy_net, actions)
+            # check whether to end python code
+            if endPython:
+                print("End python code!")
+                sys.exit()
+            done = terminated or truncated
             if terminated:
                 next_state = None
             else:
@@ -91,7 +95,7 @@ if __name__ == "__main__":
             target_net.load_state_dict(target_net_state_dict)
 
             if done:
-                saveWeightedModel(policy_net, config.modelDir, config.agentCount)
+                saveWeightedModel(policy_net, config.modelDir)
                 saveMemory(memory, config.trainDataDir)
                 config.episode_durations.append(t + 1)
                 plot_durations()

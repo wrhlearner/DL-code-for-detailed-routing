@@ -20,7 +20,6 @@ else:
 
 # status variable
 agentCount = -1     # agent status flag in dump file
-envCount = -1       # env status flag in python code
 
 # TODO1: initialization
 initFile = "/home/jborg/Data/Research/DLPnR/DL-code-for-detailed-routing/src/deploy/data/initFile.txt"

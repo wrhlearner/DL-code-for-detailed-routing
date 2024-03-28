@@ -1,10 +1,12 @@
 # basics
 import os
 import time
+from datetime import datetime
 from collections import namedtuple, deque
 import random
 import math
 import matplotlib.pyplot as plt
+import copy
 # torch related
 import torch
 # scientific computing
@@ -36,7 +38,7 @@ import config
 
 #     return actionSpace
 
-def getActionFromNetwork(env, filename, model, actions):
+def getActionFromNetwork(env, state, filename, model, actions):
     """Tasks: 
     1. get action from network
     2. update dump file: 
@@ -48,7 +50,6 @@ def getActionFromNetwork(env, filename, model, actions):
     """
 
     action = None
-    state = None
     reward = None
     terminated = None
     truncated = None
@@ -61,28 +62,28 @@ def getActionFromNetwork(env, filename, model, actions):
 
     # task 2: update dump file
     lines = None
-    with open(config.dumpFile, "r") as file:
+    with open(filename, "r") as file:
         # 2.1 increase agentCount value by 1
         lines = file.readlines()
         # update dump file with increased agentCount value and action
-        newFirstLine = str(config.agentCount + 1) + " " + str(actionValue) + "\n"
+        newFirstLine = str(config.agentCount + 1) + " " + str(actionValue) + " \n"
         config.agentCount = config.agentCount + 1
         if lines:
             lines.insert(0, newFirstLine)
         else:
             lines = [newFirstLine]
 
-    with open(config.dumpFile, 'w') as file:
+    with open(filename, 'w') as file:
         # 2.2 write action to dump file
         file.writelines(lines)
 
     # task 3: wait and parse dump file. Get DRC value
-    lastTime = os.path.getmtime(config.dumpFile)
+    lastTime = os.path.getmtime(filename)
     while True:
-        curTime = os.path.getmtime(config.dumpFile)
+        curTime = os.path.getmtime(filename)
         if curTime != lastTime:
             # parse dump file for updated DRC value
-            with open(config.dumpFile, "r") as file:
+            with open(filename, "r") as file:
                 line = file.readline()
             _, _, fileEnvCount, drc = [int(x) for x in line.split(" ")]
             break
@@ -92,21 +93,21 @@ def getActionFromNetwork(env, filename, model, actions):
     state, reward, terminated, truncated, info = env.step(actionValue, drc)
     reward = torch.tensor([reward], device=config.device)
     # task 5: increase envCount or end python code if envCount in dump file == -1
-    if fileEnvCount != -1:
-        # increase envCount
-        config.envCount = config.envCount + 1
-    else:
+    if fileEnvCount == -1:
         # end python
         endPython = True
 
     return action, state, reward, terminated, truncated, info, endPython
 
-def saveWeightedModel(model, modelDir, count, modelname="DQN_FC_"):
+def saveWeightedModel(model, modelDir, modelname="DQN_FC_"):
     """save updated model with a new name"""
     # converting to Torch Script via annotation
     scriptModule = torch.jit.script(model)
     # serialize model to a file
-    modelName = modelName + str(count) + ".pt"
+    timenow = datetime.now()
+    strTimenow = timenow.strftime("%a %d %b %Y-%I:%M%p")
+    modelName = modelname + strTimenow + ".pt"
+    print(f"Save updated model {modelName}!\n")
     modelpath = os.path.join(modelDir, modelName)
     scriptModule.save(modelpath)
 
@@ -126,6 +127,7 @@ class ReplayMemory(object):
 
     def __len__(self):
         return len(self.memory)
+
     
 def select_action(state, policy_net, env, actions):
     sample = random.random()
@@ -187,6 +189,16 @@ def plot_durations(show_result=False):
 
 def saveMemory(memory, filename):
     """save memory data into a file for future training/testing"""
-    with open(filename, '') as file:
-        for item in memory:
-            file.write(str(item) + '\n')
+    with open(filename, 'a+') as file:
+        tmpData = copy.deepcopy(memory.memory)
+        while len(tmpData):
+            element = tmpData.pop()
+            # # data format:
+            # state
+            # action
+            # next state
+            # reward
+            # 
+            # state
+            # ...
+            file.write(str(element.state) + "\n" + str(element.action.item()) + "\n" + str(element.next_state) + "\n" + str(element.reward.item()) + '\n\n')
